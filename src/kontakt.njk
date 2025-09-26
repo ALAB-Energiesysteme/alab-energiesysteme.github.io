@@ -1,0 +1,194 @@
+---
+layout: base
+permalink: "/kontakt/"
+title: "Kontakt | ALAB Energiesysteme"
+description: "Kontaktieren Sie ALAB Energiesysteme – wir melden uns zügig mit einer Einschätzung oder einem Termin."
+---
+
+<style>
+  /* Kontakt – gekapselte Styles */
+  #alab-contact, #alab-contact * { box-sizing: border-box; font-family: 'Montserrat', system-ui, Segoe UI, Roboto, Arial, sans-serif; }
+  #alab-contact{
+    --alab-gold:#d4af37; --alab-bg:#ffffff; --alab-text:#0f1115; --alab-muted:#616771; --alab-line:#e7ebf0;
+    --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.08);
+    color:var(--alab-text); background:var(--alab-bg);
+  }
+  .ac-wrap{ max-width:1100px; margin:0 auto; padding:28px 16px 80px; }
+  .ac-hero{ display:grid; gap:14px; margin:12px 0 28px; }
+  .ac-eyebrow{ letter-spacing:.12em; text-transform:uppercase; font-weight:600; font-size:.78rem; color:var(--alab-muted); }
+  .ac-title{ font-size:clamp(1.6rem, 2.5vw + 1rem, 2.4rem); line-height:1.2; font-weight:800; }
+  .ac-sub{ color:var(--alab-muted); max-width:60ch; }
+  .ac-grid{ display:grid; grid-template-columns: 1fr; gap:22px; margin-top:26px; }
+  @media(min-width:860px){ .ac-grid{ grid-template-columns: 1.1fr .9fr; } }
+  .ac-card{ background:#fff; border:1px solid var(--alab-line); border-radius:var(--radius); box-shadow:var(--shadow); }
+  .ac-card > .inner{ padding:22px; }
+  .ac-label{ font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--alab-muted); font-weight:600; margin-bottom:8px; }
+  .ac-h2{ font-size:1.2rem; font-weight:700; margin-bottom:12px; }
+  .ac-list{ list-style:none; padding:0; margin:0; }
+  .ac-list li{ padding:10px 0; border-top:1px dashed var(--alab-line); }
+  .ac-list li:first-child{ border-top:none; }
+  .ac-form{ display:grid; gap:14px; }
+  .ac-row{ display:grid; gap:14px; grid-template-columns:1fr; }
+  @media(min-width:720px){ .ac-row{ grid-template-columns:1fr 1fr; } }
+  .ac-field{ position:relative; }
+  .ac-field label{ display:block; font-size:.9rem; font-weight:600; margin-bottom:6px; }
+  .ac-input, .ac-textarea, .ac-select{ width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--alab-line); outline:none; background:#fff; transition:border-color .15s ease; }
+  .ac-input:focus, .ac-textarea:focus, .ac-select:focus{ border-color:var(--alab-gold); }
+  .ac-textarea{ min-height:140px; resize:vertical; }
+  .ac-help{ font-size:.8rem; color:var(--alab-muted); margin-top:4px; }
+  .ac-error{ display:none; font-size:.8rem; color:#b00020; margin-top:6px; }
+  .is-invalid .ac-input, .is-invalid .ac-textarea, .is-invalid .ac-select{ border-color:#b00020; }
+  .is-invalid .ac-error{ display:block; }
+  .ac-legal{ display:flex; align-items:flex-start; gap:10px; font-size:.9rem; color:var(--alab-muted); }
+  .ac-legal input{ margin-top:3px; }
+  .ac-btn{ appearance:none; border:none; cursor:pointer; border-radius:14px; padding:14px 18px; font-weight:700; font-size:1rem; background:linear-gradient(180deg, var(--alab-gold), #b68f2e); color:#111; box-shadow:0 6px 18px rgba(212,175,55,.25); transition: transform .06s ease; }
+  .ac-btn:active{ transform: translateY(1px); }
+  .ac-note{ font-size:.85rem; color:var(--alab-muted); margin-top:8px; }
+  .ac-success{ display:none; border:1px solid #c7f2c7; background:#f2fff2; color:#0f5f0f; padding:12px 14px; border-radius:12px; font-weight:600; }
+  .ac-success.is-shown{ display:block; }
+  .ac-map{ aspect-ratio:16/9; width:100%; border:0; border-bottom-left-radius:var(--radius); border-bottom-right-radius:var(--radius); display:block; }
+</style>
+
+<main id="alab-contact" role="main">
+  <div class="ac-wrap">
+    <section class="ac-hero" aria-labelledby="kontakt-title">
+      <span class="ac-eyebrow">Kontakt</span>
+      <h1 class="ac-title" id="kontakt-title">Schnell & direkt zu Ihrem PV-Projekt</h1>
+      <p class="ac-sub">Schreiben Sie uns eine kurze Nachricht – wir melden uns zügig mit einer konkreten Einschätzung oder einem Termin.</p>
+    </section>
+
+    <div class="ac-grid">
+      <!-- Formularkarte -->
+      <article class="ac-card" aria-labelledby="form-title">
+        <div class="inner">
+          <div class="ac-success" id="ac-success">Vielen Dank! Ihre Anfrage ist eingegangen.</div>
+          <h2 class="ac-h2" id="form-title">Kontaktformular</h2>
+          <form id="alab-contact-form" class="ac-form" novalidate>
+            <!-- Honeypot -->
+            <input type="text" name="company" id="company" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" tabindex="-1" aria-hidden="true">
+
+            <div class="ac-row">
+              <div class="ac-field" id="f-name">
+                <label for="name">Name*</label>
+                <input class="ac-input" id="name" name="name" type="text" autocomplete="name" required>
+                <div class="ac-error">Bitte geben Sie Ihren Namen ein.</div>
+              </div>
+              <div class="ac-field" id="f-email">
+                <label for="email">E-Mail*</label>
+                <input class="ac-input" id="email" name="email" type="email" inputmode="email" autocomplete="email" required>
+                <div class="ac-error">Bitte eine gültige E-Mail-Adresse eingeben.</div>
+              </div>
+            </div>
+
+            <div class="ac-row">
+              <div class="ac-field" id="f-phone">
+                <label for="phone">Telefon</label>
+                <input class="ac-input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel">
+                <div class="ac-help">Optional – für schnelle Rückfragen.</div>
+              </div>
+              <div class="ac-field" id="f-topic">
+                <label for="topic">Thema</label>
+                <select class="ac-select" id="topic" name="topic">
+                  <option>Allgemeine Anfrage</option>
+                  <option>Privat-PV</option>
+                  <option>Gewerbe-PV</option>
+                  <option>Service & Wartung</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="ac-field" id="f-message">
+              <label for="message">Nachricht*</label>
+              <textarea class="ac-textarea" id="message" name="message" required placeholder="Kurze Beschreibung: Dachform, Fläche, Stromverbrauch, Zieltermin …"></textarea>
+              <div class="ac-error">Bitte geben Sie eine Nachricht ein.</div>
+            </div>
+
+            <div class="ac-field ac-legal" id="f-consent">
+              <input type="checkbox" id="consent" name="consent" required>
+              <label for="consent">Ich willige ein, dass ALAB Energiesysteme meine Daten zur Bearbeitung meiner Anfrage verarbeitet. Hinweise in der <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.</label>
+            </div>
+
+            <button class="ac-btn" type="submit" id="submitBtn">Anfrage senden</button>
+            <div class="ac-note">Mit * gekennzeichnete Felder sind Pflichtfelder.</div>
+          </form>
+        </div>
+      </article>
+
+      <!-- Infokarte + Karte -->
+      <aside class="ac-card" aria-labelledby="info-title">
+        <div class="inner">
+          <div class="ac-label">Kontaktinfos</div>
+          <h2 class="ac-h2" id="info-title">ALAB Energiesysteme e. K.</h2>
+          <ul class="ac-list" aria-label="Kontaktdaten">
+            <li><strong>E-Mail:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+            <li><strong>Telefon:</strong> <a href="tel:+4982617597176">08261 7597176</a></li>
+            <li><strong>Adresse:</strong> {{ site.address.street }}, {{ site.address.zip }} {{ site.address.city }}</li>
+            <li><strong>Geschäftszeiten:</strong> Mo–Fr 09:00–17:00 Uhr</li>
+          </ul>
+        </div>
+        <!-- Interaktive Karte – Mindelheim -->
+        <iframe class="ac-map" title="Standort Mindelheim" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Kastanienweg%206%2C%2087719%20Mindelheim&t=&z=17&ie=UTF8&iwloc=&output=embed"></iframe>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<script>
+  (function(){
+    const qs = (sel, root=document) => root.querySelector(sel);
+    const form = qs('#alab-contact-form');
+    const success = qs('#ac-success');
+
+    function setInvalid(id, on){ const el = qs('#'+id); if(!el) return; el.classList[on ? 'add' : 'remove']('is-invalid'); }
+    function validate(){
+      let ok = true;
+      const name = qs('#name');
+      const email = qs('#email');
+      const message = qs('#message');
+      const consent = qs('#consent');
+
+      setInvalid('f-name', !name.value.trim()); ok = ok && !!name.value.trim();
+      const emailOk = /.+@.+\..+/.test(email.value); setInvalid('f-email', !emailOk); ok = ok && emailOk;
+      setInvalid('f-message', !message.value.trim()); ok = ok && !!message.value.trim();
+
+      if(!consent.checked){ qs('#f-consent').classList.add('is-invalid'); ok = false; }
+      else { qs('#f-consent').classList.remove('is-invalid'); }
+
+      const hp = qs('#company'); if(hp && hp.value.trim().length){ ok = false; }
+      return ok;
+    }
+
+    function dlPush(payload){ window.dataLayer = window.dataLayer || []; window.dataLayer.push(payload); }
+
+    async function onSubmit(e){
+      e.preventDefault();
+      if(!validate()) return;
+
+      const payload = {
+        name: qs('#name').value.trim(),
+        email: qs('#email').value.trim(),
+        phone: qs('#phone')?.value.trim() || '',
+        topic: qs('#topic').value,
+        message: qs('#message').value.trim(),
+        consent: qs('#consent').checked,
+        form_location: 'contact-page'
+      };
+
+      dlPush({ event: 'contact_form_sent', 'GL - form_location': payload.form_location, name: payload.name, email: payload.email, phone: payload.phone, topic: payload.topic });
+
+      try{
+        const res = await fetch('https://hook.make.com/DEINE-WEBHOOK-ID',{
+          method:'POST', headers:{ 'Content-Type':'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if(!res.ok){ throw new Error('Netzwerkfehler'); }
+        success.classList.add('is-shown');
+        form.reset();
+      }catch(err){
+        alert('Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns per E-Mail.');
+      }
+    }
+
+    form.addEventListener('submit', onSubmit);
+  })();
+</script>
