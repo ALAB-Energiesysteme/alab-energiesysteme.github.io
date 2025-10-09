@@ -1,0 +1,8 @@
+/* Schaltet nur die Sichtbarkeit – keine anderen Styles */
+#header-desktop { display:block; }
+#header-mobile  { display:none;  }
+
+@media (max-width:1024px) {
+  #header-desktop { display:none; }
+  #header-mobile  { display:block; }
+}

@@ -1,0 +1,67 @@
+<header class="site-header">
+<div class="container header-container">
+<div class="logo-container">
+<a id="logoHome" href="/">
+<img src="/assets/img/logo-alab.png" alt="ALAB Energiesysteme Logo">
+</a>
+</div>
+<nav class="main-navigation" aria-label="Hauptnavigation">
+<ul>
+<li class="has-megamenu">
+<a href="#" aria-expanded="false">Photovoltaik-Systeme</a>
+<div class="mega-menu" role="menu">
+<a href="/gewerbliche-loesungen/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="/assets/img/menü/pv-gewerbe.jpeg" alt="PV-Gewerbe" />
+<strong>PV-Gewerbe</strong><p>Effiziente Solaranlagen für Ihr Unternehmen.</p>
+</a>
+<a href="/private-haushalte/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="/assets/img/menü/pv-zuhause.jpeg" alt="PV-Zuhause" />
+<strong>PV-Zuhause</strong><p>Ihr Weg zur Energie-Unabhängigkeit.</p>
+</a>
+<a href="/freiflaechen/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="/assets/img/menü/freiflaechen.jpeg" alt="Freiflächen" />
+<strong>PV-Freiflächen</strong><p>Großflächige Projekte für maximale Erträge.</p>
+</a>
+</div>
+</li>
+<li class="has-megamenu">
+<a href="#" aria-expanded="false">Photovoltaik-Werkstatt</a>
+<div class="mega-menu" role="menu">
+<a href="/servicepakete/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="/assets/img/menü/servicepakete.jpeg" alt="Servicepakete" />
+<strong>Servicepakete</strong><p>Rundum-Sorglos-Pakete für jede Anlage.</p>
+</a>
+  <a href="/montage/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="/assets/img/menü/montage.jpeg" alt="Montage" />
+<strong>Montage</strong><p>Fachgerechte Installation durch Experten.</p>
+</a>
+<a href="/wartung/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="/assets/img/menü/wartung.jpeg" alt="Wartung" />
+<strong>Wartung</strong><p>Sichern Sie die Leistung und Langlebigkeit.</p>
+</a>
+<a href="/monitoring/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="/assets/img/menü/monitoring.jpeg" alt="Anlagenmonitoring" />
+<strong>Anlagenmonitoring</strong><p>Performance jederzeit im Blick behalten.</p>
+</a>
+</div>
+</li>
+<li><a href="/kontakt/">Kontakt</a></li>
+</ul>
+</nav>
+<div class="header-actions">
+<a href="/angebot-einholen/" class="cta-header">Angebot einholen</a>
+</div>
+</div>
+</header>
+<script>
+(function(){
+const triggers = document.querySelectorAll('.has-megamenu > a');
+triggers.forEach(a=>{
+const li = a.parentElement;
+a.addEventListener('mouseenter', ()=> a.setAttribute('aria-expanded','true'));
+a.addEventListener('mouseleave', ()=> a.setAttribute('aria-expanded','false'));
+li.addEventListener('focusin', ()=> a.setAttribute('aria-expanded','true'));
+li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
+});
+})();
+</script>

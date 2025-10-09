@@ -1,0 +1,43 @@
+<script>
+  // Make Webhook + GA4 Helper (PII-frei)
+  const FT_MAKE_URL = "https://hook.eu2.make.com/yloo9gmjoxtsua7r2g5z6af9lqs0ei3y";
+  const dlPush = (p)=>{ window.dataLayer = window.dataLayer || []; window.dataLayer.push(p); };
+
+  // Jahr
+  document.getElementById('ftYear').textContent = new Date().getFullYear();
+
+  // Schnellkontakt (Footer)
+  const ftQuickForm = document.getElementById('ftQuickForm');
+  const ftQuickBtn  = ftQuickForm?.querySelector('.ft-btn');
+
+  ftQuickForm?.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+
+    const originalText = ftQuickBtn.textContent;
+    ftQuickBtn.disabled = true;
+    ftQuickBtn.setAttribute('aria-busy','true');
+    ftQuickBtn.textContent = 'Wird gesendet…';
+
+    const fd = new FormData(ftQuickForm);
+    fd.append('source','footer_quick');
+
+    try{
+      await fetch(FT_MAKE_URL,{method:'POST',body:fd});
+      dlPush({ event:'footer_quick_sent', form_location:'footer_quick' });
+      ftQuickForm.reset();
+      ftQuickBtn.textContent = '✓ Gesendet!';
+      setTimeout(()=>{
+        ftQuickBtn.removeAttribute('aria-busy');
+        ftQuickBtn.disabled = false;
+        ftQuickBtn.textContent = originalText;
+      }, 2500);
+    }catch(_){
+      ftQuickBtn.textContent = 'Fehler – erneut?';
+      setTimeout(()=>{
+        ftQuickBtn.removeAttribute('aria-busy');
+        ftQuickBtn.disabled = false;
+        ftQuickBtn.textContent = originalText;
+      }, 2200);
+    }
+  });
+</script>

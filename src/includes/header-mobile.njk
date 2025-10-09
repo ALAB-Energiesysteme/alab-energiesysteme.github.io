@@ -1,0 +1,80 @@
+{# Mobile Header – gekapselt #}
+<div id="header-mobile" class="alab-mh" data-mobile-header>
+  <!-- Kopfzeile -->
+  <header class="alab-mh__header" role="banner">
+    <div class="alab-mh__row">
+      <a class="alab-mh__logo" href="/">
+        <img src="/assets/img/logo-alab.png" alt="ALAB Energiesysteme" width="140" height="36" loading="eager" fetchpriority="high">
+      </a>
+      <button id="alabMhOpen" class="alab-mh__hamb" aria-label="Menü öffnen" aria-controls="alabMhDrawer" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Drawer / Navigation -->
+  <aside id="alabMhDrawer" class="alab-mh__drawer" aria-hidden="true">
+    <div class="alab-mh__backdrop" id="alabMhBackdrop" tabindex="-1" aria-hidden="true"></div>
+
+    <nav class="alab-mh__panel" aria-label="Mobile Navigation" tabindex="-1">
+      <div class="alab-mh__drawer-head">
+        <h2 class="alab-mh__drawer-title">Menü</h2>
+        <button id="alabMhClose" class="alab-mh__drawer-close" aria-label="Menü schließen">×</button>
+      </div>
+
+      <div class="alab-mh__nav">
+        <!-- Photovoltaik-Systeme -->
+        <section class="alab-mh__acc">
+          <button class="alab-mh__acc-trigger" aria-expanded="false">Photovoltaik-Systeme</button>
+          <div class="alab-mh__acc-panel" aria-hidden="true">
+            <div class="alab-mh__grid">
+              <a class="alab-mh__item" href="/gewerbliche-loesungen/">
+                <img class="alab-mh__thumb" src="/assets/img/menü/pv-gewerbe.jpeg" alt="PV für Gewerbe" width="640" height="360" loading="lazy">
+                <strong>PV-Gewerbe</strong><p>Effiziente Anlagen für Unternehmen</p>
+              </a>
+              <a class="alab-mh__item" href="/private-haushalte">
+                <img class="alab-mh__thumb" src="/assets/img/menü/pv-zuhause.jpeg" alt="PV zuhause" width="640" height="360" loading="lazy">
+                <strong>PV-Zuhause</strong><p>Energie-Unabhängigkeit daheim</p>
+              </a>
+              <a class="alab-mh__item" href="/freiflaechen/">
+                <img class="alab-mh__thumb" src="/assets/img/menü/freiflaechen.jpeg" alt="Freiflächen-PV" width="640" height="360" loading="lazy">
+                <strong>Freiflächen</strong><p>Große Projekte, hohe Erträge</p>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Service & Wartung -->
+        <section class="alab-mh__acc">
+          <button class="alab-mh__acc-trigger" aria-expanded="false">Service &amp; Wartung</button>
+          <div class="alab-mh__acc-panel" aria-hidden="true">
+            <div class="alab-mh__grid">
+
+                          <a class="alab-mh__item" href="/servicepakete/">
+                <img class="alab-mh__thumb" src="/assets/img/menü/servicepakete.jpeg" alt="Servicepakete" width="640" height="360" loading="lazy">
+                <strong>Servicepakete</strong><p>Rundum-Sorglos</p>
+              </a>
+
+              <a class="alab-mh__item" href="/montage/">
+                <img class="alab-mh__thumb" src="/assets/img/menü/montage.jpeg" alt="Montage" width="640" height="360" loading="lazy">
+                <strong>Montage</strong><p>Fachgerechte Installation</p>
+              </a>
+
+              <a class="alab-mh__item" href="/wartung/">
+                <img class="alab-mh__thumb" src="/assets/img/menü/wartung.jpeg" alt="Wartung" width="640" height="360" loading="lazy">
+                <strong>Wartung</strong><p>Leistung sichern</p>
+              </a>
+              <a class="alab-mh__item" href="/monitoring/">
+                <img class="alab-mh__thumb" src="/assets/img/menü/monitoring.jpeg" alt="Anlagenmonitoring" width="640" height="360" loading="lazy">
+                <strong>Monitoring</strong><p>Performance im Blick</p>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <a class="alab-mh__single" href="/kontakt/">Kontakt</a>
+        <div class="alab-mh__cta"><a class="alab-mh__btn" href="/angebot-einholen/">Angebot einholen</a></div>
+      </div>
+    </nav>
+  </aside>
+</div>

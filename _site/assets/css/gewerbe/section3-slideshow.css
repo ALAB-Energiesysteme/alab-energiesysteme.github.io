@@ -1,0 +1,550 @@
+/* ==========================================
+   PERFORMANCE-OPTIMIZED FULLSCREEN SLIDESHOW
+   - GPU-accelerated transforms
+   - Minimal repaints/reflows
+   - Optimized animations
+========================================== */
+
+:root {
+    /* Brand Colors */
+    --primary-gradient: linear-gradient(135deg, #E5C44D 0%, #F3D663 100%);
+    --primary-color: #E6C23C;
+    
+    /* Typography */
+    --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* Timing */
+    --transition-speed: 800ms;
+    --transition-ease: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ==========================================
+   RESET & BASE
+========================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-secondary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================
+   FULLSCREEN SLIDESHOW CONTAINER
+========================================== */
+.fullscreen-slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+/* ==========================================
+   SLIDES CONTAINER
+========================================== */
+.slides-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* ==========================================
+   INDIVIDUAL SLIDE
+========================================== */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    /* GPU acceleration */
+    transform: translate3d(0, 0, 0);
+    will-change: opacity, transform;
+    transition: opacity var(--transition-speed) var(--transition-ease),
+                visibility var(--transition-speed) var(--transition-ease),
+                transform var(--transition-speed) var(--transition-ease);
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.slide.prev {
+    transform: translate3d(-5%, 0, 0);
+}
+
+.slide.next {
+    transform: translate3d(5%, 0, 0);
+}
+
+/* ==========================================
+   SLIDE BACKGROUND & IMAGE
+========================================== */
+.slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* Optimized for high-quality display */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    /* GPU acceleration + scale for blur edges + subtle blur for premium look */
+    transform: translate3d(0, 0, 0) scale(1.05);
+    filter: blur(2px);
+    will-change: transform;
+}
+
+/* Lazy loading placeholder */
+.slide-image.lazy:not([src]) {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+/* ==========================================
+   OVERLAY
+========================================== */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 1;
+}
+
+/* ==========================================
+   SLIDE CONTENT
+========================================== */
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    padding: 4rem 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 70%,
+        transparent 100%
+    );
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.content-wrapper {
+    max-width: 900px;
+    transform: translate3d(0, 40px, 0);
+    opacity: 0;
+    transition: transform var(--transition-speed) var(--transition-ease) 200ms,
+                opacity var(--transition-speed) var(--transition-ease) 200ms;
+}
+
+.slide.active .content-wrapper {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+}
+
+/* ==========================================
+   TYPOGRAPHY
+========================================== */
+.slide-number {
+    display: inline-block;
+    font-family: var(--font-primary);
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.slide-title {
+    font-family: var(--font-primary);
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.slide-text {
+    margin-bottom: 2rem;
+}
+
+.slide-text p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.slide-text strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* ==========================================
+   SLIDE BADGE
+========================================== */
+.slide-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(230, 194, 60, 0.3);
+    border-radius: 100px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #ffffff;
+    transition: all 300ms ease;
+}
+
+.slide-badge:hover {
+    background: rgba(230, 194, 60, 0.2);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.slide-badge.highlight {
+    background: var(--primary-gradient);
+    border-color: transparent;
+    color: #1a1a1a;
+}
+
+.slide-badge svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ==========================================
+   NAVIGATION CONTROLS
+========================================== */
+.slideshow-controls {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+/* Progress Indicators */
+.progress-indicators {
+    display: flex;
+    gap: 1rem;
+}
+
+.progress-dot {
+    position: relative;
+    width: 60px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 300ms ease;
+}
+
+.progress-dot:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scaleX(1.1);
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--primary-gradient);
+    width: 0%;
+    transition: width 300ms ease;
+}
+
+.progress-dot.active .progress-fill {
+    width: 100%;
+}
+
+/* Arrow Navigation */
+.nav-arrow {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 300ms ease;
+    /* GPU acceleration */
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+}
+
+.nav-arrow:hover {
+    background: rgba(230, 194, 60, 0.3);
+    border-color: var(--primary-color);
+    transform: translate3d(0, 0, 0) scale(1.1);
+}
+
+.nav-arrow:active {
+    transform: translate3d(0, 0, 0) scale(0.95);
+}
+
+.nav-arrow svg {
+    width: 24px;
+    height: 24px;
+    stroke: #ffffff;
+}
+
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+@media (max-width: 1024px) {
+    .slide-content {
+        padding: 3rem 0;
+    }
+    
+    .container {
+        padding: 0 2rem;
+    }
+    
+    .slideshow-controls {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-content {
+        padding: 2rem 0;
+    }
+    
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .content-wrapper {
+        max-width: 100%;
+    }
+    
+    .slide-title {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .slide-text p {
+        font-size: 0.9375rem;
+    }
+    
+    .slideshow-controls {
+        bottom: 1.5rem;
+        gap: 1.5rem;
+        flex-direction: column-reverse;
+    }
+    
+    .progress-indicators {
+        gap: 0.75rem;
+    }
+    
+    .progress-dot {
+        width: 50px;
+    }
+    
+    .nav-arrow {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .nav-arrow svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-content {
+        padding: 1.5rem 0;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .slide-title {
+        font-size: 1.5rem;
+    }
+    
+    .slide-text p {
+        font-size: 0.875rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .slide-badge {
+        font-size: 0.8125rem;
+        padding: 0.625rem 1.25rem;
+    }
+    
+    .progress-dot {
+        width: 40px;
+        height: 3px;
+    }
+    
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+@media (prefers-reduced-motion: reduce) {
+    .slide,
+    .content-wrapper,
+    .nav-arrow,
+    .progress-fill {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+.nav-arrow:focus-visible,
+.progress-dot:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   PERFORMANCE OPTIMIZATIONS
+========================================== */
+
+/* Contain layout shifts */
+.slide {
+    contain: layout style paint;
+}
+
+/* Optimize repaints */
+.slide-image,
+.slide-overlay,
+.slide-content {
+    will-change: auto;
+}
+
+/* Only animate visible slides */
+.slide:not(.active):not(.prev):not(.next) {
+    will-change: auto;
+    transform: none;
+}
+
+/* Prevent text selection during transitions */
+.fullscreen-slideshow {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Enable text selection on active content */
+.slide.active .slide-content {
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+/* ==========================================
+   LOADING STATE
+========================================== */
+.slide-image.loading {
+    opacity: 0;
+}
+
+.slide-image.loaded {
+    opacity: 1;
+    transition: opacity 600ms ease;
+}
+
+/* ==========================================
+   PRINT STYLES
+========================================== */
+@media print {
+    .slideshow-controls,
+    .autoplay-progress,
+    .slide-overlay {
+        display: none !important;
+    }
+    
+    .slide {
+        position: relative !important;
+        page-break-inside: avoid;
+    }
+}
+
+/* --- Overrides: Slideshow als normale Seiten-Sektion (nicht fix & ohne Body-Lock) --- */
+#slideshow { position: relative; width: 100%; height: 100vh; overflow: hidden; }
+html, body { overflow: auto; } /* hebt das globale hidden auf */
+.fullscreen-slideshow { position: relative; height: 100vh; } /* statt fixed */
+.slideshow-controls { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); }
+
+/* Sternchen an Pflichtfeld-Labels */
+.form-group label.required::after { content: " *"; color: #f56565; margin-left: 4px; }
+.checkbox-label.required > span::after { content: " *"; color: #f56565; margin-left: 4px; }
+
+/* Sichtbare Fehlermarkierung für Checkbox-Zeile */
+.checkbox-label.error {
+  outline: 2px solid #f56565;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+/* Section 3 (Slideshow) – Pfeilnavigation ausblenden, Dots bleiben */
+.gewerbe-page #slideshow .swiper-button-next,
+.gewerbe-page #slideshow .swiper-button-prev,
+.gewerbe-page #slideshow .splide__arrows,
+.gewerbe-page #slideshow .splide__arrow,
+.gewerbe-page #slideshow .glide__arrows,
+.gewerbe-page #slideshow .glide__arrow,
+.gewerbe-page #slideshow .tns-controls,
+.gewerbe-page #slideshow [aria-label="Next"],
+.gewerbe-page #slideshow [aria-label="Previous"] {
+  display: none !important;
+}

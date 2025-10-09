@@ -1,0 +1,62 @@
+[build]
+[[redirects]]
+from = "/servicepakete/"
+to = "/servicepakete/index.html"
+status = 200
+
+
+[[redirects]]
+from = "/wartung"
+to = "/wartung/index.html"
+status = 200
+[[redirects]]
+from = "/wartung/"
+to = "/wartung/index.html"
+status = 200
+
+
+[[redirects]]
+from = "/monitoring"
+to = "/monitoring/index.html"
+status = 200
+[[redirects]]
+from = "/monitoring/"
+to = "/monitoring/index.html"
+status = 200
+
+
+[[redirects]]
+from = "/angebot-einholen"
+to = "/angebot-einholen/index.html"
+status = 200
+[[redirects]]
+from = "/angebot-einholen/"
+to = "/angebot-einholen/index.html"
+status = 200
+
+
+[[redirects]]
+from = "/impressum"
+to = "/impressum/index.html"
+status = 200
+[[redirects]]
+from = "/impressum/"
+to = "/impressum/index.html"
+status = 200
+
+
+[[redirects]]
+from = "/datenschutz"
+to = "/datenschutz/index.html"
+status = 200
+[[redirects]]
+from = "/datenschutz/"
+to = "/datenschutz/index.html"
+status = 200
+
+
+# 404 Fallback
+[[redirects]]
+from = "/*"
+to = "/404.html"
+status = 404

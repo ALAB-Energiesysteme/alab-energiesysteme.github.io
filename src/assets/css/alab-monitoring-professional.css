@@ -1,0 +1,536 @@
+/* ALAB Monitoring Professional - Premium 3D Design (scoped to #alab-monitor) */
+
+#alab-monitor {
+  --gold: #d4af37;
+  --gold-light: #f4d03f;
+  --blue: #5b8def;
+  --blue-dark: #2c5aa0;
+  --ink: #0f2533;
+  --gray: #5b6b78;
+  --light-gray: #f8f9fa;
+  --white: #ffffff;
+
+  --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+  --gradient-blue: linear-gradient(135deg, #5b8def 0%, #2c5aa0 100%);
+  --gradient-dark: linear-gradient(135deg, #0f2533 0%, #1a3a52 100%);
+
+  /* ergänzt: sm/md, bereits vorhanden: lg/xl/3d */
+  --shadow-sm: 0 4px 10px rgba(0,0,0,0.08);
+  --shadow-md: 0 8px 18px rgba(0,0,0,0.12);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+  --shadow-xl: 0 20px 40px rgba(0,0,0,0.2);
+  --shadow-3d: 0 30px 60px rgba(0,0,0,0.3);
+
+  font-family: 'Montserrat', sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* Reset nur im Scope */
+#alab-monitor *, #alab-monitor *::before, #alab-monitor *::after { margin:0; padding:0; box-sizing:border-box; }
+
+/* Side Navigation */
+#alab-monitor .side-nav {
+  position: fixed; right: 30px; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+  padding: 30px 25px; border-radius: 20px; box-shadow: var(--shadow-xl);
+  z-index: 1000; width: 200px;
+}
+#alab-monitor .side-nav-brand{ text-align:center; margin-bottom:30px; padding-bottom:20px; border-bottom:2px solid rgba(212,175,55,0.2)}
+#alab-monitor .brand-logo{ font-size:28px; font-weight:900; color:var(--ink)}
+#alab-monitor .brand-subtitle{ font-size:12px; color:var(--gold); font-weight:600; margin-top:5px}
+#alab-monitor .nav-link{
+  display:block; padding:12px 16px; color:var(--gray); text-decoration:none; font-weight:500; font-size:14px;
+  border-radius:12px; transition:all .3s ease; margin-bottom:8px; text-align:center;
+}
+#alab-monitor .nav-link:hover{ background:rgba(212,175,55,.1); color:var(--gold) }
+#alab-monitor .nav-link.active{ background:var(--gradient-gold); color:var(--white) }
+#alab-monitor .nav-cta{
+  margin-top:20px; width:100%; padding:14px; background:var(--gradient-gold); color:var(--white);
+  border:none; border-radius:12px; font-weight:600; cursor:pointer;
+}
+
+/* Hero Section */
+#alab-monitor .hero-section{ min-height:100vh; position:relative; padding:60px 260px 60px 80px; overflow:hidden }
+#alab-monitor .platform-grid{ display:flex; flex-wrap:wrap; gap:12px; margin-top:30px }
+#alab-monitor .platform-chip-3d{
+  display:inline-flex; align-items:center; gap:8px; padding:12px 20px;
+  background:rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+  border:1px solid rgba(212,175,55,.3); border-radius:50px; font-size:14px; color:#fff;
+  transition:all .3s ease; transform-style:preserve-3d;
+}
+#alab-monitor .platform-chip-3d:hover{ transform: translateZ(10px) scale(1.05); background:rgba(212,175,55,.2); border-color:var(--gold); box-shadow:0 8px 20px rgba(212,175,55,.3) }
+#alab-monitor .platform-chip-3d i{ color:var(--gold); font-size:16px }
+
+#alab-monitor .hero-bg{ position:absolute; inset:0; overflow:hidden; z-index:-1 }
+#alab-monitor .hero-gradient{ position:absolute; inset:0; background:var(--gradient-dark) }
+
+/* Particles */
+#alab-monitor .particles-container{ position:absolute; inset:0 }
+#alab-monitor .particle{ position:absolute; width:6px; height:6px; background:var(--gold); border-radius:50%; opacity:.3; animation:floatParticle 20s infinite linear }
+#alab-monitor .particle-1{ left:10%; animation-delay:0s } 
+#alab-monitor .particle-2{ left:25%; animation-delay:4s }
+#alab-monitor .particle-3{ left:50%; animation-delay:8s }
+#alab-monitor .particle-4{ left:75%; animation-delay:12s }
+#alab-monitor .particle-5{ left:90%; animation-delay:16s }
+
+@keyframes floatParticle{ 0%{ transform:translateY(100vh) rotate(0); opacity:0 } 10%{opacity:.3} 90%{opacity:.3} 100%{ transform:translateY(-100vh) rotate(360deg); opacity:0 } }
+
+#alab-monitor .hero-content{
+  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; max-width:1400px; margin:0 auto;
+}
+#alab-monitor .hero-badge{
+  display:inline-block; background:var(--gradient-gold); color:#fff; padding:8px 24px; border-radius:50px;
+  font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:2px; margin-bottom:24px;
+}
+#alab-monitor .hero-title{ font-size:56px; font-weight:900; line-height:1.1; color:#fff; margin-bottom:24px }
+#alab-monitor .highlight-gold{ color:var(--gold) } 
+#alab-monitor .highlight-blue{ color:var(--blue) }
+#alab-monitor .hero-desc{ font-size:20px; color:rgba(255,255,255,.9); margin-bottom:12px }
+#alab-monitor .hero-subdesc{ font-size:16px; color:rgba(255,255,255,.7); margin-bottom:40px }
+
+/* KPI Cards */
+#alab-monitor .kpi-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:32px }
+#alab-monitor .kpi-card-3d{ transform-style:preserve-3d; transition:transform .3s ease }
+#alab-monitor .kpi-card-3d:hover{ transform:perspective(1000px) rotateX(-10deg) translateY(-5px) }
+#alab-monitor .kpi-inner{
+  background:rgba(255,255,255,.1); backdrop-filter: blur(10px); border:1px solid rgba(255,255,255,.2);
+  border-radius:16px; padding:16px; text-align:center;
+}
+#alab-monitor .kpi-number{ font-size:32px; font-weight:800; color:var(--gold) }
+#alab-monitor .kpi-label{ font-size:11px; color:rgba(255,255,255,.8); text-transform:uppercase; margin-top:4px }
+#alab-monitor .kpi-inner small{ font-size:10px; color:rgba(255,255,255,.6) }
+
+/* Trust Badges */
+#alab-monitor .trust-badges{ display:flex; gap:12px; margin-bottom:32px }
+#alab-monitor .badge-item{
+  background:rgba(255,255,255,.1); backdrop-filter: blur(10px); padding:8px 16px; border-radius:50px;
+  font-size:13px; color:rgba(255,255,255,.9);
+}
+
+/* CTA Buttons */
+#alab-monitor .hero-cta-group{ display:flex; gap:16px }
+#alab-monitor .btn-primary, 
+#alab-monitor .btn-secondary{
+  padding:16px 32px; border-radius:12px; font-weight:600; font-size:16px; cursor:pointer;
+  display:inline-flex; align-items:center; gap:8px; transition:all .3s ease; border:none;
+}
+#alab-monitor .btn-primary{ background:var(--gradient-gold); color:#fff }
+#alab-monitor .btn-secondary{ background:transparent; color:#fff; border:2px solid var(--blue) }
+
+/* Hero 3D Rotating Cube */
+#alab-monitor .hero-3d-container{ position:relative; height:400px; display:flex; align-items:center; justify-content:center; perspective:1500px }
+#alab-monitor .rotating-cube{ width:250px; height:250px; position:relative; transform-style:preserve-3d; animation:rotateCube 20s infinite linear }
+@keyframes rotateCube{ 0%{transform:rotateX(0) rotateY(0)} 100%{transform:rotateX(360deg) rotateY(360deg)} }
+#alab-monitor .cube-face{
+  position:absolute; width:250px; height:250px; background:linear-gradient(180deg,#ffffff 0%, #fafafc 100%); border:2px solid rgba(212,175,55,.3);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:48px; color:var(--blue); backdrop-filter: blur(20px);
+}
+#alab-monitor .cube-face h3{ font-size:18px; color:var(--ink); margin-top:16px }
+#alab-monitor .cube-face.front{ transform:rotateY(0) translateZ(125px) }
+#alab-monitor .cube-face.back{ transform:rotateY(180deg) translateZ(125px) }
+#alab-monitor .cube-face.right{ transform:rotateY(90deg) translateZ(125px) }
+#alab-monitor .cube-face.left{ transform:rotateY(-90deg) translateZ(125px) }
+#alab-monitor .cube-face.top{ transform:rotateX(90deg) translateZ(125px) }
+#alab-monitor .cube-face.bottom{ transform:rotateX(-90deg) translateZ(125px) }
+#alab-monitor .hero-benefits{ margin-top:40px; display:grid; gap:16px }
+#alab-monitor .benefit-item{ background:rgba(255,255,255,.1); backdrop-filter: blur(10px); padding:20px; border-radius:16px }
+#alab-monitor .benefit-item h3{ color:var(--gold); font-size:16px; margin-bottom:8px }
+#alab-monitor .benefit-item p{ color:rgba(255,255,255,.8); font-size:14px }
+
+/* Platforms Bar */
+#alab-monitor .platforms-bar{ position:absolute; bottom:40px; left:50%; transform:translateX(-50%); display:flex; gap:12px }
+#alab-monitor .platform-chip{ background:rgba(255,255,255,.1); backdrop-filter: blur(10px); color:rgba(255,255,255,.9); padding:6px 16px; border-radius:50px; font-size:12px }
+
+/* Section wrapper */
+#alab-monitor .section-container{ max-width:1400px; margin:0 auto; padding:0 80px }
+#alab-monitor .section-header{ text-align:center; margin-bottom:60px }
+#alab-monitor .section-badge{
+  display:inline-block; background:var(--gradient-gold); color:#fff; padding:8px 24px; border-radius:50px;
+  font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:2px; margin-bottom:16px;
+}
+#alab-monitor .section-title{ font-size:42px; font-weight:800; color:var(--ink); max-width:800px; margin:0 auto }
+
+/* Swipers */
+#alab-monitor .functions-swiper,
+#alab-monitor .cases-swiper{ padding:100px 0; overflow:visible !important; margin:0 -40px }
+#alab-monitor .functions-swiper .swiper-slide,
+#alab-monitor .cases-swiper .swiper-slide{ height:520px }
+
+#alab-monitor .function-card-3d{ transform-style:preserve-3d }
+#alab-monitor .card-3d-image{
+  position:relative; height:500px; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-3d);
+  transform:perspective(1000px) rotateY(-5deg); transition:all .5s ease; background:var(--gradient-dark);
+}
+#alab-monitor .swiper-slide-active .card-3d-image{ transform:perspective(1000px) rotateY(0) scale(1.05) }
+#alab-monitor .card-3d-image img{ width:100%; height:100%; object-fit:cover }
+#alab-monitor .card-overlay-box{
+  position:absolute; bottom:20px; left:20px; right:20px; background:rgba(255,255,255,.95); backdrop-filter: blur(20px);
+  padding:20px; border-radius:16px; transform:translateZ(50px); box-shadow:var(--shadow-lg);
+}
+#alab-monitor .swiper-slide-active .card-overlay-box{ transform:translateY(0) }
+#alab-monitor .overlay-icon{ font-size:48px; color:var(--gold); margin-bottom:20px }
+#alab-monitor .overlay-content h3{ font-size:18px; font-weight:700; color:var(--ink); margin-bottom:6px }
+#alab-monitor .overlay-content p{ font-size:13px; color:var(--gray); margin-bottom:12px }
+#alab-monitor .overlay-features{ display:flex; gap:12px; flex-wrap:wrap }
+#alab-monitor .overlay-features span{ background:rgba(212,175,55,.1); color:var(--gold); padding:6px 12px; border-radius:50px; font-size:13px }
+
+/* Swiper Navigation (scoped) */
+#alab-monitor .swiper-button-prev,
+#alab-monitor .swiper-button-next{
+  width:60px; height:60px; background:var(--gradient-gold); color:#fff !important; border-radius:50%; box-shadow:var(--shadow-lg);
+}
+#alab-monitor .swiper-button-prev:after,
+#alab-monitor .swiper-button-next:after{ font-size:20px }
+#alab-monitor .swiper-pagination-bullet{ width:12px; height:12px; background:var(--gold); opacity:.3 }
+#alab-monitor .swiper-pagination-bullet-active{ opacity:1; width:32px; border-radius:6px }
+
+/* Dataflow */
+#alab-monitor .dataflow-section{ padding:120px 260px 120px 80px; background:#fff }
+#alab-monitor .dataflow-diagram{
+  background: linear-gradient(135deg,#f8f9fa 0%,#fff 100%); border-radius:30px; padding:60px; box-shadow:var(--shadow-xl);
+}
+#alab-monitor .flow-row{ display:flex; align-items:center; justify-content:center; gap:20px }
+#alab-monitor .flow-node{
+  background:#fff; padding:30px 25px; border-radius:20px; text-align:center; box-shadow:var(--shadow-lg);
+  transition:all .3s ease; min-width:160px;
+}
+#alab-monitor .flow-node:hover{ transform:translateY(-10px) scale(1.05) }
+#alab-monitor .node-icon{ font-size:36px; color:var(--blue); margin-bottom:12px }
+#alab-monitor .flow-node h4{ font-size:14px; font-weight:700; color:var(--ink) }
+#alab-monitor .flow-node p{ font-size:12px; color:var(--gray) }
+#alab-monitor .flow-arrow{ font-size:24px; color:var(--gold) }
+#alab-monitor .flow-connectors{ position:relative; height:40px; margin:20px 0 }
+#alab-monitor .connector{ position:absolute; width:2px; height:40px; background:var(--gold) }
+#alab-monitor .sub-flow{ margin-top:20px }
+#alab-monitor .flow-node.secondary{ background: linear-gradient(135deg, rgba(212,175,55,.1) 0%, rgba(91,141,239,.1) 100%) }
+#alab-monitor .dataflow-note{ text-align:center; margin-top:40px; color:var(--gray) }
+
+/* Cases */
+#alab-monitor .cases-section{ padding:120px 260px 120px 80px; background:var(--light-gray) }
+#alab-monitor .case-card-3d{ transform-style:preserve-3d }
+#alab-monitor .case-3d-image{
+  position:relative; height:550px; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-3d);
+  transform:perspective(1000px) rotateX(5deg); transition:all .5s ease;
+}
+#alab-monitor .swiper-slide-active .case-3d-image{ transform:perspective(1000px) rotateX(0) scale(1.05) }
+#alab-monitor .case-3d-image img{ width:100%; height:100%; object-fit:cover }
+#alab-monitor .case-overlay{
+  position:absolute; bottom:20px; left:20px; right:20px; background:rgba(255,255,255,.95); backdrop-filter: blur(20px);
+  padding:20px; border-radius:16px; transform:translateZ(50px);
+}
+#alab-monitor .swiper-slide-active .case-overlay{ transform:translateY(0) }
+#alab-monitor .case-header{ display:flex; align-items:center; gap:16px; margin-bottom:24px }
+#alab-monitor .case-header i{ font-size:36px; color:var(--gold) }
+#alab-monitor .case-header h3{ font-size:20px; font-weight:700; color:var(--ink) }
+#alab-monitor .case-content{ display:grid; gap:16px }
+#alab-monitor .case-item strong{ color:var(--ink); font-weight:600 }
+#alab-monitor .case-item p{ color:var(--gray); margin-top:4px }
+#alab-monitor .case-footer{ margin-top:24px; padding-top:20px; border-top:2px solid rgba(212,175,55,.2); color:var(--blue); font-weight:600; font-size:14px }
+
+/* Packages */
+#alab-monitor .packages-section{ padding:120px 260px 120px 80px; background:#fff }
+#alab-monitor .packages-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px }
+#alab-monitor .package-card{
+  position:relative; background:#fff; border-radius:20px; padding:40px 32px; box-shadow:var(--shadow-lg);
+  border:2px solid transparent; transition:all .3s ease;
+}
+#alab-monitor .package-card:hover{ transform:translateY(-10px); border-color:var(--gold) }
+#alab-monitor .package-card.featured{ border-color:var(--gold); transform:scale(1.05) }
+#alab-monitor .featured-badge{
+  position:absolute; top:-15px; right:30px; background:var(--gradient-gold); color:#fff; padding:6px 16px; border-radius:50px;
+  font-size:11px; font-weight:700; text-transform:uppercase;
+}
+#alab-monitor .package-label{ background:rgba(212,175,55,.1); color:var(--gold); padding:4px 12px; border-radius:50px; font-size:11px; font-weight:600; display:inline-block; margin-bottom:12px }
+#alab-monitor .package-header h3{ font-size:24px; font-weight:700; color:var(--ink); margin-bottom:20px }
+#alab-monitor .package-price{ font-size:20px; font-weight:600; color:var(--blue); margin-bottom:32px }
+#alab-monitor .package-features{ list-style:none; margin-bottom:32px }
+#alab-monitor .package-features li{ padding:12px 0; color:var(--gray); display:flex; align-items:center; gap:12px }
+#alab-monitor .package-features i{ color:var(--gold) }
+#alab-monitor .package-note{ font-size:13px; color:var(--gray); margin-bottom:20px }
+#alab-monitor .package-btn{ width:100%; padding:16px; background:var(--gradient-gold); color:#fff; border:none; border-radius:12px; font-weight:600; cursor:pointer }
+
+/* Integrations */
+#alab-monitor .integrations-section{ padding:120px 260px 120px 80px; background:var(--light-gray) }
+#alab-monitor .integration-group h3{ font-size:20px; font-weight:700; color:var(--ink); margin-bottom:24px }
+#alab-monitor .chips-grid{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom:40px }
+#alab-monitor .chip{
+  background:#fff; color:var(--gray); padding:12px 20px; border-radius:50px; font-size:14px; box-shadow:var(--shadow-sm); transition:all .3s ease;
+}
+#alab-monitor .chip:hover{ background:var(--gradient-gold); color:#fff; transform:translateY(-2px) }
+#alab-monitor .security-list{ display:grid; gap:16px }
+#alab-monitor .security-item{ display:flex; align-items:center; gap:16px; padding:16px 24px; background:#fff; border-radius:12px; box-shadow:var(--shadow-sm) }
+#alab-monitor .security-item i{ font-size:24px; color:var(--blue) }
+
+/* FAQ */
+#alab-monitor .faq-section{ padding:120px 260px 120px 80px; background:#fff }
+#alab-monitor .faq-wrapper{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center }
+#alab-monitor .faq-3d-container{ position:relative; height:500px }
+#alab-monitor .faq-3d-scene{ position:relative; height:100%; perspective:1500px }
+#alab-monitor .floating-cards{ position:relative; width:100%; height:100% }
+#alab-monitor .float-card{
+  position:absolute; width:120px; height:120px; background:var(--gradient-gold); border-radius:20px;
+  display:flex; align-items:center; justify-content:center; font-size:48px; color:#fff; box-shadow:var(--shadow-xl); animation:floatCard 6s infinite ease-in-out;
+}
+#alab-monitor .float-card.card-1{ top:20%; left:20%; animation-delay:0s }
+#alab-monitor .float-card.card-2{ top:30%; right:20%; animation-delay:1.5s }
+#alab-monitor .float-card.card-3{ bottom:30%; left:30%; animation-delay:3s }
+#alab-monitor .float-card.card-4{ bottom:20%; right:30%; animation-delay:4.5s }
+@keyframes floatCard{ 0%,100%{transform:translateY(0) rotate(0)} 25%{transform:translateY(-20px) rotate(5deg)} 75%{transform:translateY(20px) rotate(-5deg)} }
+
+#alab-monitor .faq-3d-text{
+  position:absolute; bottom:0; left:50%; transform:translateX(-50%); text-align:center;
+  background:rgba(255,255,255,.95); backdrop-filter: blur(20px); padding:30px; border-radius:20px; box-shadow:var(--shadow-lg);
+}
+#alab-monitor .faq-3d-text h3{ font-size:28px; font-weight:700; color:var(--ink); margin-bottom:8px }
+#alab-monitor .faq-3d-text p{ font-size:16px; color:var(--gray) }
+
+#alab-monitor .faq-items{ display:grid; gap:16px }
+#alab-monitor .faq-item{ background:#fff; border-radius:16px; overflow:hidden; box-shadow:var(--shadow-md) }
+#alab-monitor .faq-question{ padding:24px; cursor:pointer; display:flex; justify-content:space-between; align-items:center }
+#alab-monitor .faq-question h3{ font-size:18px; font-weight:600; color:var(--ink) }
+#alab-monitor .faq-question i{ color:var(--gold); transition:transform .3s ease }
+#alab-monitor .faq-answer{ max-height:0; overflow:hidden; transition:max-height .3s ease }
+#alab-monitor .faq-answer p{ padding:0 24px 24px 24px; color:var(--gray) }
+#alab-monitor .faq-item.active .faq-answer{ max-height:200px }
+#alab-monitor .faq-item.active .faq-question i{ transform:rotate(180deg) }
+
+  /* Nur auf der Monitoring-Seite */
+  #alab-monitor .hero-title { color:#000; } /* "Anlagenmonitoring:" */
+  #alab-monitor .hero-desc,
+  #alab-monitor .hero-subdesc { color:#000; } /* beide Textzeilen darunter */
+
+  /* Plattform-Chips (nur Text, Icons bleiben gold) */
+  #alab-monitor .platform-grid .platform-chip-3d span { color:#000; }
+
+  /* Trust-Badges */
+  #alab-monitor .trust-badges .badge-item { color:#000; }
+
+  /* Buttons im Hero */
+  #alab-monitor .hero-cta-group .btn-primary,
+  #alab-monitor .hero-cta-group .btn-secondary { color:#000 !important; }
+          #alab-monitor .hero-benefits .benefit-item p { color:#000; }
+
+  /* Hero-Texts & Buttons (schwarz) */
+  #alab-monitor .hero-desc,
+  #alab-monitor .hero-subdesc,
+  #alab-monitor .btn-primary,
+  #alab-monitor .btn-secondary { color:#000 !important; }
+
+  /* Benefit-Beschreibungen (schwarz) */
+  #alab-monitor .hero-benefits .benefit-item p { color:#000 !important; }
+
+  /* Hero: Plattform-Chips (weiße Boxen + schwarze Schrift) */
+  #alab-monitor .platform-grid .platform-chip-3d{
+    background:#fff !important;
+    color:#000 !important;
+    border:1px solid #e2e8f0;
+    box-shadow:0 6px 16px rgba(0,0,0,.08);
+  }
+  #alab-monitor .platform-grid .platform-chip-3d span{ color:#000 !important; }
+  #alab-monitor .platform-grid .platform-chip-3d i{ color:var(--gold); }
+
+  /* Untere Plattform-Leiste (weiße Boxen + schwarze Schrift) */
+  #alab-monitor .platforms-bar .platform-chip{
+    background:#fff !important;
+    color:#000 !important;
+    border:1px solid #e2e8f0;
+  }
+
+  /* Trust-Badges (weiße Boxen + schwarze Schrift) */
+  #alab-monitor .trust-badges .badge-item{
+    background:#fff !important;
+    color:#000 !important;
+    border:1px solid #e2e8f0;
+  }
+
+/* ===== Swiper Performance ===== */
+.functions-swiper,
+.cases-swiper {
+  contain: layout paint; /* kapselt Repaints */
+}
+
+.functions-swiper .swiper-slide,
+.cases-swiper   .swiper-slide,
+.card-3d-image,
+.case-3d-image {
+  will-change: transform;           /* Layer-Promotion */
+  transform: translateZ(0);         /* GPU an */
+  backface-visibility: hidden;
+}
+
+/* Box-Shadow & Blur nur auf der aktiven Slide – spart viele Repaints */
+.functions-swiper .swiper-slide:not(.swiper-slide-active) .card-3d-image,
+.cases-swiper   .swiper-slide:not(.swiper-slide-active) .case-3d-image {
+  box-shadow: var(--shadow-lg);     /* leichterer Schatten statt 3D */
+}
+
+.functions-swiper .swiper-slide:not(.swiper-slide-active) .card-overlay-box,
+.cases-swiper   .swiper-slide:not(.swiper-slide-active) .case-overlay {
+  backdrop-filter: none;            /* Blur ist teuer → nur aktiv */
+}
+
+/* (Optional) Animationen etwas kürzer = responsiver */
+.card-3d-image,
+.case-3d-image,
+.card-overlay-box,
+.case-overlay {
+  transition: transform .45s ease, box-shadow .45s ease, opacity .3s ease;
+}
+
+
+/* === Monitoring – Responsiv & Schärfe (anhängen) ====================== */
+
+/* Performance-Scope für Swiper/Karten */
+#alab-monitor .functions-swiper,
+#alab-monitor .cases-swiper { contain: layout paint; }
+#alab-monitor .functions-swiper .swiper-slide,
+#alab-monitor .cases-swiper .swiper-slide,
+#alab-monitor .card-3d-image,
+#alab-monitor .case-3d-image {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* === Desktop (>=1025px): Schärfe ===================================== */
+@media (min-width:1025px){
+  /* Glas-Effekt weg -> Foto bleibt kristallklar */
+  #alab-monitor .card-overlay-box,
+  #alab-monitor .case-overlay {
+    backdrop-filter: none !important;
+    background: rgba(255,255,255,.98);
+  }
+  /* Kein Scale auf aktiver Slide (vermeidet Interpolations-Blur) */
+  #alab-monitor .swiper-slide-active .card-3d-image {
+    transform: perspective(1000px) rotateY(0) !important;
+  }
+  #alab-monitor .swiper-slide-active .case-3d-image {
+    transform: perspective(1000px) rotateX(0) !important;
+  }
+}
+
+/* === Monitoring: Schärfe & Responsive – kompakter Fix ================= */
+
+/* ---------- Desktop: scharf ohne Scale/Blur ---------- */
+@media (min-width:1025px){
+  /* Overlays ohne Blur (Fotos bleiben knackig) */
+  #alab-monitor .card-overlay-box,
+  #alab-monitor .case-overlay{
+    backdrop-filter:none!important;
+    background:rgba(255,255,255,.98);
+  }
+  /* kein Scale auf aktiver Slide (vermeidet Interpolationsunschärfe) */
+  #alab-monitor .swiper-slide-active .card-3d-image{
+    transform:perspective(1000px) rotateY(0)!important;
+  }
+  #alab-monitor .swiper-slide-active .case-3d-image{
+    transform:perspective(1000px) rotateX(0)!important;
+  }
+  /* Performance ok – GPU nur wo nötig */
+  #alab-monitor .functions-swiper,
+  #alab-monitor .cases-swiper{ contain:layout paint; }
+  #alab-monitor .functions-swiper .swiper-slide,
+  #alab-monitor .cases-swiper .swiper-slide,
+  #alab-monitor .card-3d-image,
+  #alab-monitor .case-3d-image{
+    will-change:transform;
+    transform:translateZ(0);
+    backface-visibility:hidden;
+  }
+}
+
+/* ---------- Mobile/Tablet: kompakt & scharf ---------- */
+@media (max-width:1024px){
+  /* Seitennavigation ausblenden */
+  #alab-monitor .side-nav{display:none!important;}
+
+  /* Paddings einklappen */
+  #alab-monitor .hero-section,
+  #alab-monitor .dataflow-section,
+  #alab-monitor .cases-section,
+  #alab-monitor .packages-section,
+  #alab-monitor .integrations-section,
+  #alab-monitor .faq-section{padding:60px 24px!important;}
+  #alab-monitor .section-container{padding:0 24px;}
+
+  /* Hero kompakt, 1 Spalte */
+  #alab-monitor .hero-content{grid-template-columns:1fr;gap:24px;text-align:center;}
+  #alab-monitor .hero-cta-group{justify-content:center;flex-wrap:wrap;}
+  #alab-monitor .hero-title{font-size:clamp(28px,6.5vw,40px);}
+  #alab-monitor .hero-desc{font-size:16px;}
+  #alab-monitor .hero-subdesc{font-size:14px;}
+  #alab-monitor .hero-3d-container{height:320px;transform:scale(.9);}
+
+  /* KPI kompakter */
+  #alab-monitor .kpi-grid{grid-template-columns:repeat(2,1fr);}
+
+  /* Swiper: kein Überlauf ⇒ keine horizontale Scrollbar */
+  #alab-monitor .functions-swiper,
+  #alab-monitor .cases-swiper{margin:0;padding:56px 0;overflow:hidden!important;}
+
+  /* >>> Schärfe-Fix (wichtig): 
+     - keine Transforms auf dem Karten-Container
+     - GPU-Promotion nur fürs <img> 
+     - kein Blur hinter Overlays                                    */
+  #alab-monitor .functions-swiper .swiper-slide,
+  #alab-monitor .cases-swiper .swiper-slide{height:clamp(420px,68vw,520px);}
+
+  #alab-monitor .card-3d-image,
+  #alab-monitor .case-3d-image{
+    height:clamp(380px,62vw,520px);
+    transform:none!important;          /* Container nicht transformen */
+    will-change:auto;                  /* Promotion wieder zurücknehmen */
+    box-shadow:var(--shadow-lg);
+  }
+  #alab-monitor .card-3d-image img,
+  #alab-monitor .case-3d-image img{
+    width:100%;height:100%;object-fit:cover;
+    -webkit-transform:translateZ(0);   /* GPU nur fürs Bitmap */
+    transform:translateZ(0);
+    backface-visibility:hidden;
+    image-rendering:-webkit-optimize-contrast; /* iOS schärfer */
+    filter:none!important;
+  }
+
+  #alab-monitor .card-overlay-box,
+  #alab-monitor .case-overlay{
+    backdrop-filter:none!important;
+    background:rgba(255,255,255,.98);
+  }
+
+  /* Grids */
+  #alab-monitor .packages-grid{grid-template-columns:1fr 1fr;gap:20px;}
+  #alab-monitor .package-card.featured{transform:none;}
+  #alab-monitor .faq-wrapper{grid-template-columns:1fr;gap:32px;}
+  #alab-monitor .faq-3d-container{height:320px;}
+}
+
+/* ---------- Very small ---------- */
+@media (max-width:640px){
+  #alab-monitor .kpi-grid{grid-template-columns:1fr;}
+  #alab-monitor .section-title{font-size:28px;}
+  #alab-monitor .packages-grid{grid-template-columns:1fr;}
+  #alab-monitor .functions-swiper .swiper-slide,
+  #alab-monitor .cases-swiper .swiper-slide{height:360px;}
+  #alab-monitor .card-3d-image,
+  #alab-monitor .case-3d-image{height:320px;}
+  #alab-monitor .swiper-button-prev,
+  #alab-monitor .swiper-button-next{width:44px;height:44px;}
+  #alab-monitor .platforms-bar{display:none;}
+  #alab-monitor .trust-badges{flex-wrap:wrap;justify-content:center;}
+}
+/* Mobile: Praxis-Cases ausblenden (nur Smartphones) */
+@media (max-width: 640px){
+  #alab-monitor .cases-section { 
+    display: none !important;
+  }
+}
+
+/* Mobile: 'Datenfluss & Architektur' komplett ausblenden */
+@media (max-width: 768px){
+  #alab-monitor .dataflow-section { 
+    display: none !important;
+  }
+}

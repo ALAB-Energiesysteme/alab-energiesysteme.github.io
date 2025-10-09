@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title | default('ALAB Energiesysteme') }}</title>
+  <meta name="description" content="{{ description | default('Ihr Partner für Photovoltaik-Lösungen in Bayern.') }}" />
+
+  {% include "meta-seo.njk" %}
+  {% include "header-styles.njk" %}
+  {% include "footer-styles.njk" %}
+
+  {# Seite-spezifische CSS (einmal!) #}
+  {% if page.css_files %}
+    {% for href in page.css_files %}
+      <link rel="stylesheet" href="{{ href | url }}">
+    {% endfor %}
+  {% endif %}
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  {# --- Neu: Header-Umschaltung & Mobile-Header-CSS --- #}
+  <link rel="stylesheet" href="/assets/css/header-switch.css">
+  <link rel="stylesheet" href="/assets/css/header-mobile.css" media="(max-width:1024px)">
+</head>
+
+<body class="{{ bodyClass }}">
+  {# Desktop-Header bleibt unverändert; nur leicht umhüllt zum Umschalten #}
+  <div id="header-desktop">
+    {% include "header.njk" %}
+  </div>
+
+  {# Neu: Mobiler Header als eigenes Partial #}
+  {% include "header-mobile.njk" %}
+
+  <main id="content" role="main" class="{{ pageClass }}">
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %}
+  {% include "footer-scripts.njk" %}
+
+  {# Seite-spezifische JS (einmal!) #}
+  {% if page.js_files %}
+    {% for src in page.js_files %}
+      <script src="{{ src | url }}" defer></script>
+    {% endfor %}
+  {% endif %}
+
+  {# Nur laden, wenn explizit angefordert #}
+  {% if use_servicepakete_js %}
+    <script src="/assets/js/servicepakete.js" defer></script>
+  {% endif %}
+
+  {# --- Neu: Mobile-Header-JS nur auf schmalen Viewports laden --- #}
+  <script type="module">
+    if (window.matchMedia('(max-width:1024px)').matches) {
+      import('/assets/js/header-mobile.js');
+    }
+  </script>
+</body>
+</html>

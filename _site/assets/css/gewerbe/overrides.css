@@ -1,0 +1,20 @@
+/* Gewerbe – dekoratives Warndreieck ausblenden */
+.gewerbe-page svg.feather-alert-triangle,
+.gewerbe-page svg.lucide-alert-triangle,
+.gewerbe-page .fa-triangle-exclamation,
+.gewerbe-page .fa-exclamation-triangle,
+.gewerbe-page svg[data-icon="triangle-exclamation"],
+.gewerbe-page .decor-warning,
+.gewerbe-page .bg-icon.alert,
+.gewerbe-page .decor--warning {
+  display: none !important;
+}
+
+/* Falls das Dreieck als Pseudoelement gesetzt wurde */
+.gewerbe-page .metric-card::before,
+.gewerbe-page .metric-card::after,
+.gewerbe-page .stat-card::before,
+.gewerbe-page .stat-card::after {
+  background-image: none !important;
+  content: none !important;
+}

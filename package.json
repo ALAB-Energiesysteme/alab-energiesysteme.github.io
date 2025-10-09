@@ -1,0 +1,11 @@
+{
+"name": "alab-site",
+"private": true,
+"scripts": {
+"dev": "eleventy --serve --port=8888",
+"build": "eleventy"
+},
+"devDependencies": {
+"@11ty/eleventy": "^3.0.0"
+}
+}

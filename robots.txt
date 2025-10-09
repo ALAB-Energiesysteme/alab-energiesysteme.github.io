@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /kontakt/danke/
+Sitemap: https://www.alabenergiesysteme.de/sitemap.xml

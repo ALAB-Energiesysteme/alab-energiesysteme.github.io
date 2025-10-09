@@ -1,0 +1,104 @@
+---
+layout: base.njk
+permalink: "/datenschutz/"
+title: "Datenschutz | ALAB Energiesysteme"
+description: "Informationen zum Datenschutz bei ALAB Energiesysteme gemäß DSGVO: Verantwortlicher, Zwecke, Rechtsgrundlagen, Empfänger, Speicherdauer, Rechte der Betroffenen."
+---
+
+<style>
+  /* schlanke, lokale Styles für die Rechtstexte */
+  .legal-wrap{max-width:1100px;margin:0 auto;padding:28px 16px}
+  .legal h1{font-size:clamp(1.6rem,2.2vw + 1rem,2.2rem);margin:0 0 10px;font-weight:800}
+  .legal h2{font-size:1.25rem;margin:26px 0 10px;font-weight:800}
+  .legal h3{font-size:1.05rem;margin:20px 0 8px;font-weight:700}
+  .legal p,.legal li{line-height:1.6}
+  .legal ul{padding-left:1.2rem}
+  .legal .toc{background:#f7f9fb;border:1px solid #e7ebf0;border-radius:12px;padding:14px;margin:16px 0}
+  .legal .muted{color:#616771}
+</style>
+
+<section class="legal legal-wrap" aria-labelledby="ds-title">
+  <h1 id="ds-title">Datenschutzerklärung</h1>
+  <p>Mit den nachfolgenden Hinweisen informieren wir Sie darüber, wie wir personenbezogene Daten verarbeiten, wenn Sie unsere Website besuchen, unsere Formulare nutzen oder uns kontaktieren.</p>
+
+  <div class="toc" aria-label="Inhaltsübersicht">
+    <strong>Inhaltsübersicht</strong>
+    <ul>
+      <li><a href="#verantwortlicher">Verantwortlicher</a></li>
+      <li><a href="#hosting">Hosting &amp; Content Delivery</a></li>
+      <li><a href="#server-logs">Server-Logfiles</a></li>
+      <li><a href="#kontaktformulare">Kontaktformulare &amp; Kommunikation</a></li>
+      <li><a href="#analytics">Reichweitenmessung (Google Analytics 4)</a></li>
+      <li><a href="#maps">Einbindung von Google Maps</a></li>
+      <li><a href="#rechtsgrundlagen">Rechtsgrundlagen</a></li>
+      <li><a href="#speicherdauer">Speicherdauer</a></li>
+      <li><a href="#empfaenger">Empfänger / Auftragsverarbeiter</a></li>
+      <li><a href="#rechte">Ihre Rechte</a></li>
+      <li><a href="#aenderungen">Änderungen dieser Erklärung</a></li>
+    </ul>
+  </div>
+
+  <h2 id="verantwortlicher">1. Verantwortlicher</h2>
+  <p><strong>{{ site.name }}</strong><br>
+    {{ site.address.street }}, {{ site.address.zip }} {{ site.address.city }}<br>
+    E-Mail: <a href="mailto:{{ site.email }}">{{ site.email }}</a><br>
+    Telefon: <a href="tel:+4982617597176">08261 7597176</a>
+  </p>
+
+  <h2 id="hosting">2. Hosting &amp; Content Delivery</h2>
+  <p>Unsere Website wird bei einem externen Dienstleister gehostet (derzeit Netlify). Die Nutzung erfolgt zum Zweck der sicheren und effizienten Bereitstellung unseres Online-Angebots. Dabei werden u. a. technische Verbindungsdaten verarbeitet (z.&nbsp;B. IP-Adresse, Zeitstempel, angeforderte Ressourcen).</p>
+  <p><em>Rechtsgrundlage:</em> Berechtigtes Interesse an der sicheren und performanten Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO). Mit dem Hoster besteht ein Auftragsverarbeitungsvertrag; geeignete Garantien für Drittländerübermittlungen (Standardvertragsklauseln) werden verwendet, sofern erforderlich.</p>
+
+  <h2 id="server-logs">3. Server-Logfiles</h2>
+  <p>Der Hoster erhebt und speichert automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser automatisch übermittelt. Dies sind:</p>
+  <ul>
+    <li>IP-Adresse (gekürzt oder pseudonymisiert, soweit möglich),</li>
+    <li>Datum und Uhrzeit der Anfrage,</li>
+    <li>Zeitzonendifferenz zur GMT,</li>
+    <li>Inhalt der Anforderung (konkrete Seite/Datei),</li>
+    <li>HTTP-Statuscode, übertragene Datenmenge,</li>
+    <li>Referrer-URL, Browser, Betriebssystem und dessen Oberfläche.</li>
+  </ul>
+  <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen findet nicht statt; die Daten dienen der Gewährleistung eines störungsfreien Betriebs und zur Fehleranalyse.</p>
+
+  <h2 id="kontaktformulare">4. Kontaktformulare &amp; Kommunikation</h2>
+  <p>Wenn Sie unser <a href="/kontakt/">Kontaktformular</a> nutzen, verarbeiten wir die von Ihnen eingegebenen Angaben (z.&nbsp;B. Name, E-Mail, Telefon, Thema, Nachricht) zur Bearbeitung Ihrer Anfrage. Das Formular enthält eine Pflicht-Einwilligung zum Datenschutz.</p>
+  <p>Zur technischen Übermittlung und Workflow-Automatisierung setzen wir den Dienst „Make“ (EU-Region) ein. Ihre Formularangaben werden über eine gesicherte Verbindung an unseren Make-Webhook übermittelt und dort ausschließlich zur Weiterleitung/Automatisierung verarbeitet.</p>
+  <p><em>Rechtsgrundlagen:</em> Vertrag/Vertragsanbahnung (Art. 6 Abs. 1 lit. b DSGVO) und – für freiwillige Angaben – Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Für Betrugsprävention verwenden wir ein verstecktes „Honeypot“-Feld.</p>
+
+  <h2 id="analytics">5. Reichweitenmessung (Google Analytics 4)</h2>
+  <p>Wir nutzen Google Analytics 4 zur statistischen Reichweitenmessung. Dabei werden Seitenaufrufe, Interaktionen und technisch erforderliche Informationen verarbeitet. IP-Adressen werden in GA4 standardmäßig gekürzt. Wir übermitteln keine personenbezogenen Inhalte der Formulare an Google (keine PII).</p>
+  <p><em>Rechtsgrundlage:</em> Ihre Einwilligung über das Consent-Banner (Art. 6 Abs. 1 lit. a DSGVO). Sie können die Einwilligung jederzeit für die Zukunft widerrufen (Cookie-Einstellungen).</p>
+
+  <h2 id="maps">6. Einbindung von Google Maps</h2>
+  <p>Auf der <a href="/kontakt/">Kontaktseite</a> binden wir eine Karte von Google Maps ein, um unseren Standort anzuzeigen. Dabei können durch Google Nutzungsdaten (z.&nbsp;B. IP-Adresse, Browser-Infos) verarbeitet und Cookies gesetzt werden.</p>
+  <p><em>Rechtsgrundlage:</em> je nach Ausgestaltung Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) oder berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO) an einer nutzerfreundlichen Anfahrtsbeschreibung. Informationen von Google zu Datenverarbeitung und Opt-Out finden Sie in den dortigen Datenschutzhinweisen.</p>
+
+  <h2 id="rechtsgrundlagen">7. Rechtsgrundlagen im Überblick</h2>
+  <ul>
+    <li><strong>Art. 6 Abs. 1 lit. a DSGVO</strong> – Einwilligung</li>
+    <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> – Vertrag/Vertragsanbahnung</li>
+    <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> – Berechtigtes Interesse (z.&nbsp;B. sichere Bereitstellung, Missbrauchs-/Betrugsprävention, Reichweitenmessung, sofern ohne Einwilligung zulässig)</li>
+  </ul>
+
+  <h2 id="speicherdauer">8. Speicherdauer</h2>
+  <p>Wir verarbeiten personenbezogene Daten nur so lange, wie es für die jeweiligen Zwecke erforderlich ist. Kontaktanfragen werden in der Regel nach Abschluss der Bearbeitung bzw. spätestens nach 12 Monaten gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten (z.&nbsp;B. Handels-/Steuerrecht) entgegenstehen.</p>
+
+  <h2 id="empfaenger">9. Empfänger / Auftragsverarbeiter</h2>
+  <ul>
+    <li><strong>Netlify, Inc.</strong> – Hosting/CDN dieser Website (Auftragsverarbeitung, ggf. Drittland mit Standardvertragsklauseln)</li>
+    <li><strong>Google Ireland Ltd. / Google LLC</strong> – Analytics 4 &amp; Maps (Einwilligung; ggf. Drittland mit Standardvertragsklauseln)</li>
+    <li><strong>Make s.r.o.</strong> (EU-Region) – Formular-Automatisierung/Weiterleitung als Auftragsverarbeiter</li>
+  </ul>
+
+  <h2 id="rechte">10. Ihre Rechte</h2>
+  <p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20) sowie Widerspruch gegen Verarbeitungen (Art. 21). Einwilligungen können Sie jederzeit mit Wirkung für die Zukunft widerrufen.</p>
+  <p>Sie haben ferner das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde. Zuständig ist u. a. das Bayerische Landesamt für Datenschutzaufsicht (BayLDA).</p>
+  <p>Für die Ausübung Ihrer Rechte genügt eine Nachricht an <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+
+  <h2 id="aenderungen">11. Änderungen dieser Erklärung</h2>
+  <p>Wir passen diese Datenschutzhinweise an, wenn sich Rechtslage, die eingesetzten Dienste oder unsere Prozesse ändern. Die jeweils aktuelle Fassung finden Sie auf dieser Seite.</p>
+
+  <p class="muted">Stand: <span id="ds-stand"></span></p>
+<script>document.getElementById('ds-stand').textContent = new Date().toLocaleDateString('de-DE');</script>
+</section>

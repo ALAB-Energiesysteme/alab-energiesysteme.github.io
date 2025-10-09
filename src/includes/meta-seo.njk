@@ -1,0 +1,31 @@
+{# Canonical & Social #}
+<link rel="canonical" href="{{ site.domain }}{{ page.url }}">
+<meta name="robots" content="{{ robots | default('index,follow') }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ title | default('ALAB Energiesysteme') }}">
+<meta property="og:description" content="{{ description | default('Ihr Partner für Photovoltaik‑Lösungen in Bayern.') }}">
+<meta property="og:url" content="{{ site.domain }}{{ page.url }}">
+<meta property="og:image" content="{{ site.domain }}/assets/img/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+
+{# JSON-LD LocalBusiness #}
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "LocalBusiness",
+"name": "{{ site.name }}",
+"url": "{{ site.domain }}/",
+"logo": "{{ site.domain }}/assets/img/logo.png",
+"email": "{{ site.email }}",
+"address": {
+"@type": "PostalAddress",
+"streetAddress": "{{ site.address.street }}",
+"postalCode": "{{ site.address.zip }}",
+"addressLocality": "{{ site.address.city }}",
+"addressCountry": "DE"
+},
+"areaServed": "Bayern, Deutschland",
+"description": "Planung und Installation von Photovoltaik‑Anlagen für Privat und Gewerbe."
+}
+</script>

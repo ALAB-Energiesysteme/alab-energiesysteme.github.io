@@ -1,0 +1,41 @@
+<script>
+const FT_MAKE_URL = "https://hook.eu2.make.com/yloo9gmjoxtsua7r2g5z6af9lqs0ei3y";
+const dlPush = (p)=>{ window.dataLayer = window.dataLayer || []; window.dataLayer.push(p); };
+document.getElementById('ftYear').textContent = new Date().getFullYear();
+
+
+const ftModal = document.getElementById('ftContactModal');
+const ftOpen = document.getElementById('ftOpenContact');
+const ftClose = document.getElementById('ftCloseModal');
+const ftForm = document.getElementById('ftContactForm');
+const ftOk = document.getElementById('ftOkState');
+
+
+function ftOpenModal(e){ e && e.preventDefault(); ftModal.classList.add('active'); ftModal.setAttribute('aria-hidden','false'); document.body.classList.add('ft-no-scroll'); }
+function ftCloseModal(){ ftModal.classList.remove('active'); ftModal.setAttribute('aria-hidden','true'); document.body.classList.remove('ft-no-scroll'); ftForm.style.display='block'; ftOk.style.display='none'; ftForm.reset(); }
+
+
+ftOpen?.addEventListener('click', ftOpenModal);
+ftClose?.addEventListener('click', ftCloseModal);
+ftModal.addEventListener('click', e => { if(e.target === ftModal) ftCloseModal(); });
+
+
+const ftQuickForm = document.getElementById('ftQuickForm');
+const ftQuickBtn = ftQuickForm?.querySelector('.ft-btn');
+ftQuickForm?.addEventListener('submit', async (e)=>{
+e.preventDefault();
+const originalText = ftQuickBtn.textContent;
+ftQuickBtn.disabled = true; ftQuickBtn.setAttribute('aria-busy','true'); ftQuickBtn.textContent = 'Wird gesendet…';
+const fd = new FormData(ftQuickForm); fd.append('source','footer_quick');
+try{ await fetch(FT_MAKE_URL,{method:'POST',body:fd}); dlPush({event:'footer_quick_sent','GL - form_location':'footer_quick'}); ftQuickForm.reset(); ftQuickBtn.textContent = '✓ Gesendet!'; setTimeout(()=>{ ftQuickBtn.removeAttribute('aria-busy'); ftQuickBtn.disabled=false; ftQuickBtn.textContent = originalText; }, 2500); }catch(_){ ftQuickBtn.textContent = 'Fehler – erneut?'; setTimeout(()=>{ ftQuickBtn.removeAttribute('aria-busy'); ftQuickBtn.disabled=false; ftQuickBtn.textContent = originalText; }, 2200); }
+});
+
+
+ftForm?.addEventListener('submit', async (e)=>{
+e.preventDefault();
+const fd = new FormData(ftForm); fd.append('source','footer_modal');
+try{ await fetch(FT_MAKE_URL,{method:'POST',body:fd}); }catch(_){}
+dlPush({event:'footer_modal_sent','GL - form_location':'footer_modal'});
+ftForm.style.display='none'; ftOk.style.display='block'; setTimeout(()=>{ ftCloseModal(); }, 3000);
+});
+</script>

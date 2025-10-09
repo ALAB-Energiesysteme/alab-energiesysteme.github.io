@@ -1,0 +1,67 @@
+<header class="site-header">
+<div class="container header-container">
+<div class="logo-container">
+<a id="logoHome" href="/">
+<img src="https://static.wixstatic.com/media/cac2b9_62e2dd76694e43c3810467fa4e633c6c~mv2.png" alt="ALAB Energiesysteme Logo">
+</a>
+</div>
+<nav class="main-navigation" aria-label="Hauptnavigation">
+<ul>
+<li class="has-megamenu">
+<a href="#" aria-expanded="false">Photovoltaik-Systeme</a>
+<div class="mega-menu" role="menu">
+<a href="/gewerbliche-loesungen/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="https://static.wixstatic.com/media/cac2b9_493bb2e306024e85848ba5ab5a484e4a~mv2.jpeg" alt="PV-Gewerbe" />
+<strong>PV-Gewerbe</strong><p>Effiziente Solaranlagen für Ihr Unternehmen.</p>
+</a>
+<a href="/private-haushalte/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="https://static.wixstatic.com/media/cac2b9_f3dd33c675904fe68c45c728fa9df2dc~mv2.jpeg" alt="PV-Zuhause" />
+<strong>PV-Zuhause</strong><p>Ihr Weg zur Energie-Unabhängigkeit.</p>
+</a>
+<a href="/freiflaechen/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="https://static.wixstatic.com/media/cac2b9_e895fac57c534346aa59c9bffb9f0513~mv2.jpeg" alt="Freiflächen" />
+<strong>Freiflächen</strong><p>Großflächige Projekte für maximale Erträge.</p>
+</a>
+</div>
+</li>
+<li class="has-megamenu">
+<a href="#" aria-expanded="false">Service & Wartung</a>
+<div class="mega-menu" role="menu">
+<a href="/montage/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="https://static.wixstatic.com/media/cac2b9_2a11ddecdc084f738eed4bb2225e907d~mv2.jpeg" alt="Montage" />
+<strong>Montage</strong><p>Fachgerechte Installation durch Experten.</p>
+</a>
+<a href="/servicepakete/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="https://static.wixstatic.com/media/cac2b9_abf62d84161a461b9f4ad63dda96fe79~mv2.jpeg" alt="Servicepakete" />
+<strong>Servicepakete</strong><p>Rundum-Sorglos-Pakete für jede Anlage.</p>
+</a>
+<a href="/wartung/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="https://static.wixstatic.com/media/cac2b9_e34f302a6aef43e78346330231afc159~mv2.jpeg" alt="Wartung" />
+<strong>Wartung</strong><p>Sichern Sie die Leistung und Langlebigkeit.</p>
+</a>
+<a href="/monitoring/" class="menu-item" role="menuitem">
+<img class="menu-thumb" src="https://static.wixstatic.com/media/cac2b9_e7e16d55c83c449987545f0e031c055b~mv2.jpeg" alt="Anlagenmonitoring" />
+<strong>Anlagenmonitoring</strong><p>Performance jederzeit im Blick behalten.</p>
+</a>
+</div>
+</li>
+<li><a href="/kontakt/">Kontakt</a></li>
+</ul>
+</nav>
+<div class="header-actions">
+<a href="/angebot-einholen/" class="cta-header">Angebot einholen</a>
+</div>
+</div>
+</header>
+<script>
+(function(){
+const triggers = document.querySelectorAll('.has-megamenu > a');
+triggers.forEach(a=>{
+const li = a.parentElement;
+a.addEventListener('mouseenter', ()=> a.setAttribute('aria-expanded','true'));
+a.addEventListener('mouseleave', ()=> a.setAttribute('aria-expanded','false'));
+li.addEventListener('focusin', ()=> a.setAttribute('aria-expanded','true'));
+li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
+});
+})();
+</script>
