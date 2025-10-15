@@ -1,0 +1,437 @@
+<section id="pv-calc" class="calculator-section">
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PV-Wirtschaftlichkeits-Check für Unternehmen in nur 2 Minuten. Erhalten Sie eine kostenlose Erstabschätzung zu Rendite, Amortisation und Einsparpotenzial Ihrer gewerblichen Photovoltaikanlage.">
+    <title>PV-Wirtschaftlichkeitsrechner für Unternehmen | Kostenloser Quick-Check | ALAB Energiesysteme</title>
+    
+    <!-- Preconnect für Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="section2-styles.css">
+    
+    <!-- Chart.js für Visualisierungen -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-grid">
+                <!-- Left Content -->
+                <div class="calculator-content">
+                    <!-- Trust Badge -->
+                    <div class="trust-badge">
+                        <div class="trust-rating">
+                            <span class="rating-number">5.0</span>
+                            <div class="rating-stars">
+                                <svg class="star" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="star" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="star" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="star" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <svg class="star" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="trust-text">Über 20 zufriedene Unternehmenskunden</span>
+                    </div>
+                    
+                    <!-- Headline -->
+                    <h1 class="calculator-title">
+                        Ihr <span class="highlight">PV-Wirtschaftlichkeits-Check</span> 
+                        in nur 2 Minuten
+                    </h1>
+                    
+                    <p class="calculator-description">
+                        Erhalten Sie eine fundierte Ersteinschätzung zu Ihrem Solarpotenzial. 
+                        Kostenlos, unverbindlich und basierend auf realen Marktdaten.
+                    </p>
+                    
+                    <!-- Benefits List -->
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <strong>Individuelle ROI-Berechnung</strong>
+                                <span>Stromkosten-Einsparung, Eigenverbrauchsquote & Amortisationszeitraum</span>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <strong>Technische Machbarkeitsanalyse</strong>
+                                <span>Optimale Anlagengröße, Speicherdimensionierung & Ladeinfrastruktur</span>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <strong>Aktuelle Förderübersicht</strong>
+                                <span>KfW-Programme, regionale Zuschüsse & steuerliche Vorteile</span>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <strong>Management-Summary als PDF</strong>
+                                <span>Kompakte Entscheidungsvorlage für Ihre Geschäftsführung</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <div class="cta-wrapper">
+                        <button class="btn-calculate" id="startCalculation">
+                            <span>Wirtschaftlichkeits-Check starten</span>
+                            <svg class="btn-arrow" viewBox="0 0 20 20" fill="none">
+                                <path d="M7 10h6m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="time-indicator">
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Nur 2 Min. Zeitaufwand</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Visual Card -->
+                <div class="results-preview">
+                    <div class="preview-badge">
+                        <span class="badge-icon">📊</span>
+                        <span>Live-Beispielrechnung</span>
+                    </div>
+                    
+                    <!-- Animated Metrics -->
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <span class="metric-label">Jährliche Ersparnis</span>
+                                <div class="metric-trend positive">
+                                    <svg viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">
+                                <span class="currency">€</span>
+                                <span class="number" data-target="125800">0</span>
+                            </div>
+                            <div class="metric-subtext">bei 350.000 kWh Verbrauch</div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <span class="metric-label">CO₂-Reduktion</span>
+                                <div class="metric-trend positive">
+                                    <svg viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">
+                                <span class="number" data-target="580">0</span>
+                                <span class="unit">t/Jahr</span>
+                            </div>
+                            <div class="metric-subtext">CO₂-Einsparung</div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <span class="metric-label">Autarkiegrad</span>
+                                <div class="metric-trend">
+                                    <svg viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
+                                        <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">
+                                <span class="number" data-target="85">0</span>
+                                <span class="unit">%</span>
+                            </div>
+                            <div class="metric-subtext">Unabhängigkeit vom Netz</div>
+                        </div>
+                        
+                        <div class="metric-card highlight-card">
+                            <div class="metric-header">
+                                <span class="metric-label">Amortisation</span>
+                                <div class="metric-trend">
+                                    <svg viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">
+                                <span class="number" data-target="5.2">0</span>
+                                <span class="unit">Jahre</span>
+                            </div>
+                            <div class="metric-subtext">Return on Investment</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chart Container -->
+                    <div class="chart-container">
+                        <canvas id="savingsChart"></canvas>
+                    </div>
+                    
+                    <!-- Info Text -->
+                    <p class="preview-info">
+                        * Beispielwerte basierend auf durchschnittlichen Gewerbeprojekten. 
+                        Ihre individuellen Werte erhalten Sie nach dem Quick-Check.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Calculator Modal -->
+    <div class="modal" id="calculatorModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">PV-Wirtschaftlichkeits-Check</h2>
+                <button class="modal-close" id="closeCalculator">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Progress Bar -->
+                <div class="calc-progress-bar">
+  <div class="calc-progress-fill" id="progressFill"></div>
+</div>
+                
+                <form id="calculatorForm">
+                    <!-- Step 1: Company Data -->
+                    <div class="form-step active" id="step1">
+                        <h3 class="step-title">Schritt 1: Unternehmensdaten</h3>
+                        <p class="step-description">Für eine präzise Berechnung benötigen wir einige Grundinformationen.</p>
+                        
+                        <div class="form-group">
+                            <label for="companyName">Unternehmensname*</label>
+                            <input type="text" id="companyName" name="companyName" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="street">Straße*</label>
+                                <input type="text" id="street" name="street" required>
+                            </div>
+                            <div class="form-group small">
+                                <label for="houseNumber">Nr.*</label>
+                                <input type="text" id="houseNumber" name="houseNumber" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="zipCode">PLZ*</label>
+                                <input type="text" id="zipCode" name="zipCode" maxlength="5" pattern="\d{5}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">Stadt*</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn-next" onclick="nextStep(1)">
+                                <span>Weiter</span>
+                                <svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M7 10h6m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Energy Data -->
+                    <div class="form-step" id="step2">
+                        <h3 class="step-title">Schritt 2: Energieverbrauch</h3>
+                        <p class="step-description">Diese Angaben helfen uns, Ihr Einsparpotenzial zu berechnen.</p>
+                        
+                        <div class="form-group">
+                            <label for="annualConsumption">Jährlicher Stromverbrauch (kWh)*</label>
+                            <input type="number" id="annualConsumption" name="annualConsumption" placeholder="z.B. 250000" required>
+                            <span class="input-hint">Den Wert finden Sie in Ihrer letzten Jahresabrechnung</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="roofArea">Verfügbare Dachfläche (m²)</label>
+                            <input type="number" id="roofArea" name="roofArea" placeholder="z.B. 1500">
+                            <span class="input-hint">Geschätzte nutzbare Fläche für PV-Module</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="currentPrice">Aktueller Strompreis (Cent/kWh)</label>
+                            <input type="number" id="currentPrice" name="currentPrice" placeholder="z.B. 32" step="0.1">
+                            <span class="input-hint">Ihr durchschnittlicher Arbeitspreis inkl. Umlagen</span>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn-back" onclick="previousStep(2)">
+                                <svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M13 10H7m0 0l3-3m-3 3l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Zurück</span>
+                            </button>
+                            <button type="button" class="btn-next" onclick="nextStep(2)">
+                                <span>Weiter</span>
+                                <svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M7 10h6m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Contact Data -->
+                    <div class="form-step" id="step3">
+                        <h3 class="step-title">Schritt 3: Kontaktdaten</h3>
+                        <p class="step-description">Für die Zusendung Ihrer individuellen Analyse.</p>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactPerson">Ansprechpartner*</label>
+                                <input type="text" id="contactPerson" name="contactPerson" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="position">Position</label>
+                                <input type="text" id="position" name="position" placeholder="z.B. Geschäftsführer">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">E-Mail*</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon</label>
+                                <input type="tel" id="phone" name="phone" placeholder="z.B. 0821 123456">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Zusätzliche Informationen</label>
+                            <textarea id="message" name="message" rows="3" placeholder="Besondere Anforderungen oder Fragen?"></textarea>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <span>Ich akzeptiere die <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>
+und stimme der Kontaktaufnahme zu.*</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn-back" onclick="previousStep(3)">
+                                <svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M13 10H7m0 0l3-3m-3 3l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Zurück</span>
+                            </button>
+                            <button type="submit" class="btn-submit">
+                                <span>Analyse anfordern</span>
+                                <svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Success Step -->
+                    <div class="form-step" id="successStep">
+                        <div class="success-container">
+                            <div class="success-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="success-title">Vielen Dank für Ihre Anfrage!</h3>
+                            <p class="success-message">
+                                Wir haben Ihre Daten erhalten und erstellen gerade Ihre individuelle 
+                                Wirtschaftlichkeitsanalyse. Sie erhalten diese innerhalb von 24 Stunden 
+                                per E-Mail zugeschickt.
+                            </p>
+                            
+                            <div class="success-features">
+                                <h4>Was Sie erwartet:</h4>
+                                <ul>
+                                    <li>✓ Detaillierte Wirtschaftlichkeitsberechnung</li>
+                                    <li>✓ Technisches Anlagenkonzept</li>
+                                    <li>✓ Management-Summary als PDF</li>
+                                </ul>
+                            </div>
+                            
+                            <button type="button" class="btn-close-modal" onclick="closeModal()">
+                                Fenster schließen
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="/assets/js/gewerbe/seection2-pv-calc.js"></script>
+
+    <script>
+  (function () {
+    var root = document.getElementById('gewerbe-landing');
+    if (!root) return;
+    function ready(){ root.setAttribute('data-ready','1'); }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', ready, { once: true });
+    } else {
+      ready();
+    }
+  })();
+</script>
+
+</body>
+</html>
+
+
+</section>

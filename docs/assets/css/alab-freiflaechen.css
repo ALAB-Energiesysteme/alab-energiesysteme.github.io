@@ -1,0 +1,943 @@
+/* === ALAB Freiflächen – vollständige Styles (Wix -> 11ty) === */
+
+/* Farb-Variablen */
+:root{
+  --alab-gold:#d4af37; --alab-blue:#5b8def; --alab-dark-blue:#2c5aa0;
+  --alab-ink:#0f2533; --alab-gray:#5b6b78; --alab-light-gray:#f8f9fa; --alab-white:#fff;
+  --gradient-gold:linear-gradient(135deg,#d4af37 0%,#f4d03f 100%);
+  --gradient-blue:linear-gradient(135deg,#5b8def 0%,#2c5aa0 100%);
+  --gradient-dark:linear-gradient(135deg,#0f2533 0%,#1a3a52 100%);
+  --shadow-sm:0 2px 4px rgba(0,0,0,.05);
+  --shadow-md:0 4px 6px rgba(0,0,0,.07);
+  --shadow-lg:0 10px 20px rgba(0,0,0,.10);
+  --shadow-xl:0 20px 40px rgba(0,0,0,.15);
+
+  /* Aliasse aus Wix */
+  --white:var(--alab-white); --gray:var(--alab-gray); --gray-light:var(--alab-light-gray);
+  --gray-dark:var(--alab-ink); --primary:var(--alab-ink); --accent:var(--alab-gold);
+  --success:#16a34a; --gradient-primary:var(--gradient-blue);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{
+  font-family:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  line-height:1.6; color:var(--alab-ink); background:#fff; overflow-x:hidden;
+}
+
+/* ===== Side Navigation ===== */
+.side-nav{
+  position:fixed; right:2rem; top:50%; transform:translateY(-50%);
+  background:rgba(255,255,255,.95); backdrop-filter:blur(20px);
+  padding:2rem 1.5rem; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,.1);
+  z-index:1000; min-width:160px;
+}
+.side-nav-logo{ text-align:center; margin-bottom:2rem; padding-bottom:1.5rem; border-bottom:2px solid rgba(212,175,55,.2) }
+.side-nav-logo h3{ font-size:1.5rem; font-weight:800; color:var(--alab-ink) }
+.side-nav-logo span{ color:var(--alab-gold); display:block; font-size:.9rem; font-weight:500; margin-top:.25rem }
+.side-nav-menu{ display:flex; flex-direction:column; gap:.5rem }
+.nav-item{
+  position:relative; padding:.75rem 1rem; color:var(--alab-gray); text-decoration:none; font-weight:600;
+  font-size:.95rem; transition:.3s; border-radius:10px; text-align:center; display:block;
+}
+.nav-item:hover{ background:rgba(212,175,55,.1); color:var(--alab-gold) }
+.nav-item.active{ background:var(--gradient-gold); color:#fff }
+.nav-cta{ margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(212,175,55,.2) }
+.nav-cta .nav-item{ background:var(--gradient-gold); color:#fff }
+.nav-cta .nav-item:hover{ transform:translateY(-2px); box-shadow:0 10px 25px rgba(212,175,55,.3) }
+
+/* ===== Hero ===== */
+.hero-modern{ min-height:100vh; position:relative; display:flex; align-items:center; overflow:hidden }
+.hero-background{ position:absolute; inset:0; background:var(--gradient-blue); z-index:-1 }
+.hero-overlay{ position:absolute; inset:0; background:rgba(15,37,51,.7) }
+.hero-content-modern{
+  max-width:1400px; margin:0 auto; padding:6rem 2rem;
+  position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;
+}
+.hero-text-modern{ max-width:700px; position:relative; z-index:2 }
+.hero-badge-modern{
+  display:inline-block; padding:.5rem 1rem; background:rgba(212,175,55,.2); border:1px solid var(--alab-gold);
+  border-radius:30px; color:#fff; font-size:.875rem; font-weight:700; letter-spacing:1px; margin-bottom:2rem; backdrop-filter:blur(10px);
+}
+.hero-title-modern{ font-size:3.5rem; font-weight:800; line-height:1.2; color:#fff; margin-bottom:1.5rem }
+.text-gradient{ background:var(--gradient-gold); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text }
+.hero-description-modern{ font-size:1.25rem; color:rgba(255,255,255,.9); line-height:1.8; margin-bottom:2.5rem }
+.hero-cta-group{ display:flex; gap:1rem; flex-wrap:wrap }
+.btn-modern{ padding:1rem 2rem; border-radius:30px; font-weight:700; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:.75rem; transition:.3s }
+.btn-primary-modern{ background:#fff; color:var(--alab-ink) }
+.btn-primary-modern:hover{ transform:translateY(-3px); box-shadow:var(--shadow-xl) }
+.btn-secondary-modern{ background:transparent; color:#fff; border:2px solid rgba(255,255,255,.3); backdrop-filter:blur(10px) }
+.btn-secondary-modern:hover{ background:rgba(255,255,255,.1); border-color:#fff }
+
+.hero-image-3d{ position:relative; perspective:1000px; height:600px }
+.hero-image-placeholder{
+  width:100%; height:100%; background:url('/assets/img/freiflaechen/freiflaeche_blau.png') center/cover; border-radius:20px;
+  transform:rotateY(-15deg) rotateX(5deg); transform-style:preserve-3d; transition:transform .6s;
+  box-shadow:20px 20px 60px rgba(0,0,0,.3), -20px -20px 60px rgba(255,255,255,.1); position:relative; overflow:visible;
+}
+.hero-image-placeholder:hover{ transform:rotateY(-10deg) rotateX(3deg) }
+.hero-text-overlay{
+  position:absolute; bottom:-50px; left:-50px; background:rgba(212,175,55,.95); backdrop-filter:blur(10px);
+  padding:2rem; border-radius:15px; max-width:350px; transform:translateZ(50px); box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+.hero-text-overlay h3{ color:#fff; font-size:1.2rem; margin-bottom:.5rem }
+.hero-text-overlay p{ color:rgba(255,255,255,.9); font-size:.95rem; line-height:1.5 }
+
+.scroll-indicator-modern{ position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); animation:bounce 2s infinite }
+.mouse{ width:30px; height:50px; border:2px solid rgba(255,255,255,.5); border-radius:20px; position:relative }
+.wheel{ width:4px; height:10px; background:rgba(255,255,255,.5); border-radius:2px; position:absolute; top:10px; left:50%; transform:translateX(-50%); animation:scroll 2s infinite }
+
+/* ===== Container + Section Header ===== */
+.container{ max-width:1400px; margin:0 auto; padding:0 2rem }
+.section-header-modern{ text-align:center; margin-bottom:4rem }
+.section-label{ display:inline-block; padding:.5rem 1rem; background:var(--gradient-gold); color:#fff; border-radius:30px; font-size:.75rem; font-weight:700; letter-spacing:2px; margin-bottom:1rem }
+.section-title-modern{ font-size:2.5rem; font-weight:800; color:var(--alab-ink); margin-bottom:1rem }
+.section-subtitle-modern{ font-size:1.125rem; color:var(--alab-gray); max-width:600px; margin:0 auto }
+
+/* ===== Services ===== */
+.services-modern{ padding:5rem 0; background:var(--gray-light) }
+.services-grid-modern{ display:grid; grid-template-columns:repeat(auto-fit,minmax(350px,1fr)); gap:2rem; margin-bottom:4rem }
+.service-card-modern{
+  background:#fff; padding:2rem; border-radius:20px; position:relative; overflow:hidden; transition:.3s; cursor:pointer;
+}
+.service-card-modern::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:4px; background:var(--gradient-blue); transform:scaleX(0); transition:.3s
+}
+.service-card-modern:hover{ transform:translateY(-10px); box-shadow:var(--shadow-xl) }
+.service-card-modern:hover::before{ transform:scaleX(1) }
+.service-icon-modern{ width:60px; height:60px; background:var(--gradient-gold); border-radius:15px; display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; transition:.6s cubic-bezier(.68,-.55,.265,1.55) }
+.service-icon-modern i{ font-size:1.5rem; color:#fff }
+.service-card-modern:hover .service-icon-modern{ transform:rotate(360deg) scale(1.1) }
+.service-card-modern h3{ font-size:1.25rem; font-weight:700; color:var(--alab-ink); margin-bottom:1rem }
+.service-card-modern p{ color:var(--alab-gray); line-height:1.6 }
+.service-hover-content{
+  position:absolute; bottom:0; left:0; right:0; background:var(--gradient-blue); color:#fff; padding:1.5rem; transform:translateY(100%); transition:.3s
+}
+.service-card-modern:hover .service-hover-content{ transform:translateY(0) }
+.service-hover-content ul{ list-style:none }
+.service-hover-content li{ padding:.25rem 0; font-size:.9rem }
+.service-hover-content li::before{ content:'→ '; margin-right:.5rem }
+
+/* ===== Technische Leistungen (Carousel) ===== */
+.technical-services-modern{ margin-top:4rem; padding-top:4rem; border-top:2px solid rgba(212,175,55,.2); overflow:hidden }
+.subsection-title{ text-align:center; font-size:1.75rem; font-weight:700; color:var(--alab-ink); margin-bottom:3rem }
+.tech-carousel-container{ position:relative; max-width:1200px; margin:0 auto; padding:0 4rem; overflow:hidden; border-radius:20px }
+.tech-carousel{ display:flex; gap:0; transition:transform .5s cubic-bezier(.4,0,.2,1) }
+.tech-carousel-item{ min-width:100%; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; padding:0 1rem; box-sizing:border-box }
+
+.tech-3d-image{ perspective:1500px; height:500px; position:relative }
+.tech-image-placeholder{
+  width:100%; height:100%; background-size:cover; background-position:center; border-radius:20px;
+  transform:rotateY(15deg) rotateX(-5deg); transform-style:preserve-3d; transition:transform .6s;
+  box-shadow:25px 25px 50px rgba(0,0,0,.25), -15px -15px 30px rgba(255,255,255,.1); position:relative; display:flex; align-items:center; justify-content:center;
+}
+.tech-image-placeholder[data-service="Planung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung.png') }
+.tech-image-placeholder[data-service="Genehmigung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung2.png') }
+.tech-image-placeholder[data-service="Bau"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung3.png') }
+.tech-image-placeholder[data-service="Finanzierung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung4.png') }
+.tech-image-placeholder[data-service="Wartung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung5.png') }
+.tech-image-placeholder[data-service="Ökologie"]{ background:var(--gradient-blue) }
+.tech-image-placeholder:hover{ transform:rotateY(10deg) rotateX(-3deg) scale(1.02) }
+
+.tech-content-overlay{
+  position:absolute; bottom:30px; right:-80px; background:#fff; padding:2rem; border-radius:15px; max-width:320px;
+  transform:translateZ(60px); box-shadow:0 20px 40px rgba(0,0,0,.15); border:2px solid var(--alab-gold)
+}
+.tech-content-overlay h4{ color:var(--alab-ink); font-size:1.1rem; margin-bottom:1rem; display:flex; align-items:center; gap:.5rem; flex-wrap:wrap }
+.tech-content-overlay .tech-icon{ width:40px; height:40px; background:var(--gradient-gold); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0 }
+.tech-content-overlay .tech-icon i{ color:#fff; font-size:1.2rem }
+.tech-content-overlay p{ color:var(--alab-gray); line-height:1.6 }
+
+.tech-content-detail{ flex:1; padding:2rem }
+.tech-content-detail h3{ font-size:2rem; color:var(--alab-ink); margin-bottom:1rem }
+.tech-content-detail p{ color:var(--alab-gray); font-size:1.1rem; line-height:1.8; margin-bottom:2rem }
+.tech-features{ list-style:none; display:grid; gap:1rem }
+.tech-features li{ padding-left:2rem; position:relative; color:var(--alab-ink); font-weight:500 }
+.tech-features li::before{ content:'✓'; position:absolute; left:0; color:var(--alab-gold); font-weight:700; font-size:1.2rem }
+
+/* Carousel Controls */
+.carousel-controls{ display:flex; justify-content:center; gap:1rem; margin-top:3rem }
+.carousel-btn{
+  width:50px; height:50px; border-radius:50%; background:#fff; border:2px solid var(--alab-gold);
+  display:flex; align-items:center; justify-content:center; cursor:pointer; transition:.3s
+}
+.carousel-btn:hover{ background:var(--gradient-gold); transform:scale(1.1) }
+.carousel-btn i{ color:var(--alab-ink); font-size:1.2rem }
+.carousel-btn:hover i{ color:#fff }
+.carousel-dots{ display:flex; align-items:center; gap:.5rem }
+.carousel-dot{ width:10px; height:10px; border-radius:50%; background:var(--alab-gray); opacity:.3; transition:.3s; cursor:pointer }
+.carousel-dot.active{ width:30px; border-radius:15px; background:var(--gradient-gold); opacity:1 }
+
+/* ===== Prozess ===== */
+.process-modern{ padding:5rem 0; background:#fff }
+.process-timeline-modern{ position:relative; max-width:1000px; margin:0 auto }
+.timeline-line{ position:absolute; left:30px; top:0; bottom:0; width:2px; background:var(--gradient-blue) }
+.process-item-modern{ display:flex; gap:3rem; margin-bottom:3rem; position:relative }
+.process-number-modern{
+  width:60px; height:60px; background:var(--gradient-gold); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:1.25rem; flex-shrink:0; position:relative; z-index:1
+}
+.process-content-modern{ flex:1; padding:1.5rem; background:var(--gray-light); border-radius:15px; transition:.3s; position:relative }
+.process-content-modern:hover{ background:#fff; box-shadow:var(--shadow-lg) }
+.process-content-modern h3{ font-size:1.5rem; font-weight:700; color:var(--alab-ink); margin-bottom:1rem }
+.process-content-modern p{ color:var(--alab-gray); margin-bottom:1rem }
+.process-details-modern{ max-height:0; overflow:hidden; transition:.5s; opacity:0; margin-top:0 }
+.process-content-modern:hover .process-details-modern{ max-height:500px; margin-top:1rem; opacity:1 }
+.process-details-modern h4{ font-size:1rem; color:var(--alab-blue); margin-bottom:.5rem }
+.process-details-modern ul{ list-style:none }
+.process-details-modern li{ padding:.25rem 0; color:var(--alab-ink); font-size:.9rem }
+.process-details-modern li::before{ content:'✓ '; color:var(--success); margin-right:.5rem }
+
+/* ===== Benefits ===== */
+.benefits-modern{ padding:5rem 0; background:linear-gradient(135deg, rgba(212,175,55,.05) 0%, rgba(91,141,239,.05) 100%) }
+.benefits-grid-modern{ display:grid; grid-template-columns:repeat(auto-fit,minmax(350px,1fr)); gap:2rem }
+.benefit-card-modern{ background:#fff; padding:2rem; border-radius:20px; position:relative; transition:.3s; overflow:hidden }
+.benefit-card-modern::before{
+  content:""; position:absolute; top:-100%; left:-100%; width:300%; height:300%;
+  background:radial-gradient(circle, rgba(102,126,234,.1) 0%, transparent 70%); transition:.5s
+}
+.benefit-card-modern:hover::before{ top:-150%; left:-150%; transform:rotate(45deg) }
+.benefit-card-modern:hover{ transform:translateY(-10px); box-shadow:var(--shadow-xl) }
+.benefit-icon-modern{ width:70px; height:70px; background:var(--gradient-gold); border-radius:20px; display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem }
+.benefit-icon-modern i{ font-size:2rem; color:#fff }
+.benefit-card-modern h3{ font-size:1.25rem; font-weight:700; color:var(--alab-ink); margin-bottom:1rem }
+.benefit-card-modern p{ color:var(--alab-gray); line-height:1.6; margin-bottom:1rem }
+.benefit-stats{ display:flex; gap:1rem; margin-top:1rem }
+.benefit-stats span{ padding:.25rem .75rem; background:rgba(212,175,55,.1); color:var(--alab-gold); border-radius:15px; font-size:.875rem; font-weight:700 }
+
+/* ===== FAQ ===== */
+.faq-modern{ padding:5rem 0; background:#fff }
+.faq-wrapper{ display:grid; grid-template-columns:1fr 2fr; gap:4rem; align-items:start; max-width:1200px; margin:0 auto }
+.faq-image-placeholder{
+  width:100%; height:500px; background:url('/assets/img/freiflaechen/freiflaeche_blau_fragezeichen.png') center/cover;
+  border-radius:20px; position:relative; overflow:hidden; box-shadow:var(--shadow-lg)
+}
+.faq-content{ display:flex; flex-direction:column; gap:1rem }
+.faq-item{ background:#fff; border-radius:15px; overflow:hidden; box-shadow:var(--shadow-sm); transition:.3s }
+.faq-item:hover{ box-shadow:var(--shadow-md) }
+.faq-question{ padding:1.5rem; cursor:pointer; display:flex; align-items:center; gap:1rem; transition:.3s }
+.faq-question:hover{ background:rgba(212,175,55,.05) }
+.faq-question i{ color:var(--alab-gold); font-size:1.2rem; transition:.3s }
+.faq-item.active .faq-question i{ transform:rotate(45deg) }
+.faq-question h3{ font-size:1.1rem; font-weight:700; color:var(--alab-ink); margin:0 }
+.faq-answer{ max-height:0; overflow:hidden; transition:.5s }
+.faq-item.active .faq-answer{ max-height:300px; padding:0 1.5rem 1.5rem }
+.faq-answer p{ color:var(--alab-gray); line-height:1.6; margin:0 }
+
+/* ===== Modal ===== */
+.lightbox-modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.8); z-index:9999; justify-content:center; align-items:center; backdrop-filter:blur(5px) }
+.lightbox-modal.show{ display:flex; animation:fadeIn .3s ease }
+.lightbox-content{ background:#fff; border-radius:20px; padding:3rem; max-width:500px; width:90%; position:relative; box-shadow:0 30px 60px rgba(0,0,0,.3); animation:slideUp .3s ease }
+.lightbox-close{
+  position:absolute; top:1.5rem; right:1.5rem; width:40px; height:40px; border-radius:50%; background:var(--alab-light-gray);
+  border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.3s
+}
+.lightbox-close:hover{ background:var(--gradient-gold); transform:rotate(90deg) }
+.lightbox-close i{ font-size:1.2rem; color:var(--alab-ink) }
+.lightbox-close:hover i{ color:#fff }
+.contact-form{ display:flex; flex-direction:column; gap:1.5rem }
+.contact-form h2{ color:var(--alab-ink); font-size:2rem; margin-bottom:1rem; text-align:center }
+.form-group{ display:flex; flex-direction:column; gap:.5rem }
+.form-group label{ color:var(--alab-ink); font-weight:700; font-size:.95rem }
+.form-group input,.form-group textarea{
+  padding:.75rem 1rem; border:2px solid rgba(212,175,55,.2); border-radius:10px; font:inherit; font-size:1rem; transition:.3s
+}
+.form-group input:focus,.form-group textarea:focus{ outline:none; border-color:var(--alab-gold); box-shadow:0 0 0 3px rgba(212,175,55,.1) }
+.form-group textarea{ resize:vertical; min-height:120px }
+.form-submit{ background:var(--gradient-gold); color:#fff; padding:1rem 2rem; border:none; border-radius:50px; font-size:1.1rem; font-weight:700; cursor:pointer; transition:.3s; margin-top:1rem }
+.form-submit:hover{ transform:translateY(-3px); box-shadow:0 10px 30px rgba(212,175,55,.3) }
+/* Danke-Block */
+.form-success{ display:none; text-align:center; padding:2rem; border-radius:16px; background:linear-gradient(135deg, rgba(91,141,239,.08), rgba(212,175,55,.08)); border:1px solid rgba(212,175,55,.35); box-shadow:0 10px 30px rgba(0,0,0,.15) }
+.form-success.show{ display:block; animation:popIn .35s ease both; margin-top:1rem }
+.form-success .success-icon{ width:76px;height:76px;border-radius:999px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;background:var(--gradient-gold);color:#fff;box-shadow:0 10px 24px rgba(212,175,55,.35);font-size:1.5rem }
+.form-success h3{ margin:.25rem 0 .5rem; font-size:1.4rem; color:var(--alab-ink) }
+.form-success p{ margin:0; color:var(--alab-gray) }
+.form-success .actions{ margin-top:1rem; display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap }
+.form-success .btn-close,.form-success .btn-again{
+  background:var(--gradient-gold); color:#fff; border:none; border-radius:999px; padding:.75rem 1.25rem; font-weight:700; cursor:pointer;
+  box-shadow:0 8px 22px rgba(212,175,55,.3); transition:.2s
+}
+.form-success .btn-close:hover,.form-success .btn-again:hover{ transform:translateY(-2px); box-shadow:0 14px 28px rgba(212,175,55,.35) }
+
+/* ===== Animations ===== */
+@keyframes bounce{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}40%{transform:translateX(-50%) translateY(-10px)}60%{transform:translateX(-50%) translateY(-5px)}}
+@keyframes scroll{0%{opacity:0;transform:translateX(-50%) translateY(0)}10%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(15px)}}
+@keyframes fadeIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes popIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
+
+/* ===== Responsive ===== */
+@media (max-width:1024px){
+  .hero-title-modern{ font-size:2.5rem }
+  .hero-content-modern{ grid-template-columns:1fr }
+  .hero-image-3d{ height:400px; margin-top:2rem }
+  .tech-carousel-item{ grid-template-columns:1fr }
+  .tech-3d-image{ height:350px }
+  .tech-content-overlay{ right:20px; max-width:280px }
+}
+@media (max-width:768px){
+  .hero-title-modern{ font-size:2rem }
+  .hero-stats-modern{ grid-template-columns:1fr }
+  .services-grid-modern,.benefits-grid-modern{ grid-template-columns:1fr }
+  .faq-wrapper{ grid-template-columns:1fr; gap:2rem }
+}
+/* === Freiflächen Overrides: Text bewusst schwarz === */
+.hero-title-modern{ color:#000; }            /* "Freifläche als renditestarke ..." */
+.hero-description-modern{ color:#000; }      /* langer Absatz unter der Überschrift */
+
+.btn-secondary-modern{                       /* "FAQ ansehen" Button */
+  color:#000;
+  border-color:rgba(0,0,0,.35);
+}
+.btn-secondary-modern:hover{
+  color:#000;
+  border-color:#000;
+  background:rgba(0,0,0,.06);
+}
+
+/* Wichtig: die goldene Wortmarke bleibt gradient */
+.hero-title-modern .text-gradient{ 
+  -webkit-text-fill-color: initial;
+}
+/* Nur das Wort im Hero-Titel in ALAB-Gold */
+.hero-title-modern .text-gradient{
+  background: none !important;               /* evtl. alte Gradient-Regel neutralisieren */
+  color: var(--alab-gold) !important;        /* ALAB-Gold */
+  -webkit-text-fill-color: var(--alab-gold) !important;
+}
+
+/* Outline-Buttons auf hellem Hintergrund */
+.hero-modern .btn-secondary-modern{
+  background: transparent;
+  color: var(--alab-ink);
+  border: 2px solid rgba(15,37,51,.22);
+}
+
+.hero-modern .btn-secondary-modern:hover{
+  background: rgba(15,37,51,.05);
+  border-color: rgba(15,37,51,.36);
+}
+
+/* Gleich breite Kontakt-Buttons */
+.contact-cta{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 720px;
+  margin: 1rem auto 0;
+  align-items: center;
+}
+.contact-cta .btn-modern{
+  width: 100%;
+  height: 56px;
+  border-radius: 999px;
+  padding: 0 24px;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+}
+.contact-cta .btn-modern i{ font-size: 1rem; }
+
+/* Beide Buttons weiß (wie in deinem Screenshot) */
+.btn-white,
+.btn-primary-modern{
+  background: var(--alab-white);
+  color: var(--alab-ink);
+  border: none;
+}
+
+/* Mobil: untereinander */
+@media (max-width: 640px){
+  .contact-cta{ grid-template-columns: 1fr; }
+}
+
+/* DSGVO-Einwilligung */
+.consent-row{
+  display:flex;
+  align-items:flex-start;
+  gap:.75rem;
+  margin:.25rem 0 1rem;
+}
+.consent-row input[type="checkbox"]{
+  width:18px;height:18px; flex:0 0 auto; margin-top:.2rem;
+  accent-color: var(--alab-gold);
+}
+.consent-row label{
+  font-family: 'Montserrat', sans-serif;
+  font-size:.95rem; line-height:1.45;
+  color: var(--alab-ink); font-weight:600;
+}
+.consent-row a{ color: var(--alab-blue); text-decoration: underline; }
+.consent-row .asterisk{ color: var(--alab-gold); margin-left:2px; }
+
+  /* Freiflächen: Kontakt-Modal kompakter */
+  #contactModal .lightbox-content{
+    max-width: 460px;
+    width: calc(100% - 48px);
+    padding: 24px;
+    border-radius: 16px;
+  }
+  #contactModal .contact-form{ gap: 12px; }
+
+  #contactModal .form-group input,
+  #contactModal .form-group textarea{
+    padding: .6rem .8rem;
+    font-size: .95rem;
+  }
+  #contactModal .form-group textarea{ min-height: 110px; }
+
+  #contactModal .form-submit{
+    width: auto;
+    align-self: center;
+    padding: .75rem 1.25rem;
+    font-size: 1rem;
+  }
+
+  /* DSGVO-Zeile hübsch neben Checkbox */
+  #contactModal .privacy-row{
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    align-items: start;
+    gap: .5rem;
+    font-size: .9rem;
+    line-height: 1.4;
+  }
+  #contactModal .privacy-row input[type="checkbox"]{ margin-top: .2rem; }
+
+  /* falls das Formular mal inline genutzt wird */
+  #contactForm{ max-width: 640px; margin: 0 auto; }
+
+  @media (max-width: 420px){
+    #contactModal .lightbox-content{ max-width: 96%; padding: 20px; }
+  }
+
+/* ===== Freiflächen – Hero mobil: Vollbreit + goldener Block unten ===== */
+@media (max-width: 1024px){
+  /* Hero einspaltig, Bild nach oben */
+  .hero-content-modern{
+    display:grid;
+    grid-template-columns:1fr !important;
+    gap:16px;
+  }
+
+  /* Bild-Container aus der .container-Breite "ausbrechen" -> volle Viewportbreite */
+  .hero-image-3d{
+    order:-1;
+    position:relative;
+    width:100vw;                     /* volle Breite */
+    height:clamp(460px, 86vh, 620px);/* groß wie auf Startseite */
+    margin:0 calc(50% - 50vw);       /* links/rechts bis zum Rand ziehen */
+    perspective:none;
+  }
+
+  /* Bild selbst vollflächig, ohne 3D-Kippung */
+  .hero-image-3d .hero-image-placeholder{
+    height:100%;
+    width:100%;
+    transform:none !important;
+    background-position:center;
+    border-radius:0 0 20px 20px;     /* unten sanft abrunden */
+    box-shadow:0 10px 28px rgba(0,0,0,.12);
+  }
+
+  /* goldene Karte an den unteren Rand des Bildes setzen */
+  .hero-image-3d .hero-text-overlay{
+    position:absolute !important;    /* frühere "static" Regeln übersteuern */
+    left:16px; right:16px; bottom:16px;
+    top:auto;                         /* sicherheitshalber */
+    transform:none !important;
+    max-width:none;
+    margin:0;
+  }
+}
+
+@media (max-width: 1024px){
+  #alab-freiflaechen .hero-content-modern{
+    padding: 0 2rem 16px !important;   /* top = 0, Seitenbeilagen bleiben */
+  }
+  #alab-freiflaechen .hero-modern{
+    padding-top: 0 !important;
+  }
+  #alab-freiflaechen .hero-image-3d{
+    margin-top: 0 !important;          /* falls irgendwo ein margin gesetzt ist */
+  }
+}
+
+/* (falls der Seitennavigator nicht im #alab-freiflaechen-Wrapper liegt) */
+@media (max-width: 1024px){
+  .side-nav{ display: none !important; }
+}
+
+/* Freiflächen – Überschrift auf Mobile kleiner */
+@media (max-width: 768px){
+  #alab-freiflaechen .section-title-modern,
+  #alab-freiflaechen .section-header-modern h1,
+  #alab-freiflaechen .section-header-modern h2{
+    font-size: clamp(1.25rem, 7vw, 1.85rem); /* ~20–30px */
+    line-height: 1.22;
+    text-wrap: balance;
+  }
+}
+
+@media (max-width: 420px){
+  #alab-freiflaechen .section-title-modern,
+  #alab-freiflaechen .section-header-modern h1,
+  #alab-freiflaechen .section-header-modern h2{
+    font-size: clamp(1.15rem, 7.5vw, 1.6rem); /* ~18–25px */
+  }
+  #alab-freiflaechen .section-header-modern{ margin-bottom: 24px; }
+}
+
+
+/* ==== Technische Leistungen – MOBILE ONLY (<=768px) ==== */
+@media (max-width: 768px){
+  /* Container & Track: 1 Slide pro View, ohne Peek, mit Swipe */
+  #alab-freiflaechen .technical-services-modern{ overflow: visible; }
+  #alab-freiflaechen .tech-carousel-container{
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;                 /* schneidet den nächsten Slide ab */
+  }
+  #alab-freiflaechen .tech-carousel{
+    display: grid !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: 100% !important;          /* volle Breite */
+    gap: 0 !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    transform: none !important;
+  }
+  #alab-freiflaechen .tech-carousel-item{
+    min-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 0 !important;
+    scroll-snap-align: start !important;         /* am linken Rand einrasten */
+  }
+
+  /* Bildfläche: sauber, gleiche Höhe, kein 3D */
+  #alab-freiflaechen .tech-3d-image{
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    margin: 0 0 8px !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    perspective: none !important;
+    box-shadow: var(--shadow-lg);
+  }
+  #alab-freiflaechen .tech-image-placeholder{
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    transform: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Weißes Overlay im Bild mobil ausblenden */
+  #alab-freiflaechen .tech-content-overlay{ display: none !important; }
+
+  /* Text unter dem Bild kompakt */
+  #alab-freiflaechen .tech-content-detail{ padding: 0 2px 8px !important; }
+  #alab-freiflaechen .tech-content-detail h3{
+    font-size: 1.2rem !important; line-height: 1.25; margin: .4rem 0 .3rem !important;
+  }
+  #alab-freiflaechen .tech-content-detail p{
+    font-size: .98rem !important; line-height: 1.42 !important; margin: 0 0 .2rem !important;
+  }
+  #alab-freiflaechen .tech-features{ gap: .5rem !important; }
+  #alab-freiflaechen .tech-features li{ font-size: .95rem !important; line-height: 1.35 !important; }
+
+  /* Pfeile ausblenden (nur Swipe + Dots) */
+  #alab-freiflaechen .carousel-controls,
+  #alab-freiflaechen .carousel-btn{ display: none !important; }
+
+  /* Dots */
+  #alab-freiflaechen .ts-dots{
+    display:flex; justify-content:center; gap:8px; margin:8px 0 2px;
+  }
+  #alab-freiflaechen .ts-dots button{
+    width:10px; height:10px; border:0; border-radius:999px; background:#cfd6dd; opacity:.9;
+  }
+  #alab-freiflaechen .ts-dots button[aria-current="true"]{
+    width:28px; height:10px; border-radius:999px;
+    background:linear-gradient(90deg,var(--alab-gold),#f4d03f);
+  }
+}
+
+
+/* Einheitliche Höhe & identischer Startpunkt (nur Mobil) */
+#alab-freiflaechen { --ts-card-h: 650px; }  /* bei Bedarf 620–700 anpassen */
+
+@media (max-width: 768px){
+  /* Jede Slide als „Karte“ mit fixer Mindesthöhe */
+  #alab-freiflaechen .tech-carousel-item{
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:flex-start !important;
+    min-height: var(--ts-card-h) !important;
+    box-sizing: border-box;
+    padding-bottom: 12px !important; /* gleicher Unterrand */
+  }
+
+  /* Bild oben: exakt gleiche Höhe + gleicher Abstand */
+  #alab-freiflaechen .tech-3d-image{
+    flex: 0 0 auto !important;
+    aspect-ratio: 16 / 9 !important;   /* identische Bildhöhe */
+    margin: 0 0 12px 0 !important;
+  }
+
+  /* Textblock füllt den Rest – Überschrift immer direkt unter dem Bild */
+  #alab-freiflaechen .tech-content-detail{
+    flex: 1 1 auto !important;
+    display:flex !important;
+    flex-direction:column !important;
+  }
+  #alab-freiflaechen .tech-content-detail h3{
+    margin: 4px 0 .3rem !important;  /* konsistenter Startpunkt */
+    line-height: 1.25 !important;
+  }
+  #alab-freiflaechen .tech-features{ margin-top: .25rem !important; }
+}
+
+
+/* Mobile: Lücke unter "Technische Leistungen" schließen */
+@media (max-width: 768px){
+  /* gleich hohe Slides, aber kompakter als zuvor */
+  #alab-freiflaechen{ --ts-card-h: 650px; }         /* vorher 650px */
+  /* sehr kleine Screens noch etwas knapper */
+  @media (max-width: 420px){
+    #alab-freiflaechen{ --ts-card-h: 560px; }
+  }
+
+  /* Abschnitt unten dichter an den nächsten Teil rücken */
+  #alab-freiflaechen .technical-services-modern{
+    margin-bottom: 8px !important;
+    padding-bottom: 0 !important;
+  }
+  /* Dots unten noch etwas enger */
+  #alab-freiflaechen .ts-dots{ margin: 6px 0 2px !important; }
+}
+
+/* ==== Prozess: Mobile Cards passen, kein Überstand rechts ==== */
+@media (max-width: 768px){
+  /* handliche Tokens */
+  #alab-freiflaechen{
+    --step-number: 48px;          /* Größe der runden Zahl */
+    --step-gap: 12px;             /* Abstand Zahl ↔ Karte */
+    --step-card-radius: 12px;
+    --step-card-min: 0px;         /* optional: z.B. 200px, wenn alle gleich hoch wirken sollen */
+  }
+
+  /* kein horizontaler Überlauf */
+  #alab-freiflaechen .process-modern{ overflow-x: hidden; }
+
+  /* zweispaltiges, sauberes Layout */
+  #alab-freiflaechen .process-item-modern{
+    display: grid;
+    grid-template-columns: var(--step-number) 1fr; /* links Zahl, rechts Karte */
+    align-items: start;
+    gap: var(--step-gap);
+    margin: 16px 0 20px;
+  }
+
+  /* kleinere runde Zahlen */
+  #alab-freiflaechen .process-number-modern{
+    width: var(--step-number);
+    height: var(--step-number);
+    font-size: .95rem;
+  }
+
+  /* Timeline genau unter den Zahlen zentrieren */
+  #alab-freiflaechen .timeline-line{
+    left: calc(var(--step-number) / 2);
+  }
+
+  /* Karte füllt die verfügbare Breite, ohne überzustehen */
+  #alab-freiflaechen .process-content-modern{
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 16px;
+    border-radius: var(--step-card-radius);
+    box-shadow: var(--shadow-sm);
+    min-height: var(--step-card-min); /* ggf. auf 200–220px setzen für optisch gleiche Höhe */
+    box-sizing: border-box;
+  }
+}
+
+/* ==== Prozess (mobil) – saubere Breite + Wortumbruch ==== */
+@media (max-width: 768px){
+  #alab-freiflaechen .process-content-modern{
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    box-sizing: border-box;
+    cursor: pointer;                       /* für Toggle (s. unten) */
+  }
+  #alab-freiflaechen .process-content-modern h3{
+    overflow-wrap: anywhere;                /* bricht sehr lange Wörter */
+    word-break: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  /* Toggle-Zustand sichtbar machen (siehe JS) */
+  #alab-freiflaechen .process-details-modern{
+    transition: max-height .35s ease, opacity .25s ease, margin .25s ease;
+  }
+  #alab-freiflaechen .process-item-modern.active .process-details-modern{
+    max-height: 600px;
+    opacity: 1;
+    margin-top: .6rem;
+  }
+}
+
+/* ===== Freiflächen – Kontakt-Modal: mobile optimiert ===== */
+@media (max-width: 480px){
+  /* Box wirklich ins Viewport einpassen */
+  #alab-freiflaechen #contactModal .lightbox-content{
+    box-sizing: border-box;
+    width: 92vw !important;
+    max-width: 92vw !important;
+    margin: 0 auto;
+    padding: 16px 16px 18px !important;
+    border-radius: 14px !important;
+  }
+
+  /* Headline kleiner + kein Überlappen mit dem X */
+  #alab-freiflaechen #contactModal .contact-form h2{
+    font-size: clamp(1.15rem, 5.2vw, 1.5rem) !important;
+    line-height: 1.2 !important;
+    margin: 0 0 10px !important;
+    padding-right: 40px;           /* Platz fürs X */
+    word-break: break-word;
+    hyphens: auto;
+    text-align: center;
+  }
+
+  /* Close-Button kompakter & näher am Rand */
+  #alab-freiflaechen #contactModal .lightbox-close{
+    width: 32px !important;
+    height: 32px !important;
+    top: 10px !important;
+    right: 10px !important;
+  }
+
+  /* Felder & Labels gut lesbar (iOS: 16px verhindert Zoom) */
+  #alab-freiflaechen #contactModal .form-group{ gap: 6px; }
+  #alab-freiflaechen #contactModal .form-group label{
+    font-size: .9rem !important;
+  }
+  #alab-freiflaechen #contactModal .form-group input,
+  #alab-freiflaechen #contactModal .form-group textarea{
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px !important;     /* verhindert iOS-Zoom */
+    padding: .65rem .8rem !important;
+  }
+  #alab-freiflaechen #contactModal .form-group textarea{
+    min-height: 110px !important;
+  }
+
+  /* Checkbox-/DSGVO-Zeilen enger & sauber ausgerichtet */
+  #alab-freiflaechen #contactModal .privacy-row{
+    grid-template-columns: 20px 1fr !important;
+    gap: .5rem !important;
+  }
+  #alab-freiflaechen #contactModal .privacy-row input[type="checkbox"]{
+    width: 20px; height: 20px;
+    margin-top: .15rem;
+  }
+
+  /* CTA-Button auf volle Breite */
+  #alab-freiflaechen #contactModal .form-submit{
+    width: 100% !important;
+    max-width: 360px;
+    height: 48px;
+    font-size: 1rem !important;
+    margin: 8px auto 0 !important;
+    display: block;
+  }
+}
+
+/* minimaler Rand zum Viewport bei sehr schmalen Geräten */
+@media (max-width: 360px){
+  #alab-freiflaechen #contactModal .lightbox-content{
+    width: 94vw !important;
+    max-width: 94vw !important;
+    padding: 14px !important;
+  }
+}
+
+/* Hero mobil ohne seitliche Lücke */
+@media (max-width: 1024px){
+  /* Container-Padding links/rechts raus */
+  #alab-freiflaechen .hero-content-modern{
+    padding: 0 0 16px !important; /* vorher 0 2rem 16px */
+  }
+
+  /* Text bekommt eigenes Innenpadding zurück */
+  #alab-freiflaechen .hero-text-modern{
+    padding: 0 16px !important;
+  }
+
+  /* Bild wirklich über die ganze Viewportbreite ziehen */
+  #alab-freiflaechen .hero-image-3d{
+    position: relative;
+    width: 100dvw;                                /* robust auf iOS */
+    left: 50%;
+    margin-left: -50dvw;                          /* bricht aus dem Container aus */
+    right: 50%;
+    margin-right: -50dvw;
+    height: clamp(460px, 86vh, 620px);
+  }
+  #alab-freiflaechen .hero-image-3d .hero-image-placeholder{
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 20px 20px;
+  }
+}
+
+
+/* Freiflächen – Hero: Absatz kleiner + 2. Überschrift ausblenden (nur mobil) */
+@media (max-width: 768px){
+  /* 1) Absatz „Sie verfügen …“ kleiner */
+  #alab-freiflaechen .hero-description-modern{
+    font-size: clamp(.95rem, 3.6vw, 1.05rem);
+    line-height: 1.55;
+  }
+  /* Fallback, falls der Absatz keine .hero-description-modern-Klasse hat */
+  #alab-freiflaechen .hero-text-modern p:first-of-type{
+    font-size: clamp(.95rem, 3.6vw, 1.05rem);
+    line-height: 1.55;
+  }
+
+  /* 2) Die zweite Überschrift unter dem Absatz ausblenden */
+  /* — bevorzugt: direkt nach dem Absatz folgende h2/h3 */
+  #alab-freiflaechen .hero-description-modern + :is(h2,h3){ 
+    display: none !important; 
+  }
+  /* — Fallback: falls oben nicht greift, verstecke das 2. h3 im Block */
+  #alab-freiflaechen .hero-text-modern h3:nth-of-type(2){
+    display: none !important;
+  }
+}
+
+
+/* ======================================================
+   FREIFLÄCHEN – EXTRA COMPACT MOBILE
+   ====================================================== */
+
+/* 1) horizontales Scrollen sicher sperren (Seite bleibt wischbar nach unten) */
+#alab-freiflaechen{ position:relative; overflow-x:clip; touch-action:pan-y; }
+@supports not (overflow: clip){ #alab-freiflaechen{ overflow-x:hidden; } }
+
+/* ====== ≤ 768px ====== */
+@media (max-width: 768px){
+  /* Grundtypografie & Gassen */
+  #alab-freiflaechen{ font-size:.95rem; line-height:1.45; }
+  #alab-freiflaechen .container{ padding:0 14px; }
+
+  /* Hero noch straffer (Bild-Setup hast du schon) */
+  #alab-freiflaechen .hero-content-modern{ gap:12px !important; }
+  #alab-freiflaechen .hero-badge-modern{ padding:.4rem .8rem; font-size:.8rem; margin-bottom:.8rem; }
+  #alab-freiflaechen .hero-title-modern{ font-size: clamp(1.6rem, 5.2vw, 2rem); margin-bottom:.5rem; }
+  #alab-freiflaechen .hero-description-modern{ font-size:.98rem; line-height:1.55; margin-bottom:1rem; }
+  #alab-freiflaechen .hero-cta-group{ gap:.6rem; }
+
+  /* Buttons */
+  #alab-freiflaechen .btn-modern{ padding:.7rem 1.1rem; font-size:.93rem; border-radius:999px; }
+  #alab-freiflaechen .btn-modern i{ font-size:.95em; }
+
+  /* Section-Header */
+  #alab-freiflaechen .section-header-modern{ margin-bottom:24px; }
+  #alab-freiflaechen .section-label{ padding:.35rem .7rem; font-size:.7rem; }
+  #alab-freiflaechen .section-title-modern{ font-size: clamp(1.25rem, 5.4vw, 1.7rem); margin-bottom:.35rem; }
+  #alab-freiflaechen .section-subtitle-modern{ font-size:.98rem; }
+
+  /* Services */
+  #alab-freiflaechen .services-modern{ padding: 36px 0; }
+  #alab-freiflaechen .services-grid-modern{ gap:14px; margin-bottom:24px; }
+  #alab-freiflaechen .service-card-modern{ padding:14px; border-radius:14px; }
+  #alab-freiflaechen .service-icon-modern{ width:52px; height:52px; border-radius:12px; margin-bottom:.9rem; }
+  #alab-freiflaechen .service-icon-modern i{ font-size:1.25rem; }
+  #alab-freiflaechen .service-card-modern h3{ font-size:1.05rem; margin-bottom:.45rem; }
+  #alab-freiflaechen .service-card-modern p{ font-size:.98rem; line-height:1.5; }
+  #alab-freiflaechen .service-hover-content{ padding:1rem; }
+
+  /* Technische Leistungen – nur Typo/Abstände (dein Carousel bleibt) */
+  #alab-freiflaechen .subsection-title{ font-size:1.25rem; margin-bottom:16px; }
+  #alab-freiflaechen .tech-content-detail{ padding:0 2px 6px !important; }
+  #alab-freiflaechen .tech-content-detail h3{ font-size:1.15rem !important; margin:.35rem 0 .25rem !important; }
+  #alab-freiflaechen .tech-content-detail p{ font-size:.95rem !important; margin:0 0 .2rem !important; }
+  #alab-freiflaechen .tech-features{ gap:.45rem !important; }
+  #alab-freiflaechen .tech-features li{ font-size:.95rem !important; }
+
+  /* Prozess */
+  #alab-freiflaechen .process-modern{ padding:36px 0; }
+  #alab-freiflaechen .process-item-modern{ gap:10px; margin-bottom:14px; }
+  #alab-freiflaechen .process-number-modern{ width:46px; height:46px; font-size:.95rem; }
+  #alab-freiflaechen .timeline-line{ left:23px; }
+  #alab-freiflaechen .process-content-modern{ padding:12px 14px; border-radius:12px; }
+  #alab-freiflaechen .process-content-modern h3{ font-size:1.05rem; margin-bottom:.4rem; }
+  #alab-freiflaechen .process-content-modern p{ margin-bottom:.4rem; }
+
+  /* Benefits */
+  #alab-freiflaechen .benefits-modern{ padding:36px 0; }
+  #alab-freiflaechen .benefits-grid-modern{ gap:14px; }
+  #alab-freiflaechen .benefit-card-modern{ padding:14px; border-radius:14px; }
+  #alab-freiflaechen .benefit-icon-modern{ width:56px; height:56px; border-radius:14px; margin-bottom:.9rem; }
+  #alab-freiflaechen .benefit-icon-modern i{ font-size:1.4rem; }
+  #alab-freiflaechen .benefit-card-modern h3{ font-size:1.05rem; margin-bottom:.35rem; }
+  #alab-freiflaechen .benefit-card-modern p{ font-size:.98rem; margin-bottom:.4rem; }
+  #alab-freiflaechen .benefit-stats{ gap:.5rem; margin-top:.5rem; }
+  #alab-freiflaechen .benefit-stats span{ font-size:.8rem; padding:.2rem .6rem; }
+
+  /* FAQ */
+  #alab-freiflaechen .faq-modern{ padding:36px 0; }
+  #alab-freiflaechen .faq-wrapper{ gap:16px; }
+  #alab-freiflaechen .faq-image-placeholder{ height:360px; border-radius:14px; }
+  #alab-freiflaechen .faq-content{ gap:.6rem; }
+  #alab-freiflaechen .faq-item{ border-radius:12px; }
+  #alab-freiflaechen .faq-question{ padding:12px 14px; gap:.6rem; }
+  #alab-freiflaechen .faq-question h3{ font-size:1rem; }
+  #alab-freiflaechen .faq-answer{ font-size:.98rem; }
+  #alab-freiflaechen .faq-item.active .faq-answer{ padding:0 14px 12px; }
+}
+
+/* ====== ≤ 480px (XS) ====== */
+@media (max-width: 480px){
+  #alab-freiflaechen{ font-size:.9rem; line-height:1.4; }
+  #alab-freiflaechen .container{ padding:0 10px; }
+
+  /* Hero */
+  #alab-freiflaechen .hero-title-modern{ font-size: clamp(1.35rem, 5.4vw, 1.6rem); }
+  #alab-freiflaechen .hero-description-modern{ font-size:.93rem; }
+
+  /* Services */
+  #alab-freiflaechen .service-card-modern{ padding:12px; border-radius:12px; }
+  #alab-freiflaechen .service-icon-modern{ width:48px; height:48px; border-radius:10px; }
+  #alab-freiflaechen .service-card-modern h3{ font-size:1rem; }
+
+  /* Prozess */
+  #alab-freiflaechen .process-number-modern{ width:42px; height:42px; font-size:.9rem; }
+  #alab-freiflaechen .timeline-line{ left:21px; }
+  #alab-freiflaechen .process-content-modern{ padding:10px 12px; border-radius:10px; }
+
+  /* Benefits */
+  #alab-freiflaechen .benefit-card-modern{ padding:12px; border-radius:12px; }
+  #alab-freiflaechen .benefit-icon-modern{ width:48px; height:48px; border-radius:12px; }
+
+  /* FAQ */
+  #alab-freiflaechen .faq-image-placeholder{ height:300px; }
+  #alab-freiflaechen .faq-question{ padding:10px 12px; }
+  #alab-freiflaechen .faq-item.active .faq-answer{ padding:0 12px 10px; }
+
+  /* Buttons */
+  #alab-freiflaechen .btn-modern{ padding:.6rem 1rem; font-size:.9rem; }
+}

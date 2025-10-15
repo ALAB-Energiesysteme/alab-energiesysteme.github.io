@@ -1,0 +1,273 @@
+<section id="configurator" class="configurator-section">
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Konfigurieren Sie Ihre gewerbliche PV-Anlage in wenigen Schritten. Erhalten Sie eine individuelle Beratung von ALAB Energiesysteme.">
+    <title>PV-Konfigurator für Gewerbe | ALAB Energiesysteme</title>
+    
+    <!-- Preconnect für Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="section5-configurator-styles.css">
+</head>
+<body>
+    <!-- Main Configurator Container -->
+    <div class="configurator-container">
+        <!-- Header -->
+        <header class="configurator-header">
+            <div class="header-content">
+                <div class="logo-wrapper">
+                    <svg class="sun-icon" viewBox="0 0 64 64" aria-hidden="true">
+                        <circle cx="32" cy="32" r="14" fill="url(#sunGradient)"/>
+                        <g stroke="url(#sunGradient)" stroke-width="4" stroke-linecap="round">
+                            <line x1="32" y1="2" x2="32" y2="12"/>
+                            <line x1="32" y1="52" x2="32" y2="62"/>
+                            <line x1="2" y1="32" x2="12" y2="32"/>
+                            <line x1="52" y1="32" x2="62" y2="32"/>
+                            <line x1="11" y1="11" x2="19" y2="19"/>
+                            <line x1="45" y1="45" x2="53" y2="53"/>
+                            <line x1="11" y1="53" x2="19" y2="45"/>
+                            <line x1="45" y1="19" x2="53" y2="11"/>
+                        </g>
+                        <defs>
+                            <linearGradient id="sunGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#E5C44D"/>
+                                <stop offset="100%" style="stop-color:#F3D663"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h1 class="main-title">PV-Konfigurator</h1>
+                </div>
+                <p class="header-subtitle">
+                    Konfigurieren Sie Ihre individuelle Solarlösung in nur wenigen Schritten. 
+                    Erhalten Sie eine kostenlose Erstberatung inkl. Wirtschaftlichkeitsanalyse.
+                </p>
+            </div>
+        </header>
+        
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-info">
+                <span class="progress-label">Ihr Fortschritt</span>
+                <span class="progress-percentage">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-steps">
+                <span class="step-label">Schritt <span id="currentStep">1</span> von <span id="totalSteps">5</span></span>
+            </div>
+        </div>
+        
+        <!-- Form Container -->
+        <form id="configuratorForm" class="configurator-form">
+            <!-- Hidden Fields -->
+            <input type="hidden" name="interesse" id="interesse">
+            <input type="hidden" name="installationsart" id="installationsart">
+            <input type="hidden" name="anlagenart" id="anlagenart">
+            <input type="hidden" name="dachform" id="dachform">
+            <input type="hidden" name="nutzung" id="nutzung">
+            <input type="hidden" name="leistung" id="leistung">
+            <input type="hidden" name="timestamp" id="timestamp">
+            
+            <!-- Step 1: Interesse -->
+            <div class="step active" id="step1" data-step="1">
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">01</span>
+                        <h2 class="step-title">Wofür interessieren Sie sich?</h2>
+                        <p class="step-description">Wählen Sie den Bereich, für den Sie eine Lösung suchen.</p>
+                    </div>
+                    
+                    <div class="options-grid options-grid-2">
+                        <button type="button" class="option-card" data-value="Photovoltaik" data-field="interesse">
+                            <div class="option-image">
+                                <img src="https://static.wixstatic.com/media/cac2b9_aa5f44417a1d47479e36dea3b581511b~mv2.jpg" alt="Photovoltaik" loading="lazy">
+                                <div class="option-overlay"></div>
+                            </div>
+                            <div class="option-content">
+                                <h3 class="option-title">Photovoltaik</h3>
+                                <p class="option-subtitle">Neue PV-Anlage planen</p>
+                            </div>
+                            <div class="option-check">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </button>
+                        
+                        <button type="button" class="option-card" data-value="Betriebsführung" data-field="interesse">
+                            <div class="option-image">
+                                <img src="https://static.wixstatic.com/media/cac2b9_19fedd5e465546d088adc7f0b0ec89a8~mv2.jpg" alt="Betriebsführung" loading="lazy">
+                                <div class="option-overlay"></div>
+                            </div>
+                            <div class="option-content">
+                                <h3 class="option-title">Betriebsführung</h3>
+                                <p class="option-subtitle">Bestehende Anlage optimieren</p>
+                            </div>
+                            <div class="option-check">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button type="button" class="btn-back" id="backBtn" disabled>
+                            <svg viewBox="0 0 20 20" fill="none">
+                                <path d="M12 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Zurück</span>
+                        </button>
+                        <div class="nav-spacer"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Step 2.1: Installationsart (PV) -->
+            <div class="step" id="step2pv" data-step="2">
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">02</span>
+                        <h2 class="step-title">Für welche Installationsart interessieren Sie sich?</h2>
+                        <p class="step-description">Wählen Sie die gewünschte Montageart für Ihre PV-Anlage.</p>
+                    </div>
+                    
+                    <div class="options-grid options-grid-3">
+                        <button type="button" class="option-card" data-value="Dachfläche" data-field="installationsart">
+                            <div class="option-image">
+                                <img src="https://static.wixstatic.com/media/cac2b9_ff4cfa403b5e4def8aaa9e66b5db8680~mv2.jpg" alt="Dachfläche" loading="lazy">
+                                <div class="option-overlay"></div>
+                            </div>
+                            <div class="option-content">
+                                <h3 class="option-title">Dachfläche</h3>
+                                <p class="option-subtitle">Montage auf dem Dach</p>
+                            </div>
+                            <div class="option-check">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </button>
+                        
+                        <button type="button" class="option-card" data-value="Freifläche" data-field="installationsart">
+                            <div class="option-image">
+                                <img src="https://static.wixstatic.com/media/cac2b9_bfe23d441b444c27bd0f796c03603cca~mv2.jpg" alt="Freifläche" loading="lazy">
+                                <div class="option-overlay"></div>
+                            </div>
+                            <div class="option-content">
+                                <h3 class="option-title">Freifläche</h3>
+                                <p class="option-subtitle">Bodenmontage-System</p>
+                            </div>
+                            <div class="option-check">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </button>
+                        
+                        <button type="button" class="option-card" data-value="Unentschieden" data-field="installationsart">
+                            <div class="option-image">
+                                <img src="https://static.wixstatic.com/media/cac2b9_7d5686c5a7fd4f7d8353dc298ae158b1~mv2.jpg" alt="Beratung" loading="lazy">
+                                <div class="option-overlay"></div>
+                            </div>
+                            <div class="option-content">
+                                <h3 class="option-title">Noch unentschieden</h3>
+                                <p class="option-subtitle">Wir beraten Sie gerne</p>
+                            </div>
+                            <div class="option-check">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button type="button" class="btn-back" id="backBtn">
+                            <svg viewBox="0 0 20 20" fill="none">
+                                <path d="M12 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Zurück</span>
+                        </button>
+                        <div class="nav-spacer"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Step 2.2: Anlagenart (Betriebsführung) -->
+            <div class="step" id="step2bf" data-step="2">
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">02</span>
+                        <h2 class="step-title">Um welche Art von Anlage handelt es sich?</h2>
+                        <p class="step-description">Beschreiben Sie Ihre bestehende Photovoltaikanlage.</p>
+                    </div>
+                    
+                    <div class="options-grid options-grid-2">
+                        <button type="button" class="option-card" data-value="Dachfläche" data-field="anlagenart">
+                            <div class="option-image">
+                                <img src="https://static.wixstatic.com/media/cac2b9_ff4cfa403b5e4def8aaa9e66b5db8680~mv2.jpg" alt="Dachfläche" loading="lazy">
+                                <div class="option-overlay"></div>
+                            </div>
+                            <div class="option-content">
+                                <h3 class="option-title">Dachflächen-Anlage</h3>
+                                <p class="option-subtitle">Montiert auf dem Dach</p>
+                            </div>
+                            <div class="option-check">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </button>
+                        
+                        <button type="button" class="option-card" data-value="Freifläche" data-field="anlagenart">
+                            <div class="option-image">
+                                <img src="https://static.wixstatic.com/media/cac2b9_bfe23d441b444c27bd0f796c03603cca~mv2.jpg" alt="Freifläche" loading="lazy">
+                                <div class="option-overlay"></div>
+                            </div>
+                            <div class="option-content">
+                                <h3 class="option-title">Freiflächen-Anlage</h3>
+                                <p class="option-subtitle">Bodenmontage-System</p>
+                            </div>
+                            <div class="option-check">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button type="button" class="btn-back" id="backBtn">
+                            <svg viewBox="0 0 20 20" fill="none">
+                                <path d="M12 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Zurück</span>
+                        </button>
+                        <div class="nav-spacer"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional steps will be in next file part due to size... -->
+            <!-- Step 3, 4, 5, and 6 continue in the JavaScript file with dynamic rendering -->
+            
+        </form>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="/assets/js/gewerbe/section5-configurator-script.js"></script>
+</body>
+</html>
+
+</section>

@@ -1,0 +1,390 @@
+/* === ROOT & RESET (scoped) ============================================ */
+#gewerbe-landing {
+  --primary-gradient-start:#E5C44D;
+  --primary-gradient-end:#F3D663;
+  --primary-gradient:linear-gradient(135deg,var(--primary-gradient-start) 0%,var(--primary-gradient-end) 100%);
+  --primary-color:#E6C23C;
+  --primary-hover:#d4af37;
+  --primary-dark:#b8860b;
+
+  --text-primary:#1a1d24;
+  --text-secondary:#4a5568;
+  --text-muted:#718096;
+  --bg-white:#ffffff;
+  --bg-light:#f8f9fa;
+  --bg-gray:#f1f3f5;
+  --border-light:#e2e8f0;
+  --border-medium:#cbd5e0;
+
+  --success:#48bb78;
+  --success-light:#9ae6b4;
+  --info:#4299e1;
+  --warning:#ed8936;
+  --danger:#f56565;
+
+  --space-xs:.5rem; --space-sm:1rem; --space-md:1.5rem; --space-lg:2rem;
+  --space-xl:3rem; --space-2xl:4rem; --space-3xl:6rem;
+
+  --radius-sm:.375rem; --radius-md:.5rem; --radius-lg:.75rem;
+  --radius-xl:1rem; --radius-2xl:1.5rem; --radius-full:9999px;
+
+  --shadow-sm:0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md:0 4px 6px -1px rgb(0 0 0 / 0.1),0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:0 10px 15px -3px rgb(0 0 0 / 0.1),0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl:0 20px 25px -5px rgb(0 0 0 / 0.1),0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl:0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-glow:0 0 20px rgba(230,194,60,.3);
+
+  --transition-fast:150ms ease;
+  --transition-base:250ms ease;
+  --transition-slow:350ms ease;
+
+  font-family:'Inter','Plus Jakarta Sans',system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text-primary);
+}
+
+#gewerbe-landing *, #gewerbe-landing *::before, #gewerbe-landing *::after { box-sizing:border-box; margin:0; padding:0; }
+#gewerbe-landing a{ color:var(--primary-color); text-decoration:none; transition:color var(--transition-fast); }
+#gewerbe-landing a:hover{ color:var(--primary-hover); }
+#gewerbe-landing button{ cursor:pointer; font:inherit; border:none; background:none; }
+#gewerbe-landing input, #gewerbe-landing textarea, #gewerbe-landing select{ font:inherit; }
+
+/* === CONTAINER ========================================================= */
+#gewerbe-landing .container{ width:100%; max-width:1280px; margin:0 auto; padding:0 var(--space-lg); }
+@media (max-width:768px){ #gewerbe-landing .container{ padding:0 var(--space-md); } }
+
+/* === HERO ============================================================== */
+#gewerbe-landing .hero-section{ position:relative; min-height:100vh; display:flex; align-items:center; padding:var(--space-3xl) 0; overflow:hidden; }
+#gewerbe-landing .hero-background{ position:absolute; inset:0; z-index:-1; }
+#gewerbe-landing .gradient-overlay{ position:absolute; inset:0; background:linear-gradient(135deg,rgba(229,196,77,.05) 0%,rgba(243,214,99,.08) 50%,rgba(230,194,60,.05) 100%); }
+#gewerbe-landing .pattern-overlay{ position:absolute; inset:0; background-image:
+  radial-gradient(circle at 20% 50%, rgba(230,194,60,.1) 0%, transparent 50%),
+  radial-gradient(circle at 80% 80%, rgba(243,214,99,.1) 0%, transparent 50%),
+  radial-gradient(circle at 40% 20%, rgba(229,196,77,.05) 0%, transparent 50%); }
+
+#gewerbe-landing .hero-content{ display:grid; grid-template-columns:1fr 1fr; gap:var(--space-3xl); align-items:center; }
+@media (max-width:1024px){
+  #gewerbe-landing .hero-content{ grid-template-columns:1fr; text-align:center; }
+  #gewerbe-landing .hero-visual{ order:-1; }
+}
+
+#gewerbe-landing .hero-text{ max-width:600px; }
+#gewerbe-landing .hero-title{ font-size:clamp(2rem,5vw,3.5rem); font-weight:800; margin-bottom:var(--space-lg); }
+#gewerbe-landing .highlight{ background:var(--primary-gradient); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; }
+#gewerbe-landing .hero-description{ font-size:1.125rem; color:var(--text-secondary); margin-bottom:var(--space-xl); line-height:1.8; }
+
+/* CTA */
+#gewerbe-landing .cta-group{ display:flex; gap:var(--space-md); margin-bottom:var(--space-xl); }
+@media (max-width:768px){ #gewerbe-landing .cta-group{ flex-direction:column; } }
+#gewerbe-landing .btn{ display:inline-flex; align-items:center; justify-content:center; gap:var(--space-xs); padding:var(--space-md) var(--space-lg); font-weight:600; border-radius:var(--radius-lg); transition:all var(--transition-base); position:relative; overflow:hidden; }
+#gewerbe-landing .btn-primary{ background:var(--primary-gradient); color:var(--text-primary); box-shadow:0 4px 14px 0 rgba(230,194,60,.3); }
+#gewerbe-landing .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 6px 20px 0 rgba(230,194,60,.4); }
+#gewerbe-landing .btn-compact{ padding:.875rem 1.5rem; font-size:.9375rem; }
+#gewerbe-landing .btn-icon{ width:20px; height:20px; transition:transform var(--transition-base); }
+#gewerbe-landing .btn:hover .btn-icon{ transform:translateX(4px); }
+
+/* Trust */
+#gewerbe-landing .trust-indicators{ display:flex; align-items:center; gap:var(--space-lg); }
+@media (max-width:768px){
+  #gewerbe-landing .trust-indicators{ justify-content:center; flex-wrap:wrap; gap:var(--space-md); }
+  #gewerbe-landing .trust-divider{ display:none; }
+}
+#gewerbe-landing .trust-item{ display:flex; flex-direction:column; gap:var(--space-xs); }
+#gewerbe-landing .trust-number{ font-size:1.5rem; font-weight:800; color:var(--primary-color); }
+#gewerbe-landing .trust-label{ font-size:.875rem; color:var(--text-muted); }
+#gewerbe-landing .trust-divider{ width:1px; height:40px; background:var(--border-light); }
+
+/* Visual */
+#gewerbe-landing .hero-visual{ position:relative; display:flex; align-items:center; justify-content:center; }
+#gewerbe-landing .stats-card, #gewerbe-landing .savings-card{ position:absolute; background:var(--bg-white); border-radius:var(--radius-xl); padding:var(--space-md); box-shadow:var(--shadow-xl); z-index:10; }
+#gewerbe-landing .stats-card{ top:50%; left:-20px; transform:translateY(-100%); display:flex; align-items:center; gap:var(--space-md); min-width:200px; }
+#gewerbe-landing .stats-icon{ width:48px; height:48px; background:var(--primary-gradient); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+#gewerbe-landing .stats-icon svg{ width:24px; height:24px; stroke:var(--text-primary); }
+#gewerbe-landing .stats-value{ font-size:2rem; font-weight:800; color:var(--primary-color); }
+#gewerbe-landing .stats-label{ font-size:.875rem; color:var(--text-secondary); }
+
+#gewerbe-landing .savings-card{ top:50%; right:-20px; transform:translateY(0); min-width:240px; }
+#gewerbe-landing .savings-header{ font-size:.875rem; color:var(--text-muted); margin-bottom:var(--space-xs); }
+#gewerbe-landing .savings-amount{ display:flex; align-items:baseline; gap:4px; margin-bottom:var(--space-md); }
+#gewerbe-landing .currency{ font-size:1.5rem; font-weight:600; color:var(--primary-color); }
+#gewerbe-landing .amount{ font-size:2.5rem; font-weight:800; }
+#gewerbe-landing .savings-chart{ display:flex; align-items:flex-end; gap:4px; height:60px; }
+#gewerbe-landing .chart-bar{ flex:1; background:var(--primary-gradient); border-radius:var(--radius-sm) var(--radius-sm) 0 0; animation:growUp 1s ease forwards; }
+
+@keyframes growUp{ from{height:0 !important;} }
+
+#gewerbe-landing .floating{ animation:floating 3s ease-in-out infinite; }
+#gewerbe-landing .floating-delayed{ animation:floatingDelayed 3s ease-in-out infinite; animation-delay:.5s; }
+@keyframes floating{ 0%,100%{ transform:translateY(-100%);} 50%{ transform:translateY(calc(-100% - 10px)); } }
+@keyframes floatingDelayed{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
+
+@media (max-width:1024px){
+  #gewerbe-landing .stats-card, #gewerbe-landing .savings-card{ position:static; margin:var(--space-md); transform:none; }
+  #gewerbe-landing .hero-visual{ display:flex; flex-direction:column; gap:var(--space-md); }
+  #gewerbe-landing .floating, #gewerbe-landing .floating-delayed{ animation:none; }
+}
+
+/* === BENEFITS ========================================================== */
+#gewerbe-landing .benefits-section{ padding:var(--space-3xl) 0; background:var(--bg-light); }
+#gewerbe-landing .section-header{ text-align:center; margin-bottom:var(--space-3xl); }
+#gewerbe-landing .section-title{ font-size:clamp(1.75rem,4vw,2.5rem); margin-bottom:var(--space-md); }
+#gewerbe-landing .section-subtitle{ font-size:1.125rem; color:var(--text-secondary); max-width:600px; margin:0 auto; }
+
+#gewerbe-landing .benefits-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(350px,1fr)); gap:var(--space-lg); }
+@media (max-width:768px){ #gewerbe-landing .benefits-grid{ grid-template-columns:1fr; } }
+
+#gewerbe-landing .benefit-card{ background:var(--bg-white); border-radius:var(--radius-xl); padding:var(--space-lg); transition:all var(--transition-base); border:1px solid var(--border-light); position:relative; overflow:hidden; }
+#gewerbe-landing .benefit-card::before{ content:""; position:absolute; top:0; left:0; right:0; height:4px; background:var(--primary-gradient); transform:scaleX(0); transition:transform var(--transition-base); }
+#gewerbe-landing .benefit-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-xl); border-color:var(--primary-color); }
+#gewerbe-landing .benefit-card:hover::before{ transform:scaleX(1); }
+
+#gewerbe-landing .benefit-icon{ width:56px; height:56px; background:linear-gradient(135deg,rgba(229,196,77,.1) 0%,rgba(243,214,99,.15) 100%); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; margin-bottom:var(--space-md); }
+#gewerbe-landing .benefit-icon svg{ width:28px; height:28px; stroke:var(--primary-color); stroke-width:2; }
+#gewerbe-landing .benefit-title{ font-size:1.25rem; margin-bottom:var(--space-sm); }
+#gewerbe-landing .benefit-description{ color:var(--text-secondary); margin-bottom:var(--space-md); line-height:1.7; }
+#gewerbe-landing .benefit-metric{ display:flex; align-items:baseline; gap:var(--space-xs); padding-top:var(--space-md); border-top:1px solid var(--border-light); }
+#gewerbe-landing .metric-value{ font-size:1.5rem; font-weight:800; color:var(--primary-color); }
+#gewerbe-landing .metric-label{ font-size:.875rem; color:var(--text-muted); }
+
+/* === MODAL ============================================================= */
+#gewerbe-landing .modal{ position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; padding:var(--space-md); opacity:0; visibility:hidden; transition:opacity var(--transition-base), visibility var(--transition-base); }
+#gewerbe-landing .modal.active{ opacity:1; visibility:visible; }
+#gewerbe-landing .modal-backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.5); backdrop-filter:blur(4px); }
+#gewerbe-landing .modal-content{ position:relative; background:var(--bg-white); border-radius:var(--radius-2xl); max-width:600px; width:100%; max-height:90vh; overflow-y:auto; transform:scale(.9); transition:transform var(--transition-base); }
+#gewerbe-landing .modal.active .modal-content{ transform:scale(1); }
+#gewerbe-landing .modal-header{ display:flex; justify-content:space-between; align-items:center; padding:var(--space-lg); border-bottom:1px solid var(--border-light); }
+#gewerbe-landing .modal-title{ font-size:1.5rem; }
+#gewerbe-landing .modal-close{ width:40px; height:40px; border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; background:var(--bg-light); transition:all var(--transition-base); }
+#gewerbe-landing .modal-close:hover{ background:var(--bg-gray); transform:rotate(90deg); }
+#gewerbe-landing .modal-close svg{ width:24px; height:24px; stroke:var(--text-secondary); }
+#gewerbe-landing .modal-body{ padding:var(--space-lg); }
+
+/* Form */
+#gewerbe-landing .form-step{ display:none; }
+#gewerbe-landing .form-step.active{ display:block; }
+#gewerbe-landing .form-intro{ color:var(--text-secondary); margin-bottom:var(--space-lg); line-height:1.7; }
+#gewerbe-landing .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:var(--space-md); }
+@media (max-width:640px){ #gewerbe-landing .form-row{ grid-template-columns:1fr; } }
+#gewerbe-landing .form-group{ margin-bottom:var(--space-md); }
+#gewerbe-landing .form-group label{ display:block; margin-bottom:var(--space-xs); font-weight:600; font-size:.875rem; }
+#gewerbe-landing .form-group input, #gewerbe-landing .form-group textarea{
+  width:100%; padding:var(--space-sm) var(--space-md); border:1px solid var(--border-light); border-radius:var(--radius-lg); background:var(--bg-white); transition:all var(--transition-base); font-size:1rem;
+}
+#gewerbe-landing .form-group input:focus, #gewerbe-landing .form-group textarea:focus{ outline:none; border-color:var(--primary-color); box-shadow:0 0 0 3px rgba(230,194,60,.1); }
+#gewerbe-landing .form-group input.error, #gewerbe-landing .form-group textarea.error{ border-color:var(--danger); }
+#gewerbe-landing .form-group textarea{ resize:vertical; min-height:100px; }
+#gewerbe-landing .checkbox-group{ margin:var(--space-lg) 0; }
+#gewerbe-landing .checkbox-label{ display:flex; align-items:flex-start; gap:var(--space-sm); cursor:pointer; }
+#gewerbe-landing .checkbox-label input[type="checkbox"]{ width:20px; height:20px; margin-top:2px; flex-shrink:0; cursor:pointer; accent-color:var(--primary-color); }
+#gewerbe-landing .checkbox-label span{ font-size:.875rem; color:var(--text-secondary); line-height:1.6; }
+#gewerbe-landing .checkbox-label a{ color:var(--primary-color); text-decoration:underline; }
+#gewerbe-landing .btn-submit{ width:100%; padding:var(--space-md) var(--space-lg); background:var(--primary-gradient); color:var(--text-primary); font-weight:700; border-radius:var(--radius-lg); transition:all var(--transition-base); display:flex; align-items:center; justify-content:center; gap:var(--space-sm); }
+#gewerbe-landing .btn-submit:hover{ transform:translateY(-2px); box-shadow:var(--shadow-glow); }
+
+/* Success */
+#gewerbe-landing .success-step{ text-align:center; padding:var(--space-xl) 0; }
+#gewerbe-landing .success-icon{ width:80px; height:80px; margin:0 auto var(--space-lg); background:linear-gradient(135deg,rgba(72,187,120,.1) 0%,rgba(72,187,120,.2) 100%); border-radius:50%; display:flex; align-items:center; justify-content:center; }
+#gewerbe-landing .success-icon svg{ width:40px; height:40px; stroke:var(--success); }
+#gewerbe-landing .success-title{ font-size:1.5rem; margin-bottom:var(--space-md); }
+#gewerbe-landing .success-message{ color:var(--text-secondary); line-height:1.7; margin-bottom:var(--space-lg); }
+
+/* Responsive paddings */
+@media (max-width:1280px){ #gewerbe-landing .hero-section{ padding:var(--space-2xl) 0; } }
+@media (max-width:768px){
+  #gewerbe-landing .hero-section{ min-height:auto; padding:var(--space-xl) 0; }
+  #gewerbe-landing .benefits-section{ padding:var(--space-2xl) 0; }
+  #gewerbe-landing .section-header{ margin-bottom:var(--space-2xl); }
+}
+@media (max-width:480px){
+  #gewerbe-landing .hero-title{ font-size:1.75rem; }
+  #gewerbe-landing .hero-description{ font-size:1rem; }
+  #gewerbe-landing .section-title{ font-size:1.5rem; }
+  #gewerbe-landing .btn{ padding:var(--space-sm) var(--space-md); font-size:.9375rem; }
+}
+
+/* Gewerbe – dekoratives Warndreieck/Background-SVG im Hero ausblenden */
+#gewerbe-landing .hero-visual > lottie-player,
+#gewerbe-landing .hero-visual > svg.lucide-alert-triangle,
+#gewerbe-landing .hero-visual > svg.feather-alert-triangle,
+#gewerbe-landing .hero-visual > svg.fa-triangle-exclamation,
+#gewerbe-landing .hero-visual > .decor-triangle,
+#gewerbe-landing .hero-visual > .bg-icon.alert {
+  display: none !important;
+}
+
+/* Fallback: falls es ein „nacktes“ direktes SVG ist */
+#gewerbe-landing .hero-visual > svg {
+  display: none !important;
+}
+/* aber: Icons IN den Karten weiter anzeigen */
+#gewerbe-landing .hero-visual .stats-card svg,
+#gewerbe-landing .hero-visual .savings-card svg {
+  display: inline-block !important;
+}
+
+/* Nur mobil: Eigenverbrauchsquote + jährliche Ersparnis im Gewerbe-Hero ausblenden */
+@media (max-width: 768px) {
+  /* exakt die beiden Karten im Hero */
+  #gewerbe-landing .hero-visual .stats-card,
+  #gewerbe-landing .hero-visual .savings-card {
+    display: none !important;
+  }
+
+  /* falls du alternative Klassennamen/Attribute verwendest */
+  #gewerbe-landing .kpi-card--self,
+  #gewerbe-landing .kpi-card--savings,
+  #gewerbe-landing [data-metric="self-consumption"],
+  #gewerbe-landing [data-metric="savings"] {
+    display: none !important;
+  }
+
+  /* evtl. entstehende Lücken im Hero schließen */
+  #gewerbe-landing .hero-visual { gap: 0 !important; }
+}
+
+
+/* Gewerbe-Formular: kompakter auf Mobil */
+@media (max-width: 480px) {
+  /* Modalrahmen & Kopf */
+  #gewerbe-landing .modal-content{
+    border-radius: 16px;
+    max-width: 420px;
+  }
+  #gewerbe-landing .modal-header{
+    padding: 12px 16px;
+  }
+  #gewerbe-landing .modal-title{
+    font-size: 1.125rem;   /* ~18px */
+    line-height: 1.2;
+  }
+  #gewerbe-landing .modal-close{
+    width: 32px; height: 32px;
+  }
+
+  /* Body & Einleitungstext */
+  #gewerbe-landing .modal-body{
+    padding: 14px 16px;
+  }
+  #gewerbe-landing .form-intro{
+    font-size: .95rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  /* Felder & Labels */
+  #gewerbe-landing .form-group{
+    margin-bottom: 12px;
+  }
+  #gewerbe-landing .form-group label{
+    font-size: .85rem;
+    margin-bottom: 6px;
+  }
+  #gewerbe-landing .form-group input,
+  #gewerbe-landing .form-group textarea{
+    padding: 10px 12px;               /* weniger Innenabstand */
+    font-size: 15px;
+    border-radius: 12px;
+  }
+  #gewerbe-landing .form-group textarea{
+    min-height: 84px;                  /* kleinere Textarea */
+  }
+
+  /* Checkbox & Submit */
+  #gewerbe-landing .checkbox-group{ margin: 12px 0; }
+  #gewerbe-landing .checkbox-label span{ font-size: .85rem; }
+
+  #gewerbe-landing .btn-submit{
+    padding: 12px 16px;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+}
+
+/* Optional: kurze Felder nebeneinander, wenn du Paare gruppierst
+   (z. B. <div class="form-row form-row--split"> … </div>) */
+@media (max-width: 480px){
+  #gewerbe-landing .form-row--split{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+/* === Gewerbe: kompaktere Blöcke auf Mobile/Tablet ==================== */
+
+/* 1) Spacing-Scale für kleine Screens leicht herunterdrehen */
+@media (max-width: 768px){
+  #gewerbe-landing{
+    --space-sm: .75rem;
+    --space-md: 1rem;
+    --space-lg: 1.25rem;
+    --space-xl: 1.75rem;
+    --space-2xl: 2.25rem;
+    --space-3xl: 3rem;
+  }
+
+  /* Container & Abschnitts-Padding */
+  #gewerbe-landing .container{ padding: 0 14px; }
+  #gewerbe-landing .hero-section{ padding: var(--space-xl) 0; }
+  #gewerbe-landing .benefits-section{ padding: var(--space-xl) 0; }
+  #gewerbe-landing .section-header{ margin-bottom: var(--space-lg); }
+
+  /* Headings kompakter */
+  #gewerbe-landing .section-title{
+    font-size: 1.35rem;
+    margin-bottom: .5rem;
+    line-height: 1.25;
+  }
+  #gewerbe-landing .section-subtitle{
+    font-size: .98rem;
+    line-height: 1.55;
+  }
+
+  /* CTA/Trust-Blöcke enger */
+  #gewerbe-landing .cta-group{ gap: .5rem; margin-bottom: var(--space-md); }
+  #gewerbe-landing .btn{ padding: .625rem .875rem; font-size: .95rem; }
+  #gewerbe-landing .trust-indicators{ gap: .75rem; }
+
+  /* Cards/Blöcke – generisch kompakter */
+  #gewerbe-landing .benefits-grid{ gap: .75rem; }
+  #gewerbe-landing .benefit-card{
+    padding: 14px;
+    border-radius: 14px;
+  }
+  #gewerbe-landing .benefit-icon{
+    width: 44px; height: 44px; margin-bottom: 10px;
+  }
+  #gewerbe-landing .benefit-title{ font-size: 1.05rem; margin-bottom: 6px; }
+  #gewerbe-landing .benefit-description{
+    font-size: .95rem;
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+  #gewerbe-landing .benefit-metric{ padding-top: 10px; }
+
+  /* Stat-/Spar-Karten kompakter (wir blenden <768 eh aus; hier v.a. für 641–768) */
+  #gewerbe-landing .stats-card,
+  #gewerbe-landing .savings-card{
+    padding: 12px;
+    border-radius: 14px;
+  }
+  #gewerbe-landing .stats-value{ font-size: 1.5rem; }
+  #gewerbe-landing .savings-amount .currency{ font-size: 1rem; }
+  #gewerbe-landing .savings-amount .amount{ font-size: 1.75rem; }
+}
+
+/* 2) Noch etwas straffer unter 480px */
+@media (max-width: 480px){
+  #gewerbe-landing .container{ padding: 0 12px; }
+  #gewerbe-landing .hero-section{ padding: 24px 0; }
+  #gewerbe-landing .benefits-section{ padding: 24px 0; }
+
+  #gewerbe-landing .benefit-card{
+    padding: 12px;
+    border-radius: 12px;
+  }
+  #gewerbe-landing .benefit-description{ font-size: .9rem; }
+  #gewerbe-landing .metric-value{ font-size: 1.25rem; }
+
+  #gewerbe-landing .btn{ padding: 10px 12px; font-size: .93rem; }
+}

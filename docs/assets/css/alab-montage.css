@@ -1,0 +1,580 @@
+/* Scope + Tokens (greifen die gleichen Variablen wie auf Service-Seiten auf) */
+#alab-montage{
+  --alab-gold:#d4af37; --alab-gold-2:#f4d03f;
+  --alab-blue:#5b8def; --alab-dark-blue:#2c5aa0;
+  --alab-ink:#0f2533; --alab-gray:#5b6b78; --alab-light:#f8f9fa; --alab-white:#fff;
+  --radius:16px; --shadow-1:0 2px 10px rgba(15,37,51,.08); --shadow-2:0 6px 18px rgba(15,37,51,.12);
+  --s-2:10px; --s-3:14px; --s-4:18px; --s-5:24px; --s-6:32px; --s-7:40px; --s-8:56px; --s-9:80px;
+}
+
+#alab-montage .container{max-width: 2000px;margin:0 auto;padding:0 var(--s-5)}
+@media (max-width:900px){#alab-montage .container{padding:0 var(--s-4)}}
+
+#alab-montage .btn{
+  display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;border:2px solid transparent;
+  font-weight:800;font-size:.98rem;text-decoration:none;cursor:pointer;transition:.2s transform,.2s box-shadow,.2s background,.2s color,.2s border-color;
+}
+#alab-montage .btn i{font-size:1em}
+#alab-montage .btn--primary{background:linear-gradient(45deg,var(--alab-gold),var(--alab-gold-2));color:var(--alab-ink);box-shadow:0 8px 24px rgba(212,175,55,.25)}
+#alab-montage .btn--primary:hover{transform:translateY(-2px)}
+#alab-montage .btn--ghost{background:transparent;color:var(--alab-ink);border-color:#d7dde5}
+#alab-montage .btn--ghost:hover{border-color:var(--alab-ink)}
+
+/* HERO */
+#alab-montage .hero{
+  padding:var(--s-9) 0 var(--s-8);
+  background: radial-gradient(1200px 300px at 50% 0%, rgba(212,175,55,.08), transparent 60%), linear-gradient(#fff,#fff);
+  text-align:center;position:relative;overflow:hidden;
+}
+#alab-montage .hero__kicker{
+  display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:#fff;border:1px solid #eceff3;
+  box-shadow:var(--shadow-1);font-size:.9rem;color:var(--alab-gray);margin-bottom:var(--s-4)
+}
+#alab-montage .hero__kicker i{color:var(--alab-gold)}
+#alab-montage .hero__title{font-size:clamp(1.85rem, 2.6vw + 1rem, 3.05rem);line-height:1.2;font-weight:800;letter-spacing:.2px;margin-bottom:var(--s-3)}
+#alab-montage .hero__subtitle{max-width:900px;margin:0 auto var(--s-6);color:var(--alab-gray);font-size:1.06rem}
+#alab-montage .hero__actions{display:flex;justify-content:center;margin-bottom:var(--s-4)}
+#alab-montage .hero__divider{width:min(260px,52%);height:4px;margin:0 auto;background:linear-gradient(90deg,var(--alab-gold),var(--alab-gold-2));border-radius:4px}
+
+/* SECTIONS */
+#alab-montage .main{background:var(--alab-light);padding:var(--s-9) 0}
+#alab-montage .section{margin-bottom:var(--s-9)}
+#alab-montage .section-title{
+  text-align:center;font-weight:800;letter-spacing:.15px;font-size:clamp(1.65rem,1.45vw + 1rem,2.25rem);margin-bottom:var(--s-2)
+}
+#alab-montage .section-title::after{content:"";display:block;width:72px;height:4px;margin:10px auto 0;background:linear-gradient(90deg,var(--alab-gold),var(--alab-gold-2));border-radius:3px}
+#alab-montage .section-subtitle{color:var(--alab-gray);max-width:820px;margin:0 auto var(--s-7);font-size:1.02rem}
+#alab-montage .section-subtitle.center{text-align:center}
+#alab-montage .eyebrow{text-transform:uppercase;letter-spacing:.08em;font-weight:800;font-size:.85rem;color:var(--alab-gray);text-align:center;margin:0 auto var(--s-2)}
+
+/* GRID */
+#alab-montage .grid{display:grid;gap:clamp(18px,1.5vw,30px);align-items:stretch}
+#alab-montage .cards-3{grid-template-columns:repeat(3,1fr)}
+#alab-montage .cards-2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:980px){#alab-montage .cards-3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){#alab-montage .cards-3,#alab-montage .cards-2{grid-template-columns:1fr}}
+
+/* CARD */
+#alab-montage .card{
+  background:#fff;border:1px solid #e9edf2;border-radius:var(--radius);box-shadow:var(--shadow-1);
+  padding:clamp(var(--s-6), 1.4vw + 12px, var(--s-7));display:flex;flex-direction:column;position:relative;overflow:hidden
+}
+#alab-montage .card:hover{box-shadow:var(--shadow-2);border-color:#e2e8f0}
+#alab-montage .card__title{font-size:1.2rem;font-weight:800;margin:0 0 var(--s-4)}
+#alab-montage .card__list{list-style:none;margin:0;display:flex;flex-direction:column;gap:10px;color:var(--alab-gray)}
+#alab-montage .card__list li{position:relative;padding-left:26px}
+#alab-montage .card__list li::before{content:'✓';position:absolute;left:0;top:0;color:var(--alab-gold);font-weight:800}
+#alab-montage .lead{margin:0 0 var(--s-4);color:var(--alab-ink);font-weight:600}
+
+/* CTA row */
+#alab-montage .cta-row{display:flex;justify-content:center;margin-top:var(--s-6)}
+
+/* TIMELINE (Steps) */
+#alab-montage .steps{list-style:none;margin:0;display:grid;gap:20px}
+#alab-montage .step{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start}
+@media (max-width:600px){#alab-montage .step{grid-template-columns:52px 1fr}}
+#alab-montage .step__dot{position:relative;width:56px;height:56px}
+#alab-montage .ring{position:absolute;inset:0;transform:rotate(-90deg)}
+#alab-montage .ring .track{fill:none;stroke:#e7ecf3;stroke-width:4}
+#alab-montage .ring .prog{fill:none;stroke:url(#montage-ring);stroke-width:4;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(212,175,55,.35));stroke-dasharray:113;stroke-dashoffset:113;transition:stroke-dashoffset .9s linear}
+#alab-montage .badge{
+  position:absolute;inset:6px;display:grid;place-items:center;border-radius:50%;background:#fff;border:2px solid var(--alab-ink);
+  color:var(--alab-ink);font-weight:800;z-index:1;transition:.25s background,.25s color,.25s border-color
+}
+#alab-montage .laserbar{position:absolute;left:-1px;top:-1px;height:4px;width:0%;background:linear-gradient(90deg,var(--alab-gold),var(--alab-gold-2));box-shadow:0 0 14px rgba(212,175,55,.35);transition:width .9s ease-out}
+#alab-montage .step.part .ring .prog{stroke-dashoffset:22}
+#alab-montage .step.part .laserbar{width:80%}
+#alab-montage .step.done .ring .prog{stroke-dashoffset:0}
+#alab-montage .step.done .laserbar{width:calc(100% + 2px)}
+#alab-montage .step.done .badge{background:linear-gradient(135deg,var(--alab-gold),var(--alab-gold-2));color:#0b1f2c;border-color:transparent}
+
+/* Reveal */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)}}
+#alab-montage .reveal{opacity:0;transform:translateY(18px)}
+#alab-montage .reveal.show{animation:fadeUp .6s ease forwards}
+
+/* Screenreader-only */
+#alab-montage .sr-only{
+  position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;
+  overflow:hidden!important;clip:rect(0,0,0,0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important
+}
+
+
+/* === Slider: Clean look (keine Karte, keine Schrägstellung) ============ */
+#montage-slider .slider__viewport{
+  perspective: none;               /* kein 3D */
+}
+
+#montage-slider .slide{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;      /* keine Neigung/Skew/Scale */
+  opacity: 1 !important;
+}
+
+/* Falls vorher eine „Karten“-Ebene als Pseudo-Element da war */
+#montage-slider .slide::before,
+#montage-slider .slide::after{
+  content: none !important;
+}
+
+/* Bild immer vollflächig, mit sanften Rundungen */
+#montage-slider .slide img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(15,37,51,.12); /* optional zarter Shadow */
+  background: transparent;
+}
+
+/* Caption als schmale, flache Leiste statt dicker Karte */
+#montage-slider .slider__caption{
+  margin-top: 10px;
+  background: transparent;         /* kein weißer Balken */
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  color: #5b6b78;                  /* dezente Sekundärfarbe */
+  font-weight: 600;
+}
+
+/* Abstände zwischen Slides etwas enger (wirkt gridiger) */
+#montage-slider .slider__track{
+  gap: 24px;
+}
+
+/* Pfeile bleiben rund & floating */
+#montage-slider .slider__nav{
+  box-shadow: 0 6px 16px rgba(212,175,55,.25);
+}
+
+/* --- Slider sichtbar machen: Track/Slides Layout ---------------------- */
+#montage-slider .slider__viewport{
+  overflow: hidden;                 /* Viewport klippt sauber */
+}
+
+#montage-slider .slider__track{
+  display: flex;                    /* horizontale Reihe */
+  align-items: stretch;
+  gap: 24px;                        /* Abstände zwischen Slides */
+  will-change: transform;           /* für JS-Translate */
+}
+
+/* Breiten für Slides (du kannst die Zahlen anpassen) */
+#montage-slider .slide{
+  position: relative;
+  flex: 0 0 32%;                    /* ~3 auf Desktop sichtbar */
+  max-width: 32%;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+@media (min-width: 1400px){
+  /* Falls du 4 auf sehr großen Screens willst */
+  #montage-slider .slide{ flex-basis: 24%; max-width: 24%; }
+}
+
+@media (max-width: 1100px){
+  #montage-slider .slide{ flex-basis: 48%; max-width: 48%; } /* 2 nebeneinander */
+}
+@media (max-width: 640px){
+  #montage-slider .slide{ flex-basis: 100%; max-width: 100%; } /* 1 pro Reihe */
+}
+
+/* Bildfläche: saubere Höhe + Crop */
+#montage-slider .slide a{ display:block; }
+#montage-slider .slide .media{ 
+  aspect-ratio: 3 / 2;             /* konstante Höhe */
+  overflow: hidden;
+  border-radius: 16px;
+}
+#montage-slider .slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                 /* füllt die Fläche ohne Verzerrung */
+  display: block;
+  box-shadow: 0 10px 28px rgba(15,37,51,.12);
+  background: transparent;
+}
+
+/* Caption flach darunter */
+#montage-slider .slider__caption{
+  margin-top: 10px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  color: #5b6b78;
+  font-weight: 600;
+}
+
+/* Pfeile bleiben rund & floating */
+#montage-slider .slider__nav{
+  box-shadow: 0 6px 16px rgba(212,175,55,.25);
+}
+/* ===== Referenzen – Clean Carousel (ALAB) ===== */
+#ref-gallery .rg{ position:relative; }
+
+#ref-gallery .rg__viewport{
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-snap-stop:always;
+  -webkit-overflow-scrolling:touch;
+  scroll-behavior:smooth;
+  outline:none;
+  padding:0 0 4px;              /* statt: 0 6px;  -> links/rechts = 0! */
+  scrollbar-width:none;
+}
+#ref-gallery .rg__viewport::-webkit-scrollbar{ display:none; }
+
+/* Responsive: 2 / 1 Karten */
+@media (max-width:1100px){ #ref-gallery .rg{ --visible: 2; } }
+@media (max-width:680px){  #ref-gallery .rg{ --visible: 1; } }
+
+#ref-gallery .rg__track{
+  display:flex; align-items:stretch;
+  gap:var(--gap);
+  padding:0;                          /* wichtig: kein Innenabstand */
+}
+/* Spacer links/rechts, damit 1. & letztes Slide mittig einrasten */
+#ref-gallery .rg__track::before,
+#ref-gallery .rg__track::after{
+  content:"";
+  flex:0 0 calc((100% - var(--slide))/2 - var(--gap)/2);
+}
+
+/* Kartenbreite + Snap auf Zentrum */
+#ref-gallery .rg__slide{
+  list-style:none;
+  flex:0 0 var(--slide);
+  max-width:var(--slide);
+  scroll-snap-align:center;           /* Mittelpunkt zu Mittelpunkt */
+}
+
+@media (max-width:1400px){ #ref-gallery .rg__slide{ flex-basis:48%; max-width:48%; } }
+@media (max-width:680px){  #ref-gallery .rg__slide{ flex-basis:100%; max-width:100%; } }
+
+#ref-gallery .rg__figure{ display:block; text-decoration:none; color:inherit; }
+
+/* Einheitliche Bildgröße erzwingen */
+#ref-gallery .rg__media{
+  /* Eine Ratio wählen und überall gleich halten: */
+  --ratio: 16/9;              /* alternativ 3/2 oder 4/3 */
+  aspect-ratio: var(--ratio);
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f3f6fa;
+  box-shadow: 0 10px 28px rgba(15,37,51,.12);
+}
+
+/* Bild immer exakt auf die Box spannen */
+#ref-gallery .rg__media > img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;          /* füllt die Box, schneidet ggf. */
+  object-position: center;    /* immer mittig */
+  display:block;
+}
+/* Optional: Hilfsklassen für Fokusverschiebung */
+#ref-gallery img.focal-top30 { object-position: 50% 30%; }
+#ref-gallery img.focal-top40 { object-position: 50% 40%; }
+
+/* Safari/ältere Browser Fallback ohne aspect-ratio */
+@supports not (aspect-ratio: 1) {
+  #ref-gallery .rg__media { position: relative; }
+  #ref-gallery .rg__media::before{
+    content:"";
+    display:block;
+    padding-top: calc(100% / (16/9));  /* 56.25% für 16:9; passe an, wenn du 3/2 oder 4/3 nutzt */
+  }
+  #ref-gallery .rg__media > img{
+    position:absolute; inset:0;
+  }
+}
+
+#ref-gallery img{
+  width:100%; height:100%; object-fit:cover; display:block; user-select:none;
+}
+#ref-gallery .rg__figure:hover .rg__media{ transform:translateY(-1px); transition:transform .25s; }
+
+#ref-gallery .rg__cap{
+  margin-top:10px; color:var(--alab-gray); font-weight:700; line-height:1.35;
+}
+
+/* Pfeile */
+#ref-gallery .rg__nav{
+  position:absolute; top:44%; transform:translateY(-50%);
+  width:40px; height:40px; border-radius:999px; border:0; cursor:pointer;
+  background:linear-gradient(135deg,var(--alab-gold),var(--alab-gold-2)); color:var(--alab-ink);
+  box-shadow:0 6px 16px rgba(212,175,55,.25); z-index:2;
+}
+#ref-gallery .rg__nav--prev{ left: max(6px, env(safe-area-inset-left)); }
+#ref-gallery .rg__nav--next{ right:max(6px, env(safe-area-inset-right)); }
+#ref-gallery .rg__nav:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(212,175,55,.35); }
+
+/* Dots */
+#ref-gallery .rg__dots{ display:flex; gap:8px; justify-content:center; margin-top:16px; }
+#ref-gallery .rg__dots button{
+  width:28px; height:6px; border-radius:999px; border:0; background:#dfe6ee; cursor:pointer;
+}
+#ref-gallery .rg__dots button[aria-selected="true"]{
+  background:linear-gradient(90deg,var(--alab-gold),var(--alab-gold-2));
+}
+
+@media (prefers-reduced-motion:reduce){
+  #ref-gallery .rg__viewport{ scroll-behavior:auto; }
+}
+
+#ref-gallery .rg{
+  --gap: 20px;
+  --visible: 3;
+  --slide: calc((100% - (var(--visible) - 1)*var(--gap))/var(--visible));
+}
+#ref-gallery .rg__slide{
+  flex: 0 0 var(--slide);
+  max-width: var(--slide);
+  scroll-snap-align: center;
+}
+
+/* ===== Mobile: Referenzen größer (Montage-Seite) ===== */
+@media (max-width: 768px){
+  /* Scope auf die Seite – falls dein Wrapper anders heißt, anpassen
+     oder den "#alab-montage" Teil entfernen. */
+  #alab-montage .swiper,
+  .references .swiper { padding: 0 14px; overflow: visible; }
+
+  /* 1 Slide pro View (breit) */
+  #alab-montage .swiper .swiper-slide,
+  .references .swiper .swiper-slide {
+    width: 92% !important;          /* zeigt 1 Bild groß, mit kleinem Peek */
+  }
+
+  /* Bild wirklich groß anzeigen */
+  #alab-montage .swiper .swiper-slide img,
+  .references .swiper .swiper-slide img {
+    width: 100%;
+    height: clamp(220px, 62vw, 380px);  /* größer auf kleinen Screens */
+    object-fit: cover;
+    border-radius: 14px;
+  }
+
+  /* Pfeile zentriert aufs Bild legen (optional kleiner) */
+  #alab-montage .swiper-button-prev,
+  #alab-montage .swiper-button-next,
+  .references .swiper-button-prev,
+  .references .swiper-button-next {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px; height: 42px;
+  }
+
+  /* etwas Abstand unter den Bullets */
+  #alab-montage .swiper-pagination,
+  .references .swiper-pagination { margin-top: 10px; }
+}
+
+/* ==== Referenzen mobil groß anzeigen (Montage) ==== */
+@media (max-width: 900px){
+  /* nur 1 Slide sichtbar */
+  #ref-gallery .rg{ --visible: 1; --gap: 16px; }
+  /* falls irgendwo feste Breiten übrig sind, hart übersteuern */
+  #ref-gallery .rg__slide{
+    flex: 0 0 var(--slide) !important;
+    max-width: var(--slide) !important;
+  }
+}
+
+/* mehr Höhe auf schmalen Screens (größerer Bildausschnitt) */
+@media (max-width: 680px){
+  #ref-gallery .rg__media{ --ratio: 4/3; }   /* vorher 16/9 → niedriger */
+  /* optional etwas Rand für schönes Einrasten */
+  #ref-gallery .rg__viewport{ padding: 0 12px; }
+}
+
+
+
+/* Mobile: Nummern-Badge oberhalb des Textes */
+@media (max-width: 680px){
+  #alab-montage .step{
+    grid-template-columns: 1fr;     /* eine Spalte */
+    grid-template-rows: auto 1fr;   /* Dot oben, Card darunter */
+    justify-items: stretch;
+    align-items: start;
+    gap: 12px;
+  }
+  #alab-montage .step__dot{
+    width: 52px; 
+    height: 52px;
+    justify-self: center;           /* in der Mitte über der Karte */
+    margin-bottom: 4px;
+  }
+}
+
+/* ======================================================
+   MONTAGE – EXTRA COMPACT MOBILE (<= 768px)
+   ====================================================== */
+@media (max-width: 768px){
+  /* Grundtypografie & Seitengassen */
+  #alab-montage{ font-size: .95rem; line-height: 1.45; }
+  #alab-montage .container{ padding: 0 var(--s-3); }
+
+  /* HERO kompakter */
+  #alab-montage .hero{ padding: var(--s-7) 0 var(--s-6); }
+  #alab-montage .hero__kicker{ gap:8px; padding:6px 12px; font-size:.85rem; margin-bottom: var(--s-3); }
+  #alab-montage .hero__title{ font-size: clamp(1.55rem, 4.8vw, 2.1rem); margin-bottom: var(--s-2); }
+  #alab-montage .hero__subtitle{ font-size: .98rem; margin: 0 auto var(--s-4); }
+  #alab-montage .hero__actions{ gap:10px; margin-bottom: var(--s-3); }
+  #alab-montage .hero__divider{ width:min(220px,60%); height:3px; }
+
+  /* Buttons kleiner (Icons inkl.) */
+  #alab-montage .btn{ padding: 10px 16px; font-size: .93rem; }
+  #alab-montage .btn i{ font-size: .95em; }
+
+  /* SECTION-Abstände & Titel */
+  #alab-montage .main{ padding: var(--s-7) 0; }
+  #alab-montage .section{ margin-bottom: var(--s-7); }
+  #alab-montage .section-title{
+    font-size: clamp(1.35rem, 4.2vw, 1.75rem);
+    margin-bottom: var(--s-2);
+  }
+  #alab-montage .section-title::after{ width: 56px; height: 3px; margin-top: 8px; }
+  #alab-montage .section-subtitle{ font-size: .98rem; margin: 0 auto var(--s-5); }
+  #alab-montage .eyebrow{ font-size: .78rem; margin-bottom: var(--s-2); }
+
+  /* GRID enger */
+  #alab-montage .grid{ gap: clamp(12px, 2.5vw, 18px); }
+
+  /* CARDS kompakter + kleinere Icons/Checkmarks */
+  #alab-montage .card{
+    padding: clamp(var(--s-5), 1.2vw + 10px, var(--s-6));
+    border-radius: 12px;
+    box-shadow: var(--shadow-1);
+  }
+  #alab-montage .card__title{ font-size: 1.05rem; margin-bottom: var(--s-3); }
+  #alab-montage .lead{ margin-bottom: var(--s-3); }
+  #alab-montage .card__list{ gap: 8px; }
+  #alab-montage .card__list li{ padding-left: 20px; }
+  #alab-montage .card__list li::before{ font-size: .95rem; top: 1px; }
+
+  /* CTA-Row */
+  #alab-montage .cta-row{ margin-top: var(--s-5); }
+
+  /* TIMELINE/Steps kompakter (Bilder/Slider bleiben unberührt) */
+  #alab-montage .steps{ gap: 14px; }
+  #alab-montage .step{ grid-template-columns: 52px 1fr; gap: 12px; }
+  #alab-montage .step__dot{ width: 44px; height: 44px; }
+  #alab-montage .badge{ inset: 5px; font-size: .95rem; }
+  #alab-montage .ring .track,
+  #alab-montage .ring .prog{ stroke-width: 3; }
+  #alab-montage .laserbar{ height: 3px; }
+
+  /* Slider/Referenzen – NUR Typo/Abstand, KEIN Bild-Resize */
+  #montage-slider .slider__track{ gap: 16px; }
+  #montage-slider .slider__caption{ font-size: .95rem; margin-top: 8px; }
+  #ref-gallery .rg__cap{ font-size: .95rem; margin-top: 8px; }
+}
+
+/* Ultra-compact Phones (<= 480px) – noch etwas straffer */
+@media (max-width: 480px){
+  #alab-montage{ font-size: .9rem; line-height: 1.4; }
+  #alab-montage .container{ padding: 0 var(--s-2); }
+
+  #alab-montage .hero{ padding: var(--s-6) 0 var(--s-5); }
+  #alab-montage .hero__title{ font-size: clamp(1.35rem, 5.2vw, 1.6rem); }
+  #alab-montage .hero__subtitle{ font-size: .95rem; margin-bottom: var(--s-3); }
+  #alab-montage .btn{ padding: 9px 14px; font-size: .9rem; }
+
+  #alab-montage .main{ padding: var(--s-6) 0; }
+  #alab-montage .section{ margin-bottom: var(--s-6); }
+  #alab-montage .section-title{ font-size: clamp(1.2rem, 4.4vw, 1.5rem); }
+  #alab-montage .section-subtitle{ margin-bottom: var(--s-4); }
+
+  #alab-montage .grid{ gap: 12px; }
+  #alab-montage .card{ padding: var(--s-4); border-radius: 10px; }
+  #alab-montage .card__title{ font-size: 1rem; }
+
+  #alab-montage .steps{ gap: 12px; }
+  #alab-montage .step{ grid-template-columns: 44px 1fr; gap: 10px; }
+  #alab-montage .step__dot{ width: 40px; height: 40px; }
+  #alab-montage .badge{ inset: 4px; font-size: .9rem; }
+  #alab-montage .laserbar{ height: 2px; }
+
+  #montage-slider .slider__track{ gap: 14px; }
+  #montage-slider .slider__caption{ font-size: .9rem; }
+  #ref-gallery .rg__cap{ font-size: .9rem; }
+}
+
+/* Hinweis: Die bereits vorhandenen Mobile-Regeln zu Swiper/Ref-Gallery
+   bleiben bestehen; hier wurden bewusst KEINE img-Größen überschrieben. */
+
+
+/* =========================================
+   MONTAGEPROZESS mittig ausrichten
+   ========================================= */
+
+/* Die gesamte Steps-Spalte zentrieren und begrenzen */
+#alab-montage .steps{
+  max-width: 760px;          /* angenehme Lesebreite */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Sicherheit: jedes Step-Item nutzt die volle Breite der Steps-Spalte */
+#alab-montage .step{ width: 100%; }
+
+/* Mobile noch etwas schmaler + Innenabstand */
+@media (max-width: 768px){
+  #alab-montage .steps{
+    max-width: 680px;
+    padding-inline: var(--s-3);
+  }
+}
+
+/* Sehr schmal: Badge oben zentriert halten (ergänzt dein vorhandenes Rule-Set) */
+@media (max-width: 680px){
+  #alab-montage .step{
+    grid-template-columns: 1fr;     /* eine Spalte */
+    grid-template-rows: auto 1fr;
+    justify-items: stretch;
+  }
+  #alab-montage .step__dot{
+    justify-self: center;           /* Badge genau mittig */
+  }
+}
+
+
+/* =========================================
+   MONTAGE: horizontales Scrollen unterbinden
+   ========================================= */
+
+/* Seite selbst clippt Überstände – nur #alab-montage */
+#alab-montage{
+  position: relative;       /* für overflow:clip */
+  overflow-x: clip;         /* moderner als hidden, kein Scrollbalken */
+  touch-action: pan-y;      /* nur vertikal wischbar */
+  overscroll-behavior-x: none; /* kein seitliches Überscrollen */
+}
+
+/* Fallback für Browser ohne overflow: clip */
+@supports not (overflow: clip){
+  #alab-montage{ overflow-x: hidden; }
+}
+
+/* Sicherheitsgurt: keine Elemente dürfen breiter als die Seite werden */
+#alab-montage .container,
+#alab-montage .main,
+#alab-montage .hero,
+#alab-montage .section{
+  max-width: 100%;
+}
+
+/* Wichtig: Viewports von Slidern/Referenzen dürfen weiter horizontal scrollen.
+   Darum KEIN overflow-x:hidden auf:
+   #montage-slider .slider__viewport, #ref-gallery .rg__viewport */
