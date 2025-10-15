@@ -433,6 +433,17 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
     --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.08);
     color:var(--alab-text); background:var(--alab-bg);
   }
+  
+/* Kontaktliste: 2-Spalten-Zeile nur für Geschäftszeiten */
+  #alab-contact .ac-list .ac-hours {
+  display: grid;
+  grid-template-columns: max-content 1fr; /* Label | Inhalt */
+  column-gap: 10px;
+  align-items: start;
+}
+  #alab-contact .ac-list .ac-hours > strong { grid-column: 1; }
+  #alab-contact .ac-list .ac-hours .val    { grid-column: 2; }
+
   .ac-wrap{ max-width:1100px; margin:0 auto; padding:28px 16px 80px; }
   .ac-hero{ display:grid; gap:14px; margin:12px 0 28px; }
   .ac-eyebrow{ letter-spacing:.12em; text-transform:uppercase; font-weight:600; font-size:.78rem; color:var(--alab-muted); }
@@ -663,7 +674,13 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
             <li><strong>E-Mail:</strong> <a href="mailto:info@alab-energiesysteme.de">info@alab-energiesysteme.de</a></li>
             <li><strong>Telefon:</strong> <a href="tel:+4982617597176">08261 7597176</a></li>
             <li><strong>Adresse:</strong> Kastanienweg 6, 87719 Mindelheim</li>
-            <li><strong>Geschäftszeiten:</strong> Mo–Do 08:00–17:00 Uhr</li>
+           <li class="ac-hours">
+            <strong>Geschäftszeiten:</strong>
+            <span class="val">Mo–Do 08:00–17:00 Uhr<br>Freitag 08:00–14:00 Uhr</span>
+          </li>
+
+
+
             
           </ul>
         </div>
