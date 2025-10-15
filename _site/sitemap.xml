@@ -1,5 +1,29 @@
 
-
+<url>
+  <loc>{{ site.domain }}/gewerbliche-loesungen/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>{{ site.domain }}/private-haushalte/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>{{ site.domain }}/freiflaechen/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>{{ site.domain }}/servicepakete/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>{{ site.domain }}/wartung/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
 <url>
   <loc>{{ site.domain }}/montage/</loc>
   <changefreq>monthly</changefreq>
