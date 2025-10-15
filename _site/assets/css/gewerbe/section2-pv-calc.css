@@ -290,4 +290,257 @@
   #pv-calc .benefit-icon{margin:0 auto;}
 }
 
+/* ===== #pv-calc – kompakter auf Mobil ===== */
+@media (max-width: 768px){
 
+  /* Section & Container enger */
+  #pv-calc.calculator-section{ padding:24px 0 !important; }
+  #pv-calc .container{ padding:0 16px !important; }
+
+  /* Titel & Einleitung */
+  #pv-calc .calculator-title{
+    font-size:1.5rem !important;
+    line-height:1.15 !important;
+    margin:0 0 6px !important;
+  }
+  #pv-calc .calculator-description{
+    font-size:.95rem !important;
+    line-height:1.5 !important;
+    margin-bottom:14px !important;
+  }
+
+  /* Trust-Badge kleiner */
+  #pv-calc .trust-badge{ gap:8px; padding:6px 10px; margin-bottom:12px; }
+  #pv-calc .rating-stars .star{ width:14px; height:14px; }
+  #pv-calc .trust-text{ font-size:.85rem; }
+
+  /* Benefit-Liste kompakt */
+  #pv-calc .benefits-list{ margin-bottom:14px; }
+  #pv-calc .benefit-item{
+    gap:10px; padding:10px 12px; margin-bottom:10px;
+    border-radius:14px;
+  }
+  #pv-calc .benefit-icon{ width:28px; height:28px; }
+  #pv-calc .benefit-icon svg{ width:16px; height:16px; }
+  #pv-calc .benefit-text span{ font-size:.9rem; line-height:1.4; }
+
+  /* CTA enger */
+  #pv-calc .cta-wrapper{ gap:10px; }
+  #pv-calc .btn-calculate{ padding:12px 16px; font-size:1rem; }
+  #pv-calc .time-indicator{ font-size:.85rem; }
+
+  /* Preview-Card kompakter */
+  #pv-calc .results-preview{ padding:14px; border-radius:14px; }
+  #pv-calc .preview-badge{ top:10px; right:10px; padding:.25rem .5rem; font-size:.7rem; }
+
+  /* Kennzahlen/Chart kleiner & dichter */
+  #pv-calc .metrics-grid{ gap:10px; margin:14px 0 10px; }
+  #pv-calc .metric-card{ padding:12px; }
+  #pv-calc .metric-value .number{ font-size:1.5rem; }
+  #pv-calc .currency{ font-size:1rem; }
+  #pv-calc .unit{ font-size:.9rem; }
+  #pv-calc .metric-subtext{ font-size:.7rem; }
+
+  #pv-calc .chart-container{
+    height:140px; margin-bottom:10px; padding:10px;
+  }
+  #pv-calc .preview-info{ font-size:.7rem; }
+}
+
+@media (max-width: 480px){
+  #pv-calc .calculator-title{ font-size:1.35rem !important; }
+  #pv-calc .results-preview{ padding:12px; border-radius:12px; }
+  #pv-calc .btn-calculate{ padding:10px 14px; font-size:.95rem; }
+  #pv-calc .metric-card{ padding:10px; }
+  #pv-calc .chart-container{ height:120px; }
+}
+
+/* ===== PV-Calc – Kontaktformular im Modal mobil kompakter ===== */
+
+/* bis Tablet */
+@media (max-width: 768px){
+
+  /* Rahmen */
+  #pv-calc .modal .modal-content,
+  .modal.pvcalc-modal .modal-content,
+  #pvcalc-modal .modal-content{
+    max-width: 520px;
+    border-radius: 14px;
+    margin: 10px;                 /* an Rändern etwas Luft */
+    max-height: calc(100vh - 20px);
+    overflow-y: auto;
+  }
+
+  /* Header */
+  #pv-calc .modal .modal-header,
+  .modal.pvcalc-modal .modal-header,
+  #pvcalc-modal .modal-header{
+    padding: 10px 14px;
+  }
+  #pv-calc .modal .modal-title,
+  .modal.pvcalc-modal .modal-title,
+  #pvcalc-modal .modal-title{
+    font-size: 1.05rem;
+    line-height: 1.2;
+  }
+  #pv-calc .modal .modal-close,
+  .modal.pvcalc-modal .modal-close,
+  #pvcalc-modal .modal-close{
+    width: 32px; height: 32px;
+  }
+
+  /* Body */
+  #pv-calc .modal .modal-body,
+  .modal.pvcalc-modal .modal-body,
+  #pvcalc-modal .modal-body{
+    padding: 12px 14px;
+  }
+
+  /* Step-Innenabstand kleiner */
+  #pv-calc .form-step,
+  .modal.pvcalc-modal .form-step,
+  #pvcalc-modal .form-step{
+    padding: 12px !important;
+  }
+
+  /* Labels & Abstände */
+  #pv-calc .form-group,
+  .modal.pvcalc-modal .form-group,
+  #pvcalc-modal .form-group{
+    margin-bottom: 10px;
+  }
+  #pv-calc .form-group label,
+  .modal.pvcalc-modal .form-group label,
+  #pvcalc-modal .form-group label{
+    font-size: .85rem;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  /* Inputs/Textarea kompakter */
+  #pv-calc .form-group input,
+  #pv-calc .form-group textarea,
+  .modal.pvcalc-modal .form-group input,
+  .modal.pvcalc-modal .form-group textarea,
+  #pvcalc-modal .form-group input,
+  #pvcalc-modal .form-group textarea{
+    padding: 9px 11px;
+    font-size: 15px;
+    border-radius: 10px;
+    border-width: 1px;
+  }
+  #pv-calc .form-group textarea,
+  .modal.pvcalc-modal .form-group textarea,
+  #pvcalc-modal .form-group textarea{
+    min-height: 84px;
+  }
+
+  /* Reihen/Gitter enger */
+  #pv-calc .form-row,
+  .modal.pvcalc-modal .form-row,
+  #pvcalc-modal .form-row{
+    gap: 8px;
+  }
+
+  /* Checkbox-Block kleiner */
+  #pv-calc .checkbox-group,
+  .modal.pvcalc-modal .checkbox-group,
+  #pvcalc-modal .checkbox-group{
+    padding: 10px;
+    margin: 12px 0;
+    border-width: 1px;
+  }
+  #pv-calc .checkbox-label span,
+  .modal.pvcalc-modal .checkbox-label span,
+  #pvcalc-modal .checkbox-label span{
+    font-size: .88rem;
+    line-height: 1.45;
+  }
+  #pv-calc .checkbox-label input[type="checkbox"],
+  .modal.pvcalc-modal .checkbox-label input[type="checkbox"],
+  #pvcalc-modal .checkbox-label input[type="checkbox"]{
+    width: 18px; height: 18px;
+  }
+
+  /* Navigation/Buttons */
+  #pv-calc .form-navigation,
+  .modal.pvcalc-modal .form-navigation,
+  #pvcalc-modal .form-navigation{
+    margin-top: 14px;
+    padding-top: 12px;
+  }
+  #pv-calc .btn-next,
+  #pv-calc .btn-back,
+  #pv-calc .btn-submit,
+  .modal.pvcalc-modal .btn-next,
+  .modal.pvcalc-modal .btn-back,
+  .modal.pvcalc-modal .btn-submit,
+  #pvcalc-modal .btn-next,
+  #pvcalc-modal .btn-back,
+  #pvcalc-modal .btn-submit{
+    padding: 10px 14px;
+    font-size: .98rem;
+    border-radius: 12px;
+  }
+
+  /* Progressbar etwas flacher */
+  #pv-calc .calc-progress-bar,
+  .modal.pvcalc-modal .calc-progress-bar,
+  #pvcalc-modal .calc-progress-bar{
+    height: 3px;
+  }
+}
+
+/* extra klein */
+@media (max-width: 420px){
+  #pv-calc .modal .modal-content,
+  .modal.pvcalc-modal .modal-content,
+  #pvcalc-modal .modal-content{
+    max-width: 92vw;
+  }
+  #pv-calc .modal .modal-header,
+  #pv-calc .modal .modal-body,
+  .modal.pvcalc-modal .modal-header,
+  .modal.pvcalc-modal .modal-body,
+  #pvcalc-modal .modal-header,
+  #pvcalc-modal .modal-body{
+    padding: 10px 12px;
+  }
+  #pv-calc .form-group input,
+  #pv-calc .form-group textarea,
+  .modal.pvcalc-modal .form-group input,
+  .modal.pvcalc-modal .form-group textarea,
+  #pvcalc-modal .form-group input,
+  #pvcalc-modal .form-group textarea{
+    padding: 8px 10px;
+    font-size: 14.5px;
+  }
+  #pv-calc .btn-next,
+  #pv-calc .btn-back,
+  #pv-calc .btn-submit,
+  .modal.pvcalc-modal .btn-next,
+  .modal.pvcalc-modal .btn-back,
+  .modal.pvcalc-modal .btn-submit,
+  #pvcalc-modal .btn-next,
+  #pvcalc-modal .btn-back,
+  #pvcalc-modal .btn-submit{
+    padding: 9px 12px;
+    font-size: .95rem;
+  }
+}
+
+/* optional: bei sehr kleinen Screens zwei Spalten – spart Höhe,
+   falls deine Felder bereits in .form-row gruppiert sind */
+@media (max-width: 480px){
+  #pv-calc .form-row,
+  .modal.pvcalc-modal .form-row,
+  #pvcalc-modal .form-row{
+    grid-template-columns: 1fr 1fr;
+  }
+  /* Felder, die volle Breite brauchen, mit .full markieren */
+  #pv-calc .form-row .full,
+  .modal.pvcalc-modal .form-row .full,
+  #pvcalc-modal .form-row .full{
+    grid-column: 1 / -1;
+  }
+}

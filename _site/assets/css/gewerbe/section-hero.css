@@ -221,3 +221,170 @@
 #gewerbe-landing .hero-visual .savings-card svg {
   display: inline-block !important;
 }
+
+/* Nur mobil: Eigenverbrauchsquote + jährliche Ersparnis im Gewerbe-Hero ausblenden */
+@media (max-width: 768px) {
+  /* exakt die beiden Karten im Hero */
+  #gewerbe-landing .hero-visual .stats-card,
+  #gewerbe-landing .hero-visual .savings-card {
+    display: none !important;
+  }
+
+  /* falls du alternative Klassennamen/Attribute verwendest */
+  #gewerbe-landing .kpi-card--self,
+  #gewerbe-landing .kpi-card--savings,
+  #gewerbe-landing [data-metric="self-consumption"],
+  #gewerbe-landing [data-metric="savings"] {
+    display: none !important;
+  }
+
+  /* evtl. entstehende Lücken im Hero schließen */
+  #gewerbe-landing .hero-visual { gap: 0 !important; }
+}
+
+
+/* Gewerbe-Formular: kompakter auf Mobil */
+@media (max-width: 480px) {
+  /* Modalrahmen & Kopf */
+  #gewerbe-landing .modal-content{
+    border-radius: 16px;
+    max-width: 420px;
+  }
+  #gewerbe-landing .modal-header{
+    padding: 12px 16px;
+  }
+  #gewerbe-landing .modal-title{
+    font-size: 1.125rem;   /* ~18px */
+    line-height: 1.2;
+  }
+  #gewerbe-landing .modal-close{
+    width: 32px; height: 32px;
+  }
+
+  /* Body & Einleitungstext */
+  #gewerbe-landing .modal-body{
+    padding: 14px 16px;
+  }
+  #gewerbe-landing .form-intro{
+    font-size: .95rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  /* Felder & Labels */
+  #gewerbe-landing .form-group{
+    margin-bottom: 12px;
+  }
+  #gewerbe-landing .form-group label{
+    font-size: .85rem;
+    margin-bottom: 6px;
+  }
+  #gewerbe-landing .form-group input,
+  #gewerbe-landing .form-group textarea{
+    padding: 10px 12px;               /* weniger Innenabstand */
+    font-size: 15px;
+    border-radius: 12px;
+  }
+  #gewerbe-landing .form-group textarea{
+    min-height: 84px;                  /* kleinere Textarea */
+  }
+
+  /* Checkbox & Submit */
+  #gewerbe-landing .checkbox-group{ margin: 12px 0; }
+  #gewerbe-landing .checkbox-label span{ font-size: .85rem; }
+
+  #gewerbe-landing .btn-submit{
+    padding: 12px 16px;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+}
+
+/* Optional: kurze Felder nebeneinander, wenn du Paare gruppierst
+   (z. B. <div class="form-row form-row--split"> … </div>) */
+@media (max-width: 480px){
+  #gewerbe-landing .form-row--split{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+/* === Gewerbe: kompaktere Blöcke auf Mobile/Tablet ==================== */
+
+/* 1) Spacing-Scale für kleine Screens leicht herunterdrehen */
+@media (max-width: 768px){
+  #gewerbe-landing{
+    --space-sm: .75rem;
+    --space-md: 1rem;
+    --space-lg: 1.25rem;
+    --space-xl: 1.75rem;
+    --space-2xl: 2.25rem;
+    --space-3xl: 3rem;
+  }
+
+  /* Container & Abschnitts-Padding */
+  #gewerbe-landing .container{ padding: 0 14px; }
+  #gewerbe-landing .hero-section{ padding: var(--space-xl) 0; }
+  #gewerbe-landing .benefits-section{ padding: var(--space-xl) 0; }
+  #gewerbe-landing .section-header{ margin-bottom: var(--space-lg); }
+
+  /* Headings kompakter */
+  #gewerbe-landing .section-title{
+    font-size: 1.35rem;
+    margin-bottom: .5rem;
+    line-height: 1.25;
+  }
+  #gewerbe-landing .section-subtitle{
+    font-size: .98rem;
+    line-height: 1.55;
+  }
+
+  /* CTA/Trust-Blöcke enger */
+  #gewerbe-landing .cta-group{ gap: .5rem; margin-bottom: var(--space-md); }
+  #gewerbe-landing .btn{ padding: .625rem .875rem; font-size: .95rem; }
+  #gewerbe-landing .trust-indicators{ gap: .75rem; }
+
+  /* Cards/Blöcke – generisch kompakter */
+  #gewerbe-landing .benefits-grid{ gap: .75rem; }
+  #gewerbe-landing .benefit-card{
+    padding: 14px;
+    border-radius: 14px;
+  }
+  #gewerbe-landing .benefit-icon{
+    width: 44px; height: 44px; margin-bottom: 10px;
+  }
+  #gewerbe-landing .benefit-title{ font-size: 1.05rem; margin-bottom: 6px; }
+  #gewerbe-landing .benefit-description{
+    font-size: .95rem;
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+  #gewerbe-landing .benefit-metric{ padding-top: 10px; }
+
+  /* Stat-/Spar-Karten kompakter (wir blenden <768 eh aus; hier v.a. für 641–768) */
+  #gewerbe-landing .stats-card,
+  #gewerbe-landing .savings-card{
+    padding: 12px;
+    border-radius: 14px;
+  }
+  #gewerbe-landing .stats-value{ font-size: 1.5rem; }
+  #gewerbe-landing .savings-amount .currency{ font-size: 1rem; }
+  #gewerbe-landing .savings-amount .amount{ font-size: 1.75rem; }
+}
+
+/* 2) Noch etwas straffer unter 480px */
+@media (max-width: 480px){
+  #gewerbe-landing .container{ padding: 0 12px; }
+  #gewerbe-landing .hero-section{ padding: 24px 0; }
+  #gewerbe-landing .benefits-section{ padding: 24px 0; }
+
+  #gewerbe-landing .benefit-card{
+    padding: 12px;
+    border-radius: 12px;
+  }
+  #gewerbe-landing .benefit-description{ font-size: .9rem; }
+  #gewerbe-landing .metric-value{ font-size: 1.25rem; }
+
+  #gewerbe-landing .btn{ padding: 10px 12px; font-size: .93rem; }
+}

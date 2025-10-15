@@ -1,0 +1,858 @@
+/* === ALAB Energiesysteme - Premium Modern Design System === */
+
+/* Root Variables - Design System */
+:root {
+    /* Gold Color Palette - Preserved */
+    --gold-primary: #E6C23C;
+    --gold-secondary: #E5C44D;
+    --gold-accent: #F3D663;
+    --gold-light: #FFE69C;
+    --gold-dark: #C9A62E;
+    
+    /* Modern Neutral Palette */
+    --neutral-50: #FAFAFA;
+    --neutral-100: #F5F5F5;
+    --neutral-200: #E5E5E5;
+    --neutral-300: #D4D4D4;
+    --neutral-400: #A3A3A3;
+    --neutral-500: #737373;
+    --neutral-600: #525252;
+    --neutral-700: #404040;
+    --neutral-800: #262626;
+    --neutral-900: #171717;
+    --neutral-950: #0A0A0A;
+    
+    /* System Colors */
+    --background: #FFFFFF;
+    --surface: #FAFAFA;
+    --card: #FFFFFF;
+    --text-primary: #0F0F0F;
+    --text-secondary: #525252;
+    --text-muted: #737373;
+    --border: rgba(0, 0, 0, 0.06);
+    
+    /* Modern Shadows - Subtle & Layered */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.03), 0 4px 6px rgba(0, 0, 0, 0.02);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.03), 0 8px 10px rgba(0, 0, 0, 0.02);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.05);
+    
+    /* Gold Shadows for Premium Feel */
+    --shadow-gold-sm: 0 2px 8px rgba(230, 194, 60, 0.15);
+    --shadow-gold-md: 0 4px 16px rgba(230, 194, 60, 0.2);
+    --shadow-gold-lg: 0 8px 32px rgba(230, 194, 60, 0.25);
+    
+    /* Modern Spacing System */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+    
+    /* Typography Scale */
+    --font-xs: 0.75rem;
+    --font-sm: 0.875rem;
+    --font-base: 1rem;
+    --font-lg: 1.125rem;
+    --font-xl: 1.25rem;
+    --font-2xl: 1.5rem;
+    --font-3xl: 1.875rem;
+    --font-4xl: 2.25rem;
+    --font-5xl: 3rem;
+    
+    /* Line Heights */
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+    
+    /* Transitions - Performance Optimized */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slower: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modern CSS Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Modern Typography System */
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: var(--font-base);
+    line-height: var(--leading-normal);
+    color: var(--text-primary);
+    background: var(--background);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+}
+
+/* Hero Section - Modern Minimal Design */
+.alab-hero {
+    position: relative;
+    width: 100%;
+    padding: var(--space-xl) 0;
+    background: linear-gradient(180deg, var(--surface) 0%, var(--background) 100%);
+    overflow: hidden;
+}
+
+/* Subtle Background Pattern */
+.alab-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(230, 194, 60, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.alab-hero .wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 var(--space-2xl);
+    position: relative;
+    z-index: 1;
+}
+
+/* Modern Card Design - Clean & Minimal */
+.glass-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.glass-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+    border-color: rgba(230, 194, 60, 0.2);
+}
+
+/* Subtle Gold Accent Line */
+.glass-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    opacity: 0.6;
+}
+
+/* Remove heavy animations for better performance */
+.glass-card .laser,
+.shine-effect {
+    display: none;
+}
+
+/* Hero Media - Modern Clean Layout */
+.hero-media {
+    position: relative;
+    padding: 0;
+    height: 100%;
+    min-height: 400px;
+}
+
+.hero-media .frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: var(--neutral-100);
+}
+
+.hero-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transition-slow), opacity var(--transition-base);
+    will-change: transform, opacity;
+}
+
+.hero-media:hover img {
+    transform: scale(1.02);
+}
+
+/* Modern Tab Overlay */
+.overlay {
+    position: absolute;
+    left: var(--space-lg);
+    right: var(--space-lg);
+    bottom: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.overlay .tabs {
+    display: flex;
+    gap: var(--space-sm);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: var(--space-xs);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    pointer-events: auto;
+}
+
+.tab-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    background: transparent;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background: var(--gold-primary);
+    transition: transform var(--transition-base);
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+    background: rgba(230, 194, 60, 0.05);
+}
+
+.tab-btn.active {
+    color: var(--gold-dark);
+    background: rgba(230, 194, 60, 0.1);
+    font-weight: 600;
+}
+
+.tab-btn.active::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.tab-btn .tab-icon {
+    display: none; /* Remove emoji icons for cleaner look */
+}
+
+/* Modern Tab Panels */
+.tab-panel {
+    pointer-events: auto;
+    display: none;
+    padding: var(--space-lg);
+    margin-top: var(--space-sm);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+}
+
+.tab-panel.show {
+    display: block;
+    animation: fadeIn var(--transition-slow);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-panel h3 {
+    margin: 0 0 var(--space-sm);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: var(--font-lg);
+    color: var(--text-primary);
+}
+
+.tab-panel p {
+    margin: 0 0 var(--space-md);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: var(--font-sm);
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+}
+
+.panel-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-md);
+    background: var(--gold-primary);
+    color: white;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: var(--font-sm);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+.panel-cta:hover {
+    background: var(--gold-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.panel-cta svg {
+    transition: transform var(--transition-fast);
+    width: 14px;
+    height: 14px;
+}
+
+.panel-cta:hover svg {
+    transform: translateX(2px);
+}
+
+/* Hero Content - Clean Typography Focus */
+.hero-content {
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+/* Subtle Glow Effect */
+.glow-orb {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(230, 194, 60, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -100px;
+    right: -100px;
+    opacity: 0.5;
+    filter: blur(60px);
+    pointer-events: none;
+    animation: none; /* Remove animation for better performance */
+}
+
+/* Hero Overline - Minimal & Elegant */
+.hero-overline {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.overline-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: var(--font-sm);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.overline-badge {
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(230, 194, 60, 0.1);
+    color: var(--gold-dark);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: var(--font-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(230, 194, 60, 0.2);
+}
+
+/* Hero Title - Bold & Modern */
+.hero-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: var(--leading-tight);
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--space-md);
+    color: var(--text-primary);
+}
+
+.title-highlight {
+    color: var(--gold-primary);
+    position: relative;
+    display: inline-block;
+}
+
+.title-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-primary), var(--gold-accent));
+    opacity: 0.5;
+}
+
+/* Hero Text - Clear & Readable */
+.hero-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: var(--font-base);
+    line-height: var(--leading-normal);
+    color: var(--text-secondary);
+    margin: 0 0 var(--space-lg);
+    max-width: 100%;
+}
+
+/* Feature Chips - Modern Pills */
+.feature-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: var(--space-md) 0;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-full);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+    cursor: default;
+}
+
+.chip svg {
+    width: 16px;
+    height: 16px;
+    color: var(--gold-primary);
+    flex-shrink: 0;
+}
+
+.chip:hover {
+    background: rgba(230, 194, 60, 0.05);
+    border-color: rgba(230, 194, 60, 0.3);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+/* Stats Row - Clean Metrics */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin: var(--space-lg) 0;
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--border);
+}
+
+.stat-item {
+    text-align: left;
+}
+
+.stat-number {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: var(--font-2xl);
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: var(--space-xs);
+}
+
+.stat-number::after {
+    content: '+';
+    color: var(--gold-primary);
+    font-size: 0.8em;
+    margin-left: 2px;
+}
+
+.stat-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: var(--font-sm);
+    color: var(--text-muted);
+    text-transform: capitalize;
+}
+
+/* CTA Buttons - Modern & Clean */
+.cta-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin: var(--space-lg) 0 0;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-md);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: var(--font-sm);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.primary-cta {
+    background: var(--gold-primary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.primary-cta:hover {
+    background: var(--gold-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.cta-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+}
+
+.cta-ghost:hover {
+    background: var(--surface);
+    border-color: var(--gold-primary);
+    color: var(--gold-dark);
+}
+
+.hero-cta svg {
+    width: 20px;
+    height: 20px;
+    transition: transform var(--transition-fast);
+}
+
+.hero-cta:hover svg {
+    transform: translateX(3px);
+}
+
+/* Minimal Animations for Better Performance */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design - Mobile First Approach */
+@media (max-width: 1024px) {
+    .alab-hero .wrap {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+    
+    .hero-media {
+        min-height: 400px;
+    }
+    
+    .stats-row {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --font-5xl: 2.5rem;
+        --font-4xl: 2rem;
+        --font-3xl: 1.5rem;
+    }
+    
+    .alab-hero {
+        padding: var(--space-2xl) 0;
+    }
+    
+    .alab-hero .wrap {
+        padding: 0 var(--space-lg);
+    }
+    
+    .hero-content {
+        padding: var(--space-xl);
+    }
+    
+    .hero-title {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+    }
+    
+    .hero-text {
+        font-size: var(--font-base);
+    }
+    
+    .stats-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+        text-align: center;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .alab-hero .wrap {
+        padding: 0 var(--space-md);
+        gap: var(--space-xl);
+    }
+    
+    .glass-card {
+        border-radius: var(--radius-xl);
+    }
+    
+    .hero-content {
+        padding: var(--space-lg);
+    }
+    
+    .hero-media {
+        min-height: 300px;
+    }
+    
+    .feature-chips {
+        gap: var(--space-xs);
+    }
+    
+    .chip {
+        font-size: var(--font-xs);
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    .cta-row {
+        flex-direction: column;
+        gap: var(--space-sm);
+        width: 100%;
+    }
+    
+    .hero-cta {
+        width: 100%;
+    }
+    
+    .overlay {
+        left: var(--space-md);
+        right: var(--space-md);
+        bottom: var(--space-md);
+    }
+    
+    .overlay .tabs {
+        gap: var(--space-xs);
+    }
+    
+    .tab-btn {
+        font-size: var(--font-xs);
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    .tab-panel {
+        padding: var(--space-md);
+    }
+    
+    .tab-panel h3 {
+        font-size: var(--font-base);
+    }
+    
+    .tab-panel p {
+        font-size: var(--font-sm);
+    }
+    
+    /* Performance optimizations for mobile */
+    .glow-orb {
+        display: none;
+    }
+    
+    * {
+        animation-duration: 0s !important;
+        animation-delay: 0s !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .alab-hero {
+        background: white;
+    }
+    
+    .overlay,
+    .glow-orb,
+    .hero-cta {
+        display: none;
+    }
+}
+
+/* Accessibility - Focus States */
+:focus-visible {
+    outline: 2px solid var(--gold-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--gold-primary);
+    outline-offset: 2px;
+}
+
+/* Performance Optimizations */
+@supports (contain: layout style paint) {
+    .glass-card,
+    .chip,
+    .tab-panel {
+        contain: layout style paint;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .glass-card {
+        border-width: 2px;
+    }
+    
+    .hero-cta {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Dark Mode Support (Future Enhancement) */
+@media (prefers-color-scheme: dark) {
+    /* Dark mode variables can be defined here */
+}
+
+/* Reduce Motion Class for Performance */
+body.reduce-motion * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Loading State */
+body:not(.loaded) {
+    overflow: hidden;
+}
+
+body.loaded {
+    overflow-x: hidden;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Additional Typography Improvements */
+h1, h2, h3, h4, h5, h6 {
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+}
+
+/* Better Link Focus */
+a {
+    position: relative;
+    text-decoration-skip-ink: auto;
+}
+
+/* Utility Classes */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

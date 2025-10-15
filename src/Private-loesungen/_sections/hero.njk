@@ -1,0 +1,309 @@
+<section class="hero">
+  <div class="hero-background">
+    <!-- Hintergrundvideo -->
+    <video playsinline autoplay muted loop id="heroVideo">
+      <source src="/assets/img/private-loesungen/file.mp4" type="video/mp4">
+      Ihr Browser unterstützt das Video-Tag nicht.
+    </video>
+
+    <!-- Overlay für bessere Lesbarkeit -->
+    <div class="video-overlay"></div>
+    <div class="gradient-orb gradient-orb-1"></div>
+    <div class="gradient-orb gradient-orb-2"></div>
+    <div class="grid-pattern"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="badge-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </span>
+          <span>Zertifizierte Solarexperten</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="title-line">Solarenergie für</span>
+          <span class="title-line gradient-text">Ihr Zuhause</span>
+        </h1>
+
+        <p class="hero-description">
+          Nutzen Sie die Kraft der Sonne und werden Sie unabhängig von steigenden Strompreisen.
+          Wir planen Ihre maßgeschneiderte Photovoltaikanlage mit höchster Präzision.
+        </p>
+
+        <div class="hero-benefits">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+              </svg>
+            </div>
+            <span>Bis zu 85% Stromkosten sparen</span>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+              </svg>
+            </div>
+            <span>Staatliche Förderung inklusive</span>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+              </svg>
+            </div>
+            <span>20 Jahre Leistungsgarantie</span>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-value">30+</div>
+            <div class="stat-label">Installierte Anlagen</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">500+ KW</div>
+            <div class="stat-label">Gesamtleistung</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">98%</div>
+            <div class="stat-label">Kundenzufriedenheit</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="form-card">
+          <div class="form-glow"></div>
+          <div class="form-header">
+            <h2>Kostenloses Angebot</h2>
+            <p>In nur 2 Minuten zu Ihrer individuellen Kalkulation</p>
+          </div>
+
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-steps">
+              <span class="step-number active" data-step="1">1</span>
+              <span class="step-number" data-step="2">2</span>
+              <span class="step-number" data-step="3">3</span>
+              <span class="step-number" data-step="4">4</span>
+              <span class="step-number" data-step="5">5</span>
+            </div>
+          </div>
+
+          <form id="solarForm" autocomplete="off" novalidate>
+            <!-- STEP 1 -->
+            <div class="form-step active" data-step="1">
+              <label class="form-label">Welche Art von Gebäude haben Sie?</label>
+              <div class="radio-grid">
+                <div class="radio-card">
+                  <input type="radio" id="einfamilienhaus" name="gebaeudeart" value="Einfamilienhaus" required>
+                  <label for="einfamilienhaus">
+                    <span class="radio-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                      </svg>
+                    </span>
+                    <span>Einfamilienhaus</span>
+                  </label>
+                </div>
+                <div class="radio-card">
+                  <input type="radio" id="mehrfamilienhaus" name="gebaeudeart" value="Mehrfamilienhaus">
+                  <label for="mehrfamilienhaus">
+                    <span class="radio-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 21h18"></path>
+                        <path d="M3 7v14"></path>
+                        <path d="M21 7v14"></path>
+                        <path d="M3 7l9-4 9 4"></path>
+                        <path d="M9 21V11"></path>
+                        <path d="M15 21V11"></path>
+                      </svg>
+                    </span>
+                    <span>Mehrfamilienhaus</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="form-step" data-step="2">
+              <label class="form-label">Welche Dachform haben Sie?</label>
+              <div class="radio-grid">
+                <div class="radio-card">
+                  <input type="radio" id="satteldach" name="dachform" value="Satteldach" required>
+                  <label for="satteldach">
+                    <span class="radio-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12l9-9 9 9"></path>
+                        <path d="M5 10v10a1 1 0 001 1h12a1 1 0 001-1V10"></path>
+                      </svg>
+                    </span>
+                    <span>Satteldach</span>
+                  </label>
+                </div>
+                <div class="radio-card">
+                  <input type="radio" id="flachdach" name="dachform" value="Flachdach">
+                  <label for="flachdach">
+                    <span class="radio-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="10" width="18" height="11" rx="1"></rect>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                    </span>
+                    <span>Flachdach</span>
+                  </label>
+                </div>
+                <div class="radio-card">
+                  <input type="radio" id="walmdach" name="dachform" value="Walmdach">
+                  <label for="walmdach">
+                    <span class="radio-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3l-9 9h4v8h10v-8h4z"></path>
+                      </svg>
+                    </span>
+                    <span>Walmdach</span>
+                  </label>
+                </div>
+                <div class="radio-card">
+                  <input type="radio" id="pultdach" name="dachform" value="Pultdach">
+                  <label for="pultdach">
+                    <span class="radio-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 16l9-9 9 5"></path>
+                        <path d="M5 14v6a1 1 0 001 1h12a1 1 0 001-1v-9"></path>
+                      </svg>
+                    </span>
+                    <span>Pultdach</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="form-step" data-step="3">
+              <label class="form-label">Jährlicher Stromverbrauch</label>
+              <div class="input-group">
+                <input type="number" name="stromverbrauch" class="form-input" min="0" step="1" placeholder="z.B. 3500" required>
+                <span class="input-suffix">kWh/Jahr</span>
+              </div>
+              <span class="input-hint">Finden Sie den Wert auf Ihrer letzten Stromrechnung</span>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="form-step" data-step="4">
+              <label class="form-label">Interesse an zusätzlichen Komponenten?</label>
+              <div class="radio-grid">
+                <div class="radio-card">
+                  <input type="radio" id="nur-pv" name="zusatzkomponenten" value="Nur PV" required>
+                  <label for="nur-pv">
+                    <span class="radio-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="9"></rect>
+                        <rect x="14" y="3" width="7" height="5"></rect>
+                        <rect x="14" y="12" width="7" height="9"></rect>
+                        <rect x="3" y="16" width="7" height="5"></rect>
+                      </svg>
+                    </span>
+                    <span>Nur PV</span>
+                  </label>
+                </div>
+                <div class="radio-card">
+                  <input type="radio" id="mit-speicher" name="zusatzkomponenten" value="Mit Speicher">
+                  <label for="mit-speicher">
+                    <span class="radio-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="6" y="3" width="12" height="18" rx="2" ry="2"></rect>
+                        <line x1="9" y1="8" x2="15" y2="8"></line>
+                        <line x1="9" y1="12" x2="15" y2="12"></line>
+                        <line x1="9" y1="16" x2="15" y2="16"></line>
+                        <line x1="12" y1="4" x2="12" y2="2"></line>
+                      </svg>
+                    </span>
+                    <span>Mit Speicher</span>
+                  </label>
+                </div>
+                <div class="radio-card">
+                  <input type="radio" id="mit-wallbox" name="zusatzkomponenten" value="Mit Wallbox">
+                  <label for="mit-wallbox">
+                    <span class="radio-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18.92 2.01C18.72 1.42 18.16 1 17.5 1h-11c-.66 0-1.21.42-1.42 1.01L3 8v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1V8l-2.08-5.99z"></path>
+                        <circle cx="7.5" cy="12.5" r="1.5"></circle>
+                        <circle cx="16.5" cy="12.5" r="1.5"></circle>
+                        <path d="M5 8h14"></path>
+                      </svg>
+                    </span>
+                    <span>Mit Wallbox</span>
+                  </label>
+                </div>
+                <div class="radio-card">
+                  <input type="radio" id="komplett" name="zusatzkomponenten" value="Komplettpaket">
+                  <label for="komplett">
+                    <span class="radio-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 9v11a2 2 0 01-2 2H6a2 2 0 01-2-2V9"></path>
+                        <path d="M9 22V12h6v10M2 10.6L12 2l10 8.6"></path>
+                      </svg>
+                    </span>
+                    <span>Komplettpaket</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 5 -->
+            <div class="form-step" data-step="5">
+              <label class="form-label">Ihre Kontaktdaten</label>
+              <div class="contact-grid">
+                <div class="form-field">
+                  <input type="text" name="vorname" class="form-input" placeholder="Vorname" required>
+                </div>
+                <div class="form-field">
+                  <input type="text" name="nachname" class="form-input" placeholder="Nachname" required>
+                </div>
+                <div class="form-field">
+                  <input type="email" name="email" class="form-input" placeholder="E-Mail-Adresse" required>
+                </div>
+                <div class="form-field">
+                  <input type="tel" name="telefon" class="form-input" placeholder="Telefonnummer" required>
+                </div>
+                <div class="form-field form-field-full">
+                  <input type="text" name="adresse" class="form-input" placeholder="Adresse (Straße, Hausnr., PLZ, Ort)" required>
+                </div>
+              </div>
+              <span class="input-hint">Ihre Daten werden vertraulich behandelt</span>
+            </div>
+          </form>
+
+          <div class="form-navigation">
+            <button type="button" class="btn btn-secondary" id="prevBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+              Zurück
+            </button>
+            <button type="button" class="btn btn-primary" id="nextBtn">
+              Weiter
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

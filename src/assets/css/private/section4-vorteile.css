@@ -1,0 +1,156 @@
+/* ===== Section 4 (Vorteile) – lokal gescoped ===== */
+#privat-vorteile{
+  --primary-gold:#E6C23C;
+  --gold-light:#F3D663;
+  --gold-dark:#E5C44D;
+  --text-dark:#2c3e50;
+  --text-medium:#5a6c7d;
+  --text-light:#94a3b8;
+  --white:#ffffff;
+  --bg-light:#fafafa;
+  --shadow-sm:0 2px 10px rgba(0,0,0,.05);
+  --shadow-md:0 10px 30px rgba(0,0,0,.08);
+  --shadow-lg:0 20px 60px rgba(0,0,0,.12);
+  --shadow-xl:0 30px 80px rgba(0,0,0,.15);
+}
+
+/* NICHTS Globales wie body/h1/.container überschreiben! */
+/* Stattdessen immer scopen: */
+#privat-vorteile .intro-section{ padding:60px 0; background:var(--bg-light); }
+#privat-vorteile .intro-content{ text-align:center; }
+#privat-vorteile .section-badge{ display:inline-block; padding:6px 18px; background:linear-gradient(135deg,var(--gold-dark),var(--gold-light)); color:#fff; border-radius:20px; font-size:.75rem; font-weight:600; letter-spacing:.5px; text-transform:uppercase; margin-bottom:15px; }
+#privat-vorteile .section-title{ font-size:clamp(1.5rem,3vw,2rem); font-weight:600; margin-bottom:20px; color:var(--text-dark); }
+#privat-vorteile .section-title .highlight{ background:linear-gradient(135deg,var(--gold-dark),var(--gold-light)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+#privat-vorteile .section-description{ font-size:.95rem; line-height:1.6; max-width:800px; margin:0 auto 30px; color:var(--text-medium); }
+#privat-vorteile .stats-row{ display:flex; justify-content:center; gap:40px; margin:30px 0 0; flex-wrap:wrap; }
+#privat-vorteile .stat-item{ text-align:center; }
+#privat-vorteile .stat-value{ font-size:1.8rem; font-weight:700; color:var(--primary-gold); display:block; }
+#privat-vorteile .stat-label{ font-size:.85rem; color:var(--text-medium); margin-top:5px; }
+
+/* Benefit Sections */
+#privat-vorteile .benefit-section{ padding:60px 0; position:relative; overflow:hidden; }
+#privat-vorteile .benefit-section.alt-bg{ background:var(--bg-light); } /* optionaler Ersatz für :nth-child(even) */
+#privat-vorteile .benefit-container{ display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
+#privat-vorteile .benefit-section.reverse .benefit-container{ direction:rtl; }
+#privat-vorteile .benefit-section.reverse .benefit-content{ direction:ltr; }
+
+#privat-vorteile .benefit-visual{ position:relative; display:flex; justify-content:center; align-items:center; }
+#privat-vorteile .icon-wrapper{ position:relative; width:250px; height:250px; margin:0 auto; }
+#privat-vorteile .icon-background{ position:absolute; inset:0; background:radial-gradient(circle, rgba(230,194,60,.1) 0%, transparent 70%); border-radius:50%; animation:rotateGlow 20s linear infinite; }
+@keyframes rotateGlow{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+#privat-vorteile .benefit-icon{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:150px; height:150px; }
+#privat-vorteile .icon-lightning path{ stroke-dasharray:500; stroke-dashoffset:500; animation:drawPath 2s ease forwards; }
+#privat-vorteile .icon-modules rect,
+#privat-vorteile .icon-modules path{ stroke-dasharray:200; stroke-dashoffset:200; animation:drawPath 2s ease forwards; }
+#privat-vorteile .icon-monitoring rect,
+#privat-vorteile .icon-monitoring line,
+#privat-vorteile .icon-monitoring polyline{ stroke-dasharray:300; stroke-dashoffset:300; animation:drawPath 2s ease forwards; }
+@keyframes drawPath{ to{ stroke-dashoffset:0 } }
+
+#privat-vorteile .floating-particles{ position:absolute; inset:0; }
+#privat-vorteile .particle{ position:absolute; width:4px; height:4px; background:var(--primary-gold); border-radius:50%; opacity:.6; }
+#privat-vorteile .particle:nth-child(1){ top:20%; left:30%; animation:float 6s ease-in-out infinite; }
+#privat-vorteile .particle:nth-child(2){ top:60%; right:20%; animation:float 8s ease-in-out infinite 1s; }
+#privat-vorteile .particle:nth-child(3){ bottom:30%; left:20%; animation:float 7s ease-in-out infinite 2s; }
+@keyframes float{0%,100%{transform:translate(0,0)}25%{transform:translate(10px,-20px)}50%{transform:translate(-10px,10px)}75%{transform:translate(20px,-10px)}}
+
+#privat-vorteile .benefit-content{ opacity:0; transform:translateX(-50px); }
+#privat-vorteile .benefit-section .benefit-content{ transform:translateX(50px); }
+#privat-vorteile .benefit-content.in-view{ opacity:1; transform:translateX(0); transition:all .8s cubic-bezier(.16,1,.3,1); }
+
+#privat-vorteile .section-label{ display:inline-block; padding:4px 12px; background:rgba(230,194,60,.1); border-radius:15px; color:var(--primary-gold); font-size:.75rem; font-weight:600; letter-spacing:.5px; text-transform:uppercase; margin-bottom:15px; }
+#privat-vorteile .benefit-title{ font-size:clamp(1.5rem,3vw,2.2rem); font-weight:600; margin-bottom:20px; }
+#privat-vorteile .text-gradient{ background:linear-gradient(135deg,var(--gold-dark),var(--gold-light)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+#privat-vorteile .benefit-description{ font-size:.95rem; line-height:1.6; color:var(--text-medium); margin-bottom:25px; }
+#privat-vorteile .highlight-stat{ font-size:1.1em; font-weight:700; color:var(--primary-gold); padding:0 3px; }
+#privat-vorteile .feature-tag{ display:inline-block; padding:2px 8px; background:rgba(230,194,60,.1); border-radius:4px; color:var(--text-dark); font-weight:600; font-size:.9rem; }
+#privat-vorteile .benefit-features{ display:flex; flex-direction:column; gap:12px; }
+#privat-vorteile .feature-item{ display:flex; align-items:center; gap:12px; padding:10px 15px; background:#fff; border-radius:8px; box-shadow:var(--shadow-sm); transition:.3s; }
+#privat-vorteile .feature-item:hover{ transform:translateX(10px); box-shadow:var(--shadow-md); }
+#privat-vorteile .feature-icon{ width:24px; height:24px; background:linear-gradient(135deg,var(--gold-dark),var(--gold-light)); color:#fff; display:flex; align-items:center; justify-content:center; border-radius:50%; font-weight:700; font-size:.8rem; flex-shrink:0; }
+#privat-vorteile .feature-item span{ color:var(--text-dark); font-weight:500; font-size:.9rem; }
+
+/* CTA (falls du sie später nutzt) – ebenfalls scopen */
+#privat-vorteile .cta-section{ padding:120px 0; position:relative; overflow:hidden; background:#fff; }
+/* ... und alle weiteren CTA-Regeln ebenfalls mit #privat-vorteile prefix ... */
+
+/* Responsive – auch mit Prefix */
+@media (max-width:1024px){
+  #privat-vorteile .benefit-container{ gap:40px; }
+  #privat-vorteile .icon-wrapper{ width:200px; height:200px; }
+  #privat-vorteile .benefit-icon{ width:120px; height:120px; }
+}
+@media (max-width:768px){
+  #privat-vorteile .intro-section{ padding:40px 0; }
+  #privat-vorteile .benefit-section{ padding:40px 0; }
+  #privat-vorteile .benefit-container{ grid-template-columns:1fr; gap:30px; direction:ltr; }
+  #privat-vorteile .icon-wrapper{ width:180px; height:180px; margin:0 auto; }
+  #privat-vorteile .benefit-icon{ width:100px; height:100px; }
+  #privat-vorteile .benefit-title{ font-size:1.5rem; }
+}
+
+
+/* Vorteile: komplette Illustration ausblenden (mobil sehr kompakt) */
+@media (max-width: 768px){
+  #privat-vorteile .benefit-visual,
+  #privat-vorteile .icon-wrapper,
+  #privat-vorteile .icon-background,
+  #privat-vorteile .floating-particles {
+    display: none !important;
+  }
+  #privat-vorteile .benefit-section { padding: 28px 0 !important; }
+  #privat-vorteile .benefit-container { grid-template-columns: 1fr !important; gap: 18px !important; }
+}
+
+
+
+/* ===== Modal-Formular: kompakte Mobile-Ansicht ===== */
+@media (max-width: 480px){
+
+  /* Rahmen + Höhe */
+  .modal-content{
+    width: 92%;
+    border-radius: 16px;
+    max-height: 86svh;          /* passt in die Viewport-Höhe inkl. URL-Bar */
+    overflow-y: auto;           /* falls es doch knapp wird: sanfter Scroll */
+    overscroll-behavior: contain;
+  }
+
+  /* Header kompakter */
+  .modal-header{ padding: 14px 16px; }
+  .modal-header h2{
+    font-size: 20px;
+    line-height: 1.2;
+    margin: 0;
+  }
+  .modal-close{ width: 32px; height: 32px; font-size: 26px; }
+
+  /* Body/Gaps kleiner */
+  .modal-body{ padding: 14px 16px; }
+
+  .lead-form{
+    grid-template-columns: 1fr; /* einkolumnig */
+    gap: 10px;                  /* vorher 16px */
+  }
+  .lead-form .form-group{ gap: 6px; }
+
+  .lead-form label{
+    font-size: 13px;            /* etwas kleiner */
+    line-height: 1.2;
+  }
+
+  .lead-form input,
+  .lead-form textarea{
+    padding: 10px 12px;         /* weniger Innenabstand */
+    font-size: 15px;
+    border-radius: 10px;
+  }
+  .lead-form textarea{ min-height: 80px; }  /* kürzer */
+
+  /* Button kompakter und ohne großen Abstand */
+  .submit-btn{
+    padding: 12px 16px;
+    font-size: 15px;
+    margin-top: 8px;
+  }
+}

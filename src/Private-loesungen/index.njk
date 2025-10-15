@@ -1,0 +1,25 @@
+---
+layout: base.njk
+permalink: /private-haushalte/
+title: "Photovoltaik für Privat | ALAB Energiesysteme"
+description: "PV-Lösungen für Ein- und Mehrfamilienhäuser – Planung, Installation, Speicher & Wallbox."
+eleventyExcludeFromCollections: true
+bodyClass: private-page
+
+page:
+  css_files:
+    - /assets/css/private/section-hero.css
+    - /assets/css/private/section2-solarrechner.css
+    - /assets/css/private/section3-komponenten.css
+    - /assets/css/private/section4-vorteile.css
+  js_files:
+    - /assets/js/private/section-hero.js
+    - /assets/js/private/section2-solarrechner.js
+    - /assets/js/private/section3-komponenten.js
+    - /assets/js/private/section4-vorteile.js
+---
+
+{% include "./_sections/hero.njk" %}
+{% include "./_sections/solarrechner.njk" %}
+{% include "./_sections/komponenten.njk" %}
+{% include "./_sections/vorteile.njk" %}

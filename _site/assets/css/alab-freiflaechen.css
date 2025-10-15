@@ -69,7 +69,7 @@ html,body{
 
 .hero-image-3d{ position:relative; perspective:1000px; height:600px }
 .hero-image-placeholder{
-  width:100%; height:100%; background:url('https://static.wixstatic.com/media/cac2b9_a8b2c443d83a4aa48556abb0921913b8~mv2.png') center/cover; border-radius:20px;
+  width:100%; height:100%; background:url('/assets/img/freiflaechen/freiflaeche_blau.png') center/cover; border-radius:20px;
   transform:rotateY(-15deg) rotateX(5deg); transform-style:preserve-3d; transition:transform .6s;
   box-shadow:20px 20px 60px rgba(0,0,0,.3), -20px -20px 60px rgba(255,255,255,.1); position:relative; overflow:visible;
 }
@@ -129,11 +129,11 @@ html,body{
   transform:rotateY(15deg) rotateX(-5deg); transform-style:preserve-3d; transition:transform .6s;
   box-shadow:25px 25px 50px rgba(0,0,0,.25), -15px -15px 30px rgba(255,255,255,.1); position:relative; display:flex; align-items:center; justify-content:center;
 }
-.tech-image-placeholder[data-service="Planung"]{ background-image:url('https://static.wixstatic.com/media/cac2b9_8a94a4c2ed704af5b13b2238e03b5cc6~mv2.png') }
-.tech-image-placeholder[data-service="Genehmigung"]{ background-image:url('https://static.wixstatic.com/media/cac2b9_659b9117e16a4864965889365a907068~mv2.png') }
-.tech-image-placeholder[data-service="Bau"]{ background-image:url('https://static.wixstatic.com/media/cac2b9_3df4d3cabdb04c419ad7e0870782e335~mv2.png') }
-.tech-image-placeholder[data-service="Finanzierung"]{ background-image:url('https://static.wixstatic.com/media/cac2b9_43084380cb5048bab132c8f95e488e13~mv2.png') }
-.tech-image-placeholder[data-service="Wartung"]{ background-image:url('https://static.wixstatic.com/media/cac2b9_2e0ff990dd6f438886f655ef4f3782c7~mv2.png') }
+.tech-image-placeholder[data-service="Planung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung.png') }
+.tech-image-placeholder[data-service="Genehmigung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung2.png') }
+.tech-image-placeholder[data-service="Bau"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung3.png') }
+.tech-image-placeholder[data-service="Finanzierung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung4.png') }
+.tech-image-placeholder[data-service="Wartung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung5.png') }
 .tech-image-placeholder[data-service="Ökologie"]{ background:var(--gradient-blue) }
 .tech-image-placeholder:hover{ transform:rotateY(10deg) rotateX(-3deg) scale(1.02) }
 
@@ -207,7 +207,7 @@ html,body{
 .faq-modern{ padding:5rem 0; background:#fff }
 .faq-wrapper{ display:grid; grid-template-columns:1fr 2fr; gap:4rem; align-items:start; max-width:1200px; margin:0 auto }
 .faq-image-placeholder{
-  width:100%; height:500px; background:url('https://static.wixstatic.com/media/cac2b9_b502453065ab4fceba9b1a4a070112a6~mv2.png') center/cover;
+  width:100%; height:500px; background:url('/assets/img/freiflaechen/freiflaeche_blau_fragezeichen.png') center/cover;
   border-radius:20px; position:relative; overflow:hidden; box-shadow:var(--shadow-lg)
 }
 .faq-content{ display:flex; flex-direction:column; gap:1rem }
@@ -826,4 +826,118 @@ html,body{
   #alab-freiflaechen .hero-text-modern h3:nth-of-type(2){
     display: none !important;
   }
+}
+
+
+/* ======================================================
+   FREIFLÄCHEN – EXTRA COMPACT MOBILE
+   ====================================================== */
+
+/* 1) horizontales Scrollen sicher sperren (Seite bleibt wischbar nach unten) */
+#alab-freiflaechen{ position:relative; overflow-x:clip; touch-action:pan-y; }
+@supports not (overflow: clip){ #alab-freiflaechen{ overflow-x:hidden; } }
+
+/* ====== ≤ 768px ====== */
+@media (max-width: 768px){
+  /* Grundtypografie & Gassen */
+  #alab-freiflaechen{ font-size:.95rem; line-height:1.45; }
+  #alab-freiflaechen .container{ padding:0 14px; }
+
+  /* Hero noch straffer (Bild-Setup hast du schon) */
+  #alab-freiflaechen .hero-content-modern{ gap:12px !important; }
+  #alab-freiflaechen .hero-badge-modern{ padding:.4rem .8rem; font-size:.8rem; margin-bottom:.8rem; }
+  #alab-freiflaechen .hero-title-modern{ font-size: clamp(1.6rem, 5.2vw, 2rem); margin-bottom:.5rem; }
+  #alab-freiflaechen .hero-description-modern{ font-size:.98rem; line-height:1.55; margin-bottom:1rem; }
+  #alab-freiflaechen .hero-cta-group{ gap:.6rem; }
+
+  /* Buttons */
+  #alab-freiflaechen .btn-modern{ padding:.7rem 1.1rem; font-size:.93rem; border-radius:999px; }
+  #alab-freiflaechen .btn-modern i{ font-size:.95em; }
+
+  /* Section-Header */
+  #alab-freiflaechen .section-header-modern{ margin-bottom:24px; }
+  #alab-freiflaechen .section-label{ padding:.35rem .7rem; font-size:.7rem; }
+  #alab-freiflaechen .section-title-modern{ font-size: clamp(1.25rem, 5.4vw, 1.7rem); margin-bottom:.35rem; }
+  #alab-freiflaechen .section-subtitle-modern{ font-size:.98rem; }
+
+  /* Services */
+  #alab-freiflaechen .services-modern{ padding: 36px 0; }
+  #alab-freiflaechen .services-grid-modern{ gap:14px; margin-bottom:24px; }
+  #alab-freiflaechen .service-card-modern{ padding:14px; border-radius:14px; }
+  #alab-freiflaechen .service-icon-modern{ width:52px; height:52px; border-radius:12px; margin-bottom:.9rem; }
+  #alab-freiflaechen .service-icon-modern i{ font-size:1.25rem; }
+  #alab-freiflaechen .service-card-modern h3{ font-size:1.05rem; margin-bottom:.45rem; }
+  #alab-freiflaechen .service-card-modern p{ font-size:.98rem; line-height:1.5; }
+  #alab-freiflaechen .service-hover-content{ padding:1rem; }
+
+  /* Technische Leistungen – nur Typo/Abstände (dein Carousel bleibt) */
+  #alab-freiflaechen .subsection-title{ font-size:1.25rem; margin-bottom:16px; }
+  #alab-freiflaechen .tech-content-detail{ padding:0 2px 6px !important; }
+  #alab-freiflaechen .tech-content-detail h3{ font-size:1.15rem !important; margin:.35rem 0 .25rem !important; }
+  #alab-freiflaechen .tech-content-detail p{ font-size:.95rem !important; margin:0 0 .2rem !important; }
+  #alab-freiflaechen .tech-features{ gap:.45rem !important; }
+  #alab-freiflaechen .tech-features li{ font-size:.95rem !important; }
+
+  /* Prozess */
+  #alab-freiflaechen .process-modern{ padding:36px 0; }
+  #alab-freiflaechen .process-item-modern{ gap:10px; margin-bottom:14px; }
+  #alab-freiflaechen .process-number-modern{ width:46px; height:46px; font-size:.95rem; }
+  #alab-freiflaechen .timeline-line{ left:23px; }
+  #alab-freiflaechen .process-content-modern{ padding:12px 14px; border-radius:12px; }
+  #alab-freiflaechen .process-content-modern h3{ font-size:1.05rem; margin-bottom:.4rem; }
+  #alab-freiflaechen .process-content-modern p{ margin-bottom:.4rem; }
+
+  /* Benefits */
+  #alab-freiflaechen .benefits-modern{ padding:36px 0; }
+  #alab-freiflaechen .benefits-grid-modern{ gap:14px; }
+  #alab-freiflaechen .benefit-card-modern{ padding:14px; border-radius:14px; }
+  #alab-freiflaechen .benefit-icon-modern{ width:56px; height:56px; border-radius:14px; margin-bottom:.9rem; }
+  #alab-freiflaechen .benefit-icon-modern i{ font-size:1.4rem; }
+  #alab-freiflaechen .benefit-card-modern h3{ font-size:1.05rem; margin-bottom:.35rem; }
+  #alab-freiflaechen .benefit-card-modern p{ font-size:.98rem; margin-bottom:.4rem; }
+  #alab-freiflaechen .benefit-stats{ gap:.5rem; margin-top:.5rem; }
+  #alab-freiflaechen .benefit-stats span{ font-size:.8rem; padding:.2rem .6rem; }
+
+  /* FAQ */
+  #alab-freiflaechen .faq-modern{ padding:36px 0; }
+  #alab-freiflaechen .faq-wrapper{ gap:16px; }
+  #alab-freiflaechen .faq-image-placeholder{ height:360px; border-radius:14px; }
+  #alab-freiflaechen .faq-content{ gap:.6rem; }
+  #alab-freiflaechen .faq-item{ border-radius:12px; }
+  #alab-freiflaechen .faq-question{ padding:12px 14px; gap:.6rem; }
+  #alab-freiflaechen .faq-question h3{ font-size:1rem; }
+  #alab-freiflaechen .faq-answer{ font-size:.98rem; }
+  #alab-freiflaechen .faq-item.active .faq-answer{ padding:0 14px 12px; }
+}
+
+/* ====== ≤ 480px (XS) ====== */
+@media (max-width: 480px){
+  #alab-freiflaechen{ font-size:.9rem; line-height:1.4; }
+  #alab-freiflaechen .container{ padding:0 10px; }
+
+  /* Hero */
+  #alab-freiflaechen .hero-title-modern{ font-size: clamp(1.35rem, 5.4vw, 1.6rem); }
+  #alab-freiflaechen .hero-description-modern{ font-size:.93rem; }
+
+  /* Services */
+  #alab-freiflaechen .service-card-modern{ padding:12px; border-radius:12px; }
+  #alab-freiflaechen .service-icon-modern{ width:48px; height:48px; border-radius:10px; }
+  #alab-freiflaechen .service-card-modern h3{ font-size:1rem; }
+
+  /* Prozess */
+  #alab-freiflaechen .process-number-modern{ width:42px; height:42px; font-size:.9rem; }
+  #alab-freiflaechen .timeline-line{ left:21px; }
+  #alab-freiflaechen .process-content-modern{ padding:10px 12px; border-radius:10px; }
+
+  /* Benefits */
+  #alab-freiflaechen .benefit-card-modern{ padding:12px; border-radius:12px; }
+  #alab-freiflaechen .benefit-icon-modern{ width:48px; height:48px; border-radius:12px; }
+
+  /* FAQ */
+  #alab-freiflaechen .faq-image-placeholder{ height:300px; }
+  #alab-freiflaechen .faq-question{ padding:10px 12px; }
+  #alab-freiflaechen .faq-item.active .faq-answer{ padding:0 12px 10px; }
+
+  /* Buttons */
+  #alab-freiflaechen .btn-modern{ padding:.6rem 1rem; font-size:.9rem; }
 }

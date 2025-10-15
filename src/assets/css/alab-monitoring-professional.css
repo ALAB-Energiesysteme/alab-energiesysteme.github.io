@@ -534,3 +534,175 @@
     display: none !important;
   }
 }
+
+
+
+/* =========================================================
+   MONITORING – MOBILE/TABLET KOMPAKT-OVERRIDES
+   (ans Ende der Datei setzen)
+   ========================================================= */
+@media (max-width: 768px){
+  /* Globale Abstände & Header */
+  #alab-monitor .hero-section,
+  #alab-monitor .packages-section,
+  #alab-monitor .integrations-section,
+  #alab-monitor .faq-section { padding: 44px 16px !important; }
+  #alab-monitor .section-container { padding: 0 16px !important; }
+  #alab-monitor .section-header { margin-bottom: 28px !important; }
+  #alab-monitor .section-badge { padding: 6px 14px !important; font-size: 10px !important; }
+  #alab-monitor .section-title { font-size: clamp(22px, 5.5vw, 28px) !important; }
+
+  /* Optik beruhigen */
+  #alab-monitor .particles-container,
+  #alab-monitor .platforms-bar { display: none !important; }
+
+  /* Hero kompakter */
+  #alab-monitor .hero-content { gap: 16px !important; }
+  #alab-monitor .platform-grid { gap: 8px !important; }
+  #alab-monitor .platform-chip-3d { padding: 8px 12px !important; font-size: 12px !important; }
+  #alab-monitor .platform-chip-3d i { font-size: 14px !important; }
+  #alab-monitor .hero-title { font-size: clamp(26px, 6vw, 34px) !important; margin-bottom: 12px !important; }
+  #alab-monitor .hero-desc  { font-size: 15px !important; margin-bottom: 8px !important; }
+  #alab-monitor .hero-subdesc { font-size: 13px !important; margin-bottom: 16px !important; }
+  #alab-monitor .hero-cta-group { gap: 10px !important; flex-wrap: wrap; }
+  #alab-monitor .btn-primary,
+  #alab-monitor .btn-secondary { padding: 12px 16px !important; font-size: 14px !important; border-radius: 10px !important; }
+  #alab-monitor .hero-3d-container { height: 260px !important; transform: scale(.85) !important; }
+  #alab-monitor .rotating-cube, 
+  #alab-monitor .cube-face { width: 200px !important; height: 200px !important; }
+  #alab-monitor .cube-face h3 { font-size: 16px !important; }
+
+  /* KPI kompakt */
+  #alab-monitor .kpi-grid { gap: 12px !important; }
+  #alab-monitor .kpi-inner { padding: 12px !important; border-radius: 12px !important; box-shadow: var(--shadow-sm) !important; }
+  #alab-monitor .kpi-number { font-size: 24px !important; }
+  #alab-monitor .kpi-label  { font-size: 10px !important; }
+  #alab-monitor .kpi-inner small { font-size: 9px !important; }
+
+  /* Swiper/Slides niedriger + Overlays enger */
+  #alab-monitor .functions-swiper,
+  #alab-monitor .cases-swiper { padding: 44px 0 !important; }
+  #alab-monitor .functions-swiper .swiper-slide,
+  #alab-monitor .cases-swiper .swiper-slide { height: clamp(320px, 58vw, 420px) !important; }
+
+  #alab-monitor .card-3d-image,
+  #alab-monitor .case-3d-image {
+    height: clamp(300px, 54vw, 400px) !important;
+    border-radius: 14px !important;
+    box-shadow: var(--shadow-lg);
+  }
+  #alab-monitor .card-overlay-box,
+  #alab-monitor .case-overlay {
+    padding: 14px !important;
+    border-radius: 12px !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  #alab-monitor .overlay-icon { font-size: 36px !important; margin-bottom: 12px !important; }
+  #alab-monitor .overlay-content h3 { font-size: 16px !important; margin-bottom: 4px !important; }
+  #alab-monitor .overlay-content p { font-size: 12px !important; margin-bottom: 8px !important; }
+  #alab-monitor .overlay-features { gap: 8px !important; }
+  #alab-monitor .overlay-features span { padding: 6px 10px !important; font-size: 12px !important; }
+
+  /* Swiper-Steuerung kleiner */
+  #alab-monitor .swiper-button-prev,
+  #alab-monitor .swiper-button-next { width: 44px !important; height: 44px !important; }
+  #alab-monitor .swiper-pagination-bullet { width: 8px !important; height: 8px !important; }
+  #alab-monitor .swiper-pagination-bullet-active { width: 18px !important; }
+
+  /* Cases (Tablet sichtbar) kompakter */
+  #alab-monitor .case-3d-image { height: clamp(320px, 56vw, 440px) !important; }
+  #alab-monitor .case-header { gap: 12px !important; margin-bottom: 16px !important; }
+  #alab-monitor .case-header i { font-size: 28px !important; }
+  #alab-monitor .case-header h3 { font-size: 18px !important; }
+  #alab-monitor .case-content { gap: 10px !important; }
+  #alab-monitor .case-footer { margin-top: 16px !important; padding-top: 12px !important; font-size: 13px !important; }
+
+  /* Pakete enger */
+  #alab-monitor .packages-grid { gap: 16px !important; }
+  #alab-monitor .package-card { padding: 24px 20px !important; border-radius: 16px !important; }
+  #alab-monitor .featured-badge { top: -12px !important; right: 20px !important; font-size: 10px !important; padding: 4px 12px !important; }
+  #alab-monitor .package-header h3 { font-size: 20px !important; margin-bottom: 12px !important; }
+  #alab-monitor .package-price { font-size: 18px !important; margin-bottom: 16px !important; }
+  #alab-monitor .package-features li { padding: 8px 0 !important; gap: 10px !important; }
+  #alab-monitor .package-note { font-size: 12px !important; margin-bottom: 12px !important; }
+  #alab-monitor .package-btn { padding: 12px !important; border-radius: 10px !important; }
+
+  /* Integrationen enger */
+  #alab-monitor .integration-group h3 { font-size: 18px !important; margin-bottom: 12px !important; }
+  #alab-monitor .chips-grid { gap: 8px !important; margin-bottom: 20px !important; }
+  #alab-monitor .chip { padding: 8px 12px !important; font-size: 12px !important; }
+  #alab-monitor .security-item { padding: 12px 14px !important; border-radius: 10px !important; gap: 12px !important; }
+  #alab-monitor .security-item i { font-size: 20px !important; }
+
+  /* FAQ enger */
+  #alab-monitor .faq-3d-container { height: 260px !important; }
+  #alab-monitor .float-card { width: 88px !important; height: 88px !important; font-size: 36px !important; }
+  #alab-monitor .faq-3d-text { padding: 18px !important; border-radius: 14px !important; }
+  #alab-monitor .faq-3d-text h3 { font-size: 20px !important; margin-bottom: 6px !important; }
+  #alab-monitor .faq-3d-text p { font-size: 14px !important; }
+  #alab-monitor .faq-items { gap: 12px !important; }
+  #alab-monitor .faq-item { border-radius: 12px !important; box-shadow: var(--shadow-sm) !important; }
+  #alab-monitor .faq-question { padding: 16px !important; }
+  #alab-monitor .faq-question h3 { font-size: 16px !important; }
+  #alab-monitor .faq-answer p { padding: 0 16px 16px 16px !important; font-size: 14px !important; }
+}
+
+/* Sehr kleine Phones */
+@media (max-width: 480px){
+  /* Hero 3D noch kleiner (oder bei Bedarf auf display:none setzen) */
+  #alab-monitor .hero-3d-container { height: 200px !important; transform: scale(.8) !important; }
+  /* Floating Cards in der FAQ ausblenden – wirkt ruhiger/knapper */
+  #alab-monitor .floating-cards { display: none !important; }
+
+  /* CTA Buttons: full-width */
+  #alab-monitor .hero-cta-group { width: 100% !important; }
+  #alab-monitor .hero-cta-group .btn-primary,
+  #alab-monitor .hero-cta-group .btn-secondary { flex: 1 1 auto !important; justify-content: center; }
+
+  /* Noch etwas kleiner in KPIs/Overlay-Texten */
+  #alab-monitor .kpi-number { font-size: 22px !important; }
+  #alab-monitor .overlay-content h3 { font-size: 15px !important; }
+  #alab-monitor .overlay-content p  { font-size: 12px !important; }
+}
+
+
+
+/* Würfel-Fix: auf Mobile Größe & translateZ sauber koppeln */
+@media (max-width: 768px){
+  /* Keine Skalierung am Container – Perspektive bleibt korrekt */
+  #alab-monitor .hero-3d-container{
+    height: 260px !important;
+    transform: none !important;
+    perspective: 1500px !important;
+  }
+
+  /* Einheitliche Würfelgröße per Variable */
+  #alab-monitor{ --cube-size: 200px; } /* ggf. 180–220px testen */
+
+  /* Würfel & Flächen proportional setzen */
+  #alab-monitor .rotating-cube{
+    width: var(--cube-size) !important;
+    height: var(--cube-size) !important;
+  }
+  #alab-monitor .cube-face{
+    width: var(--cube-size) !important;
+    height: var(--cube-size) !important;
+  }
+
+  /* translateZ = Hälfte der Kantenlänge */
+  #alab-monitor .cube-face.front  { transform: rotateY(0)       translateZ(calc(var(--cube-size)/2)) !important; }
+  #alab-monitor .cube-face.back   { transform: rotateY(180deg)  translateZ(calc(var(--cube-size)/2)) !important; }
+  #alab-monitor .cube-face.right  { transform: rotateY(90deg)   translateZ(calc(var(--cube-size)/2)) !important; }
+  #alab-monitor .cube-face.left   { transform: rotateY(-90deg)  translateZ(calc(var(--cube-size)/2)) !important; }
+  #alab-monitor .cube-face.top    { transform: rotateX(90deg)   translateZ(calc(var(--cube-size)/2)) !important; }
+  #alab-monitor .cube-face.bottom { transform: rotateX(-90deg)  translateZ(calc(var(--cube-size)/2)) !important; }
+
+  /* Optional: ruhiger drehen auf Mobile */
+  #alab-monitor .rotating-cube{ animation-duration: 26s !important; }
+}
+
+/* Mini-Phones: etwas kleiner, aber weiterhin korrekt übersetzt */
+@media (max-width: 480px){
+  #alab-monitor{ --cube-size: 180px; }
+  #alab-monitor .hero-3d-container{ height: 220px !important; }
+}

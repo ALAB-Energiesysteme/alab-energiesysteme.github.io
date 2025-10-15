@@ -1,0 +1,132 @@
+/* ===== ALAB Partners – Marquee (scoped) ===== */
+.alab-partners-marquee{
+  --alab-gold: #E6C23C;
+  --alab-gold-lo: #E5C44D;
+  --alab-gold-hi: #F3D663;
+  --alab-ink: #0e2a3b;
+  --alab-muted: #5c6b78;
+
+  font-family: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--alab-ink);
+  background: #fff;
+  padding: clamp(22px, 4vw, 44px) 0;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Goldene Top-Linie */
+.alab-partners-marquee::before{
+  content:"";
+  position:absolute; inset:0 auto auto 0; height:3px; width:100%;
+  background: linear-gradient(90deg, var(--alab-gold-lo), var(--alab-gold-hi));
+  opacity:.95;
+}
+
+.alab-pm-inner{
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 32px);
+  display: grid;
+  row-gap: clamp(12px, 2vw, 16px);
+}
+
+/* Brand-Badge — ohne Ring */
+.alab-brand-badge{
+  display:inline-flex; align-items:center; gap:10px;
+  border:1px solid rgba(230,194,60,.5);
+  padding:6px 10px; border-radius:999px;
+  background: linear-gradient(180deg, rgba(230,194,60,.08), rgba(230,194,60,0));
+  width:max-content;
+}
+.alab-badge-logo{ width:28px; height:28px; display:block; }
+.alab-badge-text{ font-weight:600; font-size:.95rem; letter-spacing:.2px; }
+
+/* Titel */
+.alab-pm-title{
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+}
+.alab-pm-title span{
+  font-weight: 500;
+  font-size: .9em;
+  color: var(--alab-muted);
+}
+
+/* Marquee-Viewport mit subtiler Gold-Kontur */
+.alab-marquee{
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(230,194,60,.25);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(230,194,60,.08);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
+  background: linear-gradient(180deg, rgba(230,194,60,0.06), rgba(230,194,60,0));
+}
+
+/* Track */
+.alab-track{
+  --alab-duration: 30s; /* wird per JS dynamisch gesetzt */
+  display: flex; align-items: center;
+  gap: clamp(36px, 6vw, 64px);
+  will-change: transform;
+  animation: alab-scroll var(--alab-duration) linear infinite;
+  padding-block: clamp(10px, 2vw, 14px);
+}
+@keyframes alab-scroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Pause bei Hover/Focus */
+.alab-marquee:hover .alab-track,
+.alab-marquee:focus-within .alab-track{
+  animation-play-state: paused;
+}
+
+/* Items/Logos */
+.alab-item{
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  min-width: clamp(150px, 22vw, 240px);
+}
+.alab-item img{
+  display:block;
+  height: clamp(42px, 6.2vw, 68px);
+  width: auto;
+  object-fit: contain;
+  filter: none;
+  opacity: .95;
+  transition: transform .2s ease, opacity .2s ease, filter .2s ease;
+}
+.alab-item:hover img{
+  transform: translateY(-1px) scale(1.04);
+  opacity: 1;
+  filter: drop-shadow(0 2px 6px rgba(230,194,60,.15));
+}
+
+/* Optional: ALAB-Logo leicht kleiner im Loop */
+.alab-item--brand img{ height: clamp(36px, 5.6vw, 58px); }
+
+@media (prefers-reduced-motion: reduce){
+  .alab-track{ animation: none; }
+}
+
+
+
+/* Mobile: Animation sicher aktiv + flüssig */
+@media (max-width: 768px){
+  .alab-partners-marquee .alab-track{
+    animation: alab-scroll var(--alab-duration, 30s) linear infinite !important;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+  }
+  /* leichte Masken-Rand-Optimierung auf kleinen Screens */
+  .alab-partners-marquee .alab-marquee{
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  }
+}

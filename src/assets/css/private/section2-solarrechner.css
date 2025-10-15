@@ -1,0 +1,976 @@
+/* ===== Global Reset & Variables ===== */
+:root {
+  /* Primary Colors */
+  --primary: #E6C23C;
+  --primary-light: #F3D663;
+  --primary-dark: #D4AD2A;
+  --primary-gradient: linear-gradient(135deg, #E5C44D 0%, #F3D663 100%);
+  
+  /* Light Theme Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f3f5;
+  
+  /* Text Colors */
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  
+  /* Accent Colors */
+  --success: #10b981;
+  --error: #ef4444;
+  --border: #e5e7eb;
+  --border-light: #d1d5db;
+  
+  /* Spacing */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ===== Solar Calculator Section ===== */
+.solar-calculator-section {
+  background: var(--bg-secondary);
+  padding: 80px 0;
+  min-height: 100vh;
+}
+
+.calculator-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.calculator-container > div {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.calculator-header {
+  margin-bottom: 40px;
+}
+
+.calculator-title {
+  font-size: 32px;
+  margin-bottom: 8px;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.calculator-subtitle {
+  color: var(--text-secondary);
+}
+
+.calculator-content {
+  display: grid;
+  grid-template-columns: minmax(320px, 460px) 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Calculator Inputs */
+.calculator-inputs .input-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--text-primary);
+}
+
+.label-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.label-icon svg {
+  width: 18px;
+  height: 18px;
+  color: var(--primary);
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.calculator-input,
+.module-input {
+  width: 100%;
+  padding: 12px 50px 12px 16px;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.calculator-input:focus,
+.module-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.input-unit {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+.input-hint {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Module Controls */
+.module-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.module-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.module-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.module-input {
+  width: 80px;
+  text-align: center;
+  padding: 12px;
+}
+
+.speicher-toggle {
+  margin-left: auto;
+}
+
+.toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.toggle-input {
+  appearance: none;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--border);
+  position: relative;
+  outline: none;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.toggle-input:checked {
+  background: var(--primary-gradient);
+}
+
+.toggle-input::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  left: 3px;
+  top: 3px;
+  transition: 0.2s;
+}
+
+.toggle-input:checked::after {
+  left: 23px;
+}
+
+/* Calculation Results */
+.calculation-results {
+  margin-top: 24px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  background: var(--bg-secondary);
+}
+
+.results-title {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+
+.result-item:first-of-type {
+  border-top: none;
+}
+
+.result-label {
+  color: var(--text-secondary);
+}
+
+.result-value {
+  font-weight: 700;
+  color: var(--primary-light);
+}
+
+.total-result {
+  margin-top: 16px;
+  border-top: 2px solid var(--border);
+  padding-top: 16px;
+}
+
+.total-value {
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 8px;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.monthly-potential {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  background: var(--primary-gradient);
+  border: none;
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(230, 194, 60, 0.3);
+}
+
+/* Energy Visualization */
+.calculator-visualization {
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.calculator-visualization h3 {
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.energy-diagram {
+  position: relative;
+  background: linear-gradient(135deg, rgba(230, 194, 60, 0.08) 0%, rgba(243, 214, 99, 0.08) 100%);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  border: 1px solid rgba(230, 194, 60, 0.2);
+}
+
+.sun-container {
+  text-align: center;
+}
+
+.sun {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotate 20s linear infinite;
+}
+
+.sun svg {
+  width: 48px;
+  height: 48px;
+  color: var(--primary);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.production-label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.production-value {
+  font-weight: 700;
+  color: var(--primary-light);
+  font-size: 18px;
+}
+
+/* Energy Arrows */
+.energy-arrow {
+  position: relative;
+  background: var(--primary-gradient);
+}
+
+.arrow-down {
+  width: 4px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.arrow-down::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 14px solid var(--primary-light);
+}
+
+.arrow-left,
+.arrow-right {
+  width: 40px;
+  height: 4px;
+}
+
+.arrow-left::after {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 14px solid var(--primary-light);
+}
+
+.arrow-right::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 14px solid var(--primary-light);
+}
+
+/* House Visualization */
+.house-container {
+  display: flex;
+  justify-content: center;
+}
+
+.house {
+  position: relative;
+}
+
+.roof-with-panels {
+  width: 140px;
+  height: 60px;
+  background: linear-gradient(135deg, #64748b, #475569);
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solar-panel-array {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  margin-top: 12px;
+}
+
+.panel {
+  width: 24px;
+  height: 14px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.house-walls {
+  width: 100px;
+  height: 80px;
+  background: linear-gradient(to bottom, #cbd5e1, #94a3b8);
+  border: 2px solid var(--border);
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.window {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(96, 165, 250, 0.4));
+  border: 1px solid #3b82f6;
+  border-radius: 2px;
+}
+
+.door {
+  width: 16px;
+  height: 40px;
+  background: linear-gradient(to bottom, #92400e, #b45309);
+  border-radius: 2px 2px 0 0;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Energy Flow Data */
+.energy-flows-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  width: 100%;
+}
+
+.flow-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.flow-label,
+.consumption-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.flow-value,
+.consumption-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Environmental Data */
+.environmental-data {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.co2-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.co2-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 50%;
+}
+
+.co2-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--success);
+}
+
+.co2-label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.co2-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--success);
+}
+
+.autarkie-section {
+  text-align: center;
+}
+
+.autarkie-label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.autarkie-percentage {
+  font-size: 24px;
+  font-weight: 800;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.autarkie-bar {
+  width: 160px;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.autarkie-fill {
+  height: 100%;
+  background: var(--primary-gradient);
+  transition: width 0.4s ease;
+}
+
+/* ===== Modal ===== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.modal-overlay.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  width: 90%;
+  max-width: 740px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  padding: 32px 32px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: var(--text-muted);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.modal-body {
+  padding: 32px;
+}
+
+.lead-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.lead-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+}
+
+.lead-form input,
+.lead-form textarea {
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 16px;
+  width: 100%;
+}
+
+.lead-form input:focus,
+.lead-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: var(--bg-card-hover);
+}
+
+.lead-form input::placeholder,
+.lead-form textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.lead-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.lead-form label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.span-2 {
+  grid-column: 1 / -1;
+}
+
+.submit-btn {
+  grid-column: 1 / -1;
+  background: var(--primary-gradient);
+  color: #1a1a1a;
+  border: none;
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(230, 194, 60, 0.3);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .calculator-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .lead-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .energy-flows-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .environmental-data {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+}
+
+/* ==== Solarrechner: Overflow-Fixes mit deinen Klassen ==== */
+
+/* 1) Grid-Kinder dürfen schrumpfen – sonst laufen Inhalte raus */
+.calculator-content { overflow-x: hidden; }
+.calculator-content > * { min-width: 0; }
+
+/* 2) Inputs sicher auf 100% Breite, Einheiten-Badge absolut rechts */
+.input-wrapper { position: relative; max-width: 100%; }
+.calculator-input,
+.module-input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding-right: 3.25rem;      /* Platz für die Einheit */
+}
+.input-unit{
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* 3) Modul-Zeile darf umbrechen; Toggle nicht nach rechts „wegdrücken“ */
+.module-controls{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.speicher-toggle{ margin-left: 0; }         /* statt auto */
+
+/* Stepper-Buttons behalten fixe Breite, damit sie nicht quetschen */
+.module-btn{ flex: 0 0 40px; }
+
+/* 4) Karten-Innenabstand auf sehr kleinen Screens etwas reduzieren */
+@media (max-width: 480px){
+  .calculator-container > div{ padding: 20px; border-radius: 18px; }
+  .module-input{ width: 64px; }             /* etwas schmaler */
+}
+
+/* 5) Sicherheit: Hilfstexte weich umbrechen */
+.input-hint{ white-space: normal; overflow-wrap: anywhere; line-height: 1.45; }
+
+
+/* ==== Fix 1: Zahl im PV-Module-Feld wieder sichtbar ==== */
+/* Einheit-Padding nur bei Inputs, die wirklich eine Einheit besitzen */
+.input-wrapper .calculator-input { padding-right: 3.25rem; }
+
+/* Beim Modul-Eingabefeld KEIN extra Right-Padding */
+.module-controls .module-input {
+  padding-right: 8px;     /* statt 3.25rem */
+}
+
+/* ==== Fix 2: Kompaktere Mobile-Ansicht ==== */
+@media (max-width: 480px){
+  /* Section & Card kompakter */
+  .solar-calculator-section{ padding: 24px 0; }
+  .calculator-container{ padding: 0 14px; }
+  .calculator-container > div{ padding: 16px; border-radius: 16px; }
+
+  /* Überschriften kleiner */
+  .calculator-header{ margin-bottom: 16px; }
+  .calculator-title{ font-size: 24px; margin-bottom: 4px; }
+  .calculator-subtitle{ font-size: 14px; line-height: 1.5; }
+
+  /* Felder kompakter */
+  .calculator-inputs .input-group{ margin-bottom: 12px; }
+  .input-label{ font-size: 14px; gap: 6px; }
+
+  .calculator-input,
+  .module-input{
+    height: 40px;
+    padding: 10px 40px 10px 12px;   /* rechts Platz für Einheit – nur calc-inputs */
+    border-radius: 10px;
+    font-size: 15px;
+  }
+  /* Einheit etwas näher ran */
+  .input-unit{ right: 10px; font-size: 14px; }
+
+  /* Modul-Steuerung kompakt + bruchsicher */
+  .module-controls{ gap: 8px; flex-wrap: wrap; }
+  .module-btn{ width: 36px; height: 36px; font-size: 18px; }
+  .module-input{
+    width: 58px;                 /* schmal aber gut lesbar */
+    padding: 0 8px;
+    text-align: center;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .speicher-toggle{ margin-left: 0; }
+
+  /* Toggle kleiner */
+  .toggle-input{ width: 40px; height: 22px; }
+  .toggle-input::after{ width: 16px; height: 16px; left: 3px; }
+  .toggle-input:checked::after{ left: 21px; }
+
+  /* Hilfstexte kleiner */
+  .input-hint{ font-size: 12px; margin-top: 6px; }
+
+  /* Ergebnisse kompakter */
+  .calculation-results{ padding: 14px; margin-top: 14px; }
+  .result-item{ padding: 8px 0; }
+  .total-value{ font-size: 22px; }
+}
+
+/* Extra-Sicherheit: Grid-Kinder dürfen schrumpfen, kein Überlauf */
+.calculator-content{ overflow-x: hidden; }
+.calculator-content > *{ min-width: 0; }
+
+/* ===========================
+   Solarrechner – Visualisierung kompakter (Mobile)
+   =========================== */
+@media (max-width: 480px){
+
+  /* Karte & Überschrift enger */
+  .calculator-visualization{ padding: 12px; border-radius: 14px; }
+  .calculator-visualization h3{ margin-bottom: 12px; font-size: 14px; }
+
+  /* Hauptdiagramm kompakter */
+  .energy-diagram{
+    padding: 16px;
+    min-height: 340px;               /* vorher 480px */
+    gap: 12px;                        /* weniger vertikaler Abstand */
+    border-radius: 12px;
+  }
+
+  /* Sonne & Produktion kleiner */
+  .sun svg{ width: 36px; height: 36px; }
+  .production-label{ font-size: 12px; }
+  .production-value{ font-size: 16px; }
+
+  /* Pfeile kürzer/dünner */
+  .arrow-down{ height: 26px; width: 3px; }
+  .arrow-down::after{
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid var(--primary-light);
+  }
+  .arrow-left, .arrow-right{ width: 26px; height: 3px; }
+  .arrow-left::after{
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 10px solid var(--primary-light);
+    left: -8px;
+  }
+  .arrow-right::after{
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 10px solid var(--primary-light);
+    right: -8px;
+  }
+
+  /* Haus kleiner */
+  .roof-with-panels{ width: 110px; height: 48px; }
+  .solar-panel-array{ gap: 2px; margin-top: 8px; }
+  .panel{ width: 20px; height: 12px; }
+  .house-walls{ width: 86px; height: 66px; }
+  .window{ width: 16px; height: 16px; }
+  .door{ width: 14px; height: 34px; }
+
+  /* Zahlen-/Infoblöcke enger und ggf. 1-spaltig */
+  .energy-flows-container{
+    grid-template-columns: 1fr;   /* statt 3 Spalten */
+    gap: 10px;
+  }
+  .flow-label, .consumption-label{ font-size: 11px; }
+  .flow-value, .consumption-value{ font-size: 14px; }
+
+  /* Umwelt-/Autarkie-Daten enger */
+  .environmental-data{
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding-top: 12px;
+  }
+  .co2-icon{ width: 32px; height: 32px; }
+  .co2-icon svg{ width: 20px; height: 20px; }
+  .co2-label{ font-size: 12px; }
+  .co2-value{ font-size: 16px; }
+  .autarkie-label{ font-size: 12px; }
+  .autarkie-percentage{ font-size: 20px; }
+  .autarkie-bar{ width: 130px; height: 6px; }
+}
+
+/* Sicherheit: Kinder dürfen schrumpfen, kein Horizontal-Scroll */
+.energy-diagram, .calculator-visualization, .calculator-content{ overflow-x: hidden; }
+.energy-diagram > *, .calculator-visualization > *{ min-width: 0; }

@@ -155,3 +155,34 @@
   background:linear-gradient(90deg,var(--gold-1),var(--gold-2));
 }
 
+/* Referenzen: mobil nur 1 großes Bild anzeigen */
+@media (max-width: 768px) {
+  /* WICHTIG: auf #ref-gallery überschreiben, dort ist --slide definiert */
+  #ref-gallery{
+    --visible: 1;
+    --gap: 12px;
+    /* neu berechnen, damit die Breite wirklich 100% wird */
+    --slide: calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
+    padding: 2.25rem 0;
+  }
+
+  /* Spacer links/rechts neutralisieren */
+  #ref-gallery .rg__track::before,
+  #ref-gallery .rg__track::after{
+    flex: 0 0 0 !important;
+  }
+
+  /* Karte/Bild höher und „größer“ wirken lassen */
+  #ref-gallery .rg__media{
+    --ratio: 4/3;   /* alternativ: 1/1 für quadratisch */
+    --radius: 18px;
+    box-shadow: 0 8px 22px rgba(15,37,51,.12);
+  }
+
+  /* etwas weniger Außen-/Innenabstand */
+  #ref-gallery .container{ padding: 0 1rem; }
+
+  /* Dots kompakter */
+  #ref-gallery .rg__dots{ margin-top: 12px; gap: 6px; }
+  #ref-gallery .rg__dots button{ width: 22px; height: 5px; }
+}

@@ -861,3 +861,144 @@ body.gewerbe-page .why-section::before {
   pointer-events: none;
   z-index: 0;
 }
+
+/* Why-Section kompakter auf Mobil */
+@media (max-width: 768px){
+  .why-section{ padding: 28px 0 !important; }
+  .why-section .container{ padding: 0 16px !important; }
+
+  /* Header */
+  .why-section .section-header{ margin-bottom: 18px !important; }
+  .why-section .section-title{
+    font-size: 1.5rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: 6px !important;
+  }
+  .why-section .section-subtitle{
+    font-size: .95rem !important;
+    line-height: 1.5 !important;
+    max-width: 100% !important;
+  }
+
+  /* Feature-Grid & Karten */
+  .why-section .features-grid{ gap: 14px !important; }
+  .why-section .feature-card{
+    padding: 14px !important;
+    border-radius: 16px !important;
+  }
+  .why-section .feature-icon{
+    width: 48px; height: 48px;
+    margin-bottom: 10px;
+  }
+  .why-section .feature-icon svg{ width: 24px; height: 24px; }
+  .why-section .feature-title{ font-size: 1.05rem; margin-bottom: 6px; }
+  .why-section .feature-description{ font-size: .92rem; line-height: 1.5; margin-bottom: 8px; }
+  .why-section .feature-list li{
+    font-size: .9rem; padding: 4px 0 4px 16px;
+  }
+
+  /* Value-Proposition & Stats */
+  .why-section .value-proposition{ padding: 16px !important; margin-bottom: 20px !important; }
+  .why-section .value-title{ font-size: 1.25rem; margin-bottom: 10px; }
+  .why-section .value-text{ font-size: .95rem; line-height: 1.55; }
+  .why-section .stats-grid{
+    gap: 12px; margin-top: 14px; padding-top: 12px;
+  }
+  .why-section .stat-number{ font-size: 2.25rem; }
+  .why-section .stat-label{ font-size: .8rem; }
+
+  /* CTA */
+  .why-section .cta-section{ padding: 14px !important; gap: 12px !important; }
+  .why-section .cta-title{ font-size: 1.25rem; margin-bottom: 6px; }
+  .why-section .cta-description{ font-size: .95rem; }
+  .why-section .cta-button{ padding: .75rem 1.25rem; font-size: 1rem; }
+}
+
+/* noch straffer auf sehr kleinen Screens */
+@media (max-width: 480px){
+  .why-section{ padding: 22px 0 !important; }
+  .why-section .feature-card{ padding: 12px !important; }
+  .why-section .feature-icon{ width: 44px; height: 44px; }
+  .why-section .stat-number{ font-size: 2rem; }
+}
+
+/* Dein „mehr Luft oben“ auf Mobil reduzieren */
+@media (max-width: 768px){
+  body.gewerbe-page .why-section{ padding-top: 32px !important; }
+  body.gewerbe-page .why-section::before{ height: 0; top: 0; }
+}
+
+/* Gewerbe – Kontaktformular im Why-Block: mobil deutlich kompakter
+   -> Modal hängt am <body>, nicht in .why-section, daher auf body.gewerbe-page scopen */
+@media (max-width: 768px){
+
+  /* Rahmen / Kopf */
+  body.gewerbe-page .modal .modal-content{
+    max-width: 520px;
+    border-radius: 14px;
+  }
+  body.gewerbe-page .modal .modal-header{ padding: 10px 14px; }
+  body.gewerbe-page .modal .modal-title{ font-size: 1.05rem; }
+  body.gewerbe-page .modal .modal-close{ width: 32px; height: 32px; }
+
+  body.gewerbe-page .modal .modal-body{ padding: 12px 14px; }
+
+  /* Formular: Abstände/Typo kleiner */
+  body.gewerbe-page .modal .contact-form .form-row{ gap: 8px; }
+  body.gewerbe-page .modal .contact-form .form-group{ margin-bottom: 10px; }
+  body.gewerbe-page .modal .contact-form .form-group label{
+    font-size: .85rem;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  body.gewerbe-page .modal .contact-form .form-group input,
+  body.gewerbe-page .modal .contact-form .form-group textarea{
+    padding: 9px 11px;
+    font-size: 15px;
+    border-radius: 10px;
+    border-width: 1px;
+  }
+  body.gewerbe-page .modal .contact-form .form-group textarea{ min-height: 84px; }
+
+  /* Checkboxblock enger */
+  body.gewerbe-page .modal .contact-form .checkbox-group{
+    padding: 10px;
+    margin-bottom: 12px;
+    border-width: 1px;
+  }
+  body.gewerbe-page .modal .contact-form .checkbox-group label{ font-size: .88rem; }
+  body.gewerbe-page .modal .contact-form .checkbox-group input{ width: 18px; height: 18px; }
+
+  /* Submit-Button kleiner */
+  body.gewerbe-page .modal .contact-form .submit-button{
+    padding: 10px 14px;
+    font-size: .98rem;
+    border-radius: 12px;
+  }
+}
+
+/* Extra straff auf sehr kleinen Screens */
+@media (max-width: 420px){
+  body.gewerbe-page .modal .modal-content{ max-width: 92vw; }
+  body.gewerbe-page .modal .modal-header,
+  body.gewerbe-page .modal .modal-body{ padding: 10px 12px; }
+  body.gewerbe-page .modal .contact-form .form-group input,
+  body.gewerbe-page .modal .contact-form .form-group textarea{
+    padding: 8px 10px; font-size: 14.5px;
+  }
+  body.gewerbe-page .modal .contact-form .submit-button{
+    padding: 9px 12px; font-size: .95rem;
+  }
+}
+
+/* Optional: 2 Spalten auf Mini-Screens, wenn deine Felder bereits in .form-row gruppiert sind */
+@media (max-width: 480px){
+  body.gewerbe-page .modal .contact-form .form-row{
+    grid-template-columns: 1fr 1fr;
+  }
+  /* Felder, die trotzdem volle Breite brauchen, einfach .full geben */
+  body.gewerbe-page .modal .contact-form .form-row .full{
+    grid-column: 1 / -1;
+  }
+}

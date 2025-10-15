@@ -417,5 +417,164 @@
   }
 }
 
+/* ======================================================
+   MONTAGE – EXTRA COMPACT MOBILE (<= 768px)
+   ====================================================== */
+@media (max-width: 768px){
+  /* Grundtypografie & Seitengassen */
+  #alab-montage{ font-size: .95rem; line-height: 1.45; }
+  #alab-montage .container{ padding: 0 var(--s-3); }
+
+  /* HERO kompakter */
+  #alab-montage .hero{ padding: var(--s-7) 0 var(--s-6); }
+  #alab-montage .hero__kicker{ gap:8px; padding:6px 12px; font-size:.85rem; margin-bottom: var(--s-3); }
+  #alab-montage .hero__title{ font-size: clamp(1.55rem, 4.8vw, 2.1rem); margin-bottom: var(--s-2); }
+  #alab-montage .hero__subtitle{ font-size: .98rem; margin: 0 auto var(--s-4); }
+  #alab-montage .hero__actions{ gap:10px; margin-bottom: var(--s-3); }
+  #alab-montage .hero__divider{ width:min(220px,60%); height:3px; }
+
+  /* Buttons kleiner (Icons inkl.) */
+  #alab-montage .btn{ padding: 10px 16px; font-size: .93rem; }
+  #alab-montage .btn i{ font-size: .95em; }
+
+  /* SECTION-Abstände & Titel */
+  #alab-montage .main{ padding: var(--s-7) 0; }
+  #alab-montage .section{ margin-bottom: var(--s-7); }
+  #alab-montage .section-title{
+    font-size: clamp(1.35rem, 4.2vw, 1.75rem);
+    margin-bottom: var(--s-2);
+  }
+  #alab-montage .section-title::after{ width: 56px; height: 3px; margin-top: 8px; }
+  #alab-montage .section-subtitle{ font-size: .98rem; margin: 0 auto var(--s-5); }
+  #alab-montage .eyebrow{ font-size: .78rem; margin-bottom: var(--s-2); }
+
+  /* GRID enger */
+  #alab-montage .grid{ gap: clamp(12px, 2.5vw, 18px); }
+
+  /* CARDS kompakter + kleinere Icons/Checkmarks */
+  #alab-montage .card{
+    padding: clamp(var(--s-5), 1.2vw + 10px, var(--s-6));
+    border-radius: 12px;
+    box-shadow: var(--shadow-1);
+  }
+  #alab-montage .card__title{ font-size: 1.05rem; margin-bottom: var(--s-3); }
+  #alab-montage .lead{ margin-bottom: var(--s-3); }
+  #alab-montage .card__list{ gap: 8px; }
+  #alab-montage .card__list li{ padding-left: 20px; }
+  #alab-montage .card__list li::before{ font-size: .95rem; top: 1px; }
+
+  /* CTA-Row */
+  #alab-montage .cta-row{ margin-top: var(--s-5); }
+
+  /* TIMELINE/Steps kompakter (Bilder/Slider bleiben unberührt) */
+  #alab-montage .steps{ gap: 14px; }
+  #alab-montage .step{ grid-template-columns: 52px 1fr; gap: 12px; }
+  #alab-montage .step__dot{ width: 44px; height: 44px; }
+  #alab-montage .badge{ inset: 5px; font-size: .95rem; }
+  #alab-montage .ring .track,
+  #alab-montage .ring .prog{ stroke-width: 3; }
+  #alab-montage .laserbar{ height: 3px; }
+
+  /* Slider/Referenzen – NUR Typo/Abstand, KEIN Bild-Resize */
+  #montage-slider .slider__track{ gap: 16px; }
+  #montage-slider .slider__caption{ font-size: .95rem; margin-top: 8px; }
+  #ref-gallery .rg__cap{ font-size: .95rem; margin-top: 8px; }
+}
+
+/* Ultra-compact Phones (<= 480px) – noch etwas straffer */
+@media (max-width: 480px){
+  #alab-montage{ font-size: .9rem; line-height: 1.4; }
+  #alab-montage .container{ padding: 0 var(--s-2); }
+
+  #alab-montage .hero{ padding: var(--s-6) 0 var(--s-5); }
+  #alab-montage .hero__title{ font-size: clamp(1.35rem, 5.2vw, 1.6rem); }
+  #alab-montage .hero__subtitle{ font-size: .95rem; margin-bottom: var(--s-3); }
+  #alab-montage .btn{ padding: 9px 14px; font-size: .9rem; }
+
+  #alab-montage .main{ padding: var(--s-6) 0; }
+  #alab-montage .section{ margin-bottom: var(--s-6); }
+  #alab-montage .section-title{ font-size: clamp(1.2rem, 4.4vw, 1.5rem); }
+  #alab-montage .section-subtitle{ margin-bottom: var(--s-4); }
+
+  #alab-montage .grid{ gap: 12px; }
+  #alab-montage .card{ padding: var(--s-4); border-radius: 10px; }
+  #alab-montage .card__title{ font-size: 1rem; }
+
+  #alab-montage .steps{ gap: 12px; }
+  #alab-montage .step{ grid-template-columns: 44px 1fr; gap: 10px; }
+  #alab-montage .step__dot{ width: 40px; height: 40px; }
+  #alab-montage .badge{ inset: 4px; font-size: .9rem; }
+  #alab-montage .laserbar{ height: 2px; }
+
+  #montage-slider .slider__track{ gap: 14px; }
+  #montage-slider .slider__caption{ font-size: .9rem; }
+  #ref-gallery .rg__cap{ font-size: .9rem; }
+}
+
+/* Hinweis: Die bereits vorhandenen Mobile-Regeln zu Swiper/Ref-Gallery
+   bleiben bestehen; hier wurden bewusst KEINE img-Größen überschrieben. */
 
 
+/* =========================================
+   MONTAGEPROZESS mittig ausrichten
+   ========================================= */
+
+/* Die gesamte Steps-Spalte zentrieren und begrenzen */
+#alab-montage .steps{
+  max-width: 760px;          /* angenehme Lesebreite */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Sicherheit: jedes Step-Item nutzt die volle Breite der Steps-Spalte */
+#alab-montage .step{ width: 100%; }
+
+/* Mobile noch etwas schmaler + Innenabstand */
+@media (max-width: 768px){
+  #alab-montage .steps{
+    max-width: 680px;
+    padding-inline: var(--s-3);
+  }
+}
+
+/* Sehr schmal: Badge oben zentriert halten (ergänzt dein vorhandenes Rule-Set) */
+@media (max-width: 680px){
+  #alab-montage .step{
+    grid-template-columns: 1fr;     /* eine Spalte */
+    grid-template-rows: auto 1fr;
+    justify-items: stretch;
+  }
+  #alab-montage .step__dot{
+    justify-self: center;           /* Badge genau mittig */
+  }
+}
+
+
+/* =========================================
+   MONTAGE: horizontales Scrollen unterbinden
+   ========================================= */
+
+/* Seite selbst clippt Überstände – nur #alab-montage */
+#alab-montage{
+  position: relative;       /* für overflow:clip */
+  overflow-x: clip;         /* moderner als hidden, kein Scrollbalken */
+  touch-action: pan-y;      /* nur vertikal wischbar */
+  overscroll-behavior-x: none; /* kein seitliches Überscrollen */
+}
+
+/* Fallback für Browser ohne overflow: clip */
+@supports not (overflow: clip){
+  #alab-montage{ overflow-x: hidden; }
+}
+
+/* Sicherheitsgurt: keine Elemente dürfen breiter als die Seite werden */
+#alab-montage .container,
+#alab-montage .main,
+#alab-montage .hero,
+#alab-montage .section{
+  max-width: 100%;
+}
+
+/* Wichtig: Viewports von Slidern/Referenzen dürfen weiter horizontal scrollen.
+   Darum KEIN overflow-x:hidden auf:
+   #montage-slider .slider__viewport, #ref-gallery .rg__viewport */

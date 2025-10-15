@@ -161,6 +161,84 @@ section:first-of-type {
   }
 
   .ft-badge{ display:inline-block; padding:3px 8px; border-radius:999px; background:var(--ft-accent-ghost); font-size:.8rem; margin-top:6px; }
+
+  
+/* Footer: Schnellkontakt auf Mobil ausblenden */
+@media (max-width: 768px){
+  /* komplette Spalte verstecken (Titel + Karte) */
+  #ftRoot .ft-col:has(.ft-contact-card){
+    display: none !important;
+  }
+}
+
+/* Fallback, falls :has() im Zielbrowser nicht unterstützt wird:
+   zumindest die Karte + Checkbox verschwinden lassen */
+@media (max-width: 768px){
+  #ftRoot .ft-contact-card,
+  #ftRoot .ft-contact-card + .ft-policy{
+    display: none !important;
+  }
+}
+
+/* ======================================================
+   FOOTER – EXTRA COMPACT MOBILE (<= 768px)
+   ====================================================== */
+@media (max-width: 768px){
+  /* Grundlayout enger */
+  #ftRoot .ft-wrap{
+    padding: 22px 12px;
+    gap: 16px;
+    grid-template-columns: 1fr; /* sicherstellen */
+  }
+
+  /* Spaltentitel & Listen straffen */
+  #ftRoot .ft-title{ font-size: .95rem; margin: 0 0 8px; }
+  #ftRoot .ft-col li{ margin: 6px 0; }
+  #ftRoot .ft-col a{ line-height: 1.35; }
+
+  /* Adresse/Brand enger */
+  #ftRoot .ft-brand{ margin-bottom: 4px; }
+  #ftRoot .ft-address{ font-size: .95rem; line-height: 1.45; }
+
+  /* Form-Elemente (falls irgendwo sichtbar) kleiner */
+  #ftRoot .ft-label{ font-size: .85rem; margin: 4px 0 3px; }
+  #ftRoot .ft-input{ padding: 10px 12px; font-size: .95rem; border-radius: 8px; }
+  #ftRoot .ft-row{ gap: 8px; }
+  #ftRoot .ft-btn{ padding: 10px 14px; min-width: 120px; border-radius: 8px; font-size: .95rem; }
+  #ftRoot .ft-policy{ gap: 6px; margin-top: 8px; font-size: .85rem; }
+
+  /* Trenner & Abstände */
+  #ftRoot .ft-hr{ margin: 12px 0; }
+  #ftRoot .ft-badge{ font-size: .72rem; padding: 2px 8px; margin-top: 4px; }
+
+  /* Bottom-Bar kompakter */
+  #ftRoot .ft-bottom{
+    padding: 10px 12px;
+    gap: 6px;
+  }
+  #ftRoot .ft-copy{ font-size: .85rem; }
+
+  /* Sicherheit: keine seitlichen Scrollbars durch Überstände */
+  #ftRoot{ overflow-x: clip; }
+  @supports not (overflow: clip){
+    #ftRoot{ overflow-x: hidden; }
+  }
+}
+
+/* Ultra-compact phones (<= 480px) – noch etwas straffer */
+@media (max-width: 480px){
+  #ftRoot .ft-wrap{ padding: 18px 10px; gap: 14px; }
+  #ftRoot .ft-title{ font-size: .92rem; }
+  #ftRoot .ft-col li{ margin: 5px 0; }
+  #ftRoot .ft-input{ padding: 9px 11px; font-size: .92rem; }
+  #ftRoot .ft-btn{ padding: 9px 12px; font-size: .9rem; min-width: 108px; }
+  #ftRoot .ft-bottom{ padding: 8px 10px; }
+  #ftRoot .ft-copy{ font-size: .82rem; }
+}
+
+/* (du hast den Schnellkontakt bereits mobil ausgeblendet; das bleibt bestehen) */
+
+
 </style>
 
 
@@ -313,7 +391,7 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
 
         <!-- Service & Wartung -->
         <section class="alab-mh__acc">
-          <button class="alab-mh__acc-trigger" aria-expanded="false">Service &amp; Wartung</button>
+          <button class="alab-mh__acc-trigger" aria-expanded="false">Photovoltaik-Werkstatt</button>
           <div class="alab-mh__acc-panel" aria-hidden="true">
             <div class="alab-mh__grid">
 
@@ -1229,7 +1307,7 @@ und stimme der Kontaktaufnahme zu.*</span>
     <link rel="stylesheet" href="section3-fullscreen-styles.css">
     
     <!-- Preload first image for instant display -->
-    <link rel="preload" as="image" href="https://static.wixstatic.com/media/cac2b9_45198e9f0562497ab25b327fc8433b0b~mv2.png">
+    <link rel="preload" as="image" href="/assets/img/gewerbliche-loesungen/pv-gewerbe-gewerbedach1.png">
 </head>
 <body>
     <!-- Fullscreen Slideshow Section -->
@@ -1239,7 +1317,7 @@ und stimme der Kontaktaufnahme zu.*</span>
             <!-- Slide 1 -->
             <div class="slide active" data-slide="0">
                 <div class="slide-background">
-                    <img src="https://static.wixstatic.com/media/cac2b9_45198e9f0562497ab25b327fc8433b0b~mv2.png" 
+                    <img src="/assets/img/gewerbliche-loesungen/pv-gewerbe-gewerbedach1.png" 
                          alt="Kostenfaktor Energie – Photovoltaik für Unternehmen"
                          class="slide-image"
                          loading="eager"
@@ -1275,7 +1353,7 @@ und stimme der Kontaktaufnahme zu.*</span>
             <!-- Slide 2 -->
             <div class="slide" data-slide="1">
                 <div class="slide-background">
-                    <img data-src="https://static.wixstatic.com/media/cac2b9_97b5bdd26f70483ca93f3653cfe88ab4~mv2.jpg" 
+                    <img data-src="/assets/img/gewerbliche-loesungen/pv-gewerbe-gewerbedach2.jpg" 
                          alt="Wie stark lassen sich Strompreise senken"
                          class="slide-image lazy"
                          loading="lazy">
@@ -1311,7 +1389,7 @@ und stimme der Kontaktaufnahme zu.*</span>
             <!-- Slide 3 -->
             <div class="slide" data-slide="2">
                 <div class="slide-background">
-                    <img data-src="https://static.wixstatic.com/media/cac2b9_4d24afa0b3e5483d9a9e7df63bcf6a6a~mv2.png" 
+                    <img data-src="/assets/img/gewerbliche-loesungen/pv-gewerbe-gewerbedach3.png" 
                          alt="Ab wann lohnt sich eine PV-Anlage"
                          class="slide-image lazy"
                          loading="lazy">
