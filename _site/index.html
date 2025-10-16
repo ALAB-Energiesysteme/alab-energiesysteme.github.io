@@ -278,6 +278,20 @@ section:first-of-type {
   
   <link rel="stylesheet" href="/assets/css/header-switch.css">
   <link rel="stylesheet" href="/assets/css/header-mobile.css" media="(max-width:1024px)">
+
+  <script>
+  // Consent Mode v2 – Default: nur essenziell erlaubt
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted'
+  });
+</script>
 </head>
 
 <body class="">
@@ -1686,5 +1700,200 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
       import('/assets/js/header-mobile.js');
     }
   </script>
+  <style>
+  /* ==== ALAB Cookie Banner (scoped) ==== */
+  #alab-consent, #alab-consent * { box-sizing: border-box; font-family: 'Montserrat', system-ui, Segoe UI, Roboto, Arial, sans-serif; }
+  #alab-consent .cc-banner{
+    position: fixed; left:50%; bottom:16px; transform:translateX(-50%);
+    width:min(820px, calc(100vw - 24px));
+    background:#fff; color:#0f1115; border:1px solid #e7ebf0; border-radius:16px;
+    box-shadow:0 18px 50px rgba(0,0,0,.15); padding:16px; z-index:6000;
+    display:none;
+  }
+  #alab-consent .cc-show{ display:block; }
+  #alab-consent .cc-row{ display:grid; grid-template-columns:1fr auto; gap:14px; align-items:center; }
+  #alab-consent .cc-text{ font-size:.95rem; line-height:1.45; }
+  #alab-consent .cc-text a{ color:#0f1115; text-decoration:underline; }
+  #alab-consent .cc-btns{ display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+  #alab-consent .btn{ appearance:none; border:none; cursor:pointer; padding:12px 14px; border-radius:12px; font-weight:700; font-size:.95rem; }
+  #alab-consent .btn-accept{
+    background:linear-gradient(180deg,#E6C23C,#F3D663); color:#111; box-shadow:0 6px 18px rgba(230,194,60,.35);
+  }
+  #alab-consent .btn-decline{ background:#f3f4f6; color:#0f1115; }
+  #alab-consent .btn-settings{ background:#fff; border:1px solid #e7ebf0; color:#0f1115; }
+
+  /* Modal */
+  #alab-consent .cc-modal-back{ position:fixed; inset:0; background:rgba(0,0,0,.4); display:none; z-index:7000; }
+  #alab-consent .cc-modal{ position:fixed; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:min(720px, calc(100vw - 24px)); background:#fff; border:1px solid #e7ebf0; border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,.25); padding:18px; display:none; z-index:7100; }
+  #alab-consent .cc-modal h3{ margin:0 0 6px; font-size:1.15rem; }
+  #alab-consent .cc-modal p{ margin:0 0 10px; color:#616771; }
+  #alab-consent .cc-cat{ display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-top:1px dashed #e7ebf0; }
+  #alab-consent .cc-cat:first-of-type{ border-top:none; }
+  #alab-consent .cc-cat label{ font-weight:700; }
+  #alab-consent .cc-cat .desc{ color:#616771; font-weight:500; }
+  #alab-consent .cc-modal .cc-actions{ display:flex; justify-content:flex-end; gap:8px; margin-top:12px; }
+  #alab-consent .cc-badge{ display:inline-flex; align-items:center; gap:6px; font-size:.85rem; color:#616771; }
+
+  /* Manage link (optional) */
+  #alab-consent .manage-trigger{
+    position:fixed; right:12px; bottom:12px; font-size:.85rem; background:#fff; border:1px solid #e7ebf0; padding:8px 10px; border-radius:10px; color:#0f1115; cursor:pointer; z-index:5900; display:none;
+  }
+
+  @media (max-width:560px){
+    #alab-consent .cc-row{ grid-template-columns:1fr; }
+    #alab-consent .cc-btns{ justify-content:stretch; }
+    #alab-consent .btn{ flex:1 1 auto; }
+  }
+</style>
+
+<div id="alab-consent" aria-live="polite">
+  <!-- Banner -->
+  <div class="cc-banner" role="dialog" aria-label="Cookie-Benachrichtigung">
+    <div class="cc-row">
+      <div class="cc-text">
+        <strong>Cookies & Daten</strong><br>
+        Wir verwenden Cookies, um unsere Website bereitzustellen, ihre Nutzung zu analysieren und Inhalte zu verbessern. 
+        Sie können Ihre Auswahl jederzeit anpassen. Weitere Informationen in unserer 
+        <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.
+      </div>
+      <div class="cc-btns">
+        <button class="btn btn-settings" type="button">Einstellungen</button>
+        <button class="btn btn-decline"  type="button">Ablehnen</button>
+        <button class="btn btn-accept"   type="button">Akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="cc-modal-back"></div>
+  <div class="cc-modal" role="dialog" aria-modal="true" aria-label="Cookie-Einstellungen">
+    <h3>Cookie-Einstellungen</h3>
+    <p>Wählen Sie aus, welche Kategorien wir verwenden dürfen. Essenzielle Cookies sind erforderlich, um die Website zu betreiben.</p>
+
+    <div class="cc-cat">
+      <input id="cc-essential" type="checkbox" checked disabled>
+      <div>
+        <label for="cc-essential">Essenziell (immer aktiv)</label><br>
+        <span class="desc">Sicherheits- und Funktions-Cookies (z. B. Session, Consent-Speicherung).</span>
+      </div>
+    </div>
+
+    <div class="cc-cat">
+      <input id="cc-analytics" type="checkbox">
+      <div>
+        <label for="cc-analytics">Analyse / Statistik (GA4)</label><br>
+        <span class="desc">Hilft uns zu verstehen, wie die Website genutzt wird (Google Analytics 4).</span>
+      </div>
+    </div>
+
+    <div class="cc-actions">
+      <button class="btn btn-decline"  type="button">Nur essenziell</button>
+      <button class="btn btn-accept"   type="button">Auswahl speichern</button>
+    </div>
+    <div class="cc-badge">Gültigkeit der Auswahl: 6 Monate</div>
+  </div>
+
+  <!-- (Optional) Re-Open Trigger – zeig ich erst, wenn bereits entschieden -->
+  <button class="manage-trigger" type="button">Cookie-Einstellungen</button>
+</div>
+
+<script>
+(function(){
+  const KEY = 'alabConsent';
+  const MONTHS = 6;
+  const now = Date.now();
+
+  const $root = document.getElementById('alab-consent');
+  const $banner = $root.querySelector('.cc-banner');
+  const $modalBack = $root.querySelector('.cc-modal-back');
+  const $modal = $root.querySelector('.cc-modal');
+  const $manage = $root.querySelector('.manage-trigger');
+
+  const $btnAccepts = $root.querySelectorAll('.btn-accept');
+  const $btnDeclines = $root.querySelectorAll('.btn-decline');
+  const $btnSettings = $root.querySelector('.btn-settings');
+  const $chkAnalytics = $root.querySelector('#cc-analytics');
+
+  function loadConsent(){
+    try {
+      const raw = localStorage.getItem(KEY);
+      if(!raw) return null;
+      const data = JSON.parse(raw);
+      if(!data || !data.expires || data.expires < now) return null;
+      return data;
+    } catch(_) { return null; }
+  }
+
+  function saveConsent(state){
+    const expires = new Date();
+    expires.setMonth(expires.getMonth() + MONTHS);
+    const payload = { ...state, ts: now, expires: +expires };
+    localStorage.setItem(KEY, JSON.stringify(payload));
+    return payload;
+  }
+
+  // Google Consent Mode update (GTM/gtag – Scripts werden nicht hart blockiert)
+  function applyGoogle(state){
+    const granted = state.analytics === true ? 'granted' : 'denied';
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('consent', 'update', {
+      analytics_storage: granted,
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted'
+    });
+    // Event für GTM
+    window.dataLayer.push({ event: 'consent_update', consent: state });
+  }
+
+  function openBanner(){ $banner.classList.add('cc-show'); }
+  function closeBanner(){ $banner.classList.remove('cc-show'); }
+  function openModal(){ $modalBack.style.display='block'; $modal.style.display='block'; }
+  function closeModal(){ $modalBack.style.display='none'; $modal.style.display='none'; }
+
+  // Externe Re-Open API
+  window.ALABConsent = {
+    open: function(){ openModal(); },
+    reset: function(){ localStorage.removeItem(KEY); openBanner(); }
+  };
+
+  // Initial
+  const current = loadConsent();
+  if(current){
+    $manage.style.display = 'block';
+    $chkAnalytics.checked = !!current.analytics;
+    applyGoogle(current);
+  } else {
+    openBanner();
+  }
+
+  // Interaktionen
+  $btnSettings.addEventListener('click', function(){ closeBanner(); openModal(); });
+  $manage.addEventListener('click', function(){ openModal(); });
+  $modalBack.addEventListener('click', function(){ closeModal(); });
+
+  // Ablehnen (nur essenziell)
+  $btnDeclines.forEach(btn => btn.addEventListener('click', function(){
+    const state = saveConsent({ essential: true, analytics: false });
+    applyGoogle(state);
+    closeBanner(); closeModal();
+    $manage.style.display = 'block';
+  }));
+
+  // Akzeptieren / Auswahl speichern
+  $btnAccepts.forEach(btn => btn.addEventListener('click', function(){
+    const state = saveConsent({ essential: true, analytics: $chkAnalytics.checked || btn.closest('.cc-banner') });
+    applyGoogle(state);
+    closeBanner(); closeModal();
+    $manage.style.display = 'block';
+  }));
+})();
+</script>
+
+
 </body>
 </html>
