@@ -39,15 +39,15 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Photovoltaik für Gewerbe | ALAB Energiesysteme</title>
-  <meta name="description" content="Lösungen für Unternehmen: Planung, Installation, Monitoring &amp; Service." />
+  <title>Ingenieurbüro Photovoltaik für Gewerbe – ALAB Energiesysteme Mindelheim</title>
+  <meta name="description" content="Jetzt kostenlos und unverbindlich Ihr individuelles Photovoltaik-Angebot für Gewerbe oder Industrie anfordern – direkt von ALAB Energiesysteme." />
 
   
 <link rel="canonical" href="https://www.alabenergiesysteme.de/gewerbliche-loesungen/">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Photovoltaik für Gewerbe | ALAB Energiesysteme">
-<meta property="og:description" content="Lösungen für Unternehmen: Planung, Installation, Monitoring &amp; Service.">
+<meta property="og:title" content="Ingenieurbüro Photovoltaik für Gewerbe – ALAB Energiesysteme Mindelheim">
+<meta property="og:description" content="Jetzt kostenlos und unverbindlich Ihr individuelles Photovoltaik-Angebot für Gewerbe oder Industrie anfordern – direkt von ALAB Energiesysteme.">
 <meta property="og:url" content="https://www.alabenergiesysteme.de/gewerbliche-loesungen/">
 <meta property="og:image" content="https://www.alabenergiesysteme.de/assets/img/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -2256,7 +2256,7 @@ und stimme der Kontaktaufnahme zu.*</span>
   #alab-consent .cc-modal .cc-actions{ display:flex; justify-content:flex-end; gap:8px; margin-top:12px; }
   #alab-consent .cc-badge{ display:inline-flex; align-items:center; gap:6px; font-size:.85rem; color:#616771; }
 
-  /* Manage link (optional) */
+  /* Manage link (optional, standardmäßig ausgeblendet) */
   #alab-consent .manage-trigger{
     position:fixed; right:12px; bottom:12px; font-size:.85rem; background:#fff; border:1px solid #e7ebf0; padding:8px 10px; border-radius:10px; color:#0f1115; cursor:pointer; z-index:5900; display:none;
   }
@@ -2268,14 +2268,14 @@ und stimme der Kontaktaufnahme zu.*</span>
   }
 </style>
 
-<div id="alab-consent" aria-live="polite">
+<div id="alab-consent" aria-live="polite" data-show-manage="false">
   <!-- Banner -->
   <div class="cc-banner" role="dialog" aria-label="Cookie-Benachrichtigung">
     <div class="cc-row">
       <div class="cc-text">
         <strong>Cookies & Daten</strong><br>
-        Wir verwenden Cookies, um unsere Website bereitzustellen, ihre Nutzung zu analysieren und Inhalte zu verbessern. 
-        Sie können Ihre Auswahl jederzeit anpassen. Weitere Informationen in unserer 
+        Wir verwenden Cookies, um unsere Website bereitzustellen, ihre Nutzung zu analysieren und Inhalte zu verbessern.
+        Sie können Ihre Auswahl jederzeit anpassen. Weitere Informationen in unserer
         <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.
       </div>
       <div class="cc-btns">
@@ -2315,7 +2315,7 @@ und stimme der Kontaktaufnahme zu.*</span>
     <div class="cc-badge">Gültigkeit der Auswahl: 6 Monate</div>
   </div>
 
-  <!-- (Optional) Re-Open Trigger – zeig ich erst, wenn bereits entschieden -->
+  <!-- (Optional) Re-Open Trigger – bleibt ausgeblendet, außer data-show-manage="true" -->
   <button class="manage-trigger" type="button">Cookie-Einstellungen</button>
 </div>
 
@@ -2326,6 +2326,8 @@ und stimme der Kontaktaufnahme zu.*</span>
   const now = Date.now();
 
   const $root = document.getElementById('alab-consent');
+  const SHOW_MANAGE = $root.dataset.showManage === 'true';
+
   const $banner = $root.querySelector('.cc-banner');
   const $modalBack = $root.querySelector('.cc-modal-back');
   const $modal = $root.querySelector('.cc-modal');
@@ -2356,18 +2358,16 @@ und stimme der Kontaktaufnahme zu.*</span>
 
   // Google Consent Mode update (GTM/gtag – Scripts werden nicht hart blockiert)
   function applyGoogle(state){
-    const granted = state.analytics === true ? 'granted' : 'denied';
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('consent', 'update', {
-      analytics_storage: granted,
+      analytics_storage: state.analytics ? 'granted' : 'denied',
       ad_storage: 'denied',
       ad_user_data: 'denied',
       ad_personalization: 'denied',
       functionality_storage: 'granted',
       security_storage: 'granted'
     });
-    // Event für GTM
     window.dataLayer.push({ event: 'consent_update', consent: state });
   }
 
@@ -2376,7 +2376,7 @@ und stimme der Kontaktaufnahme zu.*</span>
   function openModal(){ $modalBack.style.display='block'; $modal.style.display='block'; }
   function closeModal(){ $modalBack.style.display='none'; $modal.style.display='none'; }
 
-  // Externe Re-Open API
+  // Externe Re-Open API (für Datenschutzerklärung)
   window.ALABConsent = {
     open: function(){ openModal(); },
     reset: function(){ localStorage.removeItem(KEY); openBanner(); }
@@ -2385,7 +2385,7 @@ und stimme der Kontaktaufnahme zu.*</span>
   // Initial
   const current = loadConsent();
   if(current){
-    $manage.style.display = 'block';
+    if (SHOW_MANAGE) $manage.style.display = 'block';
     $chkAnalytics.checked = !!current.analytics;
     applyGoogle(current);
   } else {
@@ -2402,15 +2402,17 @@ und stimme der Kontaktaufnahme zu.*</span>
     const state = saveConsent({ essential: true, analytics: false });
     applyGoogle(state);
     closeBanner(); closeModal();
-    $manage.style.display = 'block';
+    if (SHOW_MANAGE) $manage.style.display = 'block';
   }));
 
   // Akzeptieren / Auswahl speichern
   $btnAccepts.forEach(btn => btn.addEventListener('click', function(){
-    const state = saveConsent({ essential: true, analytics: $chkAnalytics.checked || btn.closest('.cc-banner') });
+    const fromBanner = btn.closest('.cc-banner') !== null;
+    const allowAnalytics = fromBanner ? true : !!$chkAnalytics.checked;
+    const state = saveConsent({ essential: true, analytics: allowAnalytics });
     applyGoogle(state);
     closeBanner(); closeModal();
-    $manage.style.display = 'block';
+    if (SHOW_MANAGE) $manage.style.display = 'block';
   }));
 })();
 </script>

@@ -475,6 +475,11 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
   .legal ul{padding-left:1.2rem}
   .legal .toc{background:#f7f9fb;border:1px solid #e7ebf0;border-radius:12px;padding:14px;margin:16px 0}
   .legal .muted{color:#616771}
+
+  /* kleine, seitenlokale Tabelle für 4.4 */
+  .legal table{width:100%;border-collapse:collapse;margin:10px 0 6px}
+  .legal th,.legal td{border:1px solid #e7ebf0;padding:8px;text-align:left;vertical-align:top}
+  .legal th{background:#f7f9fb;font-weight:800}
 </style>
 
 <section class="legal legal-wrap" aria-labelledby="ds-title">
@@ -487,7 +492,7 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
       <li><a href="#verantwortlicher">Verantwortlicher</a></li>
       <li><a href="#hosting">Hosting &amp; Content Delivery</a></li>
       <li><a href="#server-logs">Server-Logfiles</a></li>
-      <li><a href="#kontaktformulare">Kontaktformulare &amp; Kommunikation</a></li>
+      <li><a href="#cookies">Cookies &amp; Einwilligungen</a></li>
       <li><a href="#analytics">Reichweitenmessung (Google Analytics 4)</a></li>
       <li><a href="#maps">Einbindung von Google Maps</a></li>
       <li><a href="#rechtsgrundlagen">Rechtsgrundlagen</a></li>
@@ -521,14 +526,86 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
   </ul>
   <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen findet nicht statt; die Daten dienen der Gewährleistung eines störungsfreien Betriebs und zur Fehleranalyse.</p>
 
-  <h2 id="kontaktformulare">4. Kontaktformulare &amp; Kommunikation</h2>
-  <p>Wenn Sie unser <a href="/kontakt/">Kontaktformular</a> nutzen, verarbeiten wir die von Ihnen eingegebenen Angaben (z.&nbsp;B. Name, E-Mail, Telefon, Thema, Nachricht) zur Bearbeitung Ihrer Anfrage. Das Formular enthält eine Pflicht-Einwilligung zum Datenschutz.</p>
-  <p>Zur technischen Übermittlung und Workflow-Automatisierung setzen wir den Dienst „Make“ (EU-Region) ein. Ihre Formularangaben werden über eine gesicherte Verbindung an unseren Make-Webhook übermittelt und dort ausschließlich zur Weiterleitung/Automatisierung verarbeitet.</p>
-  <p><em>Rechtsgrundlagen:</em> Vertrag/Vertragsanbahnung (Art. 6 Abs. 1 lit. b DSGVO) und – für freiwillige Angaben – Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Für Betrugsprävention verwenden wir ein verstecktes „Honeypot“-Feld.</p>
+  <h2 id="cookies">4. Cookies &amp; Einwilligungen</h2>
+  <p>Wir verwenden Cookies und vergleichbare Technologien (z.&nbsp;B. Local Storage), um unsere Website bereitzustellen, ihre Nutzung zu analysieren und Inhalte zu verbessern. Nicht erforderliche Technologien werden erst nach Ihrer Einwilligung aktiviert. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft ändern oder widerrufen.</p>
+  <h3>4.1 Kategorien</h3>
+  <ul>
+    <li><strong>Essenziell (immer aktiv):</strong> technisch notwendige Technologien zur Auslieferung der Website, Sicherheit, Consent-Speicherung. Diese sind zur Bereitstellung unseres Online-Angebots erforderlich und bedürfen keiner Einwilligung (Art. 6 Abs. 1 lit. f DSGVO).</li>
+    <li><strong>Analyse/Statistik (GA4 via Google Tag Manager):</strong> Reichweitenmessung und Nutzungsanalyse, um unser Angebot zu verbessern. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Tags werden über den Google Tag Manager (GTM) gesteuert.</li>
+  </ul>
+  <h3>4.2 Google Consent Mode (v2)</h3>
+  <p>Wir setzen den Google Consent Mode ein. Vor Ihrer Einwilligung werden keine Analyse-Cookies gesetzt; Google erhält lediglich aggregierte, cookielose Pings. Nach Einwilligung wird <em>analytics_storage</em> auf „granted“ gesetzt und Google Analytics 4 darf entsprechende Cookies setzen. <em>ad_storage</em>, <em>ad_user_data</em> und <em>ad_personalization</em> sind bei uns standardmäßig auf „denied“.</p>
+  <h3>4.3 Einwilligung ändern / widerrufen</h3>
+  <p>Sie können Ihre Auswahl jederzeit anpassen:</p>
+  <div>
+    <button type="button"
+            onclick="window.ALABConsent && ALABConsent.open()"
+            style="appearance:none;border:1px solid #e7ebf0;border-radius:10px;padding:8px 10px;cursor:pointer;background:#fff;">
+      Cookie-Einstellungen öffnen
+    </button>
+    <button type="button"
+            onclick="window.ALABConsent && ALABConsent.reset()"
+            style="appearance:none;border:1px solid #e7ebf0;border-radius:10px;padding:8px 10px;cursor:pointer;background:#fff;margin-left:.5rem">
+      Auswahl zurücksetzen
+    </button>
+  </div>
+  <p class="muted">Hinweis: Ihre aktuelle Auswahl wird lokal als Eintrag im Browser (Local Storage: <code>alabConsent</code>) für <strong>6&nbsp;Monate</strong> gespeichert.</p>
+
+  <h3 id="cookies-liste">4.4 Konkret eingesetzte Technologien &amp; Speicherdauern</h3>
+  <ul>
+    <li><strong>Google Analytics 4 (geladen via Google Tag Manager):</strong><br>
+      Cookies: <code>_ga</code> (2&nbsp;Jahre; Unterscheidung von Nutzern), <code>_ga_&lt;ID&gt;</code> (2&nbsp;Jahre; Sitzungs-/Kampagnenzustand).<br>
+      Hinweis: Werbe-/Marketing-Cookies (z.&nbsp;B. <code>_gcl_*</code>) werden bei uns nicht gesetzt, da <em>ad_storage</em> auf „denied“ steht.</li>
+    <li><strong>Google Tag Manager (GTM):</strong> GTM selbst setzt für Besucher keine Cookies; im Vorschau/Debug-Modus können für Administratoren temporäre Erstanbieter-Cookies gesetzt werden (kein Effekt für reguläre Besucher).</li>
+    <li><strong>Eigene Speicherung:</strong> Local-Storage-Eintrag <code>alabConsent</code> (6&nbsp;Monate) zur Dokumentation Ihrer Auswahl.</li>
+  </ul>
+
+  <!-- Tabelle mit klaren Angaben; rein informativ, deckungsgleich mit obiger Liste -->
+  <table aria-label="Cookie- und Speicherübersicht">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Anbieter</th>
+        <th>Zweck</th>
+        <th>Speicherdauer</th>
+        <th>Typ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>_ga</code></td>
+        <td>Google Ireland Limited (GA4, via GTM)</td>
+        <td>Unterscheidung von Nutzern für Reichweitenmessung</td>
+        <td>2 Jahre</td>
+        <td>HTTP-Cookie</td>
+      </tr>
+      <tr>
+        <td><code>_ga_&lt;ID&gt;</code></td>
+        <td>Google Ireland Limited (GA4, via GTM)</td>
+        <td>Sitzungs-/Kampagnenzustand (Session Count, Attribution)</td>
+        <td>2 Jahre</td>
+        <td>HTTP-Cookie</td>
+      </tr>
+      <tr>
+        <td><code>alabConsent</code></td>
+        <td>ALAB Energiesysteme</td>
+        <td>Speicherung Ihrer Einwilligungswahl (Consent)</td>
+        <td>6 Monate</td>
+        <td>Local Storage</td>
+      </tr>
+      <tr>
+        <td><code>gtm_debug</code>, <code>gtm_preview</code>, <code>gtm_auth</code></td>
+        <td>Google Ireland Limited (GTM)</td>
+        <td><strong>Nur</strong> im Admin-Vorschau/Debug-Modus; keine Wirkung für reguläre Besucher</td>
+        <td>Sitzung/kurzfristig</td>
+        <td>HTTP-Cookie (Admin)</td>
+      </tr>
+    </tbody>
+  </table>
 
   <h2 id="analytics">5. Reichweitenmessung (Google Analytics 4)</h2>
-  <p>Wir nutzen Google Analytics 4 zur statistischen Reichweitenmessung. Dabei werden Seitenaufrufe, Interaktionen und technisch erforderliche Informationen verarbeitet. IP-Adressen werden in GA4 standardmäßig gekürzt. Wir übermitteln keine personenbezogenen Inhalte der Formulare an Google (keine PII).</p>
-  <p><em>Rechtsgrundlage:</em> Ihre Einwilligung über das Consent-Banner (Art. 6 Abs. 1 lit. a DSGVO). Sie können die Einwilligung jederzeit für die Zukunft widerrufen (Cookie-Einstellungen).</p>
+  <p>Wir nutzen Google Analytics 4 zur statistischen Reichweitenmessung. Dabei werden Seitenaufrufe, Interaktionen und technisch erforderliche Informationen verarbeitet. IP-Adressen werden in GA4 nicht protokolliert oder gespeichert; für EU-Nutzer erfolgt die IP-Geolokalisierung vor der Protokollierung über EU-Domains/Server und die Adresse wird verworfen. Wir übermitteln keine personenbezogenen Inhalte der Formulare an Google (keine PII).</p>
+  <p><em>Rechtsgrundlage:</em> Ihre Einwilligung über das Consent-Banner (Art. 6 Abs. 1 lit. a DSGVO). Sie können die Einwilligung jederzeit für die Zukunft widerrufen (siehe Cookie-Einstellungen oben).</p>
 
   <h2 id="maps">6. Einbindung von Google Maps</h2>
   <p>Auf der <a href="/kontakt/">Kontaktseite</a> binden wir eine Karte von Google Maps ein, um unseren Standort anzuzeigen. Dabei können durch Google Nutzungsdaten (z.&nbsp;B. IP-Adresse, Browser-Infos) verarbeitet und Cookies gesetzt werden.</p>
@@ -547,7 +624,7 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
   <h2 id="empfaenger">9. Empfänger / Auftragsverarbeiter</h2>
   <ul>
     <li><strong>Netlify, Inc.</strong> – Hosting/CDN dieser Website (Auftragsverarbeitung, ggf. Drittland mit Standardvertragsklauseln)</li>
-    <li><strong>Google Ireland Ltd. / Google LLC</strong> – Analytics 4 &amp; Maps (Einwilligung; ggf. Drittland mit Standardvertragsklauseln)</li>
+    <li><strong>Google Ireland Ltd. / Google LLC</strong> – Analytics 4, Tag Manager &amp; Maps (Einwilligung; ggf. Drittland mit Standardvertragsklauseln)</li>
     <li><strong>Make s.r.o.</strong> (EU-Region) – Formular-Automatisierung/Weiterleitung als Auftragsverarbeiter</li>
   </ul>
 
@@ -560,7 +637,7 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
   <p>Wir passen diese Datenschutzhinweise an, wenn sich Rechtslage, die eingesetzten Dienste oder unsere Prozesse ändern. Die jeweils aktuelle Fassung finden Sie auf dieser Seite.</p>
 
   <p class="muted">Stand: <span id="ds-stand"></span></p>
-<script>document.getElementById('ds-stand').textContent = new Date().toLocaleDateString('de-DE');</script>
+  <script>document.getElementById('ds-stand').textContent = new Date().toLocaleDateString('de-DE');</script>
 </section>
 
   </main>
@@ -774,7 +851,7 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
   #alab-consent .cc-modal .cc-actions{ display:flex; justify-content:flex-end; gap:8px; margin-top:12px; }
   #alab-consent .cc-badge{ display:inline-flex; align-items:center; gap:6px; font-size:.85rem; color:#616771; }
 
-  /* Manage link (optional) */
+  /* Manage link (optional, standardmäßig ausgeblendet) */
   #alab-consent .manage-trigger{
     position:fixed; right:12px; bottom:12px; font-size:.85rem; background:#fff; border:1px solid #e7ebf0; padding:8px 10px; border-radius:10px; color:#0f1115; cursor:pointer; z-index:5900; display:none;
   }
@@ -786,14 +863,14 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
   }
 </style>
 
-<div id="alab-consent" aria-live="polite">
+<div id="alab-consent" aria-live="polite" data-show-manage="false">
   <!-- Banner -->
   <div class="cc-banner" role="dialog" aria-label="Cookie-Benachrichtigung">
     <div class="cc-row">
       <div class="cc-text">
         <strong>Cookies & Daten</strong><br>
-        Wir verwenden Cookies, um unsere Website bereitzustellen, ihre Nutzung zu analysieren und Inhalte zu verbessern. 
-        Sie können Ihre Auswahl jederzeit anpassen. Weitere Informationen in unserer 
+        Wir verwenden Cookies, um unsere Website bereitzustellen, ihre Nutzung zu analysieren und Inhalte zu verbessern.
+        Sie können Ihre Auswahl jederzeit anpassen. Weitere Informationen in unserer
         <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.
       </div>
       <div class="cc-btns">
@@ -833,7 +910,7 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
     <div class="cc-badge">Gültigkeit der Auswahl: 6 Monate</div>
   </div>
 
-  <!-- (Optional) Re-Open Trigger – zeig ich erst, wenn bereits entschieden -->
+  <!-- (Optional) Re-Open Trigger – bleibt ausgeblendet, außer data-show-manage="true" -->
   <button class="manage-trigger" type="button">Cookie-Einstellungen</button>
 </div>
 
@@ -844,6 +921,8 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
   const now = Date.now();
 
   const $root = document.getElementById('alab-consent');
+  const SHOW_MANAGE = $root.dataset.showManage === 'true';
+
   const $banner = $root.querySelector('.cc-banner');
   const $modalBack = $root.querySelector('.cc-modal-back');
   const $modal = $root.querySelector('.cc-modal');
@@ -874,18 +953,16 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
 
   // Google Consent Mode update (GTM/gtag – Scripts werden nicht hart blockiert)
   function applyGoogle(state){
-    const granted = state.analytics === true ? 'granted' : 'denied';
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('consent', 'update', {
-      analytics_storage: granted,
+      analytics_storage: state.analytics ? 'granted' : 'denied',
       ad_storage: 'denied',
       ad_user_data: 'denied',
       ad_personalization: 'denied',
       functionality_storage: 'granted',
       security_storage: 'granted'
     });
-    // Event für GTM
     window.dataLayer.push({ event: 'consent_update', consent: state });
   }
 
@@ -894,7 +971,7 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
   function openModal(){ $modalBack.style.display='block'; $modal.style.display='block'; }
   function closeModal(){ $modalBack.style.display='none'; $modal.style.display='none'; }
 
-  // Externe Re-Open API
+  // Externe Re-Open API (für Datenschutzerklärung)
   window.ALABConsent = {
     open: function(){ openModal(); },
     reset: function(){ localStorage.removeItem(KEY); openBanner(); }
@@ -903,7 +980,7 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
   // Initial
   const current = loadConsent();
   if(current){
-    $manage.style.display = 'block';
+    if (SHOW_MANAGE) $manage.style.display = 'block';
     $chkAnalytics.checked = !!current.analytics;
     applyGoogle(current);
   } else {
@@ -920,15 +997,17 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
     const state = saveConsent({ essential: true, analytics: false });
     applyGoogle(state);
     closeBanner(); closeModal();
-    $manage.style.display = 'block';
+    if (SHOW_MANAGE) $manage.style.display = 'block';
   }));
 
   // Akzeptieren / Auswahl speichern
   $btnAccepts.forEach(btn => btn.addEventListener('click', function(){
-    const state = saveConsent({ essential: true, analytics: $chkAnalytics.checked || btn.closest('.cc-banner') });
+    const fromBanner = btn.closest('.cc-banner') !== null;
+    const allowAnalytics = fromBanner ? true : !!$chkAnalytics.checked;
+    const state = saveConsent({ essential: true, analytics: allowAnalytics });
     applyGoogle(state);
     closeBanner(); closeModal();
-    $manage.style.display = 'block';
+    if (SHOW_MANAGE) $manage.style.display = 'block';
   }));
 })();
 </script>
