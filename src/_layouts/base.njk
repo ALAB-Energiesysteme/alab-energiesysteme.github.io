@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="de">
 <head>
+{% include "analytics/analytics-head.njk" %}
+
 <!-- Favicon & App Icons -->
 <link rel="icon" href="/assets/favicons/favicon.ico" sizes="any">
 <!-- Hast du wirklich ein SVG? Falls nein, entferne die nächste Zeile. -->
@@ -87,6 +89,8 @@
     }
   </script>
   {% include "cookie-consent.njk" %}
+  {% include "analytics/analytics-body.njk" %}
+
 
 </body>
 </html>
