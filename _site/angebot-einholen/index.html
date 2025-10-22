@@ -1497,6 +1497,22 @@ document.addEventListener('DOMContentLoaded', () => {
   <button class="manage-trigger" type="button">Cookie-Einstellungen</button>
 </div>
 
+<!-- Consent Mode Default – MUSS VOR dem GTM-Container stehen -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  // Default – bis der Nutzer entscheidet
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted'
+  });
+</script>
+
+
 <script>
 (function(){
   const KEY = 'alabConsent';
@@ -1594,6 +1610,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
 })();
 </script>
+
 
   
 <noscript>
