@@ -12,6 +12,7 @@
   const prevBtn       = root.querySelector('#prevSlide');
   const nextBtn       = root.querySelector('#nextSlide');
 
+  
   // State
   let currentIndex = 0;
   const total      = slides.length;

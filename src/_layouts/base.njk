@@ -32,8 +32,16 @@
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<!-- Montserrat lokal -->
+<link rel="preload" href="/assets/fonts/montserrat-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/montserrat-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css">
+
+<!-- Font Awesome lokal (non-blocking) -->
+<link rel="preload" href="/assets/vendor/fontawesome/css/all.min.css" as="style">
+<link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css"></noscript>
+
 
   {# --- Neu: Header-Umschaltung & Mobile-Header-CSS --- #}
   <link rel="stylesheet" href="/assets/css/header-switch.css">

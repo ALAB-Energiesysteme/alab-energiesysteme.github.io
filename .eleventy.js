@@ -4,6 +4,8 @@ module.exports = function (eleventyConfig) {
  eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
  eleventyConfig.addPassthroughCopy("robots.txt");
  eleventyConfig.addPassthroughCopy("sitemap.xml"); // falls vorhanden
+ eleventyConfig.addPassthroughCopy("assets/fonts");
+ eleventyConfig.addPassthroughCopy("assets/vendor/fontawesome");
  eleventyConfig.addWatchTarget("src/assets/");  // <— richtiges Verzeichnis beobachten
  eleventyConfig.addWatchTarget("src/assets/img/referenzen-gewerbe");
 
