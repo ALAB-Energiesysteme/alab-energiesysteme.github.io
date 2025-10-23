@@ -233,7 +233,6 @@ function handleScrollEffects() {
   // Prefetch wichtige Links
   const importantLinks = [
     'https://www.alabenergiesysteme.de/kontakt',
-    'https://www.alabenergiesysteme.de/leistungen'
   ];
   
   importantLinks.forEach(url => {

@@ -297,3 +297,8 @@
   };
 })();
 
+ defer>
+  window.addEventListener('load', () => {
+    if (window.startCarousel) startCarousel(); // erst nach LCP starten
+  });
+

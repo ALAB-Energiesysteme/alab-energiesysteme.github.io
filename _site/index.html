@@ -329,7 +329,7 @@ section:first-of-type {
 <div class="container header-container">
 <div class="logo-container">
 <a id="logoHome" href="/">
-<img src="/assets/img/logo-alab.png" alt="ALAB Energiesysteme Logo">
+<img src="/assets/img/logo-alab-klein.png" alt="ALAB Energiesysteme Logo">
 </a>
 </div>
 <nav class="main-navigation" aria-label="Hauptnavigation">
@@ -338,15 +338,15 @@ section:first-of-type {
 <a href="#" aria-expanded="false">Photovoltaik-Systeme</a>
 <div class="mega-menu" role="menu">
 <a href="/gewerbliche-loesungen/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/pv-gewerbe.jpeg" alt="PV-Gewerbe" />
+<img class="menu-thumb" src="/assets/img/menü/pv-gewerbe.jpg" alt="PV-Gewerbe" />
 <strong>PV-Gewerbe</strong><p>Effiziente Solaranlagen für Ihr Unternehmen.</p>
 </a>
 <a href="/private-haushalte/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/pv-zuhause.jpeg" alt="PV-Zuhause" />
+<img class="menu-thumb" src="/assets/img/menü/pv-zuhause.jpg" alt="PV-Zuhause" />
 <strong>PV-Zuhause</strong><p>Ihr Weg zur Energie-Unabhängigkeit.</p>
 </a>
 <a href="/freiflaechen/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/freiflaechen.jpeg" alt="Freiflächen" />
+<img class="menu-thumb" src="/assets/img/menü/freiflaechen.jpg" alt="Freiflächen" />
 <strong>PV-Freiflächen</strong><p>Großflächige Projekte für maximale Erträge.</p>
 </a>
 </div>
@@ -355,19 +355,19 @@ section:first-of-type {
 <a href="#" aria-expanded="false">Photovoltaik-Werkstatt</a>
 <div class="mega-menu" role="menu">
 <a href="/servicepakete/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/servicepakete.jpeg" alt="Servicepakete" />
+<img class="menu-thumb" src="/assets/img/menü/servicepakete.jpg" alt="Servicepakete" />
 <strong>Servicepakete</strong><p>Rundum-Sorglos-Pakete für jede Anlage.</p>
 </a>
   <a href="/montage/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/montage.jpeg" alt="Montage" />
+<img class="menu-thumb" src="/assets/img/menü/montage.jpg" alt="Montage" />
 <strong>Montage</strong><p>Fachgerechte Installation durch Experten.</p>
 </a>
 <a href="/wartung/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/wartung.jpeg" alt="Wartung" />
+<img class="menu-thumb" src="/assets/img/menü/wartung.jpg" alt="Wartung" />
 <strong>Wartung</strong><p>Sichern Sie die Leistung und Langlebigkeit.</p>
 </a>
 <a href="/monitoring/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/monitoring.jpeg" alt="Anlagenmonitoring" />
+<img class="menu-thumb" src="/assets/img/menü/monitoring.jpg" alt="Anlagenmonitoring" />
 <strong>Anlagenmonitoring</strong><p>Performance jederzeit im Blick behalten.</p>
 </a>
 </div>
@@ -579,7 +579,12 @@ li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
                 
                 <!-- Slide 5 - Freiflächenanlagen -->
                 <div class="carousel-slide" data-slide="5">
-                    <div class="slide-background" style="background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1920&q=90');"></div>
+                    <div class="slide-background">
+                    <img src="/assets/img/startseite/windkraftanlagen.avif" 
+                             alt="Beratung & Planung" 
+                             loading="lazy"
+                             style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+                    </div>
                     <div class="slide-content">
                         <span class="slide-badge"></span>
                         <h2 class="slide-title">Freiflächenanlagen</h2>
