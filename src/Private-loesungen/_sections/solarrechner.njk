@@ -1,219 +1,169 @@
-<section class="solar-calculator-section">
+<section id="alab-solarcalc" class="solar-calculator-section" aria-label="Solarrechner">
   <div class="calculator-container">
-    <div class="calculator-header">
-      <div>
-        <h2 class="calculator-title">Solarrechner</h2>
-        <p class="calculator-subtitle">Nutze unseren Solarrechner, um deine individuelle Kalkulation zu erstellen!</p>
+    <div class="calculator-card">
+      <header class="calculator-header">
+        <div>
+          <h2 class="calculator-title">Solarrechner</h2>
+          <p class="calculator-subtitle">
+            In 60 Sekunden zu Ihrer PV-Kalkulation – mit Erzeugung, Hausverbrauch, Netzbezug,
+            Speicherwirkung und Amortisation. Kostenlos &amp; unverbindlich.
+          </p>
+          <small class="input-hint" aria-live="polite">Keine Weitergabe Ihrer Daten.</small>
+        </div>
+      </header>
+
+      <div class="calculator-content">
+        <!-- Inputs -->
+        <div class="calculator-inputs" id="calc-inputs">
+          <div class="input-group">
+            <label class="input-label" for="stromkosten">
+              <span class="label-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              </span>
+              Monatliche Stromkosten
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="stromkosten" class="calculator-input" value="110" min="0" step="1" inputmode="decimal" autocomplete="on" />
+              <span class="input-unit" aria-hidden="true">€</span>
+            </div>
+            <small class="input-hint">Wird mit dem Strompreis in Jahresverbrauch umgerechnet.</small>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="strompreis">
+              <span class="label-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </span>
+              Strompreis pro kWh
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="strompreis" class="calculator-input" value="0.35" min="0.10" max="1" step="0.01" inputmode="decimal" autocomplete="on" />
+              <span class="input-unit" aria-hidden="true">€</span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="dachflaeche">
+              <span class="label-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              </span>
+              Nutzbare Dachfläche
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="dachflaeche" class="calculator-input" value="40" min="10" step="1" inputmode="decimal" autocomplete="on" />
+              <span class="input-unit" aria-hidden="true">m²</span>
+            </div>
+            <small class="input-hint">Automatische Begrenzung: min(200, Fläche/2 m² je Modul).</small>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="pvModule">
+              <span class="label-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </span>
+              PV-Module
+            </label>
+            <div class="module-controls">
+              <button type="button" class="module-btn" id="btnMinus" aria-label="Ein Modul weniger" aria-controls="pvModule">−</button>
+              <input type="number" id="pvModule" class="module-input" value="12" min="1" max="200" inputmode="numeric" />
+              <button type="button" class="module-btn" id="btnPlus" aria-label="Ein Modul mehr" aria-controls="pvModule">+</button>
+              <div class="speicher-toggle">
+                <label class="toggle-label" for="speicher">
+                  <input type="checkbox" id="speicher" class="toggle-input" />
+                  <span>Speicher</span>
+                </label>
+              </div>
+            </div>
+            <small class="input-hint">Automatische Begrenzung: min(200, Fläche/2 m² je Modul).</small>
+          </div>
+
+          <section class="calculation-results" id="calc-results" aria-live="polite">
+            <h3 class="results-title">Dein durchschnittliches Solarpotenzial:</h3>
+            <div class="result-item"><span class="result-label">Stromkosten-Ersparnis</span><span class="result-value" id="ersparnis">–</span></div>
+            <div class="result-item"><span class="result-label">Einspeisevergütung</span><span class="result-value" id="einspeisung">–</span></div>
+            <div class="result-item"><span class="result-label">Amortisationsdauer</span><span class="result-value" id="amort">–</span></div>
+            <div class="total-result">
+              <div><strong>Gewinn über 30 Jahre</strong></div>
+              <div class="total-value" id="gesamtgewinn">–</div>
+              <div class="monthly-potential"><span>Monatliches Gewinnpotenzial</span><span id="monatlichGewinn">–</span></div>
+            </div>
+            <button class="cta-button" id="cta-open">Weiter zur Anfrage</button>
+          </section>
+        </div>
+
+        <!-- Visualization -->
+        <div class="calculator-visualization" id="calc-vis">
+          <h3 class="visualization-title">Jährliche Durchschnittswerte für Energieproduktion und Verbrauch</h3>
+          <div class="energy-diagram-new">
+            <img class="diagram-image" src="https://static.wixstatic.com/media/cac2b9_21f96ad8adb7408cbdf2047b3d20632d~mv2.png" alt="Solar Energy Flow Diagram" width="500" height="400" decoding="async" loading="lazy" fetchpriority="low" />
+            <div class="value-overlay top-value"><div class="value-container"><span class="value-label">ERZEUGUNG</span><span class="value-number" id="erzeugung">– kWh</span></div></div>
+            <div class="value-overlay right-top-value"><div class="value-container"><span class="value-label">CO₂-ERSPARNIS</span><span class="value-number" id="co2ersparnis">– kg</span></div></div>
+            <div class="value-overlay left-bottom-value"><div class="value-container"><span class="value-label">NETZBEZUG</span><span class="value-number" id="netzbezug">– kWh</span></div></div>
+            <div class="value-overlay left-bottom-value-2"><div class="value-container"><span class="value-label">SPEICHERNUTZUNG</span><span class="value-number" id="speichernutzung">– kWh</span></div></div>
+            <div class="value-overlay bottom-center-value"><div class="value-container"><span class="value-label">HAUSVERBRAUCH</span><span class="value-number" id="hausverbrauch">– kWh</span></div></div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="calculator-content">
-      <!-- Inputs -->
-      <div class="calculator-inputs">
-        <div class="input-group">
-          <label class="input-label">
-            <span class="label-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-            </span>
-            Monatliche Stromkosten
-          </label>
-          <div class="input-wrapper">
-            <input type="number" id="stromkosten" class="calculator-input" value="110" min="0" step="1">
-            <span class="input-unit">€</span>
-          </div>
-          <small class="input-hint">Wird mit dem Strompreis in Jahresverbrauch umgerechnet.</small>
-        </div>
-
-        <div class="input-group">
-          <label class="input-label">
-            <span class="label-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="1" x2="12" y2="23"></line>
-                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-              </svg>
-            </span>
-            Strompreis
-          </label>
-          <div class="input-wrapper">
-            <input type="number" id="strompreis" class="calculator-input" value="0.35" min="0.10" max="1" step="0.01">
-            <span class="input-unit">€/kWh</span>
-          </div>
-        </div>
-
-        <div class="input-group">
-          <label class="input-label">
-            <span class="label-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-              </svg>
-            </span>
-            Nutzbare Dachfläche
-          </label>
-          <div class="input-wrapper">
-            <input type="number" id="dachflaeche" class="calculator-input" value="40" min="10" step="1">
-            <span class="input-unit">m²</span>
-          </div>
-          <small class="input-hint">Beliebig groß – keine M/L/XL-Labels.</small>
-        </div>
-
-        <div class="input-group">
-          <label class="input-label">
-            <span class="label-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-              </svg>
-            </span>
-            PV-Module
-          </label>
-          <div class="module-controls">
-            <button type="button" class="module-btn" id="btnMinus">−</button>
-            <input type="number" id="pvModule" class="module-input" value="12" min="1" max="200">
-            <button type="button" class="module-btn" id="btnPlus">+</button>
-            <div class="speicher-toggle">
-              <label class="toggle-label">
-                <input type="checkbox" id="speicher" class="toggle-input">
-                <span>Speicher</span>
-              </label>
-            </div>
-          </div>
-          <small class="input-hint">Automatische Begrenzung: min(200, Fläche/2 m² je Modul).</small>
-        </div>
-
-        <div class="calculation-results">
-          <h3 class="results-title">Dein durchschnittliches Solarpotenzial:</h3>
-          <div class="result-item">
-            <span class="result-label">Stromkosten-Ersparnis</span>
-            <span class="result-value" id="ersparnis">–</span>
-          </div>
-          <div class="result-item">
-            <span class="result-label">Einspeisevergütung</span>
-            <span class="result-value" id="einspeisung">–</span>
-          </div>
-          <div class="result-item">
-            <span class="result-label">Amortisationsdauer</span>
-            <span class="result-value" id="amort">–</span>
-          </div>
-          <div class="total-result">
-            <div><strong>Gewinn über 20 Jahre</strong></div>
-            <div class="total-value" id="gesamtgewinn">–</div>
-            <div class="monthly-potential">
-              <span>Monatliches Gewinnpotenzial</span>
-              <span id="monatlichGewinn">–</span>
-            </div>
-          </div>
-          <button class="cta-button" onclick="openContactModal()">Weiter zur Anfrage</button>
-        </div>
-      </div>
-
-      <!-- Visualization -->
-      <div class="calculator-visualization">
-        <h3 style="margin:0 0 8px">Jährliche Durchschnittswerte für Energieproduktion und Verbrauch</h3>
-        <div class="energy-diagram">
-          <div class="sun-container">
-            <div class="sun">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-            </div>
-            <div class="energy-production">
-              <div class="production-label">Erzeugung</div>
-              <div class="production-value" id="erzeugung">– kWh</div>
-            </div>
-          </div>
-          <div class="energy-arrow arrow-down"></div>
-          <div class="house-container">
-            <div class="house">
-              <div class="roof-with-panels">
-                <div class="solar-panel-array">
-                  <div class="panel"></div><div class="panel"></div>
-                  <div class="panel"></div><div class="panel"></div>
-                </div>
-              </div>
-              <div class="house-walls">
-                <div class="window"></div><div class="window"></div><div class="door"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="energy-flows-container">
-            <div class="flow-section">
-              <div class="energy-arrow arrow-left"></div>
-              <div class="flow-label">Netzbezug</div>
-              <div class="flow-value" id="netzbezug">– kWh</div>
-            </div>
-            <div class="flow-section">
-              <div class="energy-arrow arrow-down"></div>
-              <div class="consumption-label">Hausverbrauch</div>
-              <div class="consumption-value" id="hausverbrauch">– kWh</div>
-            </div>
-            <div class="flow-section">
-              <div class="energy-arrow arrow-right"></div>
-              <div class="flow-label">Speichernutzung</div>
-              <div class="flow-value" id="speichernutzung">– kWh</div>
-            </div>
-          </div>
-
-          <div class="environmental-data">
-            <div class="co2-section">
-              <div class="co2-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
-                  <path d="M12 6v6l4 2"></path>
-                </svg>
-              </div>
-              <div>
-                <div class="co2-label">CO₂-Ersparnis</div>
-                <div class="co2-value" id="co2ersparnis">– kg</div>
-              </div>
-            </div>
-            <div class="autarkie-section">
-              <div class="autarkie-label">Autarkie</div>
-              <div class="autarkie-percentage" id="autarkie">– %</div>
-              <div class="autarkie-bar">
-                <div class="autarkie-fill" id="autarkieFill" style="width:0%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div><!-- /visualization -->
-    </div><!-- /content -->
-  </div><!-- /container -->
+  </div>
 </section>
 
-<!-- Contact Modal -->
-<div id="contactModal" class="modal-overlay" aria-hidden="true">
-  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-header">
-      <h2 id="modalTitle">Kostenloses Angebot anfordern</h2>
-      <button class="modal-close" onclick="closeContactModal()" aria-label="Schließen">×</button>
+<!-- Contact Lightbox (direkt nach der Section platzieren) -->
+<div id="contactLightbox" class="lightbox-backdrop" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+  <div class="lightbox-container">
+    <div class="lightbox-header">
+      <div class="lightbox-title-wrapper">
+        <svg class="lightbox-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <h2 id="lightboxTitle">Kostenloses PV-Angebot anfordern</h2>
+      </div>
+      <button class="lightbox-close" id="lightbox-close" aria-label="Schließen" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
     </div>
-    <div class="modal-body">
-      <form id="leadForm" class="lead-form">
-        <div class="form-group"><label>Vorname *</label><input name="vorname" required></div>
-        <div class="form-group"><label>Nachname *</label><input name="nachname" required></div>
-        <div class="form-group"><label>E-Mail *</label><input type="email" name="email" required></div>
-        <div class="form-group"><label>Telefon</label><input type="tel" name="telefon"></div>
-        <div class="form-group span-2"><label>Adresse *</label><input name="adresse" required placeholder="Straße, Hausnr., PLZ, Ort"></div>
-        <div class="form-group span-2"><label>Nachricht</label><textarea name="nachricht" placeholder="Weitere Informationen oder Fragen…"></textarea></div>
-        <button type="submit" class="submit-btn"><span class="btn-text">Kostenloses Angebot anfordern</span></button>
+    <div class="lightbox-body">
+      <p class="lightbox-description">Füllen Sie das Formular aus und wir erstellen Ihnen ein individuelles Angebot für Ihre PV-Anlage. Kostenlos und unverbindlich.</p>
+      <form id="leadForm" class="lightbox-form" autocomplete="on">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="vorname">Vorname *</label>
+            <input type="text" id="vorname" name="vorname" required placeholder="Max" autocomplete="given-name" />
+          </div>
+          <div class="form-field">
+            <label for="nachname">Nachname *</label>
+            <input type="text" id="nachname" name="nachname" required placeholder="Mustermann" autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="email">E-Mail *</label>
+            <input type="email" id="email" name="email" required placeholder="max@beispiel.de" autocomplete="email" />
+          </div>
+          <div class="form-field">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="+49 123 456789" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="adresse">Adresse *</label>
+          <input type="text" id="adresse" name="adresse" required placeholder="Musterstraße 1, 12345 Musterstadt" autocomplete="address-line1" />
+        </div>
+        <div class="form-field">
+          <label for="nachricht">Nachricht (optional)</label>
+          <textarea id="nachricht" name="nachricht" rows="4" placeholder="Haben Sie spezielle Wünsche oder Fragen?"></textarea>
+        </div>
+        <button type="submit" class="lightbox-submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13"></path>
+            <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+          </svg>
+          <span class="btn-text">Angebot anfordern</span>
+        </button>
       </form>
     </div>
   </div>

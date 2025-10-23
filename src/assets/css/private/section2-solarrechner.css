@@ -1,976 +1,417 @@
-/* ===== Global Reset & Variables ===== */
-:root {
-  /* Primary Colors */
+/* Scope: nur innerhalb #alab-solarcalc */
+#alab-solarcalc {
   --primary: #E6C23C;
   --primary-light: #F3D663;
-  --primary-dark: #D4AD2A;
   --primary-gradient: linear-gradient(135deg, #E5C44D 0%, #F3D663 100%);
-  
-  /* Light Theme Colors */
   --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
+  --bg-secondary: #f7f8fa;
+  --bg-tertiary: #f0f2f5;
   --bg-card: #ffffff;
-  --bg-card-hover: #f1f3f5;
-  
-  /* Text Colors */
   --text-primary: #1a1a1a;
   --text-secondary: #6b7280;
   --text-muted: #9ca3af;
-  
-  /* Accent Colors */
-  --success: #10b981;
-  --error: #ef4444;
-  --border: #e5e7eb;
-  --border-light: #d1d5db;
-  
-  /* Spacing */
+  --border: #e2e8f0;
+  --border-light: #cbd5e1;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* ===== Typography ===== */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-/* ===== Solar Calculator Section ===== */
-.solar-calculator-section {
-  background: var(--bg-secondary);
-  padding: 80px 0;
-  min-height: 100vh;
-}
-
-.calculator-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.calculator-container > div {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  padding: 40px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-}
-
-.calculator-header {
-  margin-bottom: 40px;
-}
-
-.calculator-title {
-  font-size: 32px;
-  margin-bottom: 8px;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.calculator-subtitle {
-  color: var(--text-secondary);
-}
-
-.calculator-content {
-  display: grid;
-  grid-template-columns: minmax(320px, 460px) 1fr;
-  gap: 40px;
-  align-items: start;
-}
-
-/* Calculator Inputs */
-.calculator-inputs .input-group {
-  margin-bottom: 20px;
-}
-
-.input-label {
-  font-weight: 600;
-  margin-bottom: 8px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  color: var(--text-primary);
-}
-
-.label-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-}
-
-.label-icon svg {
-  width: 18px;
-  height: 18px;
-  color: var(--primary);
-}
-
-.input-wrapper {
-  position: relative;
-}
-
-.calculator-input,
-.module-input {
-  width: 100%;
-  padding: 12px 50px 12px 16px;
-  background: var(--bg-secondary);
-  border: 2px solid var(--border);
-  border-radius: var(--radius-md);
-  color: var(--text-primary);
-  font-size: 16px;
-  font-family: inherit;
-}
-
-.calculator-input:focus,
-.module-input:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
-.input-unit {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-muted);
-}
-
-.input-hint {
-  display: block;
-  margin-top: 8px;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-/* Module Controls */
-.module-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 8px;
-}
-
-.module-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
-  border: 2px solid var(--border);
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.module-btn:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-}
-
-.module-input {
-  width: 80px;
-  text-align: center;
-  padding: 12px;
-}
-
-.speicher-toggle {
-  margin-left: auto;
-}
-
-.toggle-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  color: var(--text-primary);
-}
-
-.toggle-input {
-  appearance: none;
-  width: 44px;
-  height: 24px;
-  border-radius: 999px;
-  background: var(--border);
-  position: relative;
-  outline: none;
-  transition: 0.2s;
-  cursor: pointer;
-}
-
-.toggle-input:checked {
-  background: var(--primary-gradient);
-}
-
-.toggle-input::after {
-  content: '';
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #ffffff;
-  left: 3px;
-  top: 3px;
-  transition: 0.2s;
-}
-
-.toggle-input:checked::after {
-  left: 23px;
-}
-
-/* Calculation Results */
-.calculation-results {
-  margin-top: 24px;
-  border: 2px dashed var(--border);
-  border-radius: var(--radius-lg);
-  padding: 20px;
-  background: var(--bg-secondary);
-}
-
-.results-title {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
-}
-
-.result-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-top: 1px solid var(--border);
-}
-
-.result-item:first-of-type {
-  border-top: none;
-}
-
-.result-label {
-  color: var(--text-secondary);
-}
-
-.result-value {
-  font-weight: 700;
-  color: var(--primary-light);
-}
-
-.total-result {
-  margin-top: 16px;
-  border-top: 2px solid var(--border);
-  padding-top: 16px;
-}
-
-.total-value {
-  font-size: 28px;
-  font-weight: 800;
-  margin-top: 8px;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.monthly-potential {
-  display: flex;
-  justify-content: space-between;
-  color: var(--text-secondary);
-  margin-top: 8px;
-  font-size: 14px;
-}
-
-.cta-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 24px;
-  border-radius: var(--radius-md);
-  background: var(--primary-gradient);
-  border: none;
-  color: #1a1a1a;
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  width: 100%;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(230, 194, 60, 0.3);
-}
-
-/* Energy Visualization */
-.calculator-visualization {
-  padding: 24px;
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-}
-
-.calculator-visualization h3 {
-  color: var(--text-primary);
-  margin-bottom: 24px;
-  font-size: 16px;
-}
-
-.energy-diagram {
-  position: relative;
-  background: linear-gradient(135deg, rgba(230, 194, 60, 0.08) 0%, rgba(243, 214, 99, 0.08) 100%);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  min-height: 480px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 24px;
-  border: 1px solid rgba(230, 194, 60, 0.2);
-}
-
-.sun-container {
-  text-align: center;
-}
-
-.sun {
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: rotate 20s linear infinite;
-}
-
-.sun svg {
-  width: 48px;
-  height: 48px;
-  color: var(--primary);
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.production-label {
-  font-weight: 600;
-  color: var(--text-secondary);
-  font-size: 14px;
-}
-
-.production-value {
-  font-weight: 700;
-  color: var(--primary-light);
-  font-size: 18px;
-}
-
-/* Energy Arrows */
-.energy-arrow {
-  position: relative;
-  background: var(--primary-gradient);
-}
-
-.arrow-down {
-  width: 4px;
-  height: 40px;
-  margin: 0 auto;
-}
-
-.arrow-down::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 14px solid var(--primary-light);
-}
-
-.arrow-left,
-.arrow-right {
-  width: 40px;
-  height: 4px;
-}
-
-.arrow-left::after {
-  content: '';
-  position: absolute;
-  left: -10px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 14px solid var(--primary-light);
-}
-
-.arrow-right::after {
-  content: '';
-  position: absolute;
-  right: -10px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 14px solid var(--primary-light);
-}
-
-/* House Visualization */
-.house-container {
-  display: flex;
-  justify-content: center;
-}
-
-.house {
-  position: relative;
-}
-
-.roof-with-panels {
-  width: 140px;
-  height: 60px;
-  background: linear-gradient(135deg, #64748b, #475569);
-  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.solar-panel-array {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3px;
-  margin-top: 12px;
-}
-
-.panel {
-  width: 24px;
-  height: 14px;
-  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-  border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.house-walls {
-  width: 100px;
-  height: 80px;
-  background: linear-gradient(to bottom, #cbd5e1, #94a3b8);
-  border: 2px solid var(--border);
-  position: relative;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.window {
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(96, 165, 250, 0.4));
-  border: 1px solid #3b82f6;
-  border-radius: 2px;
-}
-
-.door {
-  width: 16px;
-  height: 40px;
-  background: linear-gradient(to bottom, #92400e, #b45309);
-  border-radius: 2px 2px 0 0;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Energy Flow Data */
-.energy-flows-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 32px;
-  width: 100%;
-}
-
-.flow-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 8px;
-}
-
-.flow-label,
-.consumption-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.flow-value,
-.consumption-value {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-/* Environmental Data */
-.environmental-data {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
-}
-
-.co2-section {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.co2-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: rgba(16, 185, 129, 0.1);
-  border-radius: 50%;
-}
-
-.co2-icon svg {
-  width: 24px;
-  height: 24px;
-  color: var(--success);
-}
-
-.co2-label {
-  font-weight: 600;
-  color: var(--text-secondary);
-  font-size: 14px;
-}
-
-.co2-value {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--success);
-}
-
-.autarkie-section {
-  text-align: center;
-}
-
-.autarkie-label {
-  font-weight: 600;
-  color: var(--text-secondary);
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-.autarkie-percentage {
-  font-size: 24px;
-  font-weight: 800;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 8px;
-}
-
-.autarkie-bar {
-  width: 160px;
-  height: 8px;
-  background: var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.autarkie-fill {
-  height: 100%;
-  background: var(--primary-gradient);
-  transition: width 0.4s ease;
-}
-
-/* ===== Modal ===== */
-.modal-overlay {
+  --radius-2xl: 32px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+  --shadow-md: 0 4px 10px rgba(0,0,0,.08);
+}
+
+#alab-solarcalc * { box-sizing: border-box; }
+#alab-solarcalc { font-family: 'Montserrat', system-ui, Segoe UI, Roboto, Arial, sans-serif; color: var(--text-primary); }
+
+/* Layout */
+#alab-solarcalc.solar-calculator-section { background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); padding: 48px 0; }
+#alab-solarcalc .calculator-container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+#alab-solarcalc .calculator-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-2xl); padding: 32px; box-shadow: var(--shadow-sm); /* reduziert */ contain: content; }
+#alab-solarcalc .calculator-header { margin-bottom: 24px; }
+#alab-solarcalc .calculator-title { font-size: 30px; margin: 0 0 8px; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+#alab-solarcalc .calculator-subtitle { color: var(--text-secondary); }
+
+#alab-solarcalc .calculator-content { display: grid; grid-template-columns: minmax(320px, 460px) 1fr; gap: 24px; align-items: start; }
+
+/* Virtualisierung/Containment */
+#alab-solarcalc #calc-inputs,
+#alab-solarcalc #calc-vis,
+#alab-solarcalc #calc-results { content-visibility: auto; contain-intrinsic-size: 600px 800px; }
+
+/* Inputs */
+#alab-solarcalc .input-group { margin-bottom: 16px; }
+#alab-solarcalc .input-label { font-weight: 600; margin-bottom: 8px; display: flex; gap: 8px; align-items: center; color: var(--text-primary); }
+#alab-solarcalc .label-icon { width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; }
+#alab-solarcalc .label-icon svg { width: 18px; height: 18px; color: var(--primary); }
+#alab-solarcalc .input-wrapper { position: relative; }
+#alab-solarcalc .calculator-input, #alab-solarcalc .module-input { width: 100%; padding: 12px 48px 12px 14px; background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); border: 2px solid var(--border); border-radius: var(--radius-md); color: var(--text-primary); font-size: 16px; font-family: inherit; transition: border-color .15s ease, background .15s ease; will-change: border-color, background; }
+#alab-solarcalc .calculator-input:hover, #alab-solarcalc .module-input:hover { border-color: var(--border-light); background: var(--bg-card); }
+#alab-solarcalc .calculator-input:focus, #alab-solarcalc .module-input:focus { outline: none; border-color: var(--primary); background: var(--bg-card); }
+#alab-solarcalc .input-unit { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+#alab-solarcalc .input-hint { display: block; margin-top: 6px; font-size: 12px; color: var(--text-muted); }
+
+#alab-solarcalc .module-controls { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+#alab-solarcalc .module-btn { width: 40px; height: 40px; border-radius: var(--radius-md); border: 2px solid var(--border); background: var(--bg-card); color: var(--text-primary); font-size: 18px; font-weight: 700; cursor: pointer; transition: transform .12s ease; box-shadow: var(--shadow-sm); }
+#alab-solarcalc .module-btn:hover { transform: translateY(-1px); }
+#alab-solarcalc .module-input { width: 80px; text-align: center; padding: 10px; }
+#alab-solarcalc .speicher-toggle { margin-left: auto; }
+#alab-solarcalc .toggle-label { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-primary); }
+#alab-solarcalc .toggle-input { appearance: none; width: 44px; height: 24px; border-radius: 999px; background: var(--border); position: relative; outline: none; transition: background .2s ease; cursor: pointer; }
+#alab-solarcalc .toggle-input:checked { background: var(--primary-gradient); }
+#alab-solarcalc .toggle-input::after { content: ''; position: absolute; width: 18px; height: 18px; border-radius: 50%; background: #fff; left: 3px; top: 3px; transition: transform .2s ease; }
+#alab-solarcalc .toggle-input:checked::after { transform: translateX(20px); }
+
+/* Results */
+#alab-solarcalc .calculation-results { margin-top: 20px; border-radius: var(--radius-xl); padding: 20px; background: linear-gradient(135deg, rgba(230,194,60,.03) 0%, rgba(37,99,235,.03) 100%); border: 1px solid var(--border); }
+#alab-solarcalc .results-title { font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; }
+#alab-solarcalc .result-item { display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--border); }
+#alab-solarcalc .result-item:first-of-type { border-top: none; }
+#alab-solarcalc .result-label { color: var(--text-secondary); }
+#alab-solarcalc .result-value { font-weight: 700; color: var(--primary-light); }
+#alab-solarcalc .total-result { margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }
+#alab-solarcalc .total-value { font-size: 26px; font-weight: 800; margin-top: 6px; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+#alab-solarcalc .monthly-potential { display: flex; justify-content: space-between; color: var(--text-secondary); margin-top: 6px; font-size: 14px; }
+#alab-solarcalc .cta-button { display: inline-block; margin-top: 18px; padding: 14px 22px; border-radius: var(--radius-lg); background: var(--primary-gradient); border: none; color: #1a1a1a; font-weight: 700; font-size: 16px; cursor: pointer; width: 100%; transition: transform .12s ease; box-shadow: var(--shadow-sm); }
+#alab-solarcalc .cta-button:hover { transform: translateY(-1px); }
+
+/* Visualization */
+#alab-solarcalc .calculator-visualization { padding: 16px; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); contain: content; }
+#alab-solarcalc .visualization-title { color: var(--text-primary); margin: 0 0 16px; font-size: 18px; font-weight: 600; text-align: center; }
+#alab-solarcalc .energy-diagram-new { position: relative; background: transparent; border-radius: var(--radius-lg); padding: 8px; min-height: 450px; display: flex; align-items: center; justify-content: center; border: none; contain: layout paint size; }
+#alab-solarcalc .diagram-image { width: 100%; max-width: 500px; height: auto; object-fit: contain; z-index: 1; }
+#alab-solarcalc .value-overlay { position: absolute; z-index: 2; }
+#alab-solarcalc .value-container { background: rgba(255,255,255,.9); border: 1px solid rgba(226,232,240,.6); border-radius: var(--radius-md); padding: 6px 10px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 85px; }
+#alab-solarcalc .value-label { font-size: 9px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .3px; white-space: nowrap; }
+#alab-solarcalc .value-number { font-size: 14px; font-weight: 700; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; white-space: nowrap; }
+
+/* Positioning */
+#alab-solarcalc .top-value { top: 20%; left: 50%; transform: translateX(-50%); }
+#alab-solarcalc .right-top-value { top: 36%; right:12%; }
+#alab-solarcalc .left-bottom-value { left: 16%; bottom: 55%; }
+#alab-solarcalc .left-bottom-value-2 { left: 10%; bottom: 15%; }
+#alab-solarcalc .bottom-center-value { bottom: 6%; left: 50%; transform: translateX(-50%); }
+
+/* ===== LIGHTBOX DESIGN (optimiert) ===== */
+#contactLightbox {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
+  /* entfernt: backdrop-filter */
   z-index: 9999;
-  backdrop-filter: blur(5px);
-}
-
-.modal-overlay.active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.modal-content {
-  background: var(--bg-card);
-  border-radius: var(--radius-xl);
-  width: 90%;
-  max-width: 740px;
-  max-height: 90vh;
+  padding: 20px;
   overflow-y: auto;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--border);
-  animation: slideUp 0.3s ease;
+  animation: fadeIn 0.2s ease-out;
 }
+#contactLightbox.active { display: flex; align-items: center; justify-content: center; }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+.lightbox-container { background: var(--bg-card); border-radius: var(--radius-2xl); width: 100%; max-width: 640px; box-shadow: var(--shadow-sm); border: 1px solid var(--border); transform: translateZ(0); opacity: 0; animation: lightboxSlideIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards; font-family: 'Montserrat', system-ui, sans-serif; contain: content; }
+.lightbox-header { background: linear-gradient(135deg, rgba(230,194,60,0.05) 0%, rgba(243,214,99,0.05) 100%); padding: 20px 24px; border-bottom: 1px solid var(--border); border-radius: var(--radius-2xl) var(--radius-2xl) 0 0; display: flex; justify-content: space-between; align-items: center; }
+.lightbox-title-wrapper { display: flex; align-items: center; gap: 12px; }
+.lightbox-icon { width: 28px; height: 28px; color: var(--primary); flex-shrink: 0; }
+.lightbox-header h2 { margin: 0; font-size: 22px; font-weight: 700; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.lightbox-close { background: var(--bg-secondary); border: 1px solid var(--border); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform .12s ease; flex-shrink: 0; }
+.lightbox-close:hover { transform: scale(1.05); }
+.lightbox-close svg { width: 20px; height: 20px; color: var(--text-secondary); }
+.lightbox-body { padding: 20px 24px 24px; }
+.lightbox-description { margin: 0 0 24px; color: #ffffff; font-size: 15px; line-height: 1.6; text-align: left; }
 
-.modal-header {
-  padding: 32px 32px 24px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+.lightbox-form { display: flex; flex-direction: column; gap: 18px; }
+.form-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label { font-weight: 600; font-size: 13px; color: #ffffff; padding-left: 4px; }
+.form-field input, .form-field textarea { color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; }
+.form-field input::placeholder, .form-field textarea::placeholder { color: var(--text-muted); }
+.form-field input, .form-field textarea { padding: 13px 16px; border: 2px solid var(--border); border-radius: var(--radius-md); background: var(--bg-secondary); font-family: inherit; font-size: 15px; transition: border-color .15s ease, box-shadow .15s ease; }
+.form-field input:hover, .form-field textarea:hover { border-color: var(--border-light); }
+.form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(230, 194, 60, 0.15); }
+.form-field textarea { resize: vertical; min-height: 100px; }
 
-.modal-header h2 {
-  margin: 0;
-  font-size: 24px;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+.lightbox-submit { background: var(--primary-gradient); color: #1a1a1a; border: none; padding: 15px 24px; border-radius: var(--radius-lg); font-weight: 700; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-top: 8px; box-shadow: var(--shadow-sm); transition: transform .12s ease, box-shadow .12s ease; }
+.lightbox-submit:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.lightbox-submit:active { transform: translateY(0); }
+.lightbox-submit svg { width: 20px; height: 20px; }
 
-.modal-close {
-  background: none;
-  border: none;
-  font-size: 32px;
-  color: var(--text-muted);
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lightboxSlideIn { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-.modal-close:hover {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-}
-
-.modal-body {
-  padding: 32px;
-}
-
-.lead-form {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.lead-form .form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin: 0;
-}
-
-.lead-form input,
-.lead-form textarea {
-  padding: 12px 16px;
-  border: 2px solid var(--border);
-  border-radius: var(--radius-md);
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  font-family: inherit;
-  font-size: 16px;
-  width: 100%;
-}
-
-.lead-form input:focus,
-.lead-form textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-  background: var(--bg-card-hover);
-}
-
-.lead-form input::placeholder,
-.lead-form textarea::placeholder {
-  color: var(--text-muted);
-}
-
-.lead-form textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-.lead-form label {
-  font-weight: 600;
-  color: var(--text-primary);
-  font-size: 14px;
-}
-
-.span-2 {
-  grid-column: 1 / -1;
-}
-
-.submit-btn {
-  grid-column: 1 / -1;
-  background: var(--primary-gradient);
-  color: #1a1a1a;
-  border: none;
-  padding: 16px 24px;
-  border-radius: var(--radius-md);
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: block;
-  width: 100%;
-  margin-top: 8px;
-}
-
-.submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(230, 194, 60, 0.3);
-}
-
-/* ===== Responsive Design ===== */
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) { #alab-solarcalc *, #contactLightbox *, .lightbox-container * { transition: none !important; animation: none !important; } }
 @media (max-width: 768px) {
-  .calculator-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .lead-form {
-    grid-template-columns: 1fr;
-  }
-  
-  .energy-flows-container {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  
-  .environmental-data {
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
-  }
+  #alab-solarcalc .calculator-content { grid-template-columns: 1fr; }
+  #alab-solarcalc .calculator-card { padding: 20px; }
+  #alab-solarcalc .energy-diagram-new { min-height: 380px; }
+  #alab-solarcalc .value-overlay { position: static; transform: none !important; margin-bottom: 10px; }
+  #alab-solarcalc .diagram-image { max-width: 100%; }
+  #alab-solarcalc .value-container { min-width: auto; flex-direction: row; justify-content: space-between; width: 100%; padding: 8px 10px; }
+  #alab-solarcalc .value-label { font-size: 10px; }
+  #alab-solarcalc .value-number { font-size: 13px; }
+
+  .lightbox-container { max-width: 100%; margin: 0; border-radius: var(--radius-xl); display: flex; flex-direction: column; max-height: 90vh; }
+  .lightbox-header { padding: 18px; }
+  .lightbox-header h2 { font-size: 20px; }
+  .lightbox-body { padding: 18px; overflow-y: auto; }
+  .form-row { grid-template-columns: 1fr; gap: 18px; }
 }
 
-/* ==== Solarrechner: Overflow-Fixes mit deinen Klassen ==== */
 
-/* 1) Grid-Kinder dürfen schrumpfen – sonst laufen Inhalte raus */
-.calculator-content { overflow-x: hidden; }
-.calculator-content > * { min-width: 0; }
+/* ==== Lightbox-Form: Text schwarz statt weiß ==== */
+#contactLightbox .lightbox-description { color: var(--text-primary) !important; }
 
-/* 2) Inputs sicher auf 100% Breite, Einheiten-Badge absolut rechts */
-.input-wrapper { position: relative; max-width: 100%; }
-.calculator-input,
-.module-input {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding-right: 3.25rem;      /* Platz für die Einheit */
-}
-.input-unit{
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  white-space: nowrap;
+#contactLightbox .form-field label {
+  color: var(--text-primary) !important;
 }
 
-/* 3) Modul-Zeile darf umbrechen; Toggle nicht nach rechts „wegdrücken“ */
-.module-controls{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-.speicher-toggle{ margin-left: 0; }         /* statt auto */
-
-/* Stepper-Buttons behalten fixe Breite, damit sie nicht quetschen */
-.module-btn{ flex: 0 0 40px; }
-
-/* 4) Karten-Innenabstand auf sehr kleinen Screens etwas reduzieren */
-@media (max-width: 480px){
-  .calculator-container > div{ padding: 20px; border-radius: 18px; }
-  .module-input{ width: 64px; }             /* etwas schmaler */
+#contactLightbox .form-field input,
+#contactLightbox .form-field textarea {
+  color: var(--text-primary) !important;              /* sichtbarer Text */
+  -webkit-text-fill-color: var(--text-primary) !important; /* Safari/Autofill */
+  background: var(--bg-secondary);                    /* belasse dein Design */
+  caret-color: var(--text-primary);
 }
 
-/* 5) Sicherheit: Hilfstexte weich umbrechen */
-.input-hint{ white-space: normal; overflow-wrap: anywhere; line-height: 1.45; }
-
-
-/* ==== Fix 1: Zahl im PV-Module-Feld wieder sichtbar ==== */
-/* Einheit-Padding nur bei Inputs, die wirklich eine Einheit besitzen */
-.input-wrapper .calculator-input { padding-right: 3.25rem; }
-
-/* Beim Modul-Eingabefeld KEIN extra Right-Padding */
-.module-controls .module-input {
-  padding-right: 8px;     /* statt 3.25rem */
+/* Platzhalter neutral/dunkler grau */
+#contactLightbox .form-field input::placeholder,
+#contactLightbox .form-field textarea::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 1;
 }
 
-/* ==== Fix 2: Kompaktere Mobile-Ansicht ==== */
-@media (max-width: 480px){
-  /* Section & Card kompakter */
-  .solar-calculator-section{ padding: 24px 0; }
-  .calculator-container{ padding: 0 14px; }
-  .calculator-container > div{ padding: 16px; border-radius: 16px; }
+/* Autofill (Chrome/Safari): Text ebenfalls schwarz halten */
+#contactLightbox .form-field input:-webkit-autofill,
+#contactLightbox .form-field textarea:-webkit-autofill {
+  -webkit-text-fill-color: var(--text-primary) !important;
+  box-shadow: 0 0 0 1000px var(--bg-secondary) inset !important; /* Hintergrund angleichen */
+}
 
-  /* Überschriften kleiner */
-  .calculator-header{ margin-bottom: 16px; }
-  .calculator-title{ font-size: 24px; margin-bottom: 4px; }
-  .calculator-subtitle{ font-size: 14px; line-height: 1.5; }
+/* DSGVO-Checkbox-Text ebenfalls schwarz */
+#contactLightbox .form-field input[type="checkbox"] + label,
+#contactLightbox .form-field label input[type="checkbox"] {
+  color: var(--text-primary) !important;
+}
 
-  /* Felder kompakter */
-  .calculator-inputs .input-group{ margin-bottom: 12px; }
-  .input-label{ font-size: 14px; gap: 6px; }
+/* Consent-Label Styling + Link-Farbe */
+#contactLightbox .consent-label { gap: 8px; }
+#contactLightbox .consent-label a.privacy-link{
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: 700;
+}
+#contactLightbox .consent-label a.privacy-link:hover{
+  text-decoration: none;
+}
 
-  .calculator-input,
-  .module-input{
-    height: 40px;
-    padding: 10px 40px 10px 12px;   /* rechts Platz für Einheit – nur calc-inputs */
-    border-radius: 10px;
+
+/* =========================
+   MOBILE COMPACT OVERRIDES
+   ========================= */
+
+/* ≤ 640px */
+@media (max-width:640px){
+  /* Section + Card */
+  #alab-solarcalc.solar-calculator-section{ padding: 28px 0; }
+  #alab-solarcalc .calculator-container{ padding: 0 12px; }
+  #alab-solarcalc .calculator-card{ padding: 16px; border-radius: var(--radius-xl); }
+
+  /* Header */
+  #alab-solarcalc .calculator-title{ font-size: 22px; margin-bottom: 6px; }
+  #alab-solarcalc .calculator-subtitle{ font-size: 14px; line-height: 1.5; }
+  #alab-solarcalc .input-hint{ font-size: 11px; }
+
+  /* Grid */
+  #alab-solarcalc .calculator-content{ grid-template-columns: 1fr; gap: 16px; }
+
+  /* Inputs */
+  #alab-solarcalc .input-group{ margin-bottom: 12px; }
+  #alab-solarcalc .input-label{ font-size: 13px; gap: 6px; }
+  #alab-solarcalc .label-icon{ width: 16px; height: 16px; }
+  #alab-solarcalc .label-icon svg{ width: 16px; height: 16px; }
+  #alab-solarcalc .calculator-input,
+  #alab-solarcalc .module-input{
+    padding: 10px 40px 10px 12px;
     font-size: 15px;
+    border-radius: var(--radius-md);
   }
-  /* Einheit etwas näher ran */
-  .input-unit{ right: 10px; font-size: 14px; }
+  #alab-solarcalc .input-unit{ right: 10px; font-size: 13px; }
 
-  /* Modul-Steuerung kompakt + bruchsicher */
-  .module-controls{ gap: 8px; flex-wrap: wrap; }
-  .module-btn{ width: 36px; height: 36px; font-size: 18px; }
-  .module-input{
-    width: 58px;                 /* schmal aber gut lesbar */
-    padding: 0 8px;
-    text-align: center;
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-  }
-  .speicher-toggle{ margin-left: 0; }
+  /* Module controls */
+  #alab-solarcalc .module-controls{ gap: 8px; margin-top: 4px; }
+  #alab-solarcalc .module-btn{ width: 34px; height: 34px; font-size: 16px; }
+  #alab-solarcalc .module-input{ width: 64px; padding: 8px; }
+  #alab-solarcalc .toggle-input{ width: 38px; height: 22px; }
+  #alab-solarcalc .toggle-input::after{ width: 16px; height: 16px; left: 3px; top: 3px; }
+  #alab-solarcalc .toggle-input:checked::after{ transform: translateX(16px); }
 
-  /* Toggle kleiner */
-  .toggle-input{ width: 40px; height: 22px; }
-  .toggle-input::after{ width: 16px; height: 16px; left: 3px; }
-  .toggle-input:checked::after{ left: 21px; }
+  /* Results */
+  #alab-solarcalc .calculation-results{ padding: 14px; border-radius: var(--radius-lg); }
+  #alab-solarcalc .results-title{ font-size: 12px; margin-bottom: 8px; }
+  #alab-solarcalc .result-item{ padding: 8px 0; }
+  #alab-solarcalc .result-label{ font-size: 13px; }
+  #alab-solarcalc .result-value{ font-size: 14px; }
+  #alab-solarcalc .total-result{ margin-top: 10px; padding-top: 10px; }
+  #alab-solarcalc .total-value{ font-size: 22px; margin-top: 4px; }
+  #alab-solarcalc .monthly-potential{ font-size: 12px; }
+  #alab-solarcalc .cta-button{ margin-top: 12px; padding: 12px 16px; font-size: 15px; }
 
-  /* Hilfstexte kleiner */
-  .input-hint{ font-size: 12px; margin-top: 6px; }
-
-  /* Ergebnisse kompakter */
-  .calculation-results{ padding: 14px; margin-top: 14px; }
-  .result-item{ padding: 8px 0; }
-  .total-value{ font-size: 22px; }
+  /* Visualization */
+  #alab-solarcalc .visualization-title{ font-size: 16px; margin-bottom: 10px; }
+  #alab-solarcalc .energy-diagram-new{ min-height: 300px; padding: 6px; }
+  #alab-solarcalc .diagram-image{ max-width: 420px; }
+  /* Unter 768px werden Overlays bereits gestackt – hier nur noch kompakter */
+  #alab-solarcalc .value-container{ padding: 6px 8px; gap: 2px; }
+  #alab-solarcalc .value-label{ font-size: 9px; }
+  #alab-solarcalc .value-number{ font-size: 12px; }
 }
 
-/* Extra-Sicherheit: Grid-Kinder dürfen schrumpfen, kein Überlauf */
-.calculator-content{ overflow-x: hidden; }
-.calculator-content > *{ min-width: 0; }
+/* ≤ 420px – noch etwas dichter */
+@media (max-width:420px){
+  /* Section/Card */
+  #alab-solarcalc.solar-calculator-section{ padding: 22px 0; }
+  #alab-solarcalc .calculator-container{ padding: 0 10px; }
+  #alab-solarcalc .calculator-card{ padding: 14px; }
 
-/* ===========================
-   Solarrechner – Visualisierung kompakter (Mobile)
-   =========================== */
-@media (max-width: 480px){
+  /* Header */
+  #alab-solarcalc .calculator-title{ font-size: 20px; }
+  #alab-solarcalc .calculator-subtitle{ font-size: 13px; }
 
-  /* Karte & Überschrift enger */
-  .calculator-visualization{ padding: 12px; border-radius: 14px; }
-  .calculator-visualization h3{ margin-bottom: 12px; font-size: 14px; }
+  /* Inputs */
+  #alab-solarcalc .input-label{ font-size: 12px; }
+  #alab-solarcalc .calculator-input,
+  #alab-solarcalc .module-input{ font-size: 14px; padding: 9px 38px 9px 11px; }
+  #alab-solarcalc .module-btn{ width: 32px; height: 32px; font-size: 15px; }
+  #alab-solarcalc .module-input{ width: 58px; }
+  #alab-solarcalc .input-hint{ font-size: 10px; }
 
-  /* Hauptdiagramm kompakter */
-  .energy-diagram{
-    padding: 16px;
-    min-height: 340px;               /* vorher 480px */
-    gap: 12px;                        /* weniger vertikaler Abstand */
-    border-radius: 12px;
-  }
+  /* Results */
+  #alab-solarcalc .results-title{ font-size: 11px; }
+  #alab-solarcalc .result-label{ font-size: 12px; }
+  #alab-solarcalc .result-value{ font-size: 13px; }
+  #alab-solarcalc .total-value{ font-size: 20px; }
+  #alab-solarcalc .cta-button{ font-size: 14px; padding: 11px 14px; }
 
-  /* Sonne & Produktion kleiner */
-  .sun svg{ width: 36px; height: 36px; }
-  .production-label{ font-size: 12px; }
-  .production-value{ font-size: 16px; }
-
-  /* Pfeile kürzer/dünner */
-  .arrow-down{ height: 26px; width: 3px; }
-  .arrow-down::after{
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 10px solid var(--primary-light);
-  }
-  .arrow-left, .arrow-right{ width: 26px; height: 3px; }
-  .arrow-left::after{
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-right: 10px solid var(--primary-light);
-    left: -8px;
-  }
-  .arrow-right::after{
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-left: 10px solid var(--primary-light);
-    right: -8px;
-  }
-
-  /* Haus kleiner */
-  .roof-with-panels{ width: 110px; height: 48px; }
-  .solar-panel-array{ gap: 2px; margin-top: 8px; }
-  .panel{ width: 20px; height: 12px; }
-  .house-walls{ width: 86px; height: 66px; }
-  .window{ width: 16px; height: 16px; }
-  .door{ width: 14px; height: 34px; }
-
-  /* Zahlen-/Infoblöcke enger und ggf. 1-spaltig */
-  .energy-flows-container{
-    grid-template-columns: 1fr;   /* statt 3 Spalten */
-    gap: 10px;
-  }
-  .flow-label, .consumption-label{ font-size: 11px; }
-  .flow-value, .consumption-value{ font-size: 14px; }
-
-  /* Umwelt-/Autarkie-Daten enger */
-  .environmental-data{
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding-top: 12px;
-  }
-  .co2-icon{ width: 32px; height: 32px; }
-  .co2-icon svg{ width: 20px; height: 20px; }
-  .co2-label{ font-size: 12px; }
-  .co2-value{ font-size: 16px; }
-  .autarkie-label{ font-size: 12px; }
-  .autarkie-percentage{ font-size: 20px; }
-  .autarkie-bar{ width: 130px; height: 6px; }
+  /* Visualization */
+  #alab-solarcalc .visualization-title{ font-size: 15px; }
+  #alab-solarcalc .energy-diagram-new{ min-height: 260px; }
+  #alab-solarcalc .value-container{ padding: 5px 8px; }
+  #alab-solarcalc .value-label{ font-size: 8.5px; }
+  #alab-solarcalc .value-number{ font-size: 11.5px; }
 }
 
-/* Sicherheit: Kinder dürfen schrumpfen, kein Horizontal-Scroll */
-.energy-diagram, .calculator-visualization, .calculator-content{ overflow-x: hidden; }
-.energy-diagram > *, .calculator-visualization > *{ min-width: 0; }
+/* ===== Kontakt-Formular Lightbox – Mobile Compact ===== */
+@media (max-width:640px){
+  #contactLightbox{ padding: 12px; }
+  .lightbox-container{ max-width: 100%; border-radius: var(--radius-xl); }
+  .lightbox-header{ padding: 14px 16px; }
+  .lightbox-title-wrapper{ gap: 10px; }
+  .lightbox-icon{ width: 24px; height: 24px; }
+  .lightbox-header h2{ font-size: 18px; }
+  .lightbox-close{ width: 32px; height: 32px; }
+  .lightbox-close svg{ width: 18px; height: 18px; }
+
+  .lightbox-body{ padding: 14px 16px 16px; }
+  .lightbox-description{ font-size: 14px; margin-bottom: 16px; }
+  .lightbox-form{ gap: 14px; }
+  .form-row{ grid-template-columns: 1fr; gap: 12px; }
+  .form-field label{ font-size: 12px; }
+  .form-field input, .form-field textarea{
+    font-size: 14px; padding: 11px 12px; border-radius: var(--radius-md);
+  }
+  .lightbox-submit{ padding: 12px 16px; font-size: 15px; }
+  #contactLightbox .consent-label{ gap: 8px; }
+  #contactLightbox .consent-label input[type="checkbox"]{ transform: scale(.95); }
+}
+
+@media (max-width:420px){
+  .lightbox-header{ padding: 12px 14px; }
+  .lightbox-header h2{ font-size: 17px; }
+  .lightbox-body{ padding: 12px 14px 14px; }
+  .lightbox-description{ font-size: 13px; }
+  .form-field input, .form-field textarea{ font-size: 13.5px; padding: 10px 12px; }
+  .lightbox-submit{ font-size: 14px; padding: 11px 14px; }
+}
+
+
+
+
+/* ===== Lightbox: mobil ohne Scroll, kompakter ===== */
+@media (max-width:640px){
+  #contactLightbox{ padding: 10px; }
+  .lightbox-container{
+    width: min(560px, 94vw);
+    max-height: none;              /* Messung via JS, kein automatisches Scrollen */
+    border-radius: 18px;
+  }
+  .lightbox-header{ padding: 12px 14px; }
+  .lightbox-title-wrapper{ gap: 8px; }
+  .lightbox-icon{ width: 22px; height: 22px; }
+  .lightbox-header h2{ font-size: 18px; }
+  .lightbox-close{ width: 30px; height: 30px; }
+  .lightbox-close svg{ width: 18px; height: 18px; }
+
+  .lightbox-body{
+    padding: 12px 14px 14px;
+    overflow: visible !important;  /* KEIN inneres Scrollen */
+  }
+  .lightbox-description{
+    font-size: 14px; line-height: 1.45; margin-bottom: 12px;
+    color: var(--text-primary) !important;
+  }
+  .lightbox-form{ gap: 12px; }
+  .form-row{ grid-template-columns: 1fr; gap: 10px; }
+  .form-field label{ font-size: 12px; }
+  .form-field input, .form-field textarea{
+    font-size: 14px; padding: 10px 12px; border-radius: 10px;
+  }
+  .form-field textarea{ min-height: 72px; }
+  .lightbox-submit{ padding: 11px 12px; font-size: 15px; border-radius: 12px; }
+  #contactLightbox .consent-label{ gap: 8px; }
+  #contactLightbox .consent-label input[type="checkbox"]{ transform: scale(.95); }
+}
+
+/* ===== PV-Module: Zahl nie abgeschnitten, ohne Spinners ===== */
+#alab-solarcalc .module-input{
+  width: 76px; min-width: 76px;   /* genug Platz für 2–3 Ziffern */
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+#alab-solarcalc input[type="number"]::-webkit-outer-spin-button,
+#alab-solarcalc input[type="number"]::-webkit-inner-spin-button{ -webkit-appearance: none; margin: 0; }
+#alab-solarcalc input[type="number"]{ -moz-appearance: textfield; }
+
+@media (max-width:640px){
+  #alab-solarcalc .module-input{ width: 76px; min-width: 76px; }
+  #alab-solarcalc .module-btn{ width: 34px; height: 34px; font-size: 16px; }
+}
+
+
+/* Mobil: Visualisierung komplett ausblenden und Abstände schließen */
+@media (max-width:840px){
+  #alab-solarcalc .calculator-visualization{
+    display: none !important;
+  }
+  /* Grid sauber auf 1 Spalte ohne Extra-Gap */
+  #alab-solarcalc .calculator-content{
+    grid-template-columns: 1fr;
+    gap: 14px; /* gern anpassen */
+  }
+}
+/* Danke-Banner */
+#alab-thanks {
+  position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%) translateY(20px);
+  background: #fff; color: var(--text-primary); border: 1px solid var(--border);
+  border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  padding: 12px 14px; display: none; align-items: center; gap: 10px; z-index: 10000;
+}
+#alab-thanks.show { display: flex; animation: alabThanksIn .22s ease-out forwards; }
+#alab-thanks .check {
+  width: 18px; height: 18px; border-radius: 50%; background: var(--primary); display: inline-grid; place-items: center;
+}
+#alab-thanks .check svg { width: 12px; height: 12px; color: #1a1a1a; }
+#alab-thanks .msg { font-weight: 600; }
+#alab-thanks .close {
+  margin-left: 6px; background: transparent; border: 0; cursor: pointer; color: var(--text-secondary);
+  width: 28px; height: 28px; border-radius: 50%;
+}
+@keyframes alabThanksIn { to { transform: translateX(-50%) translateY(0); } }
