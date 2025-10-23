@@ -29,20 +29,18 @@
 
 <!-- Favicon & App Icons -->
 <link rel="icon" href="/assets/favicons/favicon.ico" sizes="any">
-<!-- Hast du wirklich ein SVG? Falls nein, entferne die nächste Zeile. -->
 <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
 <link rel="manifest" href="/assets/favicons/site.webmanifest">
-<!-- mask-icon braucht ein monochromes SVG (Safari). Falls nicht vorhanden: Zeile entfernen. -->
 <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg" color="#E6C23C">
 <meta name="theme-color" content="#0A0A0A">
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PV-Angebot einholen | ALAB Energiesysteme</title>
-  <meta name="description" content="Ihr individuelles PV-Angebot …" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>PV-Angebot einholen | ALAB Energiesysteme</title>
+<meta name="description" content="Ihr individuelles PV-Angebot …" />
 
-  
+
 <link rel="canonical" href="https://www.alabenergiesysteme.de/angebot-einholen/">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
@@ -73,7 +71,7 @@
 "description": "Planung und Installation von Photovoltaik‑Anlagen für Privat und Gewerbe."
 }
 </script>
-  <style>
+<style>
 :root{ --ink:#0f2533; --muted:#5b6b78; --line:#e6edf5; --gold:#d4af37; --gold2:#b8860b; }
 /* Basis nur sehr defensiv – kein globales .container/.header! */
 *{ box-sizing:border-box }
@@ -139,7 +137,7 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
   #alab-header .has-megamenu:focus-within .mega-menu{ transform:none }
 }
 </style>
-  <style>
+<style>
   :root{
     --ft-txt:#0f1115; --ft-muted:#616771; --ft-line:#e7ebf0;
     --ft-card:#ffffff;
@@ -290,17 +288,13 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
 </style>
 
 
-  
-  
 
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Lokale Montserrat-Fonts (non-blocking First Paint) -->
+
+
+<!-- Fonts (lokal, non-blocking) -->
 <link rel="preload" href="/assets/fonts/montserrat-v31-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/montserrat-v31-latin-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css">
-
 
 <!-- Font Awesome lokal (non-blocking) -->
 <link rel="preload" href="/assets/vendor/fontawesome/css/all.min.css" as="style">
@@ -308,11 +302,11 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
 <noscript><link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css"></noscript>
 
 
-  
-  <link rel="stylesheet" href="/assets/css/header-switch.css">
-  <link rel="stylesheet" href="/assets/css/header-mobile.css" media="(max-width:1024px)">
+<link rel="preload" href="/assets/css/header-switch.css" as="style">
+<link rel="stylesheet" href="/assets/css/header-switch.css">
+<link rel="stylesheet" href="/assets/css/header-mobile.css" media="(max-width:1024px)">
 
-  <script>
+<script>
   // Consent Mode v2 – Default: nur essenziell erlaubt
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
@@ -328,7 +322,6 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
 </head>
 
 <body class="">
-  
   <div id="header-desktop">
     
 
@@ -345,15 +338,15 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
 <a href="#" aria-expanded="false">Photovoltaik-Systeme</a>
 <div class="mega-menu" role="menu">
 <a href="/gewerbliche-loesungen/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/pv-gewerbe.jpg" alt="PV-Gewerbe" />
+<img class="menu-thumb" src="/assets/img/menü/pv-gewerbe.avif" alt="PV-Gewerbe" />
 <strong>PV-Gewerbe</strong><p>Effiziente Solaranlagen für Ihr Unternehmen.</p>
 </a>
 <a href="/private-haushalte/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/pv-zuhause.jpg" alt="PV-Zuhause" />
+<img class="menu-thumb" src="/assets/img/menü/pv-zuhause.avif" alt="PV-Zuhause" />
 <strong>PV-Zuhause</strong><p>Ihr Weg zur Energie-Unabhängigkeit.</p>
 </a>
 <a href="/freiflaechen/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/freiflaechen.jpg" alt="Freiflächen" />
+<img class="menu-thumb" src="/assets/img/menü/freiflaechen.avif" alt="Freiflächen" />
 <strong>PV-Freiflächen</strong><p>Großflächige Projekte für maximale Erträge.</p>
 </a>
 </div>
@@ -362,19 +355,19 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
 <a href="#" aria-expanded="false">Photovoltaik-Werkstatt</a>
 <div class="mega-menu" role="menu">
 <a href="/servicepakete/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/servicepakete.jpg" alt="Servicepakete" />
+<img class="menu-thumb" src="/assets/img/menü/servicepakete.avif" alt="Servicepakete" />
 <strong>Servicepakete</strong><p>Rundum-Sorglos-Pakete für jede Anlage.</p>
 </a>
   <a href="/montage/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/montage.jpg" alt="Montage" />
+<img class="menu-thumb" src="/assets/img/menü/montage.avif" alt="Montage" />
 <strong>Montage</strong><p>Fachgerechte Installation durch Experten.</p>
 </a>
 <a href="/wartung/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/wartung.jpg" alt="Wartung" />
+<img class="menu-thumb" src="/assets/img/menü/wartung.avif" alt="Wartung" />
 <strong>Wartung</strong><p>Sichern Sie die Leistung und Langlebigkeit.</p>
 </a>
 <a href="/monitoring/" class="menu-item" role="menuitem">
-<img class="menu-thumb" src="/assets/img/menü/monitoring.jpg" alt="Anlagenmonitoring" />
+<img class="menu-thumb" src="/assets/img/menü/monitoring.avif" alt="Anlagenmonitoring" />
 <strong>Anlagenmonitoring</strong><p>Performance jederzeit im Blick behalten.</p>
 </a>
 </div>
@@ -405,7 +398,6 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
 </script>
   </div>
 
-  
   
 <div id="header-mobile" class="alab-mh" data-mobile-header>
   <!-- Kopfzeile -->
@@ -1437,10 +1429,11 @@ function resetFormState(form) {
 
   
   <script type="module">
-    if (window.matchMedia('(max-width:1024px)').matches) {
+    if (window.matchMedia && window.matchMedia('(max-width:1024px)').matches) {
       import('/assets/js/header-mobile.js');
     }
   </script>
+
   <style>
   /* ==== ALAB Cookie Banner (scoped) ==== */
   #alab-consent, #alab-consent * { box-sizing: border-box; font-family: 'Montserrat', system-ui, Segoe UI, Roboto, Arial, sans-serif; }
@@ -1643,8 +1636,6 @@ function resetFormState(form) {
   <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJZV7GTH"
           height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript>
-
-
 
 
 </body>
