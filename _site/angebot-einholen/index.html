@@ -1126,15 +1126,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector(`#form-wrapper-${t} .ao-form`); if(form) resetFormState(form);
   }));
 
-  function resetFormState(form){
-    const steps = [...form.querySelectorAll('fieldset[data-step]')];
-    const stepper = form.closest('.ao-form-card').querySelector('.ao-stepper');
-    const ok = form.closest('.ao-form-card').querySelector('.ao-success');
-    form.classList.remove('hide'); stepper?.classList.remove('hide'); ok?.classList.add('hide');
-    steps.forEach((fs,i)=>{ fs.classList.toggle('hide', i!==0); fs.querySelectorAll('.field.has-error').forEach(f=>f.classList.remove('has-error')); });
-    stepper?.querySelectorAll('[data-step-dot]').forEach((d,i)=>d.classList.toggle('is-active', i===0));
-    location.hash = '#ao-form-anchor';
-  }
+function resetFormState(form) {
+  const steps   = [...form.querySelectorAll('fieldset[data-step]')];
+  const card    = form.closest('.ao-form-card');
+  const stepper = card?.querySelector('.ao-stepper');
+  const ok      = card?.querySelector('.ao-success');
+
+  form.classList.remove('hide');
+  stepper?.classList.remove('hide');
+  ok?.classList.add('hide');
+
+  steps.forEach((fs, i) => {
+    fs.classList.toggle('hide', i !== 0);
+    fs.querySelectorAll('.field.has-error').forEach(f => f.classList.remove('has-error'));
+  });
+  stepper?.querySelectorAll('[data-step-dot]').forEach((d, i) => d.classList.toggle('is-active', i === 0));
+}
+
 
   function setup(wrapperSel){
     const wrap = document.querySelector(wrapperSel); if(!wrap) return;
@@ -1145,11 +1153,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const ok = wrap.querySelector('.ao-success');
     let current = 1;
 
-    function show(i){
-      steps.forEach((fs,idx)=>fs.classList.toggle('hide',(idx+1)!==i));
-      dots.forEach((d,idx)=>d.classList.toggle('is-active',(idx+1)===i));
-      current = i; const y = document.getElementById('ao-form-anchor').offsetTop; scrollTo({top:y-20, behavior:'smooth'});
+  function show(i, doScroll = true) {
+  steps.forEach((fs, idx) => fs.classList.toggle('hide', (idx + 1) !== i));
+  dots.forEach((d, idx) => d.classList.toggle('is-active', (idx + 1) === i));
+  current = i;
+
+  if (doScroll) {
+    const anchor = document.getElementById('ao-form-anchor');
+    if (anchor) {
+      const y = anchor.offsetTop;
+      scrollTo({ top: y - 20, behavior: 'smooth' });
     }
+  }
+}
+
 
     form.addEventListener('click', e=>{
       if(e.target.matches('[data-nav="next"]')){ if(validate(current)) show(current+1); }
@@ -1210,7 +1227,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    show(1);
+    show(1, false);
   }
 
   setup('#form-wrapper-privat');
