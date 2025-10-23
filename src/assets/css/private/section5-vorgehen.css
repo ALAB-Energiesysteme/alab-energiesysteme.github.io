@@ -1,0 +1,311 @@
+:root{
+  --primary-white:#fff; --secondary-bg:#F8F9FA; --accent-color:#E6C23C;
+  --accent-gradient-start:#E5C44D; --accent-gradient-end:#F3D663;
+  --accent-yellow-light:#fffbeb; --text-dark:#1f2328; --text-muted:#495057;
+  --border-color:#E9ECEF; --shadow-lg:0 10px 30px rgba(0,0,0,.07); --radius:16px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+/* ==== SECTION (Montserrat + scharfes Rendering) ==== */
+.process-section{
+  margin:0;background:var(--secondary-bg);color:var(--text-dark);
+  font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; text-rendering:optimizeSpeed;
+  line-height:1.6;font-size:16px;overflow-x:hidden;padding:3.2rem 1.25rem;
+  contain:content;
+}
+@supports(content-visibility:auto){
+  .process-section{content-visibility:auto;contain-intrinsic-size:1200px 800px}
+}
+
+/* ==== HEADER (H2) ==== */
+.section-header{text-align:center;max-width:840px;margin:0 auto 2rem}
+.header-badge{
+  display:inline-block;background:var(--accent-yellow-light);color:var(--text-dark);
+  padding:.4rem 1rem;border-radius:999px;font:.85rem 'Montserrat',sans-serif;font-weight:700;margin-bottom:.65rem
+}
+.section-header .section-title{
+  font:700 1.6rem 'Montserrat',sans-serif;color:var(--text-dark);
+  line-height:1.15;margin-bottom:.35rem;position:relative;padding-bottom:.35rem;letter-spacing:0
+}
+.section-header .section-title::after{
+  content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:52px;height:2px;background-image:linear-gradient(to right,var(--accent-gradient-start),var(--accent-gradient-end));
+  border-radius:2px
+}
+.section-header p{font-size:1rem;color:var(--text-muted);margin-top:.25rem}
+
+/* ==== LAYOUT ==== */
+.process-layout-container{display:grid;grid-template-columns:280px 1fr;gap:1.5rem;max-width:1200px;margin:0 auto}
+
+/* ==== STEPS NAV ==== */
+.step-navigation{position:relative;contain:layout paint}
+.step-connector{position:absolute;top:22px;left:22px;bottom:22px;width:2px;background:var(--border-color);z-index:1;pointer-events:none}
+
+.step-button{
+  display:flex;align-items:center;width:100%;padding:.9rem;border-radius:12px;cursor:pointer;
+  background:transparent;border:1px solid transparent;text-align:left;margin-bottom:.65rem;position:relative;z-index:2;
+  transition:background-color .2s,border-color .2s,box-shadow .2s; /* KEIN transform mehr */
+}
+.step-button:hover{background:var(--primary-white);box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.step-button.active{background:var(--primary-white);border-color:var(--border-color);box-shadow:0 4px 14px rgba(0,0,0,.05)}
+
+.step-number{
+  width:50px;height:50px;display:grid;place-items:center;border-radius:50%;
+  background:var(--primary-white);border:2px solid var(--border-color);color:#6b7280;
+  font:700 1.02rem 'Montserrat',sans-serif;margin-right:1rem;transition:background-color .2s,border-color .2s,color .2s
+}
+.step-button.active .step-number{
+  background-image:linear-gradient(to bottom,var(--accent-gradient-start),var(--accent-gradient-end));
+  border-color:var(--accent-color);color:var(--text-dark);
+}
+.step-button-title{font:600 1rem 'Montserrat',sans-serif;color:var(--text-dark)}
+
+/* ==== CONTENT CARD ==== */
+.content-display{background:var(--primary-white);border-radius:var(--radius);box-shadow:var(--shadow-lg);overflow:hidden;contain:layout paint}
+
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeInOpacity .16s ease-out} /* nur Opacity → keine Subpixel-Unschärfe */
+@media (prefers-reduced-motion: reduce){.tab-content.active{animation:none}}
+@keyframes fadeInOpacity{from{opacity:0}to{opacity:1}}
+
+/* ==== IMAGES (keine weichen Kanten) ==== */
+.image-container{width:100%;height:300px;background:var(--secondary-bg);overflow:hidden;border-bottom:1px solid var(--border-color)}
+.image-container img{
+  width:100%;height:100%;object-fit:cover;object-position:center;image-rendering:auto;filter:none;transform:none; /* sicher scharf */
+  -ms-interpolation-mode:bicubic
+}
+/* Fokus auf Dach im ersten Tab beibehalten */
+#tab-1 .image-container img{object-position:center 25%}
+
+/* ==== TEXTBLOCK ==== */
+.text-content{padding:1.5rem 1.75rem}
+.step-title{font:700 1.45rem 'Montserrat',sans-serif;margin-bottom:.45rem;color:var(--text-dark)}
+.step-description{font-weight:500;font-size:1rem;line-height:1.65;color:var(--text-muted);margin-bottom:1.1rem}
+
+/* ==== FEATURE LIST dichter & klarer ==== */
+.features-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:.85rem}
+.feature-item{display:flex;align-items:flex-start;gap:.7rem}
+.feature-item i{color:var(--accent-color);font-size:1.18rem;margin-top:4px;flex-shrink:0;width:22px;text-align:center}
+.feature-item h4{font:600 1rem 'Montserrat',sans-serif;margin-bottom:.12rem;color:var(--text-dark)}
+.feature-item p{font-weight:500;font-size:.93rem;color:var(--text-muted);line-height:1.5}
+
+/* ==== BUTTON ==== */
+.gemini-button{
+  display:inline-flex;align-items:center;gap:.6rem;margin-top:.9rem;padding:.6rem 1.1rem;border:none;border-radius:999px;
+  background-image:linear-gradient(to right,var(--accent-gradient-start),var(--accent-gradient-end));
+  color:var(--text-dark);font:700 .95rem 'Montserrat',sans-serif;cursor:pointer;transition:box-shadow .18s,transform .18s;
+  box-shadow:0 2px 10px rgba(0,0,0,.08)
+}
+.gemini-button:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(230,194,60,.35)}
+.inline-cta{color:var(--accent-color);font-weight:700;text-decoration:none}
+.inline-cta:hover{text-decoration:underline}
+.trust-line{font-size:.98rem !important;color:var(--text-muted);margin-top:1.1rem !important;font-weight:600}
+
+/* ==== MODAL (ohne scale-Transform) ==== */
+.gemini-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .18s ease}
+.gemini-modal-overlay.visible{display:flex;opacity:1}
+.gemini-modal{
+  background:var(--primary-white);border-radius:var(--radius);padding:1.5rem;width:90%;max-width:560px;
+  box-shadow:0 10px 40px rgba(0,0,0,.2) /* kein transform */
+}
+.gemini-modal-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:.75rem;border-bottom:1px solid var(--border-color);margin-bottom:1rem}
+.gemini-modal-title{font:700 1.1rem 'Montserrat',sans-serif}
+.gemini-modal-close{background:none;border:none;font-size:1.4rem;cursor:pointer;color:#6b7280}
+.gemini-modal-input-area textarea{width:100%;min-height:96px;border-radius:8px;border:1px solid var(--border-color);padding:.65rem;font:500 1rem 'Montserrat',sans-serif;resize:vertical;margin-bottom:.85rem}
+.gemini-modal-input-area button{width:100%}
+.gemini-modal-loader{display:none;text-align:center;padding:1.25rem 0}
+.spinner{width:36px;height:36px;border:4px solid var(--border-color);border-top-color:var(--accent-color);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.gemini-modal-response-area{margin-top:1rem;white-space:pre-wrap}
+.gemini-modal-response-area p{line-height:1.6}
+.gemini-modal-response-area strong{display:block;margin-bottom:.4rem;font:700 .98rem 'Montserrat',sans-serif}
+
+/* ==== Error shake ==== */
+.shake-error{animation:shake .6s cubic-bezier(.36,.07,.19,.97) both;border-color:#dc3545!important}
+@keyframes shake{10%,90%{transform:translate3d(-1px,0,0)}20%,80%{transform:translate3d(2px,0,0)}30%,50%,70%{transform:translate3d(-4px,0,0)}40%,60%{transform:translate3d(4px,0,0)}}
+
+/* ==== RESPONSIVE ==== */
+@media(max-width:1024px){
+  .process-layout-container{grid-template-columns:1fr}
+  .step-connector{display:none}
+
+  .section-header{margin-bottom:1rem}
+  .section-header .section-title{font-size:1.55rem;padding-bottom:.35rem;margin-bottom:.35rem}
+  .section-header p{font-size:.98rem;margin-top:.2rem}
+
+  .step-navigation{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:space-between;margin-top:.45rem}
+  .step-button{flex:1 1 calc(50% - .4rem);padding:.65rem .55rem;text-align:center;flex-direction:column}
+  .step-number{margin:0 0 .35rem 0;width:42px;height:42px;font-size:.92rem}
+  .step-button-title{font-size:.88rem}
+
+  .image-container{height:220px}
+  .text-content{padding:1.15rem 1rem}
+  .step-title{font-size:1.32rem}
+  .step-description{font-size:.98rem;margin-bottom:.9rem}
+  .features-list{gap:.7rem}
+}
+
+@media(max-width:768px){
+  .process-section{padding:2rem 1rem}
+  .section-header .section-title{font-size:1.45rem}
+  .step-button-title{font-size:.86rem}
+  .step-number{width:40px;height:40px}
+  .image-container{height:200px}
+  .text-content{padding:1rem .75rem}
+}
+
+@media (max-width:420px){
+  .process-section{padding:1.5rem .75rem}
+  .header-badge{font-size:.78rem;padding:.35rem .8rem}
+  .section-header .section-title{font-size:1.28rem}
+  .section-header p{font-size:.95rem}
+  .image-container{height:180px}
+  .features-list{gap:.6rem}
+  .feature-item p{font-size:.9rem}
+  .step-button-title{font-size:.8rem}
+}
+/* === Bildschärfe (ohne Layout-Änderung) === */
+.image-container img{
+  image-rendering: -webkit-optimize-contrast; /* Chrome/Edge: bessere Kanten */
+  image-rendering: auto;                      /* Safari/Firefox: Standard */
+  filter: contrast(1.02) saturate(1.02);      /* minimal knackiger, ohne zu überziehen */
+  transform: none !important;
+  backface-visibility: hidden;                /* verhindert Layer-Blur bei GPU */
+  will-change: auto;                          /* kein unnötiges Re-Rastering */
+}
+
+/* === Collapsible NUR mobil: kompletter Text zu/auf === */
+
+/* Default (Desktop/Tablet): immer offen, kein Toggle sichtbar */
+.text-content .collapsible{
+  overflow: visible;
+  max-height: none;
+}
+.collapsible-toggle{
+  display: none;
+}
+
+/* Mobil ≤640px: initial komplett zugeklappt */
+@media (max-width:640px){
+  .text-content .collapsible{
+    overflow: hidden;
+    max-height: 0;                  /* komplett weg */
+    transition: max-height .28s ease;
+  }
+  .text-content.is-expanded .collapsible{
+    /* Beim Aufklappen setzt JS eine konkrete px-Höhe via inline-style;
+       diese Regel dient nur als Fallback */
+    max-height: 9999px;
+  }
+
+  /* Toggle nur mobil anzeigen */
+  .collapsible-toggle{
+    display:inline-flex; align-items:center; gap:.5rem;
+    margin-top:.6rem; padding:.5rem .85rem;
+    border:1px solid var(--border-color); border-radius:999px;
+    background:#fff; color:var(--text-dark); cursor:pointer;
+    font:600 .93rem 'Montserrat',sans-serif;
+    transition: background-color .15s, box-shadow .15s, border-color .15s;
+  }
+  .collapsible-toggle:hover{ box-shadow:0 2px 10px rgba(0,0,0,.06) }
+  .collapsible-toggle .chev{ display:inline-block; transition: transform .25s ease; }
+  .text-content.is-expanded .collapsible-toggle .chev{ transform: rotate(180deg); }
+
+  /* Optional: kein Fade-Overlay mehr im zugeklappten Zustand */
+  .text-content .collapsible::after{ content:none !important; }
+}
+/* ==== Mobile ≤640px: Texte & Icons in den Content-Blöcken kompakter ==== */
+@media (max-width:640px){
+  .text-content{ padding:.75rem .75rem; }
+
+  /* Block-Überschrift & Einleitung */
+  .step-title{
+    font-size:1.18rem;          /* vorher ~1.32rem */
+    line-height:1.2;
+    margin-bottom:.35rem;
+    letter-spacing:0;
+  }
+  .step-description{
+    font-size:.92rem;           /* vorher ~.98–1.0rem */
+    line-height:1.5;
+    margin-bottom:.7rem;
+    color:var(--text-muted);
+    font-weight:500;
+  }
+
+  /* Feature-Liste kompakter */
+  .features-list{ gap:.55rem; }
+  .feature-item{ gap:.5rem; }
+
+  /* Icons kleiner & schmaler */
+  .feature-item i{
+    font-size:1rem;             /* vorher ~1.18rem */
+    width:18px;                 /* vorher 22px */
+    margin-top:2px;
+  }
+
+  /* Feature-Texte kleiner */
+  .features-list h4{
+    font-size:.95rem;           /* vorher 1rem */
+    line-height:1.3;
+    margin-bottom:.1rem;
+    font-weight:600;
+  }
+  .features-list p{
+    font-size:.88rem;           /* vorher .93rem */
+    line-height:1.45;
+    color:var(--text-muted);
+    font-weight:500;
+  }
+
+  /* CTA-Button etwas kleiner */
+  .gemini-button{
+    padding:.5rem .85rem;
+    font-size:.88rem;
+    margin-top:.55rem;
+  }
+}
+
+/* ==== Very small phones ≤420px: noch einen Tick dichter ==== */
+@media (max-width:420px){
+  .step-title{ font-size:1.12rem; }
+  .step-description{ font-size:.9rem; }
+  .feature-item i{ font-size:.95rem; width:16px; }
+  .features-list h4{ font-size:.92rem; }
+  .features-list p{ font-size:.86rem; }
+  .gemini-button{ font-size:.86rem; padding:.45rem .8rem; }
+}
+
+/* ===== DESKTOP: feste Bildhöhe, saubere Zuschneidung + gezielte Position ===== */
+:root{
+  --image-desktop-h: 420px;  /* gewünschte Bildhöhe auf Desktop – bei Bedarf anpassen */
+}
+
+@media (min-width:1025px){
+  .content-display .image-container{
+    height: var(--image-desktop-h) !important;
+    overflow: hidden;                 /* schneidet sauber auf die Höhe */
+    border-bottom: 1px solid var(--border-color);
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+  }
+  .content-display .image-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;                /* füllt die Fläche ohne Letterboxing */
+    object-position: center center;   /* Default-Ausschnitt (zentriert) */
+    transform: none !important;
+    filter: none !important;
+  }
+
+  /* Feintuning je Tab: Y-Offset in % verschiebt den Crop vertikal */
+  /* Werte nach Geschmack anpassen, bis der perfekte Ausschnitt sitzt */
+  #tab-1 .image-container img{ object-position: center 35%; } /* Dach etwas höher */
+  #tab-2 .image-container img{ object-position: center 50%; } /* zentriert */
+  #tab-3 .image-container img{ object-position: center 45%; }
+  #tab-4 .image-container img{ object-position: center 40%; }
+}
+
