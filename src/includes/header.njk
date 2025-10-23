@@ -1,6 +1,6 @@
 
 
-<header class="site-header">
+<header id="alab-header" class="site-header" data-alab-header>
 <div class="container header-container">
 <div class="logo-container">
 <a id="logoHome" href="/">
@@ -55,15 +55,19 @@
 </div>
 </div>
 </header>
+
 <script>
 (function(){
-const triggers = document.querySelectorAll('.has-megamenu > a');
-triggers.forEach(a=>{
-const li = a.parentElement;
-a.addEventListener('mouseenter', ()=> a.setAttribute('aria-expanded','true'));
-a.addEventListener('mouseleave', ()=> a.setAttribute('aria-expanded','false'));
-li.addEventListener('focusin', ()=> a.setAttribute('aria-expanded','true'));
-li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
-});
+  if (window.__ALAB_HEADER_INIT__) return;
+  window.__ALAB_HEADER_INIT__ = true;
+
+  const triggers = document.querySelectorAll('#alab-header .has-megamenu > a');
+  triggers.forEach(a=>{
+    const li = a.parentElement;
+    a.addEventListener('mouseenter', ()=> a.setAttribute('aria-expanded','true'));
+    a.addEventListener('mouseleave', ()=> a.setAttribute('aria-expanded','false'));
+    li.addEventListener('focusin', ()=> a.setAttribute('aria-expanded','true'));
+    li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
+  });
 })();
 </script>

@@ -73,60 +73,72 @@
 "description": "Planung und Installation von Photovoltaik‑Anlagen für Privat und Gewerbe."
 }
 </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<style>
+  <style>
 :root{ --ink:#0f2533; --muted:#5b6b78; --line:#e6edf5; --gold:#d4af37; --gold2:#b8860b; }
-*{box-sizing:border-box}
-html,body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#fff;color:#2d3748}
-.container{width:100%;max-width:1280px;margin:0 auto;padding:0 20px}
-.site-header{position:static; z-index:4000; background:#fff; border-bottom:1px solid #e2e8f0; padding:8px 0}
-.header-container{display:flex;justify-content:space-between;align-items:center}
-.logo-container img{max-width:120px;display:block}
-.main-navigation ul{margin:0;padding:0;list-style:none;display:flex;gap:40px}
-.main-navigation > ul > li > a{ text-decoration:none;color:#2d3748;font-weight:600;font-size:17px;padding:10px 18px;position:relative; transition:color .25s, text-shadow .25s, border-color .25s;border:none;border-radius:12px;text-shadow:0 1px 0 rgba(0,0,0,.35) }
-.main-navigation>ul>li>a:after{ content:"";position:absolute;width:0;height:3px;bottom:-1px;left:50%;transform:translateX(-50%); background:#2b6cb0;border-radius:2px;transition:width .25s }
-.main-navigation>ul>li>a:hover{color:#2b6cb0;text-shadow:0 2px 8px rgba(0,0,0,.28)}
-.main-navigation>ul>li>a:hover:after{width:100%}
-.header-actions .cta-header{ background:#2b6cb0;color:#fff;padding:10px 18px;border-radius:8px;font-weight:700;text-decoration:none; transition:transform .2s, box-shadow .2s }
-.header-actions .cta-header:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(43,108,176,.25)}
-.has-megamenu{position:relative}
-.mega-menu{ display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); background:#fff; border-radius:12px; box-shadow:0 15px 40px rgba(0,0,0,.12); padding:20px; margin-top:10px; width:max-content; border:1px solid #e2e8f0; gap:15px; z-index:4500; opacity:0; visibility:hidden; transition:opacity .2s ease, transform .2s ease }
-.has-megamenu:hover .mega-menu, .has-megamenu:focus-within .mega-menu{ display:flex; opacity:1; visibility:visible; transform:translate(-50%, 0) }
-.menu-item{padding:18px;border-radius:10px;transition:background-color .2s;text-decoration:none;text-align:center;width:200px}
-.menu-item:hover{background:#f7fafc}
-.menu-item lottie-player{margin:0 auto 10px}
-.menu-item strong{font-size:16px;font-weight:600;color:#1a202c;display:block;margin-bottom:4px}
-.menu-item p{font-size:14px;color:#4a5568;margin:0;line-height:1.5}
-.menu-thumb{ width:100%;height:110px;border-radius:10px;object-fit:cover;display:block;box-shadow:0 4px 14px rgba(0,0,0,.08);margin:0 auto 10px }
-@media (max-width: 900px){ .mega-menu{left:0;transform:none;width:100%;border-radius:0;box-shadow:0 10px 24px rgba(0,0,0,.12)} .has-megamenu:hover .mega-menu, .has-megamenu:focus-within .mega-menu{transform:none} }
-.site-header{ position: sticky; top: 0; z-index: 5000; }
-.site-header .mega-menu{ position: absolute; z-index: 6000; }
-.site-header, .header-container, .main-navigation{ overflow: visible; }
+/* Basis nur sehr defensiv – kein globales .container/.header! */
+*{ box-sizing:border-box }
+html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#fff; color:#2d3748 }
 
-
-.header {
-  border-bottom: none !important;
-  box-shadow: none !important; /* falls irgendwo Schatten gesetzt wurde */
+/* ==== Header – strikt gekapselt ==== */
+#alab-header.site-header{
+  position: sticky; top: 0; z-index: 5000;
+  background:#fff; border-bottom:1px solid #e2e8f0; padding:8px 0;
+  overflow: visible;
 }
+#alab-header .header-container{ display:flex; justify-content:space-between; align-items:center }
+#alab-header .container{ width:100%; max-width:1280px; margin:0 auto; padding:0 20px } /* nur im Header */
+#alab-header .logo-container img{ max-width:120px; display:block }
 
-
-.hero-section {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+/* Navigation */
+#alab-header .main-navigation{ overflow:visible }
+#alab-header .main-navigation ul{ margin:0; padding:0; list-style:none; display:flex; gap:40px }
+#alab-header .main-navigation > ul > li > a{
+  text-decoration:none; color:#2d3748; font-weight:600; font-size:17px;
+  padding:10px 18px; position:relative; transition:color .25s, text-shadow .25s, border-color .25s;
+  border:none; border-radius:12px; text-shadow:0 1px 0 rgba(0,0,0,.35);
 }
-
-
-section:first-of-type {
-  padding-top: 0 !important;
+#alab-header .main-navigation>ul>li>a:after{
+  content:""; position:absolute; width:0; height:3px; bottom:-1px; left:50%; transform:translateX(-50%);
+  background:#2b6cb0; border-radius:2px; transition:width .25s;
 }
+#alab-header .main-navigation>ul>li>a:hover{ color:#2b6cb0; text-shadow:0 2px 8px rgba(0,0,0,.28) }
+#alab-header .main-navigation>ul>li>a:hover:after{ width:100% }
 
+/* CTA */
+#alab-header .header-actions .cta-header{
+  background:#2b6cb0; color:#fff; padding:10px 18px; border-radius:8px; font-weight:700; text-decoration:none;
+  transition:transform .2s, box-shadow .2s;
+}
+#alab-header .header-actions .cta-header:hover{ transform:translateY(-2px); box-shadow:0 4px 12px rgba(43,108,176,.25) }
+
+/* Mega-Menü */
+#alab-header .has-megamenu{ position:relative }
+#alab-header .mega-menu{
+  display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%);
+  background:#fff; border-radius:12px; box-shadow:0 15px 40px rgba(0,0,0,.12);
+  padding:20px; margin-top:10px; width:max-content; border:1px solid #e2e8f0;
+  gap:15px; z-index:6000; opacity:0; visibility:hidden; transition:opacity .2s ease, transform .2s ease;
+}
+#alab-header .has-megamenu:hover .mega-menu,
+#alab-header .has-megamenu:focus-within .mega-menu{
+  display:flex; opacity:1; visibility:visible; transform:translate(-50%, 0);
+}
+#alab-header .mega-menu .menu-item{
+  padding:18px; border-radius:10px; transition:background-color .2s; text-decoration:none; text-align:center; width:200px;
+}
+#alab-header .mega-menu .menu-item:hover{ background:#f7fafc }
+#alab-header .mega-menu .menu-thumb{
+  width:100%; height:110px; border-radius:10px; object-fit:cover; display:block; box-shadow:0 4px 14px rgba(0,0,0,.08); margin:0 auto 10px;
+}
+#alab-header .mega-menu .menu-item strong{ font-size:16px; font-weight:600; color:#1a202c; display:block; margin-bottom:4px }
+#alab-header .mega-menu .menu-item p{ font-size:14px; color:#4a5568; margin:0; line-height:1.5 }
+
+@media (max-width: 900px){
+  #alab-header .mega-menu{ left:0; transform:none; width:100%; border-radius:0; box-shadow:0 10px 24px rgba(0,0,0,.12) }
+  #alab-header .has-megamenu:hover .mega-menu,
+  #alab-header .has-megamenu:focus-within .mega-menu{ transform:none }
+}
 </style>
-
-
-
   <style>
   :root{
     --ft-txt:#0f1115; --ft-muted:#616771; --ft-line:#e7ebf0;
@@ -311,7 +323,7 @@ section:first-of-type {
   <div id="header-desktop">
     
 
-<header class="site-header">
+<header id="alab-header" class="site-header" data-alab-header>
 <div class="container header-container">
 <div class="logo-container">
 <a id="logoHome" href="/">
@@ -366,16 +378,20 @@ section:first-of-type {
 </div>
 </div>
 </header>
+
 <script>
 (function(){
-const triggers = document.querySelectorAll('.has-megamenu > a');
-triggers.forEach(a=>{
-const li = a.parentElement;
-a.addEventListener('mouseenter', ()=> a.setAttribute('aria-expanded','true'));
-a.addEventListener('mouseleave', ()=> a.setAttribute('aria-expanded','false'));
-li.addEventListener('focusin', ()=> a.setAttribute('aria-expanded','true'));
-li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
-});
+  if (window.__ALAB_HEADER_INIT__) return;
+  window.__ALAB_HEADER_INIT__ = true;
+
+  const triggers = document.querySelectorAll('#alab-header .has-megamenu > a');
+  triggers.forEach(a=>{
+    const li = a.parentElement;
+    a.addEventListener('mouseenter', ()=> a.setAttribute('aria-expanded','true'));
+    a.addEventListener('mouseleave', ()=> a.setAttribute('aria-expanded','false'));
+    li.addEventListener('focusin', ()=> a.setAttribute('aria-expanded','true'));
+    li.addEventListener('focusout', ()=> a.setAttribute('aria-expanded','false'));
+  });
 })();
 </script>
   </div>
