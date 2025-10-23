@@ -57,6 +57,49 @@
     security_storage: 'granted'
   });
 </script>
+{# === ENTITY / BRAND JSON-LD (nur auf der Startseite) === #}
+{% set isHome = page.url == '/' %}
+{% if isHome %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": "{{ site.brand.name }}",
+      "alternateName": [{% for n in site.brand.short %}"{{ n }}"{% if not loop.last %}, {% endif %}{% endfor %}],
+      "publisher": {"@id": "{{ site.url }}/#org"},
+      "inLanguage": "de"
+    },
+    {
+      "@type": ["Organization","LocalBusiness","Electrician"],
+      "@id": "{{ site.url }}/#org",
+      "name": "{{ site.brand.legalName }}",
+      "legalName": "{{ site.brand.legalName }}",
+      "alternateName": [{% for n in site.brand.short %}"{{ n }}"{% if not loop.last %}, {% endif %}{% endfor %}],
+      "url": "{{ site.url }}/",
+      "logo": "{{ site.url }}{{ site.logo }}",
+      "image": "{{ site.url }}{{ site.logo }}",
+      "telephone": "{{ site.contact.phone }}",
+      "email": "{{ site.contact.email }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ site.address.street }}",
+        "postalCode": "{{ site.address.postalCode }}",
+        "addressLocality": "{{ site.address.city }}",
+        "addressCountry": "{{ site.address.country }}"
+      },
+      "areaServed": "Bayern",
+      "sameAs": [{% for s in site.sameAs %}"{{ s }}"{% if not loop.last %}, {% endif %}{% endfor %}]
+    }
+  ]
+}
+</script>
+{% endif %}
+{# === /ENTITY JSON-LD === #}
+
 </head>
 
 <body class="{{ bodyClass }}">

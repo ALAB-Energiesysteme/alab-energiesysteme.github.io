@@ -1,16 +1,39 @@
 {
-"name": "ALAB Energiesysteme e.K.",
-"domain": "https://www.alabenergiesysteme.de",
-"email": "info@alab-energiesysteme.de",
-"phone": "+49 8261 7597176",
-"address": {
-"street": "Kastanienweg 6",
-"zip": "87719",
-"city": "Mindelheim",
-"country": "DE"
-},
- 
+  "name": "ALAB Energiesysteme e. K.",
+  "url": "https://www.alabenergiesysteme.de",
+  "email": "info@alab-energiesysteme.de",
+  "phone": "+49-8261-7597176",
+  "logo": "/assets/img/logo-alab-klein.png",
+
   "gtm_id": "GTM-NJZV7GTH",
-  "ga4_id": "G-V7MDSPRG6L"
- 
+  "ga4_id": "G-V7MDSPRG6L",
+
+  "brand": {
+    "name": "ALAB Energiesysteme",
+    "legalName": "ALAB Energiesysteme e. K.",
+    "short": ["ALAB", "ALAB Energiesysteme e. K."]
+  },
+
+  "contact": {
+    "phone": "+49-8261-7597176",
+    "email": "info@alab-energiesysteme.de"
+  },
+
+  "address": {
+    "street": "Kastanienweg 6",
+    "postalCode": "87719",
+    "zip": "87719",
+    "city": "Mindelheim",
+    "country": "DE"
+  },
+
+  "sameAs": [
+    "https://www.provenexpert.com/de-de/alab-energiesysteme-ingenieurbuero-fuer-photovoltaik-und-energiesysteme/",
+    "https://sellwerk.de/firmenprofil/alab-energiesysteme-e-k",
+    "https://de.linkedin.com/in/leonit-bungu",
+    "https://www.golocal.de/mindelheim/solartechnik/alab-energiesysteme-10X5Ef/",
+    "https://www.gelbeseiten.de/gsbiz/84749307-3ce4-4f21-8968-ad4c1f75455f",
+    "https://www.11880.com/branchenbuch/mindelheim/130734862B113528087/alab-energiesysteme-e-k.html",
+    "https://www.companyhouse.de/en/ALAB-Energiesysteme-eK-Mindelheim"
+  ]
 }
