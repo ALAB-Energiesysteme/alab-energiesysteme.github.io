@@ -69,7 +69,7 @@ html,body{
 
 .hero-image-3d{ position:relative; perspective:1000px; height:600px }
 .hero-image-placeholder{
-  width:100%; height:100%; background:url('/assets/img/freiflaechen/freiflaeche_blau.png') center/cover; border-radius:20px;
+  width:100%; height:100%; background:url('/assets/img/freiflaechen/freiflaeche_blau.avif') center/cover; border-radius:20px;
   transform:rotateY(-15deg) rotateX(5deg); transform-style:preserve-3d; transition:transform .6s;
   box-shadow:20px 20px 60px rgba(0,0,0,.3), -20px -20px 60px rgba(255,255,255,.1); position:relative; overflow:visible;
 }
@@ -129,11 +129,11 @@ html,body{
   transform:rotateY(15deg) rotateX(-5deg); transform-style:preserve-3d; transition:transform .6s;
   box-shadow:25px 25px 50px rgba(0,0,0,.25), -15px -15px 30px rgba(255,255,255,.1); position:relative; display:flex; align-items:center; justify-content:center;
 }
-.tech-image-placeholder[data-service="Planung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung.png') }
-.tech-image-placeholder[data-service="Genehmigung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung2.png') }
-.tech-image-placeholder[data-service="Bau"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung3.png') }
-.tech-image-placeholder[data-service="Finanzierung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung4.png') }
-.tech-image-placeholder[data-service="Wartung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung5.png') }
+.tech-image-placeholder[data-service="Planung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung.avif') }
+.tech-image-placeholder[data-service="Genehmigung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung2.avif') }
+.tech-image-placeholder[data-service="Bau"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung3.avif') }
+.tech-image-placeholder[data-service="Finanzierung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung4.avif') }
+.tech-image-placeholder[data-service="Wartung"]{ background-image:url('/assets/img/freiflaechen/freiflaechen_planung5.avif') }
 .tech-image-placeholder[data-service="Ökologie"]{ background:var(--gradient-blue) }
 .tech-image-placeholder:hover{ transform:rotateY(10deg) rotateX(-3deg) scale(1.02) }
 
@@ -207,7 +207,7 @@ html,body{
 .faq-modern{ padding:5rem 0; background:#fff }
 .faq-wrapper{ display:grid; grid-template-columns:1fr 2fr; gap:4rem; align-items:start; max-width:1200px; margin:0 auto }
 .faq-image-placeholder{
-  width:100%; height:500px; background:url('/assets/img/freiflaechen/freiflaeche_blau_fragezeichen.png') center/cover;
+  width:100%; height:500px; background:url('/assets/img/freiflaechen/freiflaeche_blau_fragezeichen.avif') center/cover;
   border-radius:20px; position:relative; overflow:hidden; box-shadow:var(--shadow-lg)
 }
 .faq-content{ display:flex; flex-direction:column; gap:1rem }
