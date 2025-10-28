@@ -16,13 +16,13 @@
       <div class="rg__viewport" tabindex="0">
         <ul class="rg__track">
           {# >>> Bildliste statisch wie auf der Montageseite, nur anderer Ordner/Dateinamen #}
-          {% set pics = [1,2,3,4,5,6,7,8,9,10] %}
+          {% set pics = [10,2,3,4,5,6,7,8,9,1] %}
           {% for i in pics %}
             <li class="rg__slide">
-              <a class="rg__figure" href="/assets/img/referenzen-gewerbe/anlage{{ i }}_G.jpeg">
+              <a class="rg__figure" href="/assets/img/referenzen-gewerbe/anlage{{ i }}_G.avif">
                 <div class="rg__media">
                   <img
-                    src="/assets/img/referenzen-gewerbe/anlage{{ i }}_G.jpeg"
+                    src="/assets/img/referenzen-gewerbe/anlage{{ i }}_G.avif"
                     alt="Gewerbliche Photovoltaik-Referenz {{ i }}"
                     decoding="async" loading="lazy" draggable="false">
                 </div>
