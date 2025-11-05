@@ -1,0 +1,156 @@
+/* =========================================
+   Referenzen (Gewerbe + Privat, identisches Styling)
+========================================= */
+:is(#ref-gallery, #ref-gallery-private){
+  --gold-1:#E5C44D;
+  --gold-2:#F3D663;
+  --ink:#0f172a;
+  --muted:#334155;
+  --bg:#f8fafc;
+
+  --gap:20px;
+  --visible:3;
+  --slide: calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
+
+  background: var(--bg);
+  padding: 4rem 0;
+}
+
+:is(#ref-gallery, #ref-gallery-private) .container{
+  max-width:2000px;
+  margin:0 auto;
+  padding:0 2rem;
+}
+
+:is(#ref-gallery, #ref-gallery-private) .section-title{
+  text-align:center;
+  font-weight:800;
+  font-size:clamp(1.75rem,3vw,2.25rem);
+  color:var(--ink);
+  margin:0;
+}
+:is(#ref-gallery, #ref-gallery-private) .section-title::after{
+  content:"";
+  display:block;
+  width:64px; height:4px; border-radius:8px;
+  margin:.6rem auto 0;
+  background:linear-gradient(90deg,var(--gold-1),var(--gold-2));
+}
+:is(#ref-gallery, #ref-gallery-private) .section-subtitle{
+  text-align:center;
+  color:var(--muted);
+  max-width:820px;
+  margin:.75rem auto 2.5rem;
+  line-height:1.7;
+}
+
+/* Slider-Grundlayout */
+:is(#ref-gallery, #ref-gallery-private) .rg{ position:relative; }
+
+/* Viewport */
+:is(#ref-gallery, #ref-gallery-private) .rg__viewport{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scroll-behavior:smooth;
+  scroll-snap-type:x mandatory;
+  scroll-snap-stop:always;
+  outline:none;
+  padding-bottom:4px;
+  scrollbar-width:none;
+}
+:is(#ref-gallery, #ref-gallery-private) .rg__viewport::-webkit-scrollbar{ display:none; }
+
+/* Track + Spacer */
+:is(#ref-gallery, #ref-gallery-private) .rg__track{
+  display:flex; align-items:stretch; gap:var(--gap); padding:0;
+}
+:is(#ref-gallery, #ref-gallery-private) .rg__track::before,
+:is(#ref-gallery, #ref-gallery-private) .rg__track::after{
+  content:"";
+  flex:0 0 calc((100% - var(--slide))/2 - var(--gap)/2);
+}
+
+/* Slide */
+:is(#ref-gallery, #ref-gallery-private) .rg__slide{
+  list-style:none;
+  flex:0 0 var(--slide);
+  max-width:var(--slide);
+  scroll-snap-align:center;
+}
+
+/* Breakpoints */
+@media (max-width:1100px){ :is(#ref-gallery, #ref-gallery-private) .rg{ --visible:2; } }
+@media (max-width:680px){  :is(#ref-gallery, #ref-gallery-private) .rg{ --visible:1; } }
+
+/* Bildkarte */
+:is(#ref-gallery, #ref-gallery-private) .rg__figure{ display:block; text-decoration:none; color:inherit; }
+:is(#ref-gallery, #ref-gallery-private) .rg__media{
+  --radius:16px;
+  --ratio:16/9;
+  aspect-ratio:var(--ratio);
+  width:100%;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:#f3f6fa;
+  box-shadow:0 10px 28px rgba(15,37,51,.12);
+}
+:is(#ref-gallery, #ref-gallery-private) .rg__media > img{
+  width:100%; height:100%; display:block;
+  object-fit:cover; object-position:center;
+}
+
+/* Fallback ohne aspect-ratio */
+@supports not (aspect-ratio: 1) {
+  :is(#ref-gallery, #ref-gallery-private) .rg__media{ position:relative; }
+  :is(#ref-gallery, #ref-gallery-private) .rg__media::before{
+    content:""; display:block; padding-top:56.25%;
+  }
+  :is(#ref-gallery, #ref-gallery-private) .rg__media > img{ position:absolute; inset:0; }
+}
+
+/* Pfeile */
+:is(#ref-gallery, #ref-gallery-private) .rg__nav{
+  position:absolute; top:44%; transform:translateY(-50%);
+  width:40px; height:40px; border:0; border-radius:999px; cursor:pointer;
+  color:#0f172a;
+  background:linear-gradient(135deg,var(--gold-1),var(--gold-2));
+  box-shadow:0 6px 16px rgba(212,175,55,.25); z-index:2;
+}
+:is(#ref-gallery, #ref-gallery-private) .rg__nav--prev{ left:max(6px, env(safe-area-inset-left)); }
+:is(#ref-gallery, #ref-gallery-private) .rg__nav--next{ right:max(6px, env(safe-area-inset-right)); }
+:is(#ref-gallery, #ref-gallery-private) .rg__nav:focus-visible{
+  outline:none; box-shadow:0 0 0 3px rgba(212,175,55,.35);
+}
+
+/* Dots */
+:is(#ref-gallery, #ref-gallery-private) .rg__dots{
+  display:flex; gap:8px; justify-content:center; margin-top:16px;
+}
+:is(#ref-gallery, #ref-gallery-private) .rg__dots button{
+  width:28px; height:6px; border:0; border-radius:999px;
+  background:#dfe6ee; cursor:pointer;
+}
+:is(#ref-gallery, #ref-gallery-private) .rg__dots button[aria-selected="true"]{
+  background:linear-gradient(90deg,var(--gold-1),var(--gold-2));
+}
+
+/* Mobil: 1 Slide, größere Karte */
+@media (max-width: 768px) {
+  :is(#ref-gallery, #ref-gallery-private){
+    --visible: 1;
+    --gap: 12px;
+    --slide: calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
+    padding: 2.25rem 0;
+  }
+  :is(#ref-gallery, #ref-gallery-private) .rg__track::before,
+  :is(#ref-gallery, #ref-gallery-private) .rg__track::after{
+    flex: 0 0 0 !important;
+  }
+  :is(#ref-gallery, #ref-gallery-private) .rg__media{
+    --ratio: 4/3; --radius: 18px;
+    box-shadow: 0 8px 22px rgba(15,37,51,.12);
+  }
+  :is(#ref-gallery, #ref-gallery-private) .container{ padding: 0 1rem; }
+  :is(#ref-gallery, #ref-gallery-private) .rg__dots{ margin-top: 12px; gap: 6px; }
+  :is(#ref-gallery, #ref-gallery-private) .rg__dots button{ width: 22px; height: 5px; }
+}
