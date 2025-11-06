@@ -8,7 +8,7 @@ module.exports = function (eleventyConfig) {
  eleventyConfig.addPassthroughCopy("assets/vendor/fontawesome");
  eleventyConfig.addWatchTarget("src/assets/");  // <— richtiges Verzeichnis beobachten
  eleventyConfig.addWatchTarget("src/assets/img/referenzen-gewerbe");
- eleventyConfig.addPassthroughCopy({ "src/assets/favicons": "/" });
+ eleventyConfig.addPassthroughCopy({ "src/assets/favicons/favicon.ico": "favicon.ico" });
 
  // Dev-Server
  eleventyConfig.setServerOptions({ port: 8888, showAllHosts: true });
