@@ -16,7 +16,7 @@
   },
 
   "contact": {
-    "phone": "+49-8261-7597176",
+    "telephone": "+49-8261-7597176",
     "email": "info@alab-energiesysteme.de"
   },
 
@@ -27,6 +27,9 @@
     "city": "Mindelheim",
     "country": "DE"
   },
+
+"serviceAreas": ["Mindelheim","Kempten","Memmingen","Kaufbeuren","Landsberg","Augsburg","Marktoberdorf","Erkheim","Türkheim","Ulm" ],
+
 
   "sameAs": [
     "https://www.provenexpert.com/de-de/alab-energiesysteme-ingenieurbuero-fuer-photovoltaik-und-energiesysteme/",
