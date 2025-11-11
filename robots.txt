@@ -37,6 +37,9 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
+User-agent: Applebot-Image
+Allow: /
+
 User-agent: Applebot-Extended
 Allow: /
 
