@@ -454,4 +454,30 @@ body {
 }
 
 
+/* DSGVO-Checkbox / Datenschutzerklärung im Modal sauber ausrichten */
+#alab-services .input.full .checkbox-inline{
+  /* inline-style display:flex übersteuern */
+  display: grid !important;
+  grid-template-columns: auto 1fr;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+}
+
+#alab-services .input.full .checkbox-inline input[type="checkbox"]{
+  margin-top: 3px;        /* optisch zur ersten Textzeile zentrieren */
+  flex-shrink: 0;
+}
+
+#alab-services .input.full .checkbox-inline span{
+  display: block;
+  text-align: left;
+  line-height: 1.4;
+}
+
+#alab-services .input.full .checkbox-inline a{
+  color: var(--alab-dark-blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 
