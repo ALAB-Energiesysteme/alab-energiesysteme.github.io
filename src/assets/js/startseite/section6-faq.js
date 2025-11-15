@@ -365,13 +365,6 @@
       50% { transform: scale(1.1); }
     }
     
-    .faq-item {
-      opacity: 0;
-    }
-    
-    .stat-card {
-      opacity: 0;
-    }
   `;
   document.head.appendChild(style);
 

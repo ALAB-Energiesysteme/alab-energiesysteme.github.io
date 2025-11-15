@@ -843,3 +843,33 @@ body {
   /* Sicherheitsnetz: die FAQ-Liste selbst ohne Extra-Abstand unten */
   #alab-faq-premium .faq-grid{ padding-bottom: 0 !important; }
 }
+
+
+/* HARD-FIX: FAQ auf Mobile immer sichtbar machen */
+@media (max-width: 768px) {
+  #alab-faq-premium .faq-container {
+    display: block !important;      /* nicht mehr Grid/Flex-Tricks */
+  }
+
+  #alab-faq-premium .faq-sidebar,
+  #alab-faq-premium .faq-main {
+    width: 100% !important;
+    position: static !important;
+  }
+
+  #alab-faq-premium .faq-main {
+    margin-top: 16px;
+  }
+
+  /* FAQ-Karten selber */
+  #alab-faq-premium .faq-grid {
+    display: block !important;
+  }
+
+  #alab-faq-premium .faq-item {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: none !important;
+  }
+}
