@@ -502,25 +502,64 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
     color:var(--alab-text); background:var(--alab-bg);
   }
   
-/* Kontaktliste: 2-Spalten-Zeile nur für Geschäftszeiten */
+  /* Kontaktliste: 2-Spalten-Zeile nur für Geschäftszeiten */
   #alab-contact .ac-list .ac-hours {
-  display: grid;
-  grid-template-columns: max-content 1fr; /* Label | Inhalt */
-  column-gap: 10px;
-  align-items: start;
-}
+    display: grid;
+    grid-template-columns: max-content 1fr; /* Label | Inhalt */
+    column-gap: 10px;
+    align-items: start;
+  }
   #alab-contact .ac-list .ac-hours > strong { grid-column: 1; }
   #alab-contact .ac-list .ac-hours .val    { grid-column: 2; }
+    /* Strukturierte Öffnungszeiten-Tabelle */
+  #alab-contact .hours-table{
+    display:grid;
+    row-gap:10px;
+  }
+  #alab-contact .hours-row{
+    display:grid;
+    grid-template-columns: 100px auto; /* Breite der Tages-Spalte */
+    column-gap:10px;
+  }
+  #alab-contact .hours-row .day{
+    font-weight:500;
+    white-space:nowrap; 
+  }
+  #alab-contact .hours-row .time{
+    text-align:left; /* oder right, wenn du rechtsbündig willst */
+  }
+
 
   .ac-wrap{ max-width:1100px; margin:0 auto; padding:28px 16px 80px; }
   .ac-hero{ display:grid; gap:14px; margin:12px 0 28px; }
   .ac-eyebrow{ letter-spacing:.12em; text-transform:uppercase; font-weight:600; font-size:.78rem; color:var(--alab-muted); }
   .ac-title{ font-size:clamp(1.6rem, 2.5vw + 1rem, 2.4rem); line-height:1.2; font-weight:800; }
   .ac-sub{ color:var(--alab-muted); max-width:60ch; }
-  .ac-grid{ display:grid; grid-template-columns: 1fr; gap:22px; margin-top:26px; }
-  @media(min-width:860px){ .ac-grid{ grid-template-columns: 1.1fr .9fr; } }
-  .ac-card{ background:#fff; border:1px solid var(--alab-line); border-radius:var(--radius); box-shadow:var(--shadow); }
+
+  .ac-grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:22px;
+    margin-top:26px;
+    align-items:flex-start; /* WICHTIG: Karten NICHT strecken */
+  }
+  /* neu: rechte Karte breiter als das Formular */
+@media(min-width:860px){
+  .ac-grid{
+    grid-template-columns: 1.1fr 1.0fr; /* links etwas schmaler, rechts breiter */
+  }
+}
+
+
+  .ac-card{
+    background:#fff;
+    border:1px solid var(--alab-line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    /* keine feste Höhe, kein Flex: Karte schrumpft auf Inhalt */
+  }
   .ac-card > .inner{ padding:22px; }
+
   .ac-label{ font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--alab-muted); font-weight:600; margin-bottom:8px; }
   .ac-h2{ font-size:1.2rem; font-weight:700; margin-bottom:12px; }
   .ac-list{ list-style:none; padding:0; margin:0; }
@@ -543,124 +582,138 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
   .ac-btn{ appearance:none; border:none; cursor:pointer; border-radius:14px; padding:14px 18px; font-weight:700; font-size:1rem; background:linear-gradient(180deg, var(--alab-gold), #b68f2e); color:#111; box-shadow:0 6px 18px rgba(212,175,55,.25); transition: transform .06s ease; }
   .ac-btn:active{ transform: translateY(1px); }
   .ac-note{ font-size:.85rem; color:var(--alab-muted); margin-top:8px; }
-  .ac-success{ display:none; border:1px solid #c7f2c7; background:#f2fff2; color:#0f5f0f; padding:12px 14px; border-radius:12px; font-weight:600; }
-  .ac-success.is-shown{ display:block; }
-  .ac-map{ aspect-ratio:16/9; width:100%; border:0; border-bottom-left-radius:var(--radius); border-bottom-right-radius:var(--radius); display:block; }
-  /* --- Danke-Toast --- */
-#ac-success{
-  position: fixed;
-  left: 50%; top: 18px; transform: translate(-50%,-12px);
-  background:#0f5f0f; color:#fff; padding:12px 16px;
-  border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.25);
-  opacity:0; visibility:hidden; transition:opacity .2s, transform .2s;
-  z-index:6000; font-weight:600;
-}
-#ac-success.is-shown{ opacity:1; visibility:visible; transform:translate(-50%,0); }
+    .ac-success{
+    display:none;
+    border:1px solid #c7f2c7;
+    background:#f2fff2;
+    color:#0f5f0f;
+    padding:12px 14px;
+    border-radius:12px;
+    font-weight:600;
+  }
 
-/* Consent: Pflichtfehler anzeigen & hervorheben */
-#f-consent .ac-error{display:none;font-size:.8rem;color:#b00020;margin-top:6px}
-#f-consent.is-invalid .ac-error{display:block}
-#f-consent.is-invalid label{color:#b00020}
-#f-consent.is-invalid input{outline:2px solid #b00020; outline-offset:2px}
+  /* NEU: wieder einblenden, wenn is-shown dran hängt */
+  .ac-success.is-shown{
+    display:block;
+  }
+
+  /* --- Danke-Toast --- */
+  #ac-success{
+    position: fixed;
+    left: 50%; top: 18px; transform: translate(-50%,-12px);
+    background:#0f5f0f; color:#fff; padding:12px 16px;
+    border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.25);
+    opacity:0; visibility:hidden; transition:opacity .2s, transform .2s;
+    z-index:6000; font-weight:600;
+  }
+  #ac-success.is-shown{ opacity:1; visibility:visible; transform:translate(-50%,0); }
+
+  /* Consent: Pflichtfehler anzeigen & hervorheben */
+  #f-consent .ac-error{display:none;font-size:.8rem;color:#b00020;margin-top:6px}
+  #f-consent.is-invalid .ac-error{display:block}
+  #f-consent.is-invalid label{color:#b00020}
+  #f-consent.is-invalid input{outline:2px solid #b00020; outline-offset:2px}
+
+  /* Mobile-Fix für Öffnungszeiten-Layout */
+/* Mobile-Fix für Öffnungszeiten-Layout */
+@media (max-width: 600px){
+  /* Label "Öffnungszeiten:" über der Tabelle, nicht neben ihr */
+  #alab-contact .ac-list .ac-hours{
+    grid-template-columns: 1fr;
+    row-gap: 8px;
+    align-items:flex-start;
+  }
+  #alab-contact .ac-list .ac-hours > strong{
+    grid-column: 1;
+    display:block;
+  }
+  #alab-contact .ac-list .ac-hours .val{
+    grid-column: 1;
+  }
+
+  /* In der Tabelle selbst: etwas schmalere Tages-Spalte */
+  #alab-contact .hours-row{
+    grid-template-columns: 100px auto; /* Tag | Zeiten */
+    column-gap: 6px;
+    line-height: 1.4;
+  }
+}
+
+
 </style>
 
 <style>
-
 /* =========================================
    ALAB Kontakt – EXTRA COMPACT MOBILE
    ========================================= */
 @media (max-width: 768px){
-  /* kein seitl. Scrollen + engerer Außenabstand */
   #alab-contact{ overflow-x: clip; }
   @supports not (overflow: clip){ #alab-contact{ overflow-x:hidden; } }
 
   #alab-contact .ac-wrap{ padding: 20px 12px 36px; }
 
-  /* Hero-Bereich kompakter */
-  #alab-contact .ac-hero{ gap: 8px; margin: 6px 0 16px; }
-  #alab-contact .ac-eyebrow{ font-size: .72rem; letter-spacing: .1em; }
-  #alab-contact .ac-title{
+  .ac-hero{ gap: 8px; margin: 6px 0 16px; }
+  .ac-eyebrow{ font-size: .72rem; letter-spacing: .1em; }
+  .ac-title{
     font-size: clamp(1.25rem, 6.2vw, 1.6rem);
     line-height: 1.22;
     margin: 0;
   }
-  #alab-contact .ac-sub{ font-size: .95rem; }
+  .ac-sub{ font-size: .95rem; }
 
-  /* Grid enger */
-  #alab-contact .ac-grid{ gap: 14px; margin-top: 16px; }
+  .ac-grid{ gap: 14px; margin-top: 16px; }
 
-  /* Karten enger + geringere Rundung */
-  #alab-contact .ac-card{ border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.07); }
-  #alab-contact .ac-card > .inner{ padding: 14px; }
+  .ac-card{ border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.07); }
+  .ac-card > .inner{ padding: 14px; }
 
-  /* Listen in der Info-Karte straffen */
-  #alab-contact .ac-label{ font-size: .72rem; margin-bottom: 6px; }
-  #alab-contact .ac-h2{ font-size: 1.05rem; margin-bottom: 8px; }
-  #alab-contact .ac-list li{ padding: 8px 0; }
+  .ac-label{ font-size: .72rem; margin-bottom: 6px; }
+  .ac-h2{ font-size: 1.05rem; margin-bottom: 8px; }
+  .ac-list li{ padding: 8px 0; }
 
-  /* Formular kompakt */
-  #alab-contact .ac-form{ gap: 10px; }
-  #alab-contact .ac-row{ gap: 10px; grid-template-columns: 1fr; } /* alles einspaltig */
-  #alab-contact .ac-field label{ font-size: .86rem; margin-bottom: 4px; }
+  .ac-form{ gap: 10px; }
+  .ac-row{ gap: 10px; grid-template-columns: 1fr; }
+  .ac-field label{ font-size: .86rem; margin-bottom: 4px; }
 
-  /* Eingaben: kleineres Padding, Höhe runter – aber 16px Font für iOS (kein Zoom) */
-  #alab-contact .ac-input,
-  #alab-contact .ac-select{
+  .ac-input,
+  .ac-select{
     height: 42px;
     padding: 9px 12px;
     border-radius: 10px;
     font-size: 16px;
   }
-  #alab-contact .ac-textarea{
+  .ac-textarea{
     min-height: 100px;
     padding: 9px 12px;
     border-radius: 10px;
     font-size: 16px;
   }
 
-  /* Hilfstext & Fehlermeldungen kleiner */
-  #alab-contact .ac-help,
-  #alab-contact .ac-error{ font-size: .78rem; }
+  .ac-help,
+  .ac-error{ font-size: .78rem; }
 
-  /* DSGVO/Legal block kompakter + Checkbox größer antippbar */
-  #alab-contact .ac-legal{
+  .ac-legal{
     gap: 8px;
     font-size: .9rem;
     line-height: 1.35;
   }
-  #alab-contact .ac-legal input{ width: 18px; height: 18px; margin-top: 2px; }
+  .ac-legal input{ width: 18px; height: 18px; margin-top: 2px; }
 
-  /* CTA-Button kleiner & vollbreit */
-  #alab-contact .ac-btn{
+  .ac-btn{
     padding: 12px 14px;
     font-size: .95rem;
     border-radius: 12px;
     width: 100%;
   }
-  #alab-contact .ac-note{ font-size: .8rem; }
-
-  /* Map: etwas flacher, behält die Breite */
-  #alab-contact .ac-map{
-    aspect-ratio: 3 / 2;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-  }
-
-  /* Danke-Toast kompakter */
-  #ac-success{ padding: 10px 12px; border-radius: 10px; }
+  .ac-note{ font-size: .8rem; }
 }
 
-/* XS-Phones (<=480px) – noch straffer */
 @media (max-width: 480px){
   #alab-contact .ac-wrap{ padding: 16px 10px 28px; }
   #alab-contact .ac-title{ font-size: clamp(1.2rem, 6.8vw, 1.45rem); }
   #alab-contact .ac-card > .inner{ padding: 12px; }
   #alab-contact .ac-input, #alab-contact .ac-select{ height: 40px; }
   #alab-contact .ac-textarea{ min-height: 90px; }
-  #alab-contact .ac-map{ aspect-ratio: 4 / 3; }
 }
-
-
 </style>
 
 <main id="alab-contact" role="main">
@@ -718,14 +771,13 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
             </div>
 
             <div class="ac-field ac-legal" id="f-consent">
-  <input type="checkbox" id="consent" name="consent" required>
-  <label for="consent">
-    Ich willige ein, dass ALAB Energiesysteme meine Daten zur Bearbeitung meiner Anfrage verarbeitet.
-    Hinweise in der <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.
-  </label>
-  <div class="ac-error">Bitte willigen Sie die Datenschutzerklärung ein.</div>
-</div>
-
+              <input type="checkbox" id="consent" name="consent" required>
+              <label for="consent">
+                Ich willige ein, dass ALAB Energiesysteme meine Daten zur Bearbeitung meiner Anfrage verarbeitet.
+                Hinweise in der <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.
+              </label>
+              <div class="ac-error">Bitte willigen Sie die Datenschutzerklärung ein.</div>
+            </div>
 
             <button class="ac-btn" type="submit" id="submitBtn">Anfrage senden</button>
             <div class="ac-note">Mit * gekennzeichnete Felder sind Pflichtfelder.</div>
@@ -733,7 +785,7 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
         </div>
       </article>
 
-      <!-- Infokarte + Karte -->
+      <!-- Infokarte (ohne Karte) -->
       <aside class="ac-card" aria-labelledby="info-title">
         <div class="inner">
           <div class="ac-label">Kontaktinfos</div>
@@ -742,18 +794,44 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
             <li><strong>E-Mail:</strong> <a href="mailto:info@alab-energiesysteme.de">info@alab-energiesysteme.de</a></li>
             <li><strong>Telefon:</strong> <a href="tel:+4982617597176">08261 7597176</a></li>
             <li><strong>Adresse:</strong> Kastanienweg 6, 87719 Mindelheim</li>
-           <li class="ac-hours">
-            <strong>Geschäftszeiten:</strong>
-            <span class="val">Mo–Do 08:00–17:00 Uhr<br>Freitag 08:00–14:00 Uhr</span>
-          </li>
+            <li class="ac-hours">
+  <strong>Öffnungszeiten:</strong>
+  <div class="val">
+    <div class="hours-table">
+      <div class="hours-row">
+        <span class="day">Montag</span>
+        <span class="time">08:00–12:00, 12:30–17:00</span>
+      </div>
+      <div class="hours-row">
+        <span class="day">Dienstag</span>
+        <span class="time">08:00–12:00, 12:30–17:00</span>
+      </div>
+      <div class="hours-row">
+        <span class="day">Mittwoch</span>
+        <span class="time">08:00–12:00, 12:30–17:00</span>
+      </div>
+      <div class="hours-row">
+        <span class="day">Donnerstag</span>
+        <span class="time">08:00–12:00, 12:30–17:00</span>
+      </div>
+      <div class="hours-row">
+        <span class="day">Freitag</span>
+        <span class="time">08:00–12:00, 12:30–14:00</span>
+      </div>
+      <div class="hours-row">
+        <span class="day">Samstag</span>
+        <span class="time">Geschlossen</span>
+      </div>
+      <div class="hours-row">
+        <span class="day">Sonntag</span>
+        <span class="time">Geschlossen</span>
+      </div>
+    </div>
+  </div>
+</li>
 
-
-
-            
           </ul>
         </div>
-        <!-- Interaktive Karte – Mindelheim -->
-        <iframe class="ac-map" title="Standort Mindelheim" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Kastanienweg%206%2C%2087719%20Mindelheim&t=&z=17&ie=UTF8&iwloc=&output=embed"></iframe>
       </aside>
     </div>
   </div>
@@ -787,14 +865,14 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
     const emailOk = /.+@.+\..+/.test(email.value);   setInvalid('f-email', !emailOk); ok = ok && emailOk;
     setInvalid('f-message', !message.value.trim());  ok = ok && !!message.value.trim();
 
-   if (!consent.checked){
-  $('#f-consent').classList.add('is-invalid');
-  consent.setAttribute('aria-invalid','true');
-  ok = false;
-}else{
-  $('#f-consent').classList.remove('is-invalid');
-  consent.removeAttribute('aria-invalid');
-}
+    if (!consent.checked){
+      $('#f-consent').classList.add('is-invalid');
+      consent.setAttribute('aria-invalid','true');
+      ok = false;
+    }else{
+      $('#f-consent').classList.remove('is-invalid');
+      consent.removeAttribute('aria-invalid');
+    }
 
     // Honeypot muss leer sein
     if (hp && hp.value.trim().length) ok = false;
@@ -814,23 +892,20 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
 
   function showToast(){
     if (!toastEl) return;
-    // a11y
     toastEl.setAttribute('role','status');
     toastEl.setAttribute('aria-live','polite');
     toastEl.classList.add('is-shown');
-    // nach 4s ausblenden
     setTimeout(()=> toastEl.classList.remove('is-shown'), 4000);
   }
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
 
-    if (hp) hp.value = '';           // Honeypot nochmal leeren
+    if (hp) hp.value = '';
     if (!validate()) return;
 
     try { gaPush(); } catch(_) {}
 
-    // Payload bauen (x-www-form-urlencoded → robust)
     const p = new URLSearchParams();
     p.set('name',    $('#name').value.trim());
     p.set('email',   $('#email').value.trim());
@@ -842,14 +917,11 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
 
     const blob = new Blob([p.toString()], { type: 'application/x-www-form-urlencoded;charset=UTF-8' });
 
-    // Fire-and-forget: sicher beim Seitenfokuswechsel
     try { navigator.sendBeacon(MAKE_URL, blob); }
     catch(_){ try { fetch(MAKE_URL, { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'}, body:p.toString() }); } catch(__){} }
 
-    // UI: Formular zurücksetzen + Toast zeigen
     form.reset();
     showToast();
-    // Fokus zurück auf Titel für klare Bestätigung
     document.getElementById('form-title')?.focus?.();
   });
 })();
