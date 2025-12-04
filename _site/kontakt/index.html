@@ -501,7 +501,7 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
     --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.08);
     color:var(--alab-text); background:var(--alab-bg);
   }
-  
+   
   /* Kontaktliste: 2-Spalten-Zeile nur für Geschäftszeiten */
   #alab-contact .ac-list .ac-hours {
     display: grid;
@@ -719,19 +719,17 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
 <main id="alab-contact" role="main">
   <div class="ac-wrap">
     <section class="ac-hero" aria-labelledby="kontakt-title">
-      <span class="ac-eyebrow">Kontakt</span>
-      <h1 class="ac-title" id="kontakt-title">Schnell & direkt zu Ihrem PV-Projekt</h1>
+      <span class="ac-eyebrow">Ihre Daten sind bei uns sicher und werden nicht weitergegeben!</span>
+      <h1 class="ac-title" id="kontakt-title">Wir freuen uns auf Ihr Projekt.</h1>
       <p class="ac-sub">Schreiben Sie uns eine kurze Nachricht – wir melden uns zügig mit einer konkreten Einschätzung oder einem Termin.</p>
     </section>
 
     <div class="ac-grid">
-      <!-- Formularkarte -->
       <article class="ac-card" aria-labelledby="form-title">
         <div class="inner">
           <div class="ac-success" id="ac-success">Vielen Dank! Ihre Anfrage ist eingegangen.</div>
           <h2 class="ac-h2" id="form-title">Kontaktformular</h2>
           <form id="alab-contact-form" class="ac-form" novalidate>
-            <!-- Honeypot -->
             <input type="text" name="company" id="company" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" tabindex="-1" aria-hidden="true">
 
             <div class="ac-row">
@@ -749,9 +747,10 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
 
             <div class="ac-row">
               <div class="ac-field" id="f-phone">
-                <label for="phone">Telefon</label>
-                <input class="ac-input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel">
-                <div class="ac-help">Optional – für schnelle Rückfragen.</div>
+                <label for="phone">Telefon*</label>
+                <input class="ac-input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+                <div class="ac-help">Ihre Rückrufnummer für Rückfragen.</div>
+                <div class="ac-error">Bitte geben Sie Ihre Telefonnummer ein.</div>
               </div>
               <div class="ac-field" id="f-topic">
                 <label for="topic">Thema</label>
@@ -765,10 +764,9 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
             </div>
 
             <div class="ac-field" id="f-message">
-              <label for="message">Nachricht*</label>
-              <textarea class="ac-textarea" id="message" name="message" required placeholder="Kurze Beschreibung: Dachform, Fläche, Stromverbrauch, Zieltermin …"></textarea>
-              <div class="ac-error">Bitte geben Sie eine Nachricht ein.</div>
-            </div>
+              <label for="message">Nachricht (Optional)</label>
+              <textarea class="ac-textarea" id="message" name="message" placeholder="Haben Sie schon konkrete Wünsche? Wenn nicht, lassen Sie dieses Feld einfach leer – wir besprechen alles entspannt am Telefon."></textarea>
+              </div>
 
             <div class="ac-field ac-legal" id="f-consent">
               <input type="checkbox" id="consent" name="consent" required>
@@ -779,13 +777,12 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
               <div class="ac-error">Bitte willigen Sie die Datenschutzerklärung ein.</div>
             </div>
 
-            <button class="ac-btn" type="submit" id="submitBtn">Anfrage senden</button>
+            <button class="ac-btn" type="submit" id="submitBtn">Beratung anfragen</button>
             <div class="ac-note">Mit * gekennzeichnete Felder sind Pflichtfelder.</div>
           </form>
         </div>
       </article>
 
-      <!-- Infokarte (ohne Karte) -->
       <aside class="ac-card" aria-labelledby="info-title">
         <div class="inner">
           <div class="ac-label">Kontaktinfos</div>
@@ -793,7 +790,6 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
           <ul class="ac-list" aria-label="Kontaktdaten">
             <li><strong>E-Mail:</strong> <a href="mailto:info@alab-energiesysteme.de">info@alab-energiesysteme.de</a></li>
             <li><strong>Telefon:</strong> <a href="tel:+4982617597176">08261 7597176</a></li>
-            <li><strong>Adresse:</strong> Kastanienweg 6, 87719 Mindelheim</li>
             <li class="ac-hours">
   <strong>Öffnungszeiten:</strong>
   <div class="val">
@@ -859,11 +855,16 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
 
   function validate(){
     let ok = true;
-    const name = $('#name'), email = $('#email'), message = $('#message'), consent = $('#consent');
+    // ÄNDERUNG 6: phone hinzugefügt
+    const name = $('#name'), email = $('#email'), phone = $('#phone'), consent = $('#consent');
 
     setInvalid('f-name', !name.value.trim());        ok = ok && !!name.value.trim();
     const emailOk = /.+@.+\..+/.test(email.value);   setInvalid('f-email', !emailOk); ok = ok && emailOk;
-    setInvalid('f-message', !message.value.trim());  ok = ok && !!message.value.trim();
+    
+    // ÄNDERUNG 7: Telefon prüfen statt Nachricht
+    setInvalid('f-phone', !phone.value.trim());      ok = ok && !!phone.value.trim();
+    
+    // Hinweis: Die Prüfung für 'message' wurde hier entfernt!
 
     if (!consent.checked){
       $('#f-consent').classList.add('is-invalid');
@@ -926,7 +927,6 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
   });
 })();
 </script>
-
   </main>
 
   <footer class="ft-alab" id="ftRoot" role="contentinfo" itemscope itemtype="https://schema.org/LocalBusiness">
