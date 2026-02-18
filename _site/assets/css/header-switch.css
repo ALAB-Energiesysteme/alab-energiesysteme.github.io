@@ -6,3 +6,19 @@
   #header-desktop { display:none; }
   #header-mobile  { display:block; }
 }
+
+/* === Desktop Header immer sichtbar (sticky/fixed Fix) === */
+@media (min-width: 1025px){
+  #alab-header.site-header{
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5000;
+  }
+
+  /* Platz schaffen, damit der Content nicht unter den Header rutscht */
+  main#content{
+    padding-top: var(--alab-header-h, 86px);
+  }
+}

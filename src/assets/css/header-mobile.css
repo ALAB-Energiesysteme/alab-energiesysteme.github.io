@@ -19,14 +19,14 @@
 .alab-mh__backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5)}
 .alab-mh__panel{position:absolute;right:0;top:0;height:100%;width:90vw;max-width:420px;background:#fff;box-shadow:-12px 0 28px rgba(0,0,0,.18);display:flex;flex-direction:column}
 .alab-mh__drawer-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #e5e7eb}
-.alab-mh__drawer-title{font-weight:800;margin:0;font-size:1.05rem}
+.alab-mh__drawer-title{font-weight:600;margin:0;font-size:1.05rem}
 .alab-mh__drawer-close{width:36px;height:36px;border-radius:10px;border:1px solid #e5e7eb;background:#fff;font-size:20px}
 
 /* Nav + Accordion */
 .alab-mh__nav{padding:10px 12px 20px;overflow:auto}
 .alab-mh__acc{border:1px solid #e5e7eb;border-radius:12px;margin:10px 0;background:#fff}
 .alab-mh__acc + .alab-mh__acc{margin-top:14px}
-.alab-mh__acc-trigger{width:100%;text-align:left;padding:14px 14px;font-weight:800;border:0;background:#fff;border-radius:12px;display:flex;justify-content:space-between;align-items:center}
+.alab-mh__acc-trigger{width:100%;text-align:left;padding:14px 14px;font-weight:600;border:0;background:#fff;border-radius:12px;display:flex;justify-content:space-between;align-items:center}
 .alab-mh__acc-trigger:after{content:"▾";font-size:14px;transform:rotate(0);transition:.2s}
 .alab-mh__acc.alab--open .alab-mh__acc-trigger:after{transform:rotate(180deg)}
 .alab-mh__acc-panel{max-height:0;overflow:hidden;transition:max-height .25s ease}
@@ -35,9 +35,9 @@
 .alab-mh__thumb{width:100%;height:96px;border-radius:8px;object-fit:cover;display:block;margin:0 0 8px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
 .alab-mh__item strong{display:block;color:#111827;margin-bottom:2px}
 .alab-mh__item p{margin:0;color:#6b7280;font-size:.9rem}
-.alab-mh__single{display:block;margin:10px 0;padding:14px 14px;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;color:#111827;font-weight:700}
+.alab-mh__single{display:block;margin:10px 0;padding:14px 14px;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;color:#111827;font-weight:600}
 .alab-mh__cta{margin:12px 0 0}
-.alab-mh__btn{display:block;width:100%;text-align:center;background:linear-gradient(135deg,#d4af37,#b8860b);color:#2d3748;border:none;border-radius:12px;padding:14px 16px;font-weight:800}
+.alab-mh__btn{display:block;width:100%;text-align:center;background:linear-gradient(135deg,#d4af37,#b8860b);color:#2d3748;border:none;border-radius:12px;padding:14px 16px;font-weight:600}
 
 /* Body Scroll-Lock (global, nötig fürs Drawer-Verhalten) */
 body.alab-no-scroll{overflow:hidden;position:fixed;width:100%}
@@ -52,13 +52,13 @@ body.alab-no-scroll{overflow:hidden;position:fixed;width:100%}
   text-decoration: none !important;
   background: linear-gradient(135deg,#d4af37,#b8860b) !important;
   color: #2d3748 !important;
-  font-weight: 800 !important;
+  font-weight: 600 !important;
 }
 
 #header-mobile .alab-mh__acc-trigger{
   background: #fff !important;
   border: 0 !important;
-  font-weight: 800 !important;
+  font-weight: 600 !important;
 }
 
 #header-mobile .alab-mh__acc,
@@ -75,3 +75,14 @@ body.alab-no-scroll{overflow:hidden;position:fixed;width:100%}
   border: 1px solid #e5e7eb;
   border-radius: 10px;
 }
+
+/* Mobile Menü: gleiche Schriftgröße für Accordion-Trigger & Single-Links */
+#header-mobile .alab-mh__acc-trigger,
+#header-mobile .alab-mh__single{
+  font: inherit;          /* wichtig bei <button> */
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+

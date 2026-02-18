@@ -24,6 +24,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+<url>
+
+    <loc>https://www.alabenergiesysteme.de/dach-verpachten/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <url>
     <loc>https://www.alabenergiesysteme.de/servicepakete/</loc>

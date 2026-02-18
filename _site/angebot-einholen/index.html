@@ -383,6 +383,7 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
 </a>
 </div>
 </li>
+<li><a href="/dach-verpachten/">Dach verpachten</a></li>
 <li><a href="/kontakt/">Kontakt</a></li>
 </ul>
 </nav>
@@ -482,7 +483,7 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
             </div>
           </div>
         </section>
-
+<a class="alab-mh__single" href="/dach-verpachten/">Dach verpachten</a>
         <a class="alab-mh__single" href="/kontakt/">Kontakt</a>
         <div class="alab-mh__cta"><a class="alab-mh__btn" href="/angebot-einholen/">Angebot einholen</a></div>
       </div>
@@ -896,9 +897,10 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
         <div class="err">Bitte gültige E-Mail angeben.</div>
       </div>
       <div class="field">
-        <label for="tel-privat">Telefon (optional)</label>
-        <input id="tel-privat" name="tel" type="tel">
-      </div>
+  <label for="tel-privat">Telefon*</label>
+  <input id="tel-privat" name="tel" type="tel" required>
+  <div class="err">Bitte Telefonnummer angeben.</div>
+</div>
       <div class="field" style="grid-column:1/-1">
         <label style="display:flex;gap:8px;align-items:center;margin-top:12px">
           <input id="consent_contact-privat" name="consent_contact" type="checkbox" required style="width:auto;height:auto">
@@ -1041,10 +1043,11 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
         <input id="email-gewerbe" name="email" type="email" required>
         <div class="err">Bitte gültige E-Mail angeben.</div>
       </div>
-      <div class="field">
-        <label for="tel-gewerbe">Telefon (optional)</label>
-        <input id="tel-gewerbe" name="tel" type="tel">
-      </div>
+     <div class="field">
+  <label for="tel-gewerbe">Telefon*</label>
+  <input id="tel-gewerbe" name="tel" type="tel" required>
+  <div class="err">Bitte Telefonnummer angeben.</div>
+</div>
       <div class="field" style="grid-column:1/-1">
         <label style="display:flex;gap:8px;align-items:center;margin-top:12px">
           <input id="consent_contact-gewerbe" name="consent_contact" type="checkbox" required style="width:auto;height:auto">
@@ -1299,6 +1302,7 @@ function resetFormState(form) {
         <li><a href="/gewerbliche-loesungen/">PV-Gewerbe</a>
 </li>
         <li><a href="/freiflaechen/">PV-Freiflächen</a></li>
+        <li><a href="/dach-verpachten/">Dach verpachten</a></li>
         <li><a href="/servicepakete/">Servicepakete</a></li>
         <li><a href="/montage/">Montage</a>
 </li>
@@ -1393,7 +1397,9 @@ function resetFormState(form) {
   const dlPush = (p)=>{ window.dataLayer = window.dataLayer || []; window.dataLayer.push(p); };
 
   // Jahr
-  document.getElementById('ftYear').textContent = new Date().getFullYear();
+    const y = new Date().getFullYear();
+  document.getElementById('ftYear').textContent = y;
+  document.getElementById('ftYearCopy').textContent = y;
 
   // Schnellkontakt (Footer)
   const ftQuickForm = document.getElementById('ftQuickForm');

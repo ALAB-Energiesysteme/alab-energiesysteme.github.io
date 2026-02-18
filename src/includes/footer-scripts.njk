@@ -4,7 +4,9 @@
   const dlPush = (p)=>{ window.dataLayer = window.dataLayer || []; window.dataLayer.push(p); };
 
   // Jahr
-  document.getElementById('ftYear').textContent = new Date().getFullYear();
+    const y = new Date().getFullYear();
+  document.getElementById('ftYear').textContent = y;
+  document.getElementById('ftYearCopy').textContent = y;
 
   // Schnellkontakt (Footer)
   const ftQuickForm = document.getElementById('ftQuickForm');

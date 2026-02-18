@@ -1,0 +1,720 @@
+---
+layout: base.njk
+title: Dach verpachten für PV in Bayern | ALAB Energiesysteme
+description: Dachfläche verpachten oder PV-Contracting für Gewerbe & Landwirtschaft in Bayern. Unverbindliche Vorprüfung mit Fotos in 2–3 Minuten.
+permalink: /dach-verpachten/
+bodyClass: page-dach-verpachten
+pageClass: page-dach-verpachten
+---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dachverpachtung für Landwirtschaft & Gewerbe | Alab Energiesysteme</title>
+<meta name="description" content="Dach verpachten für Photovoltaik: Kostenlose Dachsanierung gegen Verpachtung ab 600 m². Sichere Pachteinnahmen über 20+ Jahre. Spezialisiert auf Ställe, Hallen & Gewerbe.">
+<meta name="keywords" content="Dach verpachten Photovoltaik, Dachverpachtung Solaranlage, Dachfläche vermieten, kostenlose Dachsanierung gegen Verpachtung, Industriedach vermieten, Scheunendach verpachten, Dachverpachtung Landwirtschaft, PPA Solar Gewerbe, Lagerhalle Dach verpachten, Asbestsanierung Solaranlage kostenlos, Gewerbehalle Solaranlage, große Dachflächen für Photovoltaik, Logistikhalle Solaranlage Pachtmodell">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--accent:#EEDC7F;
+--accent-dark:#D4C46A;
+--accent-bg:rgba(238,220,127,.12);
+--anthracite:#1E2A38;
+--anthracite-light:#2A3A4C;
+--anthracite-mid:#3A4D63;
+--white:#FFFFFF;
+--gray-50:#F4F5F7;
+--gray-100:#E8EAED;
+--gray-200:#D1D5DB;
+--gray-300:#9CA3AF;
+--gray-400:#6B7280;
+--gray-600:#374151;
+--text:#1E2A38;
+--text-body:#374151;
+--text-muted:#6B7280;
+--border:#D1D5DB;
+--border-light:#E8EAED;
+--shadow:0 2px 8px rgba(30,42,56,.08),0 1px 3px rgba(30,42,56,.06);
+--shadow-lg:0 8px 24px rgba(30,42,56,.1),0 2px 8px rgba(30,42,56,.06);
+--radius:6px;
+--radius-lg:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--white);color:var(--text);line-height:1.7;font-size:15px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.section{padding:88px 0}
+.section-label{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--accent-dark);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.section-label::before{content:'';width:32px;height:3px;background:var(--accent);border-radius:0}
+.section-headline{font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;margin-bottom:18px;color:var(--anthracite);letter-spacing:-.5px;text-transform:none}
+.section-text{font-size:15px;color:var(--text-body);max-width:600px;line-height:1.75;font-weight:400}
+
+/* PLACEHOLDER BOXES */
+.placeholder{background:#C8CDD3;border:2px dashed #A0A8B4;display:flex;align-items:center;justify-content:center;text-align:center;color:#5A6370;font-size:13px;font-weight:700;letter-spacing:.5px;padding:24px;min-height:200px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;border-radius:var(--radius);font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .25s;letter-spacing:.3px;text-transform:uppercase}
+.btn-accent{background:var(--accent);color:var(--anthracite);box-shadow:0 2px 8px rgba(238,220,127,.3)}
+.btn-accent:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(238,220,127,.35)}
+.btn-accent svg{width:16px;height:16px}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.3);padding:14px 28px}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-dark{background:var(--anthracite);color:var(--white)}
+.btn-dark:hover{background:var(--anthracite-light);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+
+/* ICON BLOCKS */
+.icon-block{width:52px;height:52px;border-radius:var(--radius);background:var(--anthracite);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.icon-block svg{width:24px;height:24px;color:var(--accent);fill:var(--accent)}
+.icon-block-light{background:var(--accent-bg);border:2px solid rgba(238,220,127,.2)}
+.icon-block-light svg{color:var(--anthracite);fill:var(--anthracite)}
+
+/* ════════════════════════════════════════
+   HERO
+   ════════════════════════════════════════ */
+.hero{background:var(--anthracite);color:var(--white);padding:0;min-height:auto;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,.03) 59px,rgba(255,255,255,.03) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,.03) 59px,rgba(255,255,255,.03) 60px);pointer-events:none}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;min-height:600px;position:relative;z-index:1}
+.hero-content{padding:80px 48px 80px 0;display:flex;flex-direction:column;justify-content:center;max-width:560px;margin-left:auto}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(238,220,127,.1);border:1px solid rgba(238,220,127,.25);padding:6px 14px;font-size:11px;font-weight:800;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;width:fit-content}
+.hero h1{font-size:clamp(30px,4.2vw,50px);font-weight:900;line-height:1.08;margin-bottom:20px;letter-spacing:-.5px}
+.hero h1 span{color:var(--accent)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:36px;max-width:480px;font-weight:400}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-image{position:relative;overflow:hidden}
+.hero-image .placeholder{min-height:100%;border:none;background:#3A4D63;color:rgba(255,255,255,.4);font-size:14px;border-left:1px solid rgba(255,255,255,.08)}
+
+/* ════════════════════════════════════════
+   TRUST BAR
+   ════════════════════════════════════════ */
+.trust-bar{background:var(--anthracite-light);border-bottom:3px solid var(--accent)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-item{display:flex;align-items:center;gap:14px;padding:22px 20px;border-right:1px solid rgba(255,255,255,.08)}
+.trust-item:last-child{border-right:none}
+.trust-item svg{width:20px;height:20px;color:var(--accent);fill:var(--accent);flex-shrink:0}
+.trust-item span{font-size:13px;font-weight:600;color:rgba(255,255,255,.8);line-height:1.4}
+
+/* ════════════════════════════════════════
+   STATS
+   ════════════════════════════════════════ */
+.stats{background:var(--gray-50);border-bottom:1px solid var(--border-light);padding:48px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{text-align:center;padding:20px}
+.stat-value{font-size:48px;font-weight:900;color:var(--anthracite);line-height:1;margin-bottom:4px;letter-spacing:-1px}
+.stat-value span{color:var(--accent-dark)}
+.stat-label{font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px}
+
+/* ════════════════════════════════════════
+   VALUE SECTION
+   ════════════════════════════════════════ */
+.value-section{background:var(--white)}
+.value-top{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:48px}
+.value-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.value-card{background:var(--gray-50);border:2px solid var(--border-light);border-radius:var(--radius-lg);padding:32px 28px;transition:all .25s}
+.value-card:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateY(-2px)}
+.value-card .icon-block{margin-bottom:20px}
+.value-card h3{font-size:17px;font-weight:800;margin-bottom:8px;color:var(--anthracite)}
+.value-card p{font-size:14px;color:var(--text-muted);line-height:1.65}
+
+/* ════════════════════════════════════════
+   AGRAR SECTION
+   ════════════════════════════════════════ */
+.agrar-section{background:var(--gray-50);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light)}
+.agrar-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.agrar-steps{display:flex;flex-direction:column;gap:0;margin-top:32px}
+.agrar-step{display:flex;gap:18px;align-items:flex-start;padding:20px 0;border-bottom:2px solid var(--border-light)}
+.agrar-step:last-child{border-bottom:none}
+.agrar-step-num{width:38px;height:38px;background:var(--anthracite);color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;flex-shrink:0}
+.agrar-step h4{font-size:15px;font-weight:700;margin-bottom:3px;color:var(--anthracite)}
+.agrar-step p{font-size:13px;color:var(--text-muted);line-height:1.6}
+.agrar-ideal{margin-top:24px;padding:16px 20px;background:var(--accent-bg);border:2px solid rgba(238,220,127,.25);font-size:13px;font-weight:600;color:var(--text-body)}
+.agrar-ideal strong{color:var(--anthracite)}
+.agrar-images{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px}
+.agrar-images .placeholder{min-height:220px;border-radius:var(--radius)}
+.agrar-images .label-tag{position:absolute;top:12px;left:12px;background:var(--anthracite);color:var(--accent);font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 10px}
+.img-wrap{position:relative;overflow:hidden;border-radius:var(--radius)}
+
+/* ════════════════════════════════════════
+   GEWERBE
+   ════════════════════════════════════════ */
+.gewerbe-section{background:var(--white)}
+.gewerbe-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.ppa-card{background:var(--gray-50);border:2px solid var(--border-light);border-radius:var(--radius-lg);padding:36px 32px}
+.ppa-badge{display:inline-flex;background:var(--anthracite);color:var(--accent);padding:5px 12px;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+.ppa-card h3{font-size:22px;font-weight:800;margin-bottom:10px;color:var(--anthracite)}
+.ppa-card>p{font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:24px}
+.ppa-list{display:flex;flex-direction:column;gap:16px}
+.ppa-item{display:flex;gap:14px;align-items:flex-start}
+.ppa-item h4{font-size:14px;font-weight:700;margin-bottom:2px;color:var(--anthracite)}
+.ppa-item p{font-size:13px;color:var(--text-muted);line-height:1.55}
+
+/* ════════════════════════════════════════
+   QUALIFY
+   ════════════════════════════════════════ */
+.qualify-section{background:var(--gray-50);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light)}
+.qualify-header{max-width:620px;margin-bottom:44px}
+.qualify-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.qualify-card{background:var(--white);border:2px solid var(--border-light);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;transition:all .25s}
+.qualify-card:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateY(-2px)}
+.qualify-card .icon-block{margin:0 auto 16px;width:48px;height:48px}
+.qualify-card h4{font-size:14px;font-weight:700;margin-bottom:5px;color:var(--anthracite)}
+.qualify-card p{font-size:12px;color:var(--text-muted);line-height:1.5}
+.qualify-hint{background:var(--white);border:2px solid var(--border-light);border-left:4px solid var(--accent);padding:16px 22px;font-size:13px;color:var(--text-muted);line-height:1.65;max-width:780px}
+.qualify-hint strong{color:var(--anthracite);font-weight:700}
+
+/* ════════════════════════════════════════
+   PROCESS (Technical Timeline)
+   ════════════════════════════════════════ */
+.process-section{background:var(--white)}
+.process-header{text-align:center;max-width:560px;margin:0 auto 56px}
+.process-header .section-label{justify-content:center}
+.process-header .section-text{margin:0 auto}
+.timeline{position:relative;padding:0}
+.timeline::before{content:'';position:absolute;top:28px;left:0;right:0;height:4px;background:var(--border-light)}
+.timeline-track{display:grid;grid-template-columns:repeat(5,1fr);position:relative;z-index:1}
+.timeline-step{text-align:center;padding:0 10px}
+.timeline-marker{width:56px;height:56px;background:var(--anthracite);border:4px solid var(--border-light);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;transition:all .3s}
+.timeline-step:hover .timeline-marker{border-color:var(--accent);background:var(--anthracite-light)}
+.timeline-marker span{font-size:20px;font-weight:900;color:var(--accent)}
+.timeline-step h4{font-size:13px;font-weight:800;color:var(--anthracite);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
+.timeline-step p{font-size:12px;color:var(--text-muted);line-height:1.5}
+
+/* ════════════════════════════════════════
+   FAQ
+   ════════════════════════════════════════ */
+.faq-section{background:var(--gray-50);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light)}
+.faq-layout{display:grid;grid-template-columns:.4fr .6fr;gap:56px;align-items:start}
+.faq-left{position:sticky;top:40px}
+.faq-list{display:flex;flex-direction:column;gap:8px}
+.faq-item{background:var(--white);border:2px solid var(--border-light);overflow:hidden;transition:all .25s}
+.faq-item.open{border-color:var(--accent)}
+.faq-q{width:100%;background:none;border:none;color:var(--anthracite);font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;text-align:left;padding:18px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;transition:color .25s}
+.faq-q:hover{color:var(--accent-dark)}
+.faq-arrow{width:28px;height:28px;background:var(--gray-50);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .25s}
+.faq-item.open .faq-arrow{background:var(--accent);transform:rotate(180deg)}
+.faq-arrow svg{width:12px;height:12px;color:var(--text-muted)}
+.faq-item.open .faq-arrow svg{color:var(--anthracite)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a-inner{padding:0 22px 18px;font-size:13px;color:var(--text-muted);line-height:1.7}
+.faq-item.open .faq-a{max-height:400px}
+
+/* ════════════════════════════════════════
+   CTA
+   ════════════════════════════════════════ */
+.cta-section{padding:88px 0;background:var(--white)}
+.cta-box{background:var(--anthracite);padding:64px;text-align:center;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,.02) 59px,rgba(255,255,255,.02) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,.02) 59px,rgba(255,255,255,.02) 60px);pointer-events:none}
+.cta-box::after{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent)}
+.cta-box h2{font-size:clamp(24px,3vw,36px);font-weight:900;color:var(--white);margin-bottom:14px;position:relative}
+.cta-box p{font-size:15px;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto 28px;line-height:1.7;position:relative}
+.cta-box .btn-accent{position:relative}
+
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media (max-width: 768px) {
+  .stats {
+    display: none !important;
+  }
+}
+/* RESPONSIVE */
+@media(max-width:1024px){
+.hero-inner{grid-template-columns:1fr}
+.hero-content{padding:64px 0;max-width:100%;margin:0}
+.hero-image{min-height:300px}
+.trust-grid{grid-template-columns:repeat(2,1fr)}
+.trust-item:nth-child(2){border-right:none}
+.trust-item:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.08)}
+.value-top{grid-template-columns:1fr;gap:16px}
+.agrar-grid,.gewerbe-grid{grid-template-columns:1fr;gap:36px}
+.qualify-grid{grid-template-columns:repeat(2,1fr)}
+.timeline-track{grid-template-columns:1fr;gap:20px}
+.timeline::before{display:none}
+.timeline-step{text-align:left;display:flex;gap:16px;align-items:flex-start}
+.timeline-marker{margin:0;flex-shrink:0;width:48px;height:48px}
+.faq-layout{grid-template-columns:1fr;gap:28px}
+.faq-left{position:static}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+.section{padding:64px 0}
+.value-grid{grid-template-columns:1fr}
+.qualify-grid{grid-template-columns:1fr}
+.agrar-images{grid-template-columns:1fr}
+.cta-box{padding:48px 24px}
+.hero-actions{flex-direction:column;align-items:stretch}
+.btn{justify-content:center}
+}
+@media(max-width:480px){
+.trust-grid{grid-template-columns:1fr}
+.trust-item{border-right:none!important;border-bottom:1px solid rgba(255,255,255,.08)}
+.trust-item:last-child{border-bottom:none}
+.stats-grid{grid-template-columns:1fr}
+.hero-content{padding:48px 0}
+}
+/* Modal Hintergrund */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; top: 0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(30,42,56,0.9);
+    align-items: center; justify-content: center;
+}
+
+/* Das Formular-Fenster */
+.modal-content {
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 24px; cursor: pointer;
+    font-weight: bold; color: var(--text-muted);
+}
+
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: 700; font-size: 13px; }
+.form-group input, .form-group textarea {
+    width: 100%; padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: 'Montserrat', sans-serif;
+}
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 30px 20px;
+        width: 95%;
+        margin: 10px auto;
+        max-height: 90vh; /* Verhindert, dass es zu lang wird */
+        overflow-y: auto; /* Erlaubt Scrollen im Modal, falls nötig */
+    }
+}
+
+.checkbox-group { display: flex; gap: 10px; align-items: flex-start; font-size: 12px; margin: 20px 0; }
+.checkbox-group input { margin-top: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+<div class="container">
+<div class="hero-inner">
+    <div class="hero-content">
+        <div class="hero-tag">Alab Energiesysteme &mdash; Großprojekte ab 600 m²</div>
+        <h1>Verwandeln Sie Ihre Dachflächen in <span>Kapital.</span></h1>
+        <p class="hero-sub">Sichere Pachteinnahmen oder kostenfreie Dachsanierung für Landwirtschaft &amp; Industrie. Wir übernehmen 100% der Investition, Wartung und Versicherung – über 20 Jahre.</p>
+        <div class="hero-actions">
+            <a href="#kontakt" class="btn btn-accent">Kostenlose Ertragseinschätzung <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
+            <a href="#prozess" class="btn btn-outline">Ablauf ansehen</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="https://static.wixstatic.com/media/cac2b9_4be481eac8504af69e8fa38ceac95e6b~mv2.jpg" alt="Solaranlage auf Industriehalle" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+    </div>
+</div>
+</div>
+</section>
+
+<!-- ════════ TRUST BAR ════════ -->
+<div class="trust-bar">
+<div class="container" style="max-width:100%;padding:0">
+<div class="trust-grid">
+    <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516 11.209 11.209 0 01-7.877-3.08zm3.234 8.08a.75.75 0 00-1.06-1.06L11.25 12.63l-1.94-1.94a.75.75 0 00-1.06 1.06l2.47 2.47a.75.75 0 001.06 0l4.97-4.97z" clip-rule="evenodd"/></svg>
+        <span>100% Investitionsübernahme durch Alab</span>
+    </div>
+    <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.584 2.376a.75.75 0 01.832 0l9 6a.75.75 0 01-.832 1.248L12 3.901 3.416 9.624a.75.75 0 01-.832-1.248l9-6z"/><path fill-rule="evenodd" d="M20.25 10.332v9.918H21a.75.75 0 010 1.5H3a.75.75 0 010-1.5h.75v-9.918a.75.75 0 01.634-.74A49.109 49.109 0 0112 9c2.59 0 5.134.202 7.616.592a.75.75 0 01.634.74zm-7.5 2.418a.75.75 0 00-1.5 0v6.75a.75.75 0 001.5 0v-6.75zm3-.75a.75.75 0 01.75.75v6.75a.75.75 0 01-1.5 0v-6.75a.75.75 0 01.75-.75zm-9 .75a.75.75 0 00-1.5 0v6.75a.75.75 0 001.5 0v-6.75z" clip-rule="evenodd"/></svg>
+        <span>Spezialisiert auf Ställe, Hallen & Gewerbe</span>
+    </div>
+    <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 6.75a5.25 5.25 0 016.775-5.025.75.75 0 01.313 1.248l-3.32 3.319c.063.475.276.934.641 1.299.365.365.824.578 1.3.64l3.318-3.319a.75.75 0 011.248.313 5.25 5.25 0 01-5.472 6.756c-1.018-.086-1.87.1-2.309.634L7.344 21.3A3.298 3.298 0 112.7 16.657l8.684-7.151c.533-.44.72-1.291.634-2.309A5.342 5.342 0 0112 6.75zM4.117 19.125a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75h-.008a.75.75 0 01-.75-.75v-.008z" clip-rule="evenodd"/></svg>
+        <span>Inklusive Wartung & Versicherung</span>
+    </div>
+    <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.464 8.746c.227-.18.497-.311.786-.394v2.795a2.252 2.252 0 01-.786-.393c-.394-.313-.546-.681-.546-1.004 0-.323.152-.691.546-1.004zM12.75 15.662v-2.824c.347.085.664.228.921.421.427.32.579.686.579.991 0 .305-.152.671-.579.991a2.534 2.534 0 01-.921.42z"/><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v.816a3.836 3.836 0 00-1.72.756c-.712.566-1.112 1.35-1.112 2.178 0 .829.4 1.612 1.113 2.178.502.4 1.102.647 1.719.756v2.978a2.536 2.536 0 01-.921-.421l-.879-.66a.75.75 0 00-.9 1.2l.879.66c.533.4 1.169.645 1.821.75V18a.75.75 0 001.5 0v-.81a4.124 4.124 0 001.821-.749c.745-.559 1.179-1.344 1.179-2.191 0-.847-.434-1.632-1.179-2.191a4.122 4.122 0 00-1.821-.75V8.354c.29.082.559.213.786.393l.415.33a.75.75 0 00.933-1.175l-.415-.33a3.836 3.836 0 00-1.719-.755V6z" clip-rule="evenodd"/></svg>
+        <span>Sichere Einnahmen über 20+ Jahre</span>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- ════════ STATS ════════ -->
+<div class="stats reveal">
+<div class="container">
+<div class="stats-grid">
+    <div class="stat"><div class="stat-value">600<span>+</span></div><div class="stat-label">m² Mindestfläche</div></div>
+    <div class="stat"><div class="stat-value">0<span>€</span></div><div class="stat-label">Investitionskosten</div></div>
+    <div class="stat"><div class="stat-value">20<span>+</span></div><div class="stat-label">Jahre Laufzeit</div></div>
+    <div class="stat"><div class="stat-value">100<span>%</span></div><div class="stat-label">Service inklusive</div></div>
+</div>
+</div>
+</div>
+
+<!-- ════════ VALUE PROPOSITION ════════ -->
+<section class="section value-section" id="vorteile">
+<div class="container">
+<div class="value-top reveal">
+    <div>
+        <div class="section-label">Dachverpachtung Solaranlage</div>
+        <h2 class="section-headline">Ihr Dach kann mehr als nur regendicht sein.</h2>
+    </div>
+    <p class="section-text">Wir betrachten Ihr Dach als ungenutztes Kraftwerk. Unser Pachtmodell aktiviert diese stille Reserve – ohne eigenes Kapital zu binden. Wir konzentrieren uns ausschließlich auf Großprojekte im gewerblichen und landwirtschaftlichen Sektor.</p>
+</div>
+<div class="value-grid">
+    <div class="value-card reveal">
+        <div class="icon-block"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.464 8.746c.227-.18.497-.311.786-.394v2.795a2.252 2.252 0 01-.786-.393c-.394-.313-.546-.681-.546-1.004 0-.323.152-.691.546-1.004zM12.75 15.662v-2.824c.347.085.664.228.921.421.427.32.579.686.579.991 0 .305-.152.671-.579.991a2.534 2.534 0 01-.921.42z"/><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v.816a3.836 3.836 0 00-1.72.756c-.712.566-1.112 1.35-1.112 2.178 0 .829.4 1.612 1.113 2.178.502.4 1.102.647 1.719.756v2.978a2.536 2.536 0 01-.921-.421l-.879-.66a.75.75 0 00-.9 1.2l.879.66c.533.4 1.169.645 1.821.75V18a.75.75 0 001.5 0v-.81a4.124 4.124 0 001.821-.749c.745-.559 1.179-1.344 1.179-2.191 0-.847-.434-1.632-1.179-2.191a4.122 4.122 0 00-1.821-.75V8.354c.29.082.559.213.786.393l.415.33a.75.75 0 00.933-1.175l-.415-.33a3.836 3.836 0 00-1.719-.755V6z" clip-rule="evenodd"/></svg></div>
+        <h3>0 € Investition</h3>
+        <p>Wir tragen sämtliche Kosten für Planung, Material, Netzanschluss und Montage. Ihr Betriebsvermögen bleibt vollständig unangetastet.</p>
+    </div>
+    <div class="value-card reveal">
+        <div class="icon-block"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516 11.209 11.209 0 01-7.877-3.08zm3.234 8.08a.75.75 0 00-1.06-1.06L11.25 12.63l-1.94-1.94a.75.75 0 00-1.06 1.06l2.47 2.47a.75.75 0 001.06 0l4.97-4.97z" clip-rule="evenodd"/></svg></div>
+        <h3>Maximale Sicherheit</h3>
+        <p>Als Betreiber übernehmen wir die volle Haftung, Wartung und Versicherung der Anlage über die gesamte Laufzeit. Keinerlei Risiko für Sie.</p>
+    </div>
+    <div class="value-card reveal">
+        <div class="icon-block"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z" clip-rule="evenodd"/></svg></div>
+        <h3>Planbare Liquidität</h3>
+        <p>Wählen Sie zwischen einer attraktiven Einmalzahlung (Kick-back) oder laufenden jährlichen Pachteinnahmen – flexibel nach Ihrem Bedarf.</p>
+    </div>
+    <div class="value-card reveal">
+        <div class="icon-block"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.584 2.376a.75.75 0 01.832 0l9 6a.75.75 0 01-.832 1.248L12 3.901 3.416 9.624a.75.75 0 01-.832-1.248l9-6z"/><path fill-rule="evenodd" d="M20.25 10.332v9.918H21a.75.75 0 010 1.5H3a.75.75 0 010-1.5h.75v-9.918a.75.75 0 01.634-.74A49.109 49.109 0 0112 9c2.59 0 5.134.202 7.616.592a.75.75 0 01.634.74zm-7.5 2.418a.75.75 0 00-1.5 0v6.75a.75.75 0 001.5 0v-6.75zm3-.75a.75.75 0 01.75.75v6.75a.75.75 0 01-1.5 0v-6.75a.75.75 0 01.75-.75zm-9 .75a.75.75 0 00-1.5 0v6.75a.75.75 0 001.5 0v-6.75z" clip-rule="evenodd"/></svg></div>
+        <h3>Substanzerhalt</h3>
+        <p>Die PV-Module schützen Ihre Dachhaut vor direkter Witterung und UV-Strahlung und verlängern die Lebensdauer Ihrer Immobilie.</p>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- ════════ LANDWIRTSCHAFT ════════ -->
+<section class="section agrar-section" id="landwirtschaft">
+<div class="container">
+<div class="agrar-grid">
+    <div class="reveal">
+        <div class="section-label">Dachsanierung kostenlos gegen Photovoltaik</div>
+        <h2 class="section-headline">Neues Dach statt teurer Sanierung.</h2>
+        <p class="section-text" style="margin-bottom:12px">Besitzer landwirtschaftlicher Gebäude stehen oft vor einem Dilemma: Alte Dächer – häufig Welleternit oder asbesthaltige Platten – müssen saniert werden, doch die Kosten sind enorm. Gleichzeitig verbietet der Gesetzgeber die Installation von Solaranlagen auf Asbestdächern.</p>
+        <p class="section-text"><strong style="color:var(--anthracite)">Alab löst dieses Problem</strong> mit dem Modell „Dachsanierung gegen Verpachtung".</p>
+        <div class="agrar-steps">
+            <div class="agrar-step"><div class="agrar-step-num">1</div><div><h4>Professionelle Asbestsanierung</h4><p>Zertifizierte Fachbetriebe übernehmen Demontage und Entsorgung gemäß TRGS 519.</p></div></div>
+            <div class="agrar-step"><div class="agrar-step-num">2</div><div><h4>Hochwertige Neueindeckung</h4><p>Ihr Gebäude erhält eine neue Eindeckung (z.B. Trapezblech), optimal für PV-Betrieb.</p></div></div>
+            <div class="agrar-step"><div class="agrar-step-num">3</div><div><h4>Keine Kosten für Sie</h4><p>Die Erträge der Solaranlage refinanzieren die komplette Sanierung.</p></div></div>
+            <div class="agrar-step"><div class="agrar-step-num">4</div><div><h4>Betriebsfrieden</h4><p>Minimale Beeinträchtigung Ihrer Tiere und betrieblichen Abläufe.</p></div></div>
+        </div>
+        <div class="agrar-ideal"><strong>Ideal für:</strong> Rinderställe, Maschinenhallen, Reithallen und Scheunen ab 600 m².</div>
+    </div>
+    <div class="reveal">
+        <div class="agrar-images">
+            <div class="img-wrap">
+                <img src="https://static.wixstatic.com/media/cac2b9_5fe220f79a5742e782a9374125909754~mv2.png" alt="Altes Asbestdach - Vorher" style="width:100%;height:240px;object-fit:cover;border-radius:var(--radius);display:block;">
+                <div class="label-tag">Vorher</div>
+            </div>
+            <div class="img-wrap">
+                <img src="https://static.wixstatic.com/media/cac2b9_257c99ba0f8c45d9a0920f49cbfb6b0a~mv2.png" alt="Saniertes Dach mit PV - Nachher" style="width:100%;height:240px;object-fit:cover;border-radius:var(--radius);display:block;">
+                <div class="label-tag" style="background:var(--accent);color:var(--anthracite)">Nachher</div>
+            </div>
+        </div>
+        <img src="https://static.wixstatic.com/media/cac2b9_0506adf379e34cdf90a4b2be05dc8282~mv2.png" alt="Drohnenaufnahme Stall mit Photovoltaik" style="width:100%;min-height:260px;height:auto;object-fit:cover;border-radius:var(--radius);margin-top:12px;display:block;">
+    </div>
+</div>
+</div>
+</section>
+
+<!-- ════════ GEWERBE ════════ -->
+<section class="section gewerbe-section" id="gewerbe">
+<div class="container">
+<div class="gewerbe-grid">
+    <div class="reveal">
+        <div class="section-label">PPA Solar Gewerbe</div>
+        <h2 class="section-headline">Bilanzoptimierung und Green Energy für Ihr Unternehmen.</h2>
+        <p class="section-text" style="margin-bottom:24px">In der Logistik und Produktion zählen Effizienz und Nachhaltigkeit. Eine verpachtete Dachfläche ist der einfachste Weg, Ihre ESG-Kriterien zu erfüllen.</p>
+        <img src="https://static.wixstatic.com/media/cac2b9_aa5f44417a1d47479e36dea3b581511b~mv2.jpg" alt="Logistikhalle mit Photovoltaik" style="width:100%;min-height:280px;height:auto;object-fit:cover;border-radius:var(--radius);display:block;">
+    </div>
+    <div class="reveal">
+        <div class="ppa-card">
+            <div class="ppa-badge">Power Purchase Agreement</div>
+            <h3>Das PPA-Modell</h3>
+            <p>Für energieintensive Betriebe bieten wir Modelle an, bei denen Sie den erzeugten Strom direkt vom Dach zu Konditionen deutlich unter Marktpreis kaufen.</p>
+            <div class="ppa-list">
+                <div class="ppa-item">
+                    <div class="icon-block" style="width:40px;height:40px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path fill-rule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z" clip-rule="evenodd"/></svg></div>
+                    <div><h4>Preisstabilität</h4><p>Unabhängigkeit von schwankenden Börsenstrompreisen durch langfristig fixierte Konditionen.</p></div>
+                </div>
+                <div class="ppa-item">
+                    <div class="icon-block" style="width:40px;height:40px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path fill-rule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5z" clip-rule="evenodd"/></svg></div>
+                    <div><h4>Imagegewinn</h4><p>Sichtbare PV-Anlage für Ihr Marketing als nachhaltiges Unternehmen.</p></div>
+                </div>
+                <div class="ppa-item">
+                    <div class="icon-block" style="width:40px;height:40px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path fill-rule="evenodd" d="M7.502 6h7.128A3.375 3.375 0 0118 9.375v9.375a3 3 0 003-3V6.108c0-1.505-1.125-2.811-2.664-2.94a48.972 48.972 0 00-.673-.05A3 3 0 0015 1.5h-1.5a3 3 0 00-2.663 1.618c-.225.015-.45.032-.673.05C8.662 3.295 7.554 4.542 7.502 6zM13.5 3A1.5 1.5 0 0012 4.5h4.5A1.5 1.5 0 0015 3h-1.5z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M3 9.375C3 8.339 3.84 7.5 4.875 7.5h9.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V9.375zm9.586 4.594a.75.75 0 00-1.172-.938l-2.476 3.096-.908-.907a.75.75 0 00-1.06 1.06l1.5 1.5a.75.75 0 001.116-.062l3-3.75z" clip-rule="evenodd"/></svg></div>
+                    <div><h4>Netz-Check inklusive</h4><p>Kostenlose Prüfung der Netzkapazitäten und Übernahme der Bürokratie.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- ════════ QUALIFIZIERUNG ════════ -->
+<section class="section qualify-section" id="eignung">
+<div class="container">
+<div class="qualify-header reveal">
+    <div class="section-label">Große Dachflächen für Photovoltaik</div>
+    <h2 class="section-headline">Ist Ihr Dach für eine Alab-Partnerschaft geeignet?</h2>
+    <p class="section-text">Um die wirtschaftlichen Vorteile realisieren zu können, benötigen unsere Projekte eine gewisse Skalierung. Prüfen Sie vorab folgende Kriterien:</p>
+</div>
+<div class="qualify-grid reveal">
+    <div class="qualify-card">
+        <div class="icon-block" style="width:48px;height:48px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px"><path fill-rule="evenodd" d="M4.5 2.25a.75.75 0 000 1.5v16.5h-.75a.75.75 0 000 1.5h16.5a.75.75 0 000-1.5h-.75V3.75a.75.75 0 000-1.5h-15zM9 6a.75.75 0 000 1.5h1.5a.75.75 0 000-1.5H9zm-.75 3.75A.75.75 0 019 9h1.5a.75.75 0 010 1.5H9a.75.75 0 01-.75-.75zM9 12a.75.75 0 000 1.5h1.5a.75.75 0 000-1.5H9zm3.75-5.25A.75.75 0 0113.5 6H15a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75zM13.5 9a.75.75 0 000 1.5H15a.75.75 0 000-1.5h-1.5zm-.75 3.75a.75.75 0 01.75-.75H15a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75zM9 19.5v-2.25a.75.75 0 01.75-.75h4.5a.75.75 0 01.75.75v2.25a.75.75 0 01-.75.75h-4.5A.75.75 0 019 19.5z" clip-rule="evenodd"/></svg></div>
+        <h4>Mindestens 600 m²</h4>
+        <p>Zusammenhängende Fläche von ca. 30 × 20 m.</p>
+    </div>
+    <div class="qualify-card">
+        <div class="icon-block" style="width:48px;height:48px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px"><path fill-rule="evenodd" d="M12 6.75a5.25 5.25 0 016.775-5.025.75.75 0 01.313 1.248l-3.32 3.319c.063.475.276.934.641 1.299.365.365.824.578 1.3.64l3.318-3.319a.75.75 0 011.248.313 5.25 5.25 0 01-5.472 6.756c-1.018-.086-1.87.1-2.309.634L7.344 21.3A3.298 3.298 0 112.7 16.657l8.684-7.151c.533-.44.72-1.291.634-2.309A5.342 5.342 0 0112 6.75z" clip-rule="evenodd"/></svg></div>
+        <h4>Solide Dachstatik</h4>
+        <p>Tragfähige Konstruktion. Detailprüfung durch uns.</p>
+    </div>
+    <div class="qualify-card">
+        <div class="icon-block" style="width:48px;height:48px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px"><path fill-rule="evenodd" d="M15.75 1.5a6.75 6.75 0 00-6.651 7.906c.067.39-.032.717-.221.906l-6.5 6.499a3 3 0 00-.878 2.121v2.818c0 .414.336.75.75.75H6a.75.75 0 00.75-.75v-1.5h1.5A.75.75 0 009 19.5V18h1.5a.75.75 0 00.53-.22l2.658-2.658c.19-.189.517-.288.906-.22A6.75 6.75 0 1015.75 1.5zm0 3a.75.75 0 000 1.5A2.25 2.25 0 0118 8.25a.75.75 0 001.5 0 3.75 3.75 0 00-3.75-3.75z" clip-rule="evenodd"/></svg></div>
+        <h4>Eigentum / Befugnis</h4>
+        <p>Alleiniger Eigentümer oder entscheidungsbefugt.</p>
+    </div>
+    <div class="qualify-card">
+        <div class="icon-block" style="width:48px;height:48px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/></svg></div>
+        <h4>Geringe Verschattung</h4>
+        <p>Frei von Schatten durch Bäume oder Gebäude.</p>
+    </div>
+</div>
+<div class="qualify-hint reveal"><strong>Hinweis:</strong> Einfamilienhäuser und kleine Dächer können wir aufgrund unserer industriellen Prozessstruktur leider nicht wirtschaftlich abbilden. Faustregel: Eine typische Maschinenhalle beginnt bei ca. 500–600 m².</div>
+</div>
+</section>
+
+<!-- ════════ PROZESS ════════ -->
+<section class="section process-section" id="prozess">
+<div class="container">
+<div class="process-header reveal">
+    <div class="section-label">Unser Ablauf</div>
+    <h2 class="section-headline">In 5 Schritten zur Ertragsfläche.</h2>
+    <p class="section-text">Unser Prozess ist auf maximale Effizienz und rechtliche Sicherheit ausgelegt.</p>
+</div>
+<div class="timeline reveal">
+    <div class="timeline-track">
+        <div class="timeline-step"><div class="timeline-marker"><span>01</span></div><div><h4>Erstprüfung</h4><p>Remote-Analyse via Satellitenbilder, Katasterdaten und Netzkapazitätsprüfung.</p></div></div>
+        <div class="timeline-step"><div class="timeline-marker"><span>02</span></div><div><h4>Vor-Ort-Termin</h4><p>Begutachtung von Dachzustand, Statik und elektrischer Infrastruktur.</p></div></div>
+        <div class="timeline-step"><div class="timeline-marker"><span>03</span></div><div><h4>Angebot & Vertrag</h4><p>Verbindliches Pachtangebot mit transparenter Absicherung.</p></div></div>
+        <div class="timeline-step"><div class="timeline-marker"><span>04</span></div><div><h4>Bauphase</h4><p>Installation und ggf. Dachsanierung durch koordinierte Fachteams.</p></div></div>
+        <div class="timeline-step"><div class="timeline-marker"><span>05</span></div><div><h4>Inbetriebnahme</h4><p>Netzanschluss, Stromfluss – 20+ Jahre Rundum-Service.</p></div></div>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- ════════ FAQ ════════ -->
+<section class="section faq-section" id="faq">
+<div class="container">
+<div class="faq-layout">
+    <div class="faq-left reveal">
+        <div class="section-label">Wissen</div>
+        <h2 class="section-headline">Häufige Fragen zur Dachverpachtung</h2>
+        <p class="section-text" style="font-size:14px">Transparenz ist die Basis jeder Partnerschaft. Hier finden Sie Antworten auf die häufigsten Fragen.</p>
+    </div>
+    <div class="faq-list reveal">
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Warum ist eine Dienstbarkeit im Grundbuch notwendig?<div class="faq-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></div></button><div class="faq-a"><div class="faq-a-inner">Die Dienstbarkeit sichert das Recht zum Betrieb der Anlage dinglich ab. Sie ist Standard bei gewerblichen PV-Projekten und dient der Sicherheit beider Parteien – etwa, falls die Immobilie verkauft wird.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Habe ich Kosten für Wartung oder Reparaturen?<div class="faq-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></div></button><div class="faq-a"><div class="faq-a-inner">Nein. Alab Energiesysteme trägt als Betreiber alle Kosten für Wartung, Reinigung, Reparaturen und Versicherung über die gesamte Vertragslaufzeit.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Was passiert nach Ablauf der Pachtzeit?<div class="faq-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></div></button><div class="faq-a"><div class="faq-a-inner">Sie haben diverse Optionen: Rückbau auf unsere Kosten, Übernahme der Anlage zur eigenen Stromnutzung oder Vertragsverlängerung.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Wieviel Pacht bekomme ich für meine Dachfläche?<div class="faq-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></div></button><div class="faq-a"><div class="faq-a-inner">Die Pachthöhe hängt von Dachgröße, Ausrichtung, Neigung und Netzanschlusskapazität ab. Fordern Sie eine unverbindliche Ertragseinschätzung an – kostenlos.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Kann ich PV auf einem Asbestdach installieren?<div class="faq-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></div></button><div class="faq-a"><div class="faq-a-inner">Nein – der Gesetzgeber verbietet dies (Überdeckungsverbot). Genau hier greift unser Sanierungsmodell: Wir entfernen die Alteindeckung fachgerecht, bringen Neueindeckung auf und installieren die PV-Anlage – kostenfrei für Sie.</div></div></div>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- ════════ CTA ════════ -->
+<section class="cta-section" id="kontakt">
+<div class="container">
+<div class="cta-box reveal">
+    <h2>Bereit für die Aufwertung Ihrer Immobilie?</h2>
+    <p>Fordern Sie jetzt Ihre unverbindliche Analyse an – spezialisiert für Landwirtschaft und Gewerbe.</p>
+    <button onclick="openModal()" class="btn btn-accent" style="font-size:15px;padding:18px 36px">
+    Kostenlose Ertragseinschätzung anfordern 
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+    </svg>
+</button>
+</div>
+</div>
+</section>
+
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        
+        <div id="modalBody">
+            <h3 id="modalTitle" style="margin-bottom: 25px; font-weight: 800; color: var(--anthracite);">Ihre Ertragseinschätzung</h3>
+            
+            <form id="pvForm">
+                <div class="form-group">
+                    <label>Vollständiger Name *</label>
+                    <input type="text" name="name" required placeholder="Vor- und Nachname">
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 12px; margin-bottom: 15px;">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>Straße *</label>
+                        <input type="text" name="street" required placeholder="Straße">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>Nr. *</label>
+                        <input type="text" name="house_number" required placeholder="12a">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>PLZ / Ort des Objekts *</label>
+                    <input type="text" name="location" required placeholder="87719 Mindelheim">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div class="form-group">
+                        <label>E-Mail Adresse *</label>
+                        <input type="email" name="email" required placeholder="ihre@mail.de">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefonnummer *</label>
+                        <input type="tel" name="phone" required placeholder="0170 1234567">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Ungefähre Dachfläche (m²) *</label>
+                    <input type="number" name="area" required placeholder="z.B. 800">
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="privacy" required>
+                    <label for="privacy" style="font-size: 11px; color: var(--text-muted);">Ich akzeptiere die Datenschutzbestimmungen. *</label>
+                </div>
+                
+                <button type="submit" class="btn btn-dark" style="width: 100%; padding: 18px;">ANFRAGE ABSENDEN</button>
+            </form>
+
+            <div id="successMessage" style="display:none; text-align:center; padding: 40px 10px;">
+                <div style="width: 80px; height: 80px; background: var(--accent); color: var(--anthracite); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 25px;">
+                    <svg style="width: 40px; height: 40px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                </div>
+                <h2 style="font-size: 28px; font-weight: 900; color: var(--anthracite); margin-bottom: 15px;">Vielen Dank!</h2>
+                <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 35px;">Wir haben Ihre Anfrage erhalten und melden uns in Kürze bei Ihnen.</p>
+                <button onclick="closeModal()" class="btn btn-dark" style="width: 100%; max-width: 250px;">FENSTER SCHLIESSEN</button>
+            </div>
+
+            <div id="errorMessage" style="display:none; text-align:center; padding: 40px 10px;">
+                <div style="width: 80px; height: 80px; background: #fee2e2; color: #dc2626; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 25px;">
+                    <svg style="width: 40px; height: 40px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                    </svg>
+                </div>
+                <h2 style="font-size: 24px; font-weight: 900; color: #b91c1c; margin-bottom: 15px;">Hoppla!</h2>
+                <p id="errorText" style="color: var(--text-muted); line-height: 1.7; margin-bottom: 35px;">Etwas ist schiefgelaufen.</p>
+                <button onclick="resetModalView()" class="btn btn-dark" style="width: 100%; max-width: 280px;">ERNEUT VERSUCHEN</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Allgemeine UI Funktionen
+function toggleFaq(btn){var item=btn.parentElement,open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});if(!open)item.classList.add('open')}
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+
+function openModal() {
+    document.getElementById('contactModal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('contactModal').style.display = 'none';
+    setTimeout(resetModalView, 300);
+}
+
+function resetModalView() {
+    document.getElementById('pvForm').style.display = 'block';
+    document.getElementById('modalTitle').style.display = 'block';
+    document.getElementById('successMessage').style.display = 'none';
+    document.getElementById('errorMessage').style.display = 'none';
+    document.getElementById('pvForm').reset();
+}
+
+function showModalError(msg) {
+    document.getElementById('pvForm').style.display = 'none';
+    document.getElementById('modalTitle').style.display = 'none';
+    document.getElementById('errorText').innerText = msg;
+    document.getElementById('errorMessage').style.display = 'block';
+}
+
+// Schließen beim Klick außerhalb
+window.onclick = function(event) {
+    let modal = document.getElementById('contactModal');
+    if (event.target == modal) { closeModal(); }
+}
+
+// Formular-Logik
+document.getElementById('pvForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const locationVal = this.querySelector('input[name="location"]').value;
+    
+    // PLZ Prüfung
+    const zipMatch = locationVal.match(/\b\d{5}\b/);
+    if (!zipMatch) {
+        showModalError("Bitte geben Sie eine gültige 5-stellige Postleitzahl ein.");
+        return;
+    }
+
+    submitBtn.innerText = "WIRD GESENDET...";
+    submitBtn.disabled = true;
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+    data.Quelle = "Dachpacht-Formular";
+
+    fetch('https://hook.eu2.make.com/yloo9gmjoxtsua7r2g5z6af9lqs0ei3y', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (response.ok) {
+            document.getElementById('pvForm').style.display = 'none';
+            document.getElementById('modalTitle').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+        } else {
+            showModalError("Server-Fehler. Bitte versuchen Sie es später erneut.");
+        }
+    })
+    .catch(() => {
+        showModalError("Verbindung fehlgeschlagen. Bitte prüfen Sie Ihre Internetverbindung.");
+    })
+    .finally(() => {
+        submitBtn.innerText = "ANFRAGE ABSENDEN";
+        submitBtn.disabled = false;
+    });
+});
+</script>
+</body>
+</html>

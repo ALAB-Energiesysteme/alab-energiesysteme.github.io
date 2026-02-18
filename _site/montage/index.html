@@ -383,6 +383,7 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
 </a>
 </div>
 </li>
+<li><a href="/dach-verpachten/">Dach verpachten</a></li>
 <li><a href="/kontakt/">Kontakt</a></li>
 </ul>
 </nav>
@@ -482,7 +483,7 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
             </div>
           </div>
         </section>
-
+<a class="alab-mh__single" href="/dach-verpachten/">Dach verpachten</a>
         <a class="alab-mh__single" href="/kontakt/">Kontakt</a>
         <div class="alab-mh__cta"><a class="alab-mh__btn" href="/angebot-einholen/">Angebot einholen</a></div>
       </div>
@@ -1082,6 +1083,7 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
         <li><a href="/gewerbliche-loesungen/">PV-Gewerbe</a>
 </li>
         <li><a href="/freiflaechen/">PV-Freiflächen</a></li>
+        <li><a href="/dach-verpachten/">Dach verpachten</a></li>
         <li><a href="/servicepakete/">Servicepakete</a></li>
         <li><a href="/montage/">Montage</a>
 </li>
@@ -1176,7 +1178,9 @@ html,body{ margin:0; font-family:Montserrat,system-ui,-apple-system,Segoe UI,Rob
   const dlPush = (p)=>{ window.dataLayer = window.dataLayer || []; window.dataLayer.push(p); };
 
   // Jahr
-  document.getElementById('ftYear').textContent = new Date().getFullYear();
+    const y = new Date().getFullYear();
+  document.getElementById('ftYear').textContent = y;
+  document.getElementById('ftYearCopy').textContent = y;
 
   // Schnellkontakt (Footer)
   const ftQuickForm = document.getElementById('ftQuickForm');
